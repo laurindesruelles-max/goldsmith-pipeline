@@ -271,7 +271,8 @@ def frame(n, t, T):
     if tk is not None:
         fr, layer = tk
         if n in CH and 2.4 <= t < 6.5: C.chapter(layer, t, 2.4, chapter_of(n))
-        return C.rgba_over(fr, layer), cuts; i = max(k for k, c in enumerate(cuts) if t >= c); t0 = cuts[i]; t1 = cuts[i+1] if i+1 < len(cuts) else T
+        return C.rgba_over(fr, layer), cuts
+    i = max(k for k, c in enumerate(cuts) if t >= c); t0 = cuts[i]; t1 = cuts[i+1] if i+1 < len(cuts) else T
     pa, pb = PRESETS[(n*3+i) % len(PRESETS)] if (i > 0 or n % 2) and n != LAST else PRESETS[0]
     s = (t-t0)/(t1-t0)
     c = tuple(x+(y-x)*ease(s) for x, y in zip(pa, pb))

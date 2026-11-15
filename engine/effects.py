@@ -3,7 +3,7 @@ Kinds in spec.json (Anker = Startzeitpunkt, Dauer standardmäßig 4.5 s):
   ["doc", anchor, {"title": "CONFIDENTIAL — INTERNAL MEMO", "lines": [...], "hl": [3, 4]}]      Dokument-Zoom + Textmarker
   ["redact", anchor, {"top": "FILE NO. 001 — OWNER OF RECORD", "name": "LUXOTTICA", "bottom": "ITALY · 1961"}]   Schwärzung aufdecken
   ["chart", anchor, {"title": "OAKLEY SHARE PRICE · 1996", "dir": "down", "value": "-33%"}]      animiertes Diagramm
-  ["route", anchor, {"points": [["FACTORY", 0.27, 0.6], ["WAREHOUSE", 0.52, 0.4], ["STORE", 0.76, 0.6]]}]   Landkarte mit Routen
+  ["route", anchor, {"points": [["FACTORY", 0.27, 0.6], ...], "map": "worldmap.png"}]   Landkarte mit Routen (Punkte in Bildschirm-Anteilen; map optional aus img/)
   ["split", anchor, {"left_img": 18, "right_img": 19, "left": "BEFORE", "right": "AFTER", "left_sub": "...", "right_sub": "..."}]
   ["news", anchor, {"date": "JUNE 2007", "h1": "EYEWEAR GIANT", "h2": "SWALLOWS RIVAL", "sub": "...", "stamp": "BREAKING"}]
   ["parallax", anchor, {}]   braucht img/N_fg.png (Higgsfield remove_background des Szenenbilds)
@@ -91,7 +91,7 @@ def chart(t, T, p, ctx):
         if down: v += rng.uniform(-0.02, 0.025) if i < 30 else rng.uniform(-0.045, 0.012)
         else: v += rng.uniform(-0.025, 0.02) if i < 30 else rng.uniform(-0.012, 0.045)
         pts.append((200+i*25.5, 220+(1-v)*680))
-    col = (200, 20, 30, 255) if down else (30, 150, 70, 255)
+    col = (200, 20, 30, 255) if (down or p.get("bad")) else (30, 150, 70, 255)
     n = int(len(pts)*eout(t/2.6))
     if n > 1:
         d.line(pts[:n], fill=col, width=8, joint="curve"); x, y = pts[n-1]; d.ellipse([x-12, y-12, x+12, y+12], fill=col)
@@ -102,8 +102,9 @@ def chart(t, T, p, ctx):
 
 # ---------- route: Landkarte mit Routen ----------
 def route(t, T, p, ctx):
-    if "map" not in _CACHE: _CACHE["map"] = load(ctx["a"]+"/map.png", int(W*1.3), int(H*1.3))
-    fr = view(_CACHE["map"], 0.5, 0.5, 1.15+0.15*ease(t/T)); layer = empty(); d = ImageDraw.Draw(layer)
+    mp = p.get("map"); mpath = f"{ctx['img']}/{mp}" if mp else ctx["a"]+"/map.png"
+    if ("map", mpath) not in _CACHE: _CACHE[("map", mpath)] = load(mpath, int(W*1.3), int(H*1.3))
+    fr = view(_CACHE[("map", mpath)], 0.5, 0.5, 1.15+0.15*ease(t/T)); layer = empty(); d = ImageDraw.Draw(layer)
     P = [(lab, x*W, y*H, 0.3+i*1.0) for i, (lab, x, y) in enumerate(p["points"][:5])]
     for i, (lab, x, y, t0) in enumerate(P):
         if i > 0:

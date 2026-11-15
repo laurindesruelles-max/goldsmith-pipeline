@@ -1,0 +1,720 @@
+{
+ "chapters": {
+  "6": [
+   "GOLDSMITH PRODUCTIONS",
+   "THE LUXURY BONFIRE"
+  ],
+  "7": [
+   "CHAPTER 1",
+   "THE BONFIRE"
+  ],
+  "14": [
+   "CHAPTER 2",
+   "WHY BURN IT?"
+  ],
+  "24": [
+   "CHAPTER 3",
+   "THE HIDDEN MATH"
+  ],
+  "33": [
+   "CHAPTER 4",
+   "THE RETURN MACHINE"
+  ],
+  "40": [
+   "CHAPTER 5",
+   "WHERE IT ENDS UP"
+  ],
+  "45": [
+   "CHAPTER 6",
+   "THE BACKLASH"
+  ],
+  "50": [
+   "PART 7",
+   "THE CATCH"
+  ],
+  "53": [
+   "FINAL",
+   "THE VERDICT"
+  ]
+ },
+ "music": {
+  "1": "music_tension",
+  "7": "suspense_pulse",
+  "14": "music_tension",
+  "24": "suspense_pulse",
+  "33": "epic_empire",
+  "40": "emotional_piano",
+  "45": "epic_empire",
+  "50": "emotional_piano"
+ },
+ "beats": {
+  "2": [
+   [
+    "In one year.",
+    1.0
+   ]
+  ],
+  "3": [
+   [
+    "Burned.",
+    1.2
+   ]
+  ],
+  "18": [
+   [
+    "was fire.",
+    1.0
+   ]
+  ],
+  "23": [
+   [
+    "sold cheaply.",
+    1.0
+   ]
+  ],
+  "27": [
+   [
+    "bring money back",
+    0.9
+   ]
+  ],
+  "44": [
+   [
+    "Just further away.",
+    1.2
+   ]
+  ]
+ },
+ "scenes": {
+  "1": [
+   [
+    "typed",
+    "In July 2018",
+    [
+     "JULY 2018",
+     "LONDON"
+    ]
+   ]
+  ],
+  "2": [
+   [
+    "counter",
+    "twenty-eight point six",
+    [
+     "£",
+     28.6,
+     "M",
+     "DESTROYED IN ONE YEAR"
+    ]
+   ]
+  ],
+  "3": [
+   [
+    "words",
+    "Trench coats.",
+    [
+     [
+      "TRENCH COATS.",
+      "Trench coats."
+     ],
+     [
+      "HANDBAGS.",
+      "Handbags."
+     ],
+     [
+      "PERFUME.",
+      "Perfume."
+     ]
+    ]
+   ],
+   [
+    "pop",
+    "Burned.",
+    "BURNED.",
+    [
+     220,
+     40,
+     45
+    ]
+   ]
+  ],
+  "4": [
+   [
+    "pop",
+    "It had been writing",
+    "IN PLAIN SIGHT."
+   ]
+  ],
+  "5": [
+   [
+    "pop",
+    "It's a business model",
+    "A BUSINESS MODEL.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "7": [
+   [
+    "doc",
+    "Here's what",
+    {
+     "title": "ANNUAL REPORT 2017/18",
+     "lines": [
+      "Inventories",
+      "",
+      "The cost of finished goods",
+      "physically destroyed in the",
+      "year was £28.6m, including",
+      "£10.4m of destruction for",
+      "beauty inventory."
+     ],
+     "hl": [
+      3,
+      4
+     ]
+    }
+   ]
+  ],
+  "8": [
+   [
+    "counter",
+    "ten point four",
+    [
+     "£",
+     10.4,
+     "M",
+     "BEAUTY PRODUCTS"
+    ]
+   ]
+  ],
+  "9": [
+   [
+    "chart",
+    "The year before",
+    {
+     "title": "GOODS DESTROYED (£M)  ·  2016 - 2018",
+     "dir": "up",
+     "value": "£28.6M",
+     "bad": true
+    }
+   ]
+  ],
+  "10": [
+   [
+    "counter",
+    "ninety million",
+    [
+     "£",
+     90,
+     "M+",
+     "IN FIVE YEARS"
+    ]
+   ]
+  ],
+  "11": [
+   [
+    "pop",
+    "one investor asked",
+    "\"WHY NOT SELL IT TO US?\""
+   ]
+  ],
+  "12": [
+   [
+    "typed",
+    "The company's answer",
+    [
+     "OFFICIAL ANSWER:",
+     "ENERGY WAS CAPTURED"
+    ]
+   ]
+  ],
+  "13": [
+   [
+    "pop",
+    "the real clue",
+    "THE TRADEMARK.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "14": [
+   [
+    "pop",
+    "It sells scarcity",
+    "SCARCITY.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "15": [
+   [
+    "pop",
+    "only works if",
+    "NEVER CHEAP."
+   ]
+  ],
+  "16": [
+   [
+    "split",
+    "Every discounted",
+    {
+     "left_img": 16,
+     "right_img": 15,
+     "left": "DISCOUNTED",
+     "right": "EXCLUSIVE",
+     "left_sub": "MARKET STALL",
+     "right_sub": "FLAGSHIP STORE"
+    }
+   ]
+  ],
+  "17": [
+   [
+    "pop",
+    "It can be stolen",
+    "STOLEN. COPIED. DUMPED."
+   ]
+  ],
+  "18": [
+   [
+    "pop",
+    "was fire",
+    "FIRE.",
+    [
+     220,
+     40,
+     45
+    ]
+   ]
+  ],
+  "19": [
+   [
+    "pop",
+    "wasn't alone",
+    "NOT ALONE."
+   ]
+  ],
+  "20": [
+   [
+    "typed",
+    "Richemont",
+    [
+     "RICHEMONT",
+     "OWNER OF CARTIER"
+    ]
+   ]
+  ],
+  "21": [
+   [
+    "news",
+    "Around four hundred",
+    {
+     "date": "MAY 2018",
+     "h1": "CARTIER OWNER",
+     "h2": "BUYS BACK WATCHES",
+     "sub": "€481m of unsold stock pulled in two years",
+     "stamp": "DISMANTLED"
+    }
+   ]
+  ],
+  "22": [
+   [
+    "pop",
+    "grey market",
+    "GREY MARKET = DANGER"
+   ]
+  ],
+  "23": [
+   [
+    "pop",
+    "it's better to destroy",
+    "DESTROY, DON'T DISCOUNT.",
+    [
+     220,
+     40,
+     45
+    ]
+   ]
+  ],
+  "24": [
+   [
+    "stamp",
+    "hidden in tax law",
+    "TAX LAW"
+   ]
+  ],
+  "25": [
+   [
+    "counter",
+    "ninety-nine percent",
+    [
+     "",
+     99,
+     "%",
+     "OF IMPORT DUTIES REFUNDED"
+    ]
+   ]
+  ],
+  "26": [
+   [
+    "doc",
+    "The condition",
+    {
+     "title": "19 U.S.C. § 1313(j)  —  DRAWBACK",
+     "lines": [
+      "Unused merchandise drawback",
+      "",
+      "If imported goods are unused and",
+      "exported, or destroyed under",
+      "customs supervision, 99 percent",
+      "of the duties paid may be",
+      "refunded as drawback."
+     ],
+     "hl": [
+      3,
+      4
+     ]
+    }
+   ]
+  ],
+  "27": [
+   [
+    "pop",
+    "costs money",
+    "STORED = COST"
+   ],
+   [
+    "pop",
+    "can bring money back",
+    "DESTROYED = REFUND",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "28": [
+   [
+    "pop",
+    "paying rent",
+    "RENT."
+   ]
+  ],
+  "29": [
+   [
+    "redact",
+    "In 2021",
+    {
+     "top": "UNDERCOVER INVESTIGATION  ·  2021",
+     "name": "AMAZON",
+     "bottom": "DUNFERMLINE  ·  SCOTLAND"
+    }
+   ]
+  ],
+  "30": [
+   [
+    "stamp",
+    "sorted into boxes",
+    "DESTROY"
+   ]
+  ],
+  "31": [
+   [
+    "counter",
+    "one hundred and thirty thousand",
+    [
+     "",
+     130000,
+     "",
+     "ITEMS PER WEEK (TARGET)"
+    ]
+   ],
+   [
+    "typed",
+    "One leaked week",
+    [
+     "DESTROY: 124,000",
+     "DONATE:   28,000"
+    ]
+   ]
+  ],
+  "32": [
+   [
+    "pop",
+    "Amazon denied",
+    "DENIED."
+   ]
+  ],
+  "33": [
+   [
+    "pop",
+    "explode",
+    "EXPLOSION."
+   ]
+  ],
+  "34": [
+   [
+    "counter",
+    "eight hundred and ninety billion",
+    [
+     "$",
+     890,
+     "B",
+     "RETURNED IN THE US  ·  2024"
+    ]
+   ]
+  ],
+  "35": [
+   [
+    "counter",
+    "seventeen percent",
+    [
+     "",
+     16.9,
+     "%",
+     "OF ALL RETAIL SALES"
+    ]
+   ]
+  ],
+  "36": [
+   [
+    "parallax",
+    "Many shoppers",
+    {}
+   ]
+  ],
+  "37": [
+   [
+    "pop",
+    "often costs more",
+    "COSTS MORE THAN IT'S WORTH"
+   ]
+  ],
+  "38": [
+   [
+    "route",
+    "So it goes somewhere else",
+    {
+     "map": "worldmap.png",
+     "points": [
+      [
+       "US RETURNS",
+       0.18,
+       0.3
+      ],
+      [
+       "BALES",
+       0.48,
+       0.47
+      ],
+      [
+       "ACCRA",
+       0.79,
+       0.74
+      ]
+     ]
+    }
+   ]
+  ],
+  "39": [
+   [
+    "counter",
+    "eight point four billion",
+    [
+     "",
+     8.4,
+     "B LBS",
+     "LANDFILL WASTE FROM RETURNS"
+    ]
+   ]
+  ],
+  "40": [
+   [
+    "typed",
+    "Kantamanto",
+    [
+     "KANTAMANTO MARKET",
+     "ACCRA, GHANA"
+    ]
+   ]
+  ],
+  "41": [
+   [
+    "counter",
+    "fifteen million",
+    [
+     "",
+     15,
+     "M",
+     "GARMENTS EVERY WEEK"
+    ]
+   ]
+  ],
+  "42": [
+   [
+    "parallax",
+    "According to the Or",
+    {}
+   ]
+  ],
+  "43": [
+   [
+    "pop",
+    "Some of it is burned",
+    "40% BECOMES WASTE",
+    [
+     220,
+     40,
+     45
+    ]
+   ]
+  ],
+  "44": [
+   [
+    "pop",
+    "Just further away",
+    "JUST FURTHER AWAY.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "45": [
+   [
+    "typed",
+    "two months after",
+    [
+     "SEPTEMBER 2018"
+    ]
+   ],
+   [
+    "stamp",
+    "Burberry announced",
+    "STOPPED"
+   ]
+  ],
+  "46": [
+   [
+    "typed",
+    "In 2022",
+    [
+     "2022",
+     "FRANCE: FIRST BAN"
+    ]
+   ]
+  ],
+  "47": [
+   [
+    "news",
+    "And on the nineteenth",
+    {
+     "date": "JULY 2026",
+     "h1": "EU BANS BURNING",
+     "h2": "OF UNSOLD CLOTHES",
+     "sub": "Large companies affected from 19 July 2026",
+     "stamp": "BANNED"
+    }
+   ]
+  ],
+  "48": [
+   [
+    "pop",
+    "Even recycling",
+    "RECYCLING = DESTRUCTION"
+   ]
+  ],
+  "49": [
+   [
+    "typed",
+    "Medium-sized",
+    [
+     "2030",
+     "MEDIUM-SIZED COMPANIES"
+    ]
+   ]
+  ],
+  "50": [
+   [
+    "pop",
+    "Brands aren't wrong",
+    "DISCOUNTS DO HURT."
+   ]
+  ],
+  "51": [
+   [
+    "pop",
+    "Unsafe, damaged",
+    "SAFETY. DAMAGE. FAKES."
+   ]
+  ],
+  "52": [
+   [
+    "pop",
+    "simply making less",
+    "MAKE LESS.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "53": [
+   [
+    "pop",
+    "remember what",
+    "WHAT IS IT PROTECTING?"
+   ]
+  ],
+  "54": [
+   [
+    "pop",
+    "never be cheap",
+    "NEVER CHEAP.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "55": [
+   [
+    "pop",
+    "a fire nobody",
+    "A HIDDEN FIRE.",
+    [
+     220,
+     40,
+     45
+    ]
+   ]
+  ],
+  "56": [
+   [
+    "stamp",
+    "Would you rather",
+    "CASE CLOSED"
+   ],
+   [
+    "typed",
+    "Tell me",
+    [
+     "TELL ME IN THE COMMENTS"
+    ]
+   ]
+  ]
+ }
+}

@@ -33,7 +33,12 @@ Neue Tracks ergänzen, wenn Wiederholung auffällt (ca. 17 Credits / 120 s).
 ## Auswertung (ab 48 h nach Veröffentlichung)
 Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vidiq_video_stats / vidiq_channel_analytics: Aufrufe, Klickrate, durchschnittliche Wiedergabedauer, Absprungstellen falls verfügbar) und hier unter „Video-Log“ eintragen + 1–3 konkrete Konsequenzen für das nächste Video.
 
+## Technik-Hinweise
+- Automatischer Lauf am 15.11. scheiterte am privaten Repo → Repo ist jetzt öffentlich, Tastatursounds liegen extern (setup_workdir.sh lädt sie).
+- Higgsfield: max. ~6 gleichzeitige Jobs je Typ, sonst 429 → in 6er-Batches arbeiten.
+
 ## Video-Log
 | # | Video | Datum | Thumbnail | Ergebnis | Erkenntnis |
 |---|---|---|---|---|---|
+| 002 | Why Luxury Brands Burn Their Own Clothes | 16.11.2026 | Hero „THEY BURNED £28.6 MILLION“ | (noch offen) | Erstes Video mit allen Effekten, Kapitelmusik und Pausen. Länge ~8 Min (kürzer als 001). Thumbnail-Heroes mit Handtaschen ähneln echten Designermodellen (Birkin/Chanel) → solche Motive meiden. |
 | 001 | The Company That Secretly Owns Your Glasses | 15.11.2026 | Hero A „YOU PAY 20X MORE?“ | (noch offen) | Pilot. Musik war nur 1 Track in Schleife; keine Pausen. Ab 002: Kapitel-Musik + beats. |
