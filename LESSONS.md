@@ -3,6 +3,8 @@
 Ziel: Jedes Video ist besser als das letzte – Schnitt, Spannung, Sound, Thumbnail.
 
 ## Feste Regeln aus Laurins Feedback
+- **LÄNGE: JEDES Video MUSS über 8 Minuten lang sein (ganz wichtig, Laurin 15.11.2026).** Ziel 9–10 Min. Vor dem Rendern Gesamtdauer aus timing.json prüfen; liegt sie unter 8:30, Szenen/Kapitel ergänzen.
+- **Pflicht-Ende**: Kommentar-Frage + „Subscribe and hit the bell“ (Kommentar-Feld, Subscribe-Button, Glocke im Bild).
 - Keine 3D-Figuren/Mannequins, keine reine Diashow. Viele Bewegungsgrafiken, Effekte auf jedem Element.
 - Daten und Orte immer als Schreibmaschinentext mit mechanischem Tastatursound (assets/sfx/key0-7, Lautstärke Faktor 0.75 – vorher zu leise/zu laut).
 - Musik muss spannend sein (ElevenLabs-Tracks, nie selbst synthetisiert). Pro Kapitel passender Track (spec "music").
