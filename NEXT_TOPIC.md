@@ -1,12 +1,11 @@
-# Nächstes Thema (von Laurin festgelegt, 15.11.2026)
+# Themen-Warteschlange (von Laurin festgelegt, 15.11.2026)
 
-**GTA 6** – Laurin will als nächstes Goldsmith-Video etwas zu Grand Theft Auto VI, weil es gerade extrem gefragt ist.
+Jeder Lauf nimmt den OBERSTEN Eintrag, schickt Laurin KEINE Themenauswahl mehr (Thema steht fest), produziert direkt und entfernt danach nur diesen Eintrag. Ist die Liste leer, Datei löschen.
 
-- Erscheint am Donnerstag, 19.11.2026 (PS5, Xbox Series X|S). Der Lauf am 17.11. plant die Veröffentlichung für 19.11. 17:00 Berlin → Video erscheint am Release-Tag.
-- Goldsmith-Winkel = Business-Story, nicht Spiele-Review. Ideen für den Winkel (vor dem Skript mit vidIQ prüfen, was bereits stark läuft):
-  - Das teuerste Entertainment-Produkt aller Zeiten: Budget, 10+ Jahre Entwicklung, zwei Verschiebungen (Herbst 2025 → 26.05.2026 → 19.11.2026), Take-Two-Aktie fiel nach der Verschiebung um fast 8 %.
-  - Wie GTA 5 über ein Jahrzehnt zur Gelddruckmaschine wurde (GTA Online, Shark Cards) und warum Take-Two deshalb nicht früher liefern musste.
-  - Wer wirklich an GTA 6 verdient (Take-Two, Sony/Microsoft-Plattformgebühren, Handel).
-- Alle Zahlen frisch per WebSearch belegen (Stand am Produktionstag), Quellen in die Beschreibung.
+GTA 6 erscheint am Donnerstag, 19.11.2026 (PS5, Xbox Series X|S). Goldsmith-Winkel = Business-Story, kein Spiele-Review. Alle Zahlen am Produktionstag frisch per WebSearch belegen, Quellen in die Beschreibung.
 
-Statt 3 Themen zur Wahl: Laurin nur 2–3 **Winkel** zu GTA 6 zur Wahl schicken (gleiches Verfahren mit send_later-Fallback). Danach diese Datei löschen.
+## 1. Who really makes money from GTA 6 (Lauf 17.11. → Veröffentlichung 19.11. 17:00, Release-Tag!)
+Wer verdient an jedem verkauften Exemplar: Take-Two/Rockstar, Sony und Microsoft (Plattformgebühr), Handel, Steuern – plus Vorbestellungen („exceptional start“), Aktienkurs, Erwartungen der Investoren. Hook: Preis eines Exemplars aufgeschlüsselt („Of your $70, Rockstar only keeps …“). Thumbnail-Idee: Hero = Spielverpackung/Disc mit leerem Preisschild, Text z. B. „WHO GETS YOUR $70?“.
+
+## 2. How GTA 5 became a money machine for 13 years (Lauf 19.11. → Veröffentlichung 21.11. 17:00)
+GTA 5 (Sept. 2013) → GTA Online, Shark Cards, Re-Releases über drei Konsolengenerationen; warum Take-Two deshalb über ein Jahrzehnt auf GTA 6 warten konnte. Hook: „One game. 13 years. Still printing money.“
