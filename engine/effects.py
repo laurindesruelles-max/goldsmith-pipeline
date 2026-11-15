@@ -191,9 +191,9 @@ SOUNDS = {"doc": [(0.05, "paper", 0.5), (1.6, "highlighter", 0.9), (2.2, "highli
           "redact": [(0.8, "zip", 0.5), (1.4, "paper_tear", 0.9), (1.42, "sub_drop", 0.8), (2.2, "zip", 0.5)],
           "chart": [(0.1, "heartbeat", 0.7)] + [(0.2+i*0.25, "tick", 0.3) for i in range(10)] + [(2.7, "sub_drop", 1.0)],
           "route": [(0.3, "pin", 0.8), (1.3, "pin", 0.8), (2.3, "pin", 0.8), (0.5, "zip", 0.4), (1.5, "zip", 0.4)],
-          "split": [(0.2, "whoosh", 0.5), (0.5, "slap", 0.6), (1.1, "coins", 0.8)],
-          "news": [(0.0, "whoosh", 0.6), (1.25, "flash", 0.9), (2.05, "stamp", 1.0)],
-          "parallax": [(0.1, "whoosh", 0.35)]}
+          "split": [(0.2, "whoosh", 0.3), (0.5, "slap", 0.6), (1.1, "coins", 0.8)],
+          "news": [(0.0, "whoosh", 0.35), (1.25, "flash", 0.9), (2.05, "stamp", 1.0)],
+          "parallax": [(0.1, "whoosh", 0.2)]}
 
 # ---------- Übergänge an Schnitten ----------
 TRANS = ["burn", "glitch", "wipe", None, None]   # nicht jeder Schnitt bekommt einen Effekt
