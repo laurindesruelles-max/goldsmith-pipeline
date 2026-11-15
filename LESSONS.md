@@ -41,5 +41,5 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 ## Video-Log
 | # | Video | Datum | Thumbnail | Ergebnis | Erkenntnis |
 |---|---|---|---|---|---|
-| 002 | Why Luxury Brands Burn Their Own Clothes | 16.11.2026 | Hero „THEY BURNED £28.6 MILLION“ | (noch offen) | Erstes Video mit allen Effekten, Kapitelmusik und Pausen. Länge ~8 Min (kürzer als 001). Thumbnail-Heroes mit Handtaschen ähneln echten Designermodellen (Birkin/Chanel) → solche Motive meiden. |
+| 002 | Why Luxury Brands Burn Their Own Clothes | 17.11.2026 (S3GMEPAgqas) | Hero „THEY BURNED £28.6 MILLION“ | (noch offen) | Erstes Video mit allen Effekten, Kapitelmusik und Pausen. Länge ~8 Min (kürzer als 001). Thumbnail-Heroes mit Handtaschen ähneln echten Designermodellen (Birkin/Chanel) → solche Motive meiden. Neu hochgeladen mit ruhigerem Sound (1 Kapitel-Hit, kaum Whoosh). |
 | 001 | The Company That Secretly Owns Your Glasses | 15.11.2026 | Hero A „YOU PAY 20X MORE?“ | (noch offen) | Pilot. Musik war nur 1 Track in Schleife; keine Pausen. Ab 002: Kapitel-Musik + beats. |
