@@ -1,0 +1,67 @@
+import json, subprocess, case as C
+import os
+m2 = json.load(open('build/meta2.json'))
+FIRST = m2['plan'][0][0]
+m1 = {"plan": C.PLAN, "sfx": C.sfx_events()} if FIRST > 1 else {"plan": [], "sfx": []}
+plan = m1['plan'] + [tuple(x) for x in m2['plan']]; sfx = m1['sfx'] + m2['sfx']; total = m2['end']
+parts = []
+for n, T in plan:
+    o = f'build/a{n}.wav'
+    src = f'build/vo/{n}.wav' if os.path.exists(f'build/vo/{n}.wav') else f'../audio/{n}.wav'
+    subprocess.run(['ffmpeg','-y','-loglevel','error','-i',src,'-af',f'aresample=48000,aformat=channel_layouts=stereo,apad,atrim=0:{T:.4f}',o],check=True); parts.append(o)
+open('build/al.txt','w').write(''.join(f"file '{p.split('/')[-1]}'\n" for p in parts))
+open('build/vl.txt','w').write(''.join(f"file 's{n}.mp4'\n" for n,_ in plan))
+subprocess.run(['ffmpeg','-y','-loglevel','error','-f','concat','-safe','0','-i','build/al.txt','-c','copy','build/voice_full.wav'],check=True)
+subprocess.run(['ffmpeg','-y','-loglevel','error','-f','concat','-safe','0','-i','build/vl.txt','-c','copy','build/video_full.mp4'],check=True)
+seen=set(); ev=[]
+for t,nm,g in sorted(tuple(x) for x in sfx):
+    k=(round(t,2),nm)
+    if k in seen or t<0: continue
+    seen.add(k); ev.append((t,nm,g))
+# premix sfx in chunks (too many inputs for one amix)
+chunks=[ev[i:i+150] for i in range(0,len(ev),150)]; fx=[]
+for ci,ch in enumerate(chunks):
+    inputs=[]; fc=[]
+    for i,(t,nm,g) in enumerate(ch):
+        if nm.startswith('key'): nm=f'key{(i*5)%8}'; g*=0.75
+        inputs+=['-i',f'sfx/{nm}.wav']; ms=int(t*1000)
+        fc.append(f'[{i}:a]aresample=48000,aformat=channel_layouts=stereo,volume={g},adelay={ms}|{ms},apad=whole_dur={total:.3f}[s{i}]')
+    fc.append(''.join(f'[s{i}]' for i in range(len(ch)))+f'amix=inputs={len(ch)}:normalize=0:duration=longest,atrim=0:{total:.3f}[o]')
+    o=f'build/fx{ci}.wav'; fx.append(o)
+    subprocess.run(['ffmpeg','-y','-loglevel','error',*inputs,'-filter_complex',';'.join(fc),'-map','[o]',o],check=True)
+# ---- Musikbett: Track je Kapitel (spec "music"), Crossfades, Abtauchen bei Spannungspausen ----
+import numpy as np, scipy.io.wavfile as wf
+def load_track(name):
+    p = f'build/{name}.wav'
+    if not os.path.exists(p):
+        src = name if name.endswith('.mp3') else (f'music/{name}.mp3' if os.path.exists(f'music/{name}.mp3') else f'{name}.mp3')
+        subprocess.run(['ffmpeg','-y','-loglevel','error','-i',src,'-ar','48000','-ac','2',p],check=True)
+    return wf.read(p)[1].astype(np.float32)/32768
+SR=48000; N=int(total*SR)+SR; bed=np.zeros((N,2),np.float32)
+cues=[tuple(c) for c in m2.get('music',[[0,'music_tension']])]; XF=int(2.5*SR)
+for i,(t0,name) in enumerate(cues):
+    t1 = cues[i+1][0] if i+1<len(cues) else total
+    a=int(t0*SR); b=min(N,int(t1*SR)+XF); tr=load_track(name)
+    seg=np.concatenate([tr]*(1+(b-a)//len(tr)))[:b-a].copy()
+    ramp=min(XF,len(seg)); seg[:ramp]*=np.linspace(0,1,ramp)[:,None]
+    if i+1<len(cues): seg[-XF:]*=np.linspace(1,0,XF)[:,None]
+    bed[a:a+len(seg)]+=seg
+env=np.ones(N,np.float32)
+for d0,d1 in m2.get('dips',[]):
+    a=int(d0*SR); b=int(d1*SR); r=int(0.25*SR)
+    env[a:b]=0.12; env[max(0,a-r):a]=np.minimum(env[max(0,a-r):a],np.linspace(1,0.12,a-max(0,a-r)))
+    env[b:b+r]=np.minimum(env[b:b+r],np.linspace(0.12,1,len(env[b:b+r])))
+bed*=env[:,None]
+wf.write('build/music_bed.wav',SR,(np.clip(bed[:int(total*SR)],-1,1)*32767).astype(np.int16))
+inp=['-i','build/voice_full.wav','-i','build/music_bed.wav']
+for o in fx: inp+=['-i',o]
+k=len(fx)
+fc=[''.join(f'[{i+2}:a]' for i in range(k))+f'amix=inputs={k}:normalize=0,volume=0.8[fx]',
+    f'[0:a]apad=pad_dur=3,loudnorm=I=-16:TP=-1.5,atrim=0:{total:.3f},asplit=2[v][sc]',
+    f'[1:a]atrim=0:{total:.3f},volume=0.42,afade=t=out:st={total-3:.2f}:d=3[m]',
+    '[m][sc]sidechaincompress=threshold=0.04:ratio=3.5:attack=30:release=500[md]',
+    f'[v][md][fx]amix=inputs=3:duration=first:normalize=0,alimiter=limit=0.95,atrim=0:{total:.3f}[out]']
+subprocess.run(['ffmpeg','-y','-loglevel','error',*inp,'-filter_complex',';'.join(fc),'-map','[out]','-c:a','aac','-b:a','192k','build/mix_full.m4a'],check=True)
+subprocess.run(['ffmpeg','-y','-loglevel','error','-i','build/video_full.mp4','-i','build/mix_full.m4a','-map','0:v','-map','1:a','-c:v','libx264','-preset','veryfast','-crf','22','-maxrate','14M','-bufsize','28M','-pix_fmt','yuv420p','-c:a','copy','-shortest','-movflags','+faststart','build/full.tmp.mp4'],check=True)
+import os; os.replace('build/full.tmp.mp4',os.environ.get('OUT','../FINAL.mp4'))
+print(len(ev),'sfx',total)
