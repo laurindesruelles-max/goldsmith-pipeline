@@ -6,14 +6,15 @@ Anpassen pro Video: Schildtext, Schaufenster, Autos/Figuren, Kamerafahrt, Länge
 import sys, os, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 import dio as D
+import assets as A   # Poly Haven (CC0): echte Texturen + Modelle
 
 OUT = sys.argv[1]; STILL = int(sys.argv[2]) if len(sys.argv) > 2 else None
 F1 = int(os.environ.get("F1", "168"))
 SIGN = os.environ.get("SIGN", "SUNGLASSES")
-D.reset(samples=int(os.environ.get("SAMPLES", "10")), world=(0.01, 0.015, 0.03), world_strength=1.0)
+D.reset(samples=int(os.environ.get("SAMPLES", "10")), world=(0.02, 0.03, 0.06), world_strength=1.5)
 
-asphalt = D.nmat((0.05, 0.05, 0.055), 0.3, 3, 0.35, bump=0.1)
-walk_m = D.nmat((0.25, 0.24, 0.23), 0.15, 2, 0.7)
+asphalt = A.texture("asphalt_02", 0.4, tint=(0.35, 0.35, 0.37), rough_mul=0.7)
+walk_m = A.texture("brushed_concrete", 0.5, tint=(0.6, 0.58, 0.55))
 D.box((60, 14, 0.1), (0, -4, -0.05), asphalt)                    # Straße
 D.box((60, 4, 0.18), (0, 4.5, 0.09), walk_m)                      # Gehweg
 D.box((60, 0.2, 0.2), (0, 2.5, 0.1), D.mat((0.4, 0.39, 0.37), 0.7))   # Bordstein
@@ -22,13 +23,13 @@ for x in range(-28, 30, 6): D.box((2.5, 0.15, 0.01), (x, -4, 0.01), D.mat((0.75,
 facade = [(0.42, 0.3, 0.24), (0.3, 0.28, 0.27), (0.5, 0.42, 0.33), (0.35, 0.3, 0.26)]
 for i, x in enumerate([-16, -8, 8, 16]):
     h = 9 + (i % 2)*3
-    D.box((7.8, 6, h), (x, 9.5, h/2), D.nmat(facade[i], 0.12, 3, 0.9, bump=0.2))
+    D.box((7.8, 6, h), (x, 9.5, h/2), A.texture("brick_wall_02", 0.45, tint=tuple(c*1.6 for c in facade[i])))
     for fl in range(1, int(h/3)):
         for c in range(3):
             lit = (i*7+fl*3+c) % 4 == 0
             D.box((1.1, 0.1, 1.4), (x-2.4+c*2.4, 6.45, fl*3+1.2), D.mat((1, 0.66, 0.35), 0.4, emit=3.5) if lit else D.mat((0.04, 0.045, 0.06), 0.2, 0.3))
 # Laden in der Mitte
-D.box((8, 6, 8), (0, 9.5, 4), D.nmat((0.18, 0.17, 0.17), 0.1, 3, 0.8))
+D.box((8, 6, 8), (0, 9.5, 4), A.texture("chipped_concrete", 0.4, tint=(0.4, 0.38, 0.37)))
 glow = D.mat((1.0, 0.82, 0.6), 0.3, emit=2.2)
 D.box((5.6, 0.1, 2.6), (-0.6, 6.46, 1.6), glow)                   # Schaufenster leuchtet
 D.box((1.3, 0.12, 2.4), (3.2, 6.45, 1.4), D.mat((0.08, 0.06, 0.05), 0.4))   # Tür
@@ -46,14 +47,14 @@ for r in range(3):
 for i in range(2): D.box((0.5, 0.5, 1.1), (-2.3+i*3.4, 6.2, 0.55), D.mat((0.1, 0.08, 0.07), 0.6))
 # Straßenlaternen
 for x in (-10, 10):
-    D.cyl(0.08, 5.2, (x, 3.0, 2.6), D.mat((0.08, 0.08, 0.09), 0.4, 0.8), seg=10)
-    D.box((0.9, 0.35, 0.2), (x-0.3, 3.0, 5.2), D.mat((0.08, 0.08, 0.09), 0.4, 0.8))
-    D.box((0.6, 0.25, 0.04), (x-0.4, 3.0, 5.08), D.mat((1, 0.75, 0.4), 0.3, emit=12))
-    D.spot((x-0.4, 3.0, 5.0), (x-0.4, 2.0, 0), energy=900, color=(1, 0.68, 0.35), size=95, blend=0.8, radius=0.2)
+    A.model("street_lamp_01", (x, 3.0, 0.18), rot_z=90, scale=1.3)
+    D.sphere(0.12, (x, 3.0, 4.75), D.mat((1, 0.75, 0.4), 0.3, emit=25), seg=10, ring=6)
+    D.spot((x, 3.0, 4.6), (x, 2.2, 0), energy=1100, color=(1, 0.68, 0.35), size=95, blend=0.8, radius=0.2)
 # Hydrant, Mülltonne, Bäume
-D.cyl(0.18, 0.7, (-5, 3.2, 0.53), D.mat((0.5, 0.08, 0.05), 0.4), seg=12)
+A.model("utility_box_01", (-5, 5.8, 0.18), rot_z=0)
 D.cyl(0.35, 1.0, (6.5, 3.4, 0.68), D.mat((0.15, 0.2, 0.15), 0.5, 0.4), seg=14)
 for x in (-13, 13): D.tree((x, 3.4, 0.18), 5.5, seed=x+50)
+for x in (-3.8, 4.4): A.model("potted_plant_01", (x, 6.0, 0.18), scale=1.3)
 # geparktes Auto + Auto, das vorfährt und hält
 D.car((-9, 1.6, 0.0), rot=0, color=(0.1, 0.12, 0.16))
 c = D.car((-30, -1.6, 0.0), rot=0, color=(0.55, 0.06, 0.05), lights=True)
@@ -69,7 +70,7 @@ J2 = D.figure((-6, 4.8, 0.18), rot=0, shirt=(0.35, 0.3, 0.25), seed=12)
 D.walk(J2, 1, F1, (-7, 4.6, 0.18), (-2.5, 4.6, 0.18))
 
 # leichter Dunst im Laternenlicht
-D.beam([(-10.7, 2.9, 5.05), (-10.1, 2.9, 5.05), (-10.1, 3.1, 5.05), (-10.7, 3.1, 5.05)], (0, -0.15, -1), length=5.0, strength=0.25, color=(1, 0.7, 0.4))
+D.beam([(-10.3, 2.8, 4.6), (-9.7, 2.8, 4.6), (-9.7, 3.2, 4.6), (-10.3, 3.2, 4.6)], (0, -0.15, -1), length=5.0, strength=0.25, color=(1, 0.7, 0.4))
 D.dust((-12, 1.5, 0.3), (-8.5, 4.2, 5.0), n=140, in_beam=0, drift=(0.002, 0, -0.003))
 
 D.camera(lens=40)

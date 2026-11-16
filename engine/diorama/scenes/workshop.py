@@ -5,6 +5,7 @@ Anpassen pro Video: Kalender-/Schildtext, Figuren, Requisiten, Kamerafahrt, Län
 import sys, os, math
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 import dio as D
+import assets as A   # Poly Haven (CC0): echte Texturen + Modelle
 
 OUT = sys.argv[1]; STILL = int(sys.argv[2]) if len(sys.argv) > 2 else None
 F1 = int(os.environ.get("F1", "240"))
@@ -13,7 +14,8 @@ D.world_camera_only(cam_color=(1.0, 0.78, 0.5), cam_strength=1.6, light_color=(0
 
 W_, Dd, H_ = 6.0, 5.0, 3.2
 win = dict(wall="back", u=-0.5, z=1.05, w=1.5, h=1.45)
-R = D.room(W_, Dd, H_, wall=(0.5, 0.43, 0.35), floor=(0.2, 0.13, 0.08), window=win)
+R = D.room(W_, Dd, H_, window=win, wall_mat=A.texture("plastered_wall", 0.5, tint=(0.75, 0.66, 0.55)),
+           floor_mat=A.texture("wood_floor_deck", 0.6, tint=(0.5, 0.42, 0.36)))
 
 # Bergkulisse hinter dem Fenster (leuchtende Fläche)
 sky = D.box((14, 0.1, 6), (-0.9, Dd/2+4, 2.5), D.mat((1.0, 0.72, 0.42), 1.0, emit=2.2)); D.no_shadow(sky)
@@ -29,15 +31,16 @@ D.area((2.5, -4, 3.5), (-1, 0.5, 0.8), energy=140, color=(0.55, 0.65, 0.9), size
 D.point((0.5, 0.0, 2.9), energy=25, color=(1, 0.7, 0.45), radius=0.2)   # warme Raumaufhellung   # kühles Fülllicht
 
 # Werkbank an der linken Wand
-wood = D.nmat((0.32, 0.2, 0.11), 0.3, 4, 0.55, stripes=True); dark = D.mat((0.08, 0.08, 0.085), 0.4, 0.8)
+wood = A.texture("wood_floor_deck", 1.4, tint=(0.8, 0.62, 0.5)); dark = D.mat((0.08, 0.08, 0.085), 0.4, 0.8)
 bx, by = -W_/2+0.45, 0.2
 D.box((0.8, 2.6, 0.08), (bx, by, 0.92), wood, bevel=0.01)
 for yy in (by-1.2, by+1.2):
     for xx in (bx-0.33, bx+0.33): D.box((0.07, 0.07, 0.9), (xx, yy, 0.45), wood)
 D.box((0.75, 2.5, 0.04), (bx, by, 0.3), wood)
-D.box((0.18, 0.14, 0.14), (bx+0.25, by+0.6, 1.03), dark, bevel=0.01)   # Schraubstock
-D.box((0.24, 0.05, 0.03), (bx+0.25, by+0.6, 1.11), dark)
-D.lamp = D.desk_lamp((bx-0.15, by-0.7, 0.96), (bx+0.2, by-0.1, 0.96), energy=35)
+A.model("bench_vice_01", (bx+0.2, by+0.6, 0.96), rot_z=-90, scale=1.4)                       # Schraubstock
+A.model("desk_lamp_arm_01", (bx+0.02, by-0.8, 0.96), rot_z=0)                    # Arbeitslampe
+D.spot((bx+0.05, by-0.55, 1.55), (bx+0.15, by-0.1, 0.96), energy=40, color=(1, 0.72, 0.42), size=80, blend=0.6, radius=0.03)
+A.model("mantel_clock_01", (-W_/2+0.2, by+0.35, 1.67), rot_z=-90)                 # Uhr auf dem Wandregal
 # Brillengestelle + Teile auf der Werkbank
 tray = D.box((0.36, 0.26, 0.025), (bx+0.12, by-0.15, 0.975), D.mat((0.55, 0.5, 0.42), 0.7))
 for i in range(6):
@@ -55,16 +58,16 @@ D.textured_plane(cal, 0.32, 0.42, (-W_/2+0.07, by+0.9, 1.75), (0, 0, math.radian
 sign = D.label_texture(["OCCHIALERIA"], size=(640, 160), bg=(60, 45, 30), fg=(225, 200, 150), fontsize=64)
 D.textured_plane(sign, 1.1, 0.27, (-W_/2+0.07, by-0.4, 2.3), (0, 0, math.radians(90)))
 # Hocker, Kiste am Boden
-D.cyl(0.18, 0.05, (bx+1.5, by+1.1, 0.6), wood); D.cyl(0.02, 0.6, (bx+1.5, by+1.1, 0.3), dark)
-D.box((0.5, 0.4, 0.35), (1.8, -0.8, 0.175), D.mat((0.4, 0.3, 0.2), 0.85))
+A.model("wooden_stool_01", (bx+1.5, by+1.1, 0), rot_z=20)
+A.model("wooden_crate_01", (1.7, -0.8, 0), rot_z=15)
+A.model("cardboard_box_01", (2.3, 0.4, 0), rot_z=-10)
 
 
 # mehr Leben: Wandregal mit Gläsern über der Werkbank, Uhr, Mantel am Haken, Papierstapel, Radio
 D.box((0.25, 1.4, 0.03), (-W_/2+0.18, by-0.2, 1.65), wood)
 for i in range(6):
     D.cyl(0.045, 0.12, (-W_/2+0.18, by-0.8+i*0.24, 1.73), D.mat([(0.35, 0.5, 0.4), (0.6, 0.45, 0.25), (0.3, 0.3, 0.35)][i % 3], 0.15, alpha=1.0), seg=12)
-D.cyl(0.16, 0.03, (-W_/2+0.08, by+1.6, 2.2), D.mat((0.9, 0.88, 0.8), 0.6), rot=(0, math.pi/2, 0), seg=24)   # Uhr
-D.torus(0.16, 0.012, (-W_/2+0.1, by+1.6, 2.2), D.mat((0.1, 0.08, 0.06), 0.4), rot=(0, math.pi/2, 0))
+
 D.box((0.06, 0.32, 0.75), (-W_/2+0.1, -1.9, 1.55), D.nmat((0.22, 0.2, 0.17), 0.2, 8))   # Mantel
 D.sphere(0.03, (-W_/2+0.08, -1.9, 1.95), D.mat((0.3, 0.25, 0.1), 0.3, 1.0))
 for i in range(4): D.box((0.21, 0.29, 0.006), (bx+0.05, by+0.95, 0.965+i*0.007), D.mat((0.9, 0.87, 0.78), 0.8), rot=(0, 0, math.radians(i*6)))
@@ -78,7 +81,7 @@ for f in range(1, F1+1, 16):   # Feilen: rechter Arm vor und zurück
     D.pose(J, f, arm_r=(0, -40, -6), fore_r=(0, -60, 0))
     D.pose(J, f+8, arm_r=(0, -58, -6), fore_r=(0, -38, 0))
 D.sound("filing_metal", 1, (bx+0.25, by+0.6, 1.0), f1=F1, loop=True, gain=0.8, ref=4)
-D.sound("clock_tick", 1, (-W_/2+0.1, by+1.6, 2.2), f1=F1, loop=True, gain=0.35, ref=4)
+D.sound("clock_tick", 1, (-W_/2+0.2, by+0.35, 1.7), f1=F1, loop=True, gain=0.35, ref=4)
 D.pose(J, 120, head=(0, 18, 0)); D.pose(J, 150, head=(0, 10, 12)); D.pose(J, 200, head=(0, 18, 0))
 
 # Lichtstrahl durchs Fenster + Staub darin
