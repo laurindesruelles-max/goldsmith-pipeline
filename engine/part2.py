@@ -144,7 +144,9 @@ EV = {}
 for n, ov in S.items():
     lst = []
     for o in ov:
-        t = wt(n, o[1]); lst.append((o[0], t) + tuple(o[2:]))
+        t = wt(n, o[1])
+        if o[0] in E.RENDER and t < 1.0: t = 0.0   # Vollbild-Effekt ab Szenenstart: kein kurzes Aufblitzen des Grundbilds davor
+        lst.append((o[0], t) + tuple(o[2:]))
     EV[n] = lst
     if n in CH:  # shift nothing; chapter card overlays first 2.1s
         pass

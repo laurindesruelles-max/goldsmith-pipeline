@@ -86,3 +86,4 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Musik-Dramaturgie (Laurin 16.11.): nie 2–3 Min. derselbe Track. Jedes Kapitel eigener Track (spec "music" pro Kapitel,
   bei langen Kapiteln Wechsel in der Mitte), vor jedem Wechsel ausblenden + 0,5 s Stille, neuer Track setzt mit der Kapitelkarte ein.
   Bewusste Musikpausen an starken Aussagen: spec "music_rests": {"N": [start_offset, dauer]}. Kapitelkarte steht 4,4 s (CARD_T).
+- Vollbild-Effekte, deren Anker < 1 s nach Szenenstart liegt, starten bei 0 (kein Aufblitzen des Grundbilds, Laurin 17.11.).
