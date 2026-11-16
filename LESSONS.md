@@ -77,3 +77,9 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Bildwelt abwechseln: nicht alles „dunkler Schreibtisch mit Lampe“ – Straßen, Städte, Studios, Gericht, Börse, Neon.
 - Laurin will lieber kostenlose Lösungen statt KI-Videoclips (Kling ~7,5 Credits/Clip nur nach Rückfrage).
 - Musik (16.11.): Laurin will Krimi-Stil. Gut: crime_archive (True-Crime-Klavier, Cello, Tick-Puls), suspense_pulse, epic_empire, emotional_piano; ok: crime_pulse, night_intro. NICHT: music_tension (gelöscht), Film-Noir-Jazz, Military/Lobby-Synth. Neue Tracks per elevenlabs_music_v2_5 (~22 Credits/150 s), auf -15,7 LUFS normalisieren.
+- 16.11. abends: Laurin will Bewegung IM Bild, aber kostenlos → engine/cinemagraph.py (Licht pulsiert/flackert, Glow atmet,
+  nasse Böden schimmern, Lichtstrahlen aus Lampen, ziehender Nebel, Glanzlicht über Geld, Handyblitze, Scheinwerfer-Schwenk).
+  spec "fx": {"N": ["wet","flash","cars","money","screens","fog","cold"]}. Fallende Geld-Partikel sahen billig aus → ersetzt durch Glanzlicht.
+- Jede Einstellung eigenes Bild: N, N_b, N_c, N_d (shot_key in part2.py). gpt_image_2_6 kostet nur 0,25 Credits/Bild → ruhig viele Bilder.
+- Bereits bezahlte KI-Clips liegen in work/vid/<key>.mp4 und werden automatisch statt des Standbilds benutzt.
+- KI-Videoclips (Seedance 2.0 Mini 720p 5 s = 5 Credits) hat Laurin für ganze Videos abgelehnt (zu teuer).

@@ -281,11 +281,27 @@ import depth25d as D
 USE_DEPTH = os.environ.get("DEPTH", "1") == "1"
 MOVE_ORDER = ["push", "right", "rise", "left", "orbit", "pull"]
 DEP, IMGF, ATMO = {}, {}, {}
+import cinemagraph as CG
+SUF = ["", "_b", "_c", "_d", "_e"]
+def shot_key(n, i):
+    """jede Einstellung ein eigenes Bild: n, n_b, n_c ... (fehlt eins: abwechselnd n / n_b)"""
+    k = f"{n}{SUF[i]}" if i < len(SUF) else None
+    if k and (os.path.exists(f"../img/{k}.png") or os.path.exists(f"../vid/{k}.mp4")): return k
+    return f"{n}_b" if i % 2 == 1 and os.path.exists(f"../img/{n}_b.png") else str(n)
+VID = {}
+def vid_frame(key, u, mv):
+    if key not in VID:
+        VID.clear(); cap = cv2.VideoCapture(f"../vid/{key}.mp4"); fs = []
+        while True:
+            ok, f = cap.read()
+            if not ok: break
+            fs.append(cv2.resize(f[..., ::-1], (int(W*1.08), int(H*1.08)), interpolation=cv2.INTER_CUBIC))
+        VID[key] = fs
+    fs = VID[key]; f = fs[min(len(fs)-1, int(u*(len(fs)-1)))]
+    z = 1.0 + 0.04*u; ox = int((f.shape[1]-W)/2); oy = int((f.shape[0]-H)/2)
+    return f[oy:oy+H, ox:ox+W].astype(np.float32)
 def frame(n, t, T):
     if n not in IMG: IMG.clear(); IMG[n] = C.load_rgb(f"../img/{n}.png", int(W*1.25), int(H*1.25))
-    if USE_DEPTH and n not in DEP:
-        DEP.clear(); IMGF.clear(); IMGF[n] = IMG[n].astype(np.float32)
-        DEP[n] = cv2.resize(D.load_depth(f"../img/{n}_depth.png", IMG[n]), (IMG[n].shape[1], IMG[n].shape[0]))
     cuts = SHOTS[n]
     tk = takeover(n, t)
     if tk is not None:
@@ -308,20 +324,28 @@ def frame(n, t, T):
         C.pin_drop(layer, t, mp[0][1]+0.6, (px, py))
     elif USE_DEPTH:
         mv = D.MOVES[MOVE_ORDER[(n*3+i) % len(MOVE_ORDER)]] if str(n) not in SPEC.get("moves", {}) else D.MOVES[SPEC["moves"][str(n)]]
-        bk = f"{n}_b"
-        if i % 2 == 1 and os.path.exists(f"../img/{bk}.png"):      # zweites Bild bei jedem 2. Schnitt (Abwechslung)
-            if bk not in IMGF:
-                im = C.load_rgb(f"../img/{bk}.png", int(W*1.25), int(H*1.25)); IMGF[bk] = im.astype(np.float32)
-                DEP[bk] = cv2.resize(D.load_depth(f"../img/{bk}_depth.png", im), (im.shape[1], im.shape[0]))
-            fr = D.frame(IMGF[bk], DEP[bk], min(max(s, 0), 1), mv, W, H)
+        key = shot_key(n, i)
+        tags = set(SPEC.get("fx", {}).get(str(n), []))
+        if SPEC.get("atmo", {}).get(str(n)) == "dust": tags.add("rays")
+        u = min(max(s, 0), 1)
+        if os.path.exists(f"../vid/{key}.mp4"):              # bereits vorhandener KI-Clip (z. B. Probe) – kostenlos wiederverwenden
+            fr = vid_frame(key, u, mv)
         else:
-            fr = D.frame(IMGF[n], DEP[n], min(max(s, 0), 1), mv, W, H)
+            if key not in IMGF:
+                if key == str(n): im = IMG[n]
+                else: im = C.load_rgb(f"../img/{key}.png", int(W*1.25), int(H*1.25))
+                if len(IMGF) > 4: IMGF.clear(); DEP.clear()
+                IMGF[key] = im.astype(np.float32)
+                DEP[key] = cv2.resize(D.load_depth(f"../img/{key}_depth.png", im), (im.shape[1], im.shape[0]))
+            srcimg = CG.src(IMGF[key], key, t, tags)
+            fr = D.frame(srcimg, DEP[key], u, mv, W, H)
         if dx or dy: fr = cv2.warpAffine(fr, np.float32([[1, 0, dx], [0, 1, dy]]), (W, H), borderMode=cv2.BORDER_REFLECT)
         a = SPEC.get("atmo", {}).get(str(n))
         if a:
             if (n, a) not in ATMO: ATMO[(n, a)] = D.Atmo(a, W, H, seed=n)
             fr = ATMO[(n, a)].apply(fr, t)
         if n in SPEC.get("flicker", []): fr = D.flicker(fr, t)
+        fr = CG.screen(fr.astype(np.float32), key, t, tags, seed=n)
         fr = fr.astype(np.uint8)
     else:
         fr = view(IMG[n], *c, dx, dy)
