@@ -14,8 +14,9 @@
 Clips = Ordner mit Blender-Frames f_####.png + meta.json (engine/diorama), Pfad relativ zum Arbeitsordner v3/.
 "dur": Sekunden oder "scene" (= bis Szenenende). Die Clips laufen in Echtzeit (24 fps); ist die Szene länger,
 wird der Clip leicht verlangsamt (min. 0.65x) und hält dann das letzte Bild.
-Sound: Earth Zoom = Wind beim Abtauchen, Dorf-Atmo, Bass-Hit beim Eintritt; Polaroid = Kamera-Klick rein,
-Raum-Atmo ("amb") leise unter der Szene, Stempel raus. Musik wird in 3D-Szenen leicht abgesenkt (meta "ducks").
+Sound: nur Geräusche, die man sieht – die Blender-Szene hängt sie an Objekte (dio.sound, automatisch bei drive/walk),
+cues.py mischt sie nach Entfernung/Bildposition. Raumklang ("amb", optional) nur sehr leise. Polaroid: Kamera-Klick rein,
+Stempel raus. Musik wird in 3D-Szenen leicht abgesenkt (meta "ducks").
 """
 import os, sys, math, numpy as np, cv2
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
@@ -190,11 +191,31 @@ def earthzoom(t, T, p, ctx):
     return fr, layer
 
 
+def clip_rate(clip, need):
+    cd = clip_dur(clip); return 1.0 if need <= cd else max(0.65, cd/need)
+
+
+def cue_event(t, clip, need, gain=1.0):
+    """Objekt-Geräusche des Clips (Auto, Schritte, Tür …) als eine Spur; Tempo folgt dem Clip."""
+    try:
+        import cues as CU
+        sfx = "sfx" if os.path.isdir("sfx") else os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "sfx")
+        path = CU.build(clip, sfx)
+    except Exception as e:
+        print("Cues nicht gebaut:", clip, e); return []
+    return [(t, f"clip:{os.path.abspath(path)}:{clip_rate(clip, need):.3f}", gain)]
+
+
 def earthzoom_sounds(p, dur):
-    ta = clip_dur(p["aerial"]); ev = [(0.3, "pin", 0.8), (0.6, "boom", 0.25), (1.2, "amb_wind_descent", 0.75)]
-    ev += [(A_DUR+0.2, f"amb:{p.get('amb_aerial', 'amb_village')}:{max(0.5, ta-0.2):.2f}", 0.55)]
+    """Pin + leiser Hit, dann nur Geräusche, die man sieht (Auto, Schritte …), Raumklang sehr leise.
+    Kein Wind/Rauschen (Laurin 16.11.2026)."""
+    ta = clip_dur(p["aerial"]); ev = [(0.3, "pin", 0.8), (0.6, "boom", 0.25)]
+    ev += cue_event(A_DUR, p["aerial"], ta)
+    if p.get("amb_aerial"): ev += [(A_DUR+0.2, f"amb:{p['amb_aerial']}:{max(0.5, ta-0.2):.2f}", 0.25)]
     if p.get("room"):
-        ev += [(A_DUR+ta-0.05, "sub_drop", 0.55), (A_DUR+ta, f"amb:{p.get('amb', 'amb_workshop')}:{max(0.5, dur-A_DUR-ta):.2f}", 0.6)]
+        rn = max(0.1, dur-A_DUR-ta)
+        ev += [(A_DUR+ta-0.05, "sub_drop", 0.45)] + cue_event(A_DUR+ta, p["room"], rn)
+        if p.get("amb"): ev += [(A_DUR+ta, f"amb:{p['amb']}:{max(0.5, rn):.2f}", 0.3)]
     return ev
 
 
@@ -272,6 +293,9 @@ def dio(t, T, p, ctx):
 
 
 def dio_sounds(p, dur):
-    ev = [(IN_DUR-0.6, "shutter", 0.55), (IN_DUR-0.2, f"amb:{p.get('amb', 'amb_workshop')}:{max(0.5, dur-IN_DUR-0.2):.2f}", 0.6)]
+    back = bool(p.get("stamp", "CASE FILE")) and dur > IN_DUR+OUT_DUR+1.0
+    need = (dur-OUT_DUR if back else dur)-IN_DUR+0.4
+    ev = [(IN_DUR-0.6, "shutter", 0.55)] + cue_event(IN_DUR, p["clip"], need)
+    if p.get("amb"): ev += [(IN_DUR-0.2, f"amb:{p['amb']}:{max(0.5, dur-IN_DUR-0.2):.2f}", 0.3)]
     if p.get("stamp", "CASE FILE") and dur > IN_DUR+OUT_DUR+1.0: ev += [(dur-OUT_DUR+0.75, "stamp", 0.9)]
     return ev

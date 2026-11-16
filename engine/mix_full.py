@@ -25,6 +25,11 @@ for ci,ch in enumerate(chunks):
     for i,(t,nm,g) in enumerate(ch):
         if nm.startswith('key'): nm=f'key{(i*5)%8}'; g*=0.75
         ms=int(t*1000)
+        if nm.startswith('clip:'):   # Objekt-Geräusche eines 3D-Clips: "clip:<pfad>:<tempo>"
+            cp = nm[5:nm.rfind(':')]; rate = float(nm[nm.rfind(':')+1:])
+            inputs+=['-i',cp]; tempo = f',atempo={max(0.5,rate):.3f}' if rate < 0.999 else ''
+            fc.append(f'[{i}:a]aresample=48000,aformat=channel_layouts=stereo{tempo},volume={g},adelay={ms}|{ms},apad=whole_dur={total:.3f}[s{i}]')
+            continue
         if nm.startswith('amb:'):   # Raumklang: "amb:<datei>:<dauer>" -> geloopt, ein-/ausgeblendet
             _, an, ad = nm.split(':'); ad=float(ad); fo=min(0.8, ad/3)
             inputs+=['-stream_loop','-1','-i',f'sfx/{an}.wav']

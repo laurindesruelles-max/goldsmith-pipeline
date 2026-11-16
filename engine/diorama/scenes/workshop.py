@@ -77,6 +77,8 @@ D.pose(J, 1, torso=(0, 12, 0), head=(0, 18, 0), arm_l=(0, -45, 8), fore_l=(0, -5
 for f in range(1, F1+1, 16):   # Feilen: rechter Arm vor und zurück
     D.pose(J, f, arm_r=(0, -40, -6), fore_r=(0, -60, 0))
     D.pose(J, f+8, arm_r=(0, -58, -6), fore_r=(0, -38, 0))
+D.sound("filing_metal", 1, (bx+0.25, by+0.6, 1.0), f1=F1, loop=True, gain=0.8, ref=4)
+D.sound("clock_tick", 1, (-W_/2+0.1, by+1.6, 2.2), f1=F1, loop=True, gain=0.35, ref=4)
 D.pose(J, 120, head=(0, 18, 0)); D.pose(J, 150, head=(0, 10, 12)); D.pose(J, 200, head=(0, 18, 0))
 
 # Lichtstrahl durchs Fenster + Staub darin

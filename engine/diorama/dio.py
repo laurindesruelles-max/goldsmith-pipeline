@@ -19,6 +19,7 @@ from bpy_extras.object_utils import world_to_camera_view
 FPS = 24
 SC = None
 BEAMS = []      # Lichtstrahlen für post.py
+CUES = []       # Geräusche, die an Objekten im Bild hängen (cues.py mischt sie)
 DUST = []       # Staubwolken für post.py
 
 
@@ -42,7 +43,7 @@ def reset(res=(960, 540), samples=8, fps=FPS, world=(0.02, 0.025, 0.035), world_
     SC.view_settings.exposure = exposure
     w = bpy.data.worlds.new("w"); SC.world = w; w.use_nodes = True
     bg = w.node_tree.nodes["Background"]; bg.inputs[0].default_value = (*world, 1); bg.inputs[1].default_value = world_strength
-    BEAMS.clear(); DUST.clear()
+    BEAMS.clear(); DUST.clear(); CUES.clear()
     return SC
 
 
@@ -245,6 +246,15 @@ def look_at(o, target):
     d = Vector(target) - Vector(o.location); o.rotation_euler = d.to_track_quat("-Z", "Y").to_euler()
 
 
+def sound(name, f0, target, f1=None, gain=1.0, loop=False, ref=8.0, align="start"):
+    """Geräusch an ein Objekt/eine Position hängen. name = Datei in assets/sfx (ohne .wav).
+    f0/f1 = Start-/Endframe (f1 nur bei loop). target = Objekt (folgt ihm) oder (x,y,z).
+    Lautstärke folgt automatisch der Entfernung zur Kamera (ref = Abstand mit voller Lautstärke),
+    Stereo-Position folgt der Bildposition."""
+    align: "start" (Geräusch beginnt bei f0), "end" (endet bei f0, z.B. Auto hält an), "center" (z.B. Vorbeifahrt).
+    CUES.append({"name": name, "f0": f0, "f1": f1 if f1 is not None else f0, "target": target, "gain": gain, "loop": loop, "ref": ref, "align": align})
+
+
 def flicker(light_obj, f0, f1, base, amp=0.35, seed=1):
     """Licht flackert (Neon, Glühbirne)."""
     rnd = random.Random(seed); d = light_obj.data
@@ -354,8 +364,12 @@ def car(loc, rot=0.0, color=(0.15, 0.2, 0.32), lights=False, name="car", length=
     return root
 
 
-def drive(obj, f0, f1, p0, p1, ease_in=True, ease_out=True):
+def drive(obj, f0, f1, p0, p1, ease_in=True, ease_out=True, snd=True):
+    """Auto fährt von p0 nach p1 (hält am Ende an). Hängt automatisch Motorgeräusch an (snd=False = stumm)."""
     key(obj, f0, loc=p0); key(obj, f1, loc=p1)
+    if snd:   # Ankunft mit Anhalten -> Geräusch endet beim Halt; sonst Vorbeifahrt in der Mitte
+        if ease_out: sound("car_arrive", f1+6, obj, gain=0.9, ref=10, align="end")
+        else: sound("car_pass", (f0+f1)//2, obj, gain=0.9, ref=10, align="center")
     if obj.animation_data and obj.animation_data.action:
         for fc in _fcurves(obj.animation_data.action):
             for kp in fc.keyframe_points:
@@ -415,8 +429,10 @@ def pose(J, frame, **rots):
         key(J[k], frame, rot=tuple(math.radians(a) for a in r))
 
 
-def walk(J, f0, f1, p0, p1, step=14):
-    """Figur geht von p0 nach p1 (Beine/Arme schwingen)."""
+def walk(J, f0, f1, p0, p1, step=14, snd="footsteps_street"):
+    """Figur geht von p0 nach p1 (Beine/Arme schwingen). snd = Schrittgeräusch (None = stumm;
+    "footsteps_wood" für Innenräume)."""
+    if snd: sound(snd, f0, J["root"], f1=f1, loop=True, gain=0.7, ref=5)
     key(J["root"], f0, loc=p0); key(J["root"], f1, loc=p1); linear(J["root"])
     for i, f in enumerate(range(f0, f1+1, step)):
         a = 22 if i % 2 == 0 else -22
@@ -586,8 +602,28 @@ def dust(box_min, box_max, n=260, seed=5, drift=(0.0, 0.0, -0.004), in_beam=0):
     DUST.append({"pts": P, "min": list(box_min), "max": list(box_max), "drift": list(drift), "beam": in_beam})
 
 
+def _cue_track(c, f0, f1):
+    """Lautstärke/Stereo-Verlauf eines Geräuschs: alle 3 Frames [t, gain, pan].
+    One-Shots: Verlauf ±8 s um den Anker (Länge der Datei ist hier noch unbekannt)."""
+    if c["loop"]: a = max(c["f0"], f0); b = min(c["f1"], f1)
+    else: a = max(f0, c["f0"]-8*SC.render.fps); b = min(f1, c["f0"]+8*SC.render.fps)
+    pts = []
+    for f in range(a, b+1, 3) if b > a else [a]:
+        SC.frame_set(f)
+        pos = c["target"].matrix_world.translation if hasattr(c["target"], "matrix_world") else Vector(c["target"])
+        dist = (CAM.matrix_world.translation - pos).length
+        v = world_to_camera_view(SC, CAM, pos)
+        g = c["gain"] * min(1.0, c["ref"]/max(dist, 0.1))**0.9
+        if v.z <= 0: g *= 0.3                                  # hinter der Kamera
+        pan = max(-0.8, min(0.8, (v.x-0.5)*1.4))
+        pts.append([round((f-f0)/SC.render.fps, 3), round(g, 4), round(pan, 3)])
+    return {"name": c["name"], "loop": c["loop"], "track": pts, "dur": round((b-a)/SC.render.fps, 3),
+            "anchor": round((c["f0"]-f0)/SC.render.fps, 3), "align": c.get("align", "start")}
+
+
 def _export_meta(out, f0, f1):
     meta = {"fps": SC.render.fps, "res": [SC.render.resolution_x, SC.render.resolution_y], "frames": {}}
+    meta["cues"] = [_cue_track(c, f0, f1) for c in CUES if c["f0"] <= f1]
     for f in range(f0, f1+1):
         SC.frame_set(f); fr = {"beams": [], "dust": []}
         for b in BEAMS:
@@ -614,6 +650,8 @@ def render(out, f0=1, f1=240, still=None):
     """Rendert PNG-Frames nach out/f_####.png und schreibt out/meta.json (Staub/Lichtstrahl)."""
     os.makedirs(out, exist_ok=True)
     SC.frame_start, SC.frame_end = f0, f1
+    if os.environ.get("META_ONLY"):   # nur meta.json (Staub, Lichtstrahl, Geräusche) neu schreiben
+        _export_meta(out, f0, f1); return
     if still is not None:
         SC.frame_set(still); SC.render.filepath = f"{out}/still_{still:04d}.png"
         _export_meta(out, still, still)

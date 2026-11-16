@@ -61,7 +61,9 @@ D.drive(c, 1, 96, (-30, -1.6, 0.0), (1.8, 0.9, 0.0))
 # Figur steigt aus und geht zur Ladentür
 J = D.figure((2.6, 2.0, 0.18), rot=math.radians(80), shirt=(0.15, 0.14, 0.16), coat=True, hat=True, seed=8)
 D.key(J["root"], 1, scale=(0.001, 0.001, 0.001)); D.key(J["root"], 104, scale=(0.001, 0.001, 0.001)); D.key(J["root"], 106, scale=(1, 1, 1))
+D.sound("car_door", 100, (2.2, 1.6, 0.6), gain=0.8, ref=10)
 D.walk(J, 106, F1, (2.4, 2.0, 0.18), (3.1, 5.6, 0.18))
+D.sound("neon_buzz", 1, (0, 6.4, 3.9), f1=F1, loop=True, gain=0.25, ref=8)
 # Passant links
 J2 = D.figure((-6, 4.8, 0.18), rot=0, shirt=(0.35, 0.3, 0.25), seed=12)
 D.walk(J2, 1, F1, (-7, 4.6, 0.18), (-2.5, 4.6, 0.18))
