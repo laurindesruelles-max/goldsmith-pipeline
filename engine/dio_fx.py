@@ -209,7 +209,7 @@ def cue_event(t, clip, need, gain=1.0):
 def earthzoom_sounds(p, dur):
     """Pin + leiser Hit, dann nur Geräusche, die man sieht (Auto, Schritte …), Raumklang sehr leise.
     Kein Wind/Rauschen (Laurin 16.11.2026)."""
-    ta = clip_dur(p["aerial"]); ev = [(0.3, "pin", 0.8), (0.6, "boom", 0.25)]
+    ta = clip_dur(p["aerial"]); ev = [(0.3, "pin", 0.8)]
     ev += cue_event(A_DUR, p["aerial"], ta)
     if p.get("amb_aerial"): ev += [(A_DUR+0.2, f"amb:{p['amb_aerial']}:{max(0.5, ta-0.2):.2f}", 0.25)]
     if p.get("room"):

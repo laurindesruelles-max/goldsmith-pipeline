@@ -312,7 +312,7 @@ SOUNDS = {"doc": [(0.05, "paper", 0.5), (1.6, "highlighter", 0.9), (2.2, "highli
 
 SOUNDS["endcard"] = [(0.25, "paper", 0.4), (1.45, "slap", 0.5), (2.6, "shutter", 0.6), (2.95, "service_bell", 0.55)]
 # ---------- Übergänge an Schnitten ----------
-TRANS = ["burn", "glitch", "wipe", None, None]   # nicht jeder Schnitt bekommt einen Effekt
+TRANS = ["burn", None, "glitch", None, None, None]   # Laurin 16.11.: kein weißer Wipe-Balken mehr, Übergänge selten   # nicht jeder Schnitt bekommt einen Effekt
 TSOUND = {"burn": ("film_projector", 0.6), "glitch": ("glitch", 0.8), "wipe": ("paper_tear", 0.6)}
 def trans_kind(n, i): return TRANS[(n*7+i*3) % len(TRANS)]
 def transition(fr, prev, kind, lt, seed=0):
@@ -329,3 +329,7 @@ def transition(fr, prev, kind, lt, seed=0):
         pr = eout(lt/0.45); x = int(W*pr); out[:, x:] = prev[:, x:].astype(np.float32)
         pw = np.asarray(paper(120, H, 9).convert("RGB")).astype(np.float32); x0 = max(0, min(W-120, x-60)); out[:, x0:x0+120] = pw[:, :min(120, W-x0)]
     return np.clip(out, 0, 255).astype(np.uint8)
+
+# ---------- animierte Daten-Grafiken (engine/graphics.py) ----------
+import graphics as _G
+RENDER.update(_G.RENDER); DUR.update(_G.DUR); SOUNDS.update(_G.SOUNDS)

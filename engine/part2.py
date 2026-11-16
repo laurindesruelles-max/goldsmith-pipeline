@@ -155,9 +155,10 @@ PRESETS = [((0.5, 0.5, 1.0), (0.5, 0.48, 1.12)), ((0.36, 0.46, 1.5), (0.42, 0.46
 def shots(n, T):
     vo = SC[n]["vo"]; cuts = [0.0]
     for i, ch in enumerate(vo[:-3]):
-        if ch in ".?" and vo[i+1] == " ":
+        if ch in ".?:," and vo[i+1] == " ":
             t = wt(n, vo[i+2:i+22]) - 0.05
-            if t-cuts[-1] >= 2.6 and T-t >= 2.0: cuts.append(t)
+            need = 2.6 if ch in ".?" else 3.8          # Komma-Schnitt nur bei langen Einstellungen
+            if t-cuts[-1] >= need and T-t >= 2.0: cuts.append(t)
     return cuts
 SHOTS = {n: shots(n, T) for n, T in PLAN2}
 
@@ -275,8 +276,16 @@ def ducks():
             if e[0] in E.DUCK: out.append([S0[n]+e[1], S0[n]+e[1]+E.dur_of(e[0], e[2], e[1], T)])
     return out
 
+# 2.5D-Parallaxe statt flachem Zoom (Laurin 16.11.: mehr Bewegung). DEPTH=0 schaltet ab.
+import depth25d as D
+USE_DEPTH = os.environ.get("DEPTH", "1") == "1"
+MOVE_ORDER = ["push", "right", "rise", "left", "orbit", "pull"]
+DEP, IMGF, ATMO = {}, {}, {}
 def frame(n, t, T):
     if n not in IMG: IMG.clear(); IMG[n] = C.load_rgb(f"../img/{n}.png", int(W*1.25), int(H*1.25))
+    if USE_DEPTH and n not in DEP:
+        DEP.clear(); IMGF.clear(); IMGF[n] = IMG[n].astype(np.float32)
+        DEP[n] = cv2.resize(D.load_depth(f"../img/{n}_depth.png", IMG[n]), (IMG[n].shape[1], IMG[n].shape[0]))
     cuts = SHOTS[n]
     tk = takeover(n, t)
     if tk is not None:
@@ -297,6 +306,23 @@ def frame(n, t, T):
         fr = view(MAP, *c2, dx, dy)
         px = (mp[0][2][0]-(c2[0]-0.5/c2[2]))*c2[2]*W; py = (mp[0][2][1]-(c2[1]-0.5/c2[2]))*c2[2]*H
         C.pin_drop(layer, t, mp[0][1]+0.6, (px, py))
+    elif USE_DEPTH:
+        mv = D.MOVES[MOVE_ORDER[(n*3+i) % len(MOVE_ORDER)]] if str(n) not in SPEC.get("moves", {}) else D.MOVES[SPEC["moves"][str(n)]]
+        bk = f"{n}_b"
+        if i % 2 == 1 and os.path.exists(f"../img/{bk}.png"):      # zweites Bild bei jedem 2. Schnitt (Abwechslung)
+            if bk not in IMGF:
+                im = C.load_rgb(f"../img/{bk}.png", int(W*1.25), int(H*1.25)); IMGF[bk] = im.astype(np.float32)
+                DEP[bk] = cv2.resize(D.load_depth(f"../img/{bk}_depth.png", im), (im.shape[1], im.shape[0]))
+            fr = D.frame(IMGF[bk], DEP[bk], min(max(s, 0), 1), mv, W, H)
+        else:
+            fr = D.frame(IMGF[n], DEP[n], min(max(s, 0), 1), mv, W, H)
+        if dx or dy: fr = cv2.warpAffine(fr, np.float32([[1, 0, dx], [0, 1, dy]]), (W, H), borderMode=cv2.BORDER_REFLECT)
+        a = SPEC.get("atmo", {}).get(str(n))
+        if a:
+            if (n, a) not in ATMO: ATMO[(n, a)] = D.Atmo(a, W, H, seed=n)
+            fr = ATMO[(n, a)].apply(fr, t)
+        if n in SPEC.get("flicker", []): fr = D.flicker(fr, t)
+        fr = fr.astype(np.uint8)
     else:
         fr = view(IMG[n], *c, dx, dy)
     dim = max(overlays(n, t, T, layer, fr), chapter_card(n, t, layer))
@@ -355,22 +381,21 @@ def sfx_events():
             elif k == "pop": ev += [(t0+0.02, "slap", 0.22)]
             elif k == "stamp": ev += [(t0+0.1, "stamp", 0.9)]
             elif k == "counter":
-                ev += [(t0-0.05, "boom", 0.5)] + [(t0+i*0.09, "tick", 0.35) for i in range(10)]
+                ev += [(t0+i*0.09, "tick", 0.35) for i in range(10)]
                 C.typed_sfx(ev, t0+0.5, [e[2][3]], cps=20, gain=0.4)
-            elif k == "quote": ev += [(t0, "braam", 0.6)]; C.typed_sfx(ev, t0+1.0, [e[2][2]], gain=0.4)
+            elif k == "quote": C.typed_sfx(ev, t0+1.0, [e[2][2]], gain=0.4)
             elif k == "chain":
                 for lab, a in e[2]: ev += [(s+wt(n, a), "slap", 0.7), (s+wt(n, a), "zip", 0.35)]
             elif k == "brands":
                 for nm in e[2]: ev += [(s+wt(n, nm), "slap", 0.55)]
             elif k == "words":
-                for w, a in e[2]: ev += [(s+wt(n, a), "slap", 0.8), (s+wt(n, a), "boom", 0.25)]
-            elif k == "map": ev += [(t0+0.6, "pin", 0.9), (t0+0.62, "boom", 0.4)]
-        if n == LAST: ev += [(S0[n]+T-1.5, "boom", 0.7)]
+                for w, a in e[2]: ev += [(s+wt(n, a), "slap", 0.8)]
+            elif k == "map": ev += [(t0+0.6, "pin", 0.9)]
     chs = [S0[n] for n in CH if n in S0]
     for a, b in dips():
         # Pause direkt vor einem Kapitel: kein eigener Hit, sonst doppelt mit der Kapitelkarte
         if any(0 <= c - b < 4.0 for c in chs): continue
-        ev += [(a+0.02, "braam", 0.8), (b-0.05, "boom", 0.7)]
+        pass   # Laurin 16.11.: Bass-Hit (braam/boom) NUR bei Kapiteln
     return ev
 
 if __name__ == "__main__":

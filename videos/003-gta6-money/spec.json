@@ -34,14 +34,9 @@
   ]
  },
  "music": {
-  "1": "music_tension",
   "9": "suspense_pulse",
-  "17": "music_tension",
-  "26": "suspense_pulse",
   "38": "epic_empire",
-  "48": "epic_empire",
-  "58": "emotional_piano",
-  "62": "music_tension"
+  "58": "emotional_piano"
  },
  "beats": {
   "2": [
@@ -195,19 +190,30 @@
   ],
   "10": [
    [
-    "pop",
-    "sixty-nine ninety-nine",
-    "$69.99"
-   ],
-   [
-    "pop",
-    "seventy-nine ninety-nine",
-    "$79.99.",
-    [
-     222,
-     188,
-     104
-    ]
+    "bars",
+    "Over the last",
+    {
+     "title": "PRICE OF A STANDARD EDITION (US)",
+     "items": [
+      [
+       "GTA V · 2013",
+       59.99,
+       "$59.99"
+      ],
+      [
+       "TYPICAL TODAY",
+       69.99,
+       "$69.99"
+      ],
+      [
+       "GTA 6",
+       79.99,
+       "$79.99"
+      ]
+     ],
+     "hl": 2,
+     "dur": "scene"
+    }
    ]
   ],
   "11": [
@@ -236,14 +242,26 @@
   ],
   "13": [
    [
-    "pop",
-    "nine out of ten",
-    "9 OUT OF 10 PAID MORE.",
-    [
-     222,
-     188,
-     104
-    ]
+    "bars",
+    "Normally",
+    {
+     "title": "SHARE OF PRE-ORDERS: PREMIUM EDITION",
+     "items": [
+      [
+       "USUALLY",
+       20,
+       "10–20%"
+      ],
+      [
+       "GTA 6",
+       89,
+       "~89%"
+      ]
+     ],
+     "hl": 1,
+     "source": "SENSOR TOWER ESTIMATE",
+     "dur": "scene"
+    }
    ]
   ],
   "14": [
@@ -290,14 +308,22 @@
   ],
   "19": [
    [
-    "pop",
+    "flow",
     "exactly one place",
-    "ONE STORE. NO CHOICE.",
-    [
-     222,
-     188,
-     104
-    ]
+    {
+     "nodes": [
+      "YOU",
+      "CONSOLE STORE",
+      "SONY / MICROSOFT",
+      "TAKE-TWO"
+     ],
+     "labels": [
+      "$80",
+      "~30%",
+      "~70%"
+     ],
+     "dur": "scene"
+    }
    ]
   ],
   "20": [
@@ -333,14 +359,26 @@
   ],
   "23": [
    [
-    "counter",
-    "three quarters",
-    [
-     "",
-     75,
-     "%",
-     "PS5 SHARE OF EST. DIGITAL PRE-ORDERS (SENSOR TOWER)"
-    ]
+    "bars",
+    "Sensor Tower estimates",
+    {
+     "title": "EST. DIGITAL PRE-ORDER REVENUE",
+     "items": [
+      [
+       "PS5",
+       703,
+       "~$703M"
+      ],
+      [
+       "XBOX",
+       239,
+       "~$239M"
+      ]
+     ],
+     "hl": 0,
+     "source": "SENSOR TOWER ESTIMATE, NOV 2026",
+     "dur": "scene"
+    }
    ]
   ],
   "25": [
@@ -479,25 +517,30 @@
   ],
   "39": [
    [
-    "typed",
+    "timeline",
     "originally planned",
-    [
-     "2025",
-     "ORIGINAL TARGET"
-    ]
-   ],
-   [
-    "typed",
-    "May twenty twenty-six",
-    [
-     "MAY 26, 2026",
-     "DELAYED"
-    ]
-   ],
-   [
-    "stamp",
-    "delayed again",
-    "DELAYED AGAIN"
+    {
+     "title": "GTA 6 RELEASE DATE",
+     "steps": [
+      [
+       "2025",
+       "ORIGINAL PLAN",
+       "x"
+      ],
+      [
+       "MAY 26, 2026",
+       "DELAYED",
+       "x"
+      ],
+      [
+       "NOV 19, 2026",
+       "",
+       "ok"
+      ]
+     ],
+     "final": "LAUNCH",
+     "dur": "scene"
+    }
    ]
   ],
   "41": [
@@ -514,14 +557,26 @@
   ],
   "42": [
    [
-    "counter",
-    "eight to eight point two",
-    [
-     "$",
-     8.2,
-     "B",
-     "FY2027 GUIDANCE (UP TO)"
-    ]
+    "bars",
+    "For the current year",
+    {
+     "title": "TAKE-TWO NET BOOKINGS",
+     "items": [
+      [
+       "FY2026",
+       6.72,
+       "$6.72B"
+      ],
+      [
+       "FY2027 (OUTLOOK)",
+       8.2,
+       "$8.0–8.2B"
+      ]
+     ],
+     "hl": 1,
+     "source": "TAKE-TWO RESULTS RELEASES",
+     "dur": "scene"
+    }
    ]
   ],
   "43": [
@@ -632,14 +687,26 @@
   ],
   "51": [
    [
-    "counter",
-    "four hundred and seventy-five",
-    [
-     "~",
-     475,
-     "M",
-     "GTA SERIES UNITS SOLD-IN"
-    ]
+    "bars",
+    "The series",
+    {
+     "title": "UNITS SOLD-IN",
+     "items": [
+      [
+       "GTA V",
+       230,
+       "230M+"
+      ],
+      [
+       "WHOLE SERIES",
+       475,
+       "~475M"
+      ]
+     ],
+     "hl": 1,
+     "source": "TAKE-TWO VIA GAME DEVELOPER, 2026",
+     "dur": "scene"
+    }
    ]
   ],
   "53": [
@@ -656,26 +723,49 @@
   ],
   "54": [
    [
-    "pop",
+    "breakdown",
     "Here's roughly",
-    "WHERE YOUR $80 GOES.",
-    [
-     222,
-     188,
-     104
-    ]
+    {
+     "total": 80,
+     "parts": [
+      [
+       "PLATFORM",
+       24,
+       "STANDARD RATE ~30%"
+      ],
+      [
+       "TAKE-TWO",
+       56,
+       "~70%"
+      ]
+     ],
+     "note": "DIGITAL COPY · US SALES TAX COMES ON TOP",
+     "dur": "scene"
+    }
    ]
   ],
   "56": [
    [
-    "counter",
-    "twenty-four dollars",
-    [
-     "$",
-     24,
-     "",
-     "PLATFORM AT STANDARD 30% (EST.)"
-    ]
+    "breakdown",
+    "Then, at the standard",
+    {
+     "total": 80,
+     "parts": [
+      [
+       "PLATFORM",
+       24,
+       "STANDARD RATE ~30%"
+      ],
+      [
+       "TAKE-TWO",
+       56,
+       "~70%"
+      ]
+     ],
+     "hl": 0,
+     "note": "ACTUAL TERMS ARE NOT PUBLIC",
+     "dur": "scene"
+    }
    ]
   ],
   "57": [
@@ -777,5 +867,43 @@
     "+ SALES TAX (US) · VAT INCLUDED (EU)"
    ]
   ]
- }
+ },
+ "atmo": {
+  "1": "rain",
+  "8": "rain",
+  "61": "rain",
+  "63": "rain",
+  "2": "dust",
+  "3": "dust",
+  "4": "dust",
+  "9": "dust",
+  "10": "dust",
+  "12": "dust",
+  "14": "dust",
+  "15": "dust",
+  "20": "dust",
+  "22": "dust",
+  "28": "dust",
+  "33": "dust",
+  "35": "dust",
+  "36": "dust",
+  "41": "dust",
+  "42": "dust",
+  "46": "dust",
+  "48": "dust",
+  "52": "dust",
+  "53": "dust",
+  "54": "dust",
+  "55": "dust",
+  "58": "dust",
+  "60": "dust",
+  "64": "dust",
+  "65": "dust"
+ },
+ "flicker": [
+  1,
+  34,
+  59,
+  61
+ ]
 }

@@ -66,3 +66,13 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Thumbnail: Thema („GTA 6“) muss im Bild stehen; nur als eigener Text, nie Logo. Laurin mag Miami-Neon-Look ohne Glow hinter der Schrift.
 - Warte-Schleifen nie mit `pgrep -f "<muster>"` in `sh -c` (findet sich selbst).
 - effects.py-Änderungen vor dem Lauf in v3 kopieren und importieren (endcard-Bug: SOUNDS vor Definition benutzt).
+
+## Feedback Laurin zu 003 v1 (16.11.) → Regeln ab jetzt
+- KEINE Anfangsmusik / kein music_tension mehr (zu anstrengend). Musik ab Kapitel 1.
+- KEIN weißer Wipe-Balken; Übergänge selten (TRANS in effects.py).
+- Bass-Hit (braam/boom) NUR bei Kapitelkarten.
+- Nie nur Standbild + Zoom: Standard ist 2.5D-Parallaxe (engine/depth25d.py, Depth Anything V2 ONNX, kostenlos),
+  Atmosphäre per spec "atmo" (rain/dust) + "flicker", zweites Bild N_b.png pro Szene (jeder 2. Schnitt),
+  Schnitte auch an Kommas bei langen Einstellungen, animierte Daten-Grafiken (engine/graphics.py: bars, breakdown, timeline, flow).
+- Bildwelt abwechseln: nicht alles „dunkler Schreibtisch mit Lampe“ – Straßen, Städte, Studios, Gericht, Börse, Neon.
+- Laurin will lieber kostenlose Lösungen statt KI-Videoclips (Kling ~7,5 Credits/Clip nur nach Rückfrage).
