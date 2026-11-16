@@ -187,6 +187,23 @@ def parallax(t, T, p, ctx):
     return np.clip(out, 0, 255).astype(np.uint8), empty()
 
 RENDER = {"doc": doc, "redact": redact, "chart": chart, "route": route, "split": split, "news": news, "parallax": parallax}
+
+# ---------- 3D-Diorama (engine/dio_fx.py): Earth Zoom + Polaroid-Zoom ----------
+try:
+    import dio_fx as DX
+    RENDER.update({"earthzoom": DX.earthzoom, "dio": DX.dio}); DUR.update({"earthzoom": 9.0, "dio": 8.0})
+    SOUNDFN = {"earthzoom": DX.earthzoom_sounds, "dio": DX.dio_sounds}
+except Exception as _e:   # Blender-Clips/Module fehlen -> Effekte deaktiviert
+    print("dio_fx nicht geladen:", _e); SOUNDFN = {}
+DUCK = ("earthzoom", "dio")   # Musik in 3D-Szenen leicht absenken (Raumklang hörbar)
+
+
+def dur_of(kind, params, t0, scene_T):
+    """Dauer eines Vollbild-Effekts: params["dur"] (Sekunden oder "scene") sonst Standard."""
+    d = params.get("dur") if isinstance(params, dict) else None
+    if d == "scene": return max(0.5, scene_T-t0)
+    if d: return float(d)
+    return DUR[kind]
 SOUNDS = {"doc": [(0.05, "paper", 0.5), (1.6, "highlighter", 0.9), (2.2, "highlighter", 0.8)],
           "redact": [(0.8, "zip", 0.5), (1.4, "paper_tear", 0.9), (1.42, "sub_drop", 0.8), (2.2, "zip", 0.5)],
           "chart": [(0.1, "heartbeat", 0.7)] + [(0.2+i*0.25, "tick", 0.3) for i in range(10)] + [(2.7, "sub_drop", 1.0)],

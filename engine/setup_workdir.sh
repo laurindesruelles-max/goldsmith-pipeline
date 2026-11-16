@@ -8,6 +8,8 @@ REPO=$(cd "$(dirname "$0")/.." && pwd); VID="$REPO/$1"; WORK="$2"
 mkdir -p "$WORK/audio" "$WORK/img" "$WORK/v3/a" "$WORK/v3/build" ~/.fonts
 cp "$REPO"/assets/fonts/* ~/.fonts/
 cp "$REPO"/engine/*.py "$WORK/v3/"; cp -r "$REPO/assets/sfx" "$WORK/v3/sfx"
+mkdir -p "$WORK/v3/diorama" "$WORK/v3/dio"; cp -r "$REPO"/engine/diorama/* "$WORK/v3/diorama/"
+python3 -c "import bpy" 2>/dev/null || pip install bpy --break-system-packages -q   # Blender für 3D-Dioramen
 # Tastatursounds liegen NICHT im (öffentlichen) Repo, sondern in Laurins Higgsfield-Speicher:
 if [ ! -f "$WORK/v3/sfx/key0.wav" ]; then
   curl -sSfL -o /tmp/goldsmith_keys.zip "https://d2ol7oe51mr4n9.cloudfront.net/user_3LhrXzDQGZeDXCNfJbMSIhJMEcn/a97d9544-3788-456e-802a-03b6847d4f8c.zip" && (cd "$WORK/v3/sfx" && unzip -oq /tmp/goldsmith_keys.zip) || echo "WARNUNG: Tastatursounds nicht ladbar (Domain d2ol7oe51mr4n9.cloudfront.net freigeben)"

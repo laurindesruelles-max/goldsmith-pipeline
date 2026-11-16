@@ -257,12 +257,23 @@ def chapter_card(n, t, layer):
     return 0.82*a
 
 def takeover(n, t):
+    T = dict(PLAN2)[n]
     for e in EV.get(n, []):
-        if e[0] in E.RENDER and e[1] <= t < e[1]+E.DUR[e[0]]:
-            ctx = {"n": n, "img": "../img", "a": "a", "bg": IMG.get(n)}
-            r = E.RENDER[e[0]](t-e[1], E.DUR[e[0]], e[2], ctx)
-            if r is not None: return r
+        if e[0] in E.RENDER:
+            d = E.dur_of(e[0], e[2], e[1], T)
+            if e[1] <= t < e[1]+d:
+                ctx = {"n": n, "img": "../img", "a": "a", "bg": IMG.get(n)}
+                r = E.RENDER[e[0]](t-e[1], d, e[2], ctx)
+                if r is not None: return r
     return None
+
+def ducks():
+    """Zeitfenster der 3D-Szenen (Musik leicht absenken, damit Raumklang hörbar ist)."""
+    out = []
+    for n, T in PLAN2:
+        for e in EV.get(n, []):
+            if e[0] in E.DUCK: out.append([S0[n]+e[1], S0[n]+e[1]+E.dur_of(e[0], e[2], e[1], T)])
+    return out
 
 def frame(n, t, T):
     if n not in IMG: IMG.clear(); IMG[n] = C.load_rgb(f"../img/{n}.png", int(W*1.25), int(H*1.25))
@@ -329,6 +340,8 @@ def sfx_events():
             # nur Schnitte MIT Übergangseffekt bekommen einen Sound (kein Dauer-Whoosh mehr)
             if kind: ev += [(s+c0, E.TSOUND[kind][0], E.TSOUND[kind][1])]
         for e in EV.get(n, []):
+            if e[0] in E.SOUNDFN:
+                ev += [(s+e[1]+a, nm, g) for a, nm, g in E.SOUNDFN[e[0]](e[2], E.dur_of(e[0], e[2], e[1], T))]
             if e[0] in E.SOUNDS:
                 if e[0] == "parallax" and not os.path.exists(f"../img/{n}_fg.png"): continue
                 ev += [(s+e[1]+a, nm, g) for a, nm, g in E.SOUNDS[e[0]]]
@@ -371,5 +384,5 @@ if __name__ == "__main__":
         init()
         for n in sys.argv[2:]: render_scene(int(n)); print("scene", n, flush=True)
     elif sys.argv[1] == "meta":
-        json.dump({"plan": PLAN2, "sfx": sfx_events(), "end": END, "dips": dips(), "music": music_cues(), "events": {k: [list(map(str, e)) for e in v] for k, v in EV.items()}}, open("build/meta2.json", "w"))
+        json.dump({"plan": PLAN2, "sfx": sfx_events(), "end": END, "dips": dips(), "ducks": ducks(), "music": music_cues(), "events": {k: [list(map(str, e)) for e in v] for k, v in EV.items()}}, open("build/meta2.json", "w"))
         print(len(PLAN2), END)

@@ -5,12 +5,21 @@ Ziel: Jedes Video ist besser als das letzte – Schnitt, Spannung, Sound, Thumbn
 ## Feste Regeln aus Laurins Feedback
 - **LÄNGE: JEDES Video MUSS über 8 Minuten lang sein (ganz wichtig, Laurin 15.11.2026).** Ziel 9–10 Min. Vor dem Rendern Gesamtdauer aus timing.json prüfen; liegt sie unter 8:30, Szenen/Kapitel ergänzen.
 - **Pflicht-Ende**: Kommentar-Frage + „Subscribe and hit the bell“ (Kommentar-Feld, Subscribe-Button, Glocke im Bild).
-- Keine 3D-Figuren/Mannequins, keine reine Diashow. Viele Bewegungsgrafiken, Effekte auf jedem Element.
+- Keine rot/blauen 3D-Figuren oder Mannequins, keine reine Diashow. Viele Bewegungsgrafiken, Effekte auf jedem Element. AUSNAHME (Laurin 16.11.2026): Miniaturfiguren in den 3D-Dioramen (Modelleisenbahn-Look, gedeckte echte Farben, klein im Bild) sind ausdrücklich gewünscht.
 - Daten und Orte immer als Schreibmaschinentext mit mechanischem Tastatursound (assets/sfx/key0-7, Lautstärke Faktor 0.75 – vorher zu leise/zu laut).
 - Musik muss spannend sein (ElevenLabs-Tracks, nie selbst synthetisiert). Pro Kapitel passender Track (spec "music").
 - Spannung braucht Pausen: nach jeder großen Enthüllung 0,8–1,5 s Stille (spec "beats"), Musik taucht ab, dann Hit.
 - Thumbnail: Hero-Stil, EIN großes Motiv, 2 Zeilen, Zahl oder Frage zum Geld des Zuschauers. Text auf Preisschild mittig (tag xy "auto").
 - Sound sparsam (15.11.): Kapitel bekommt genau EINEN Hit auf der Karte – kein Riser davor, kein Pausen-Hit in den 4 s davor. Kein Whoosh bei Text-Pops oder normalen Schnitten; Whoosh nur noch bei großen Vollbild-Effekten (leise). Text-Pops nur leiser Slap.
+
+## Schnitt & Spannung nach VANTAGE-Vorbild (Laurin 16.11.2026, Referenz: VANTAGE „The FBI's Most Wanted Man Worked for the FBI“)
+- **Ein Satz = ein Bild**: Skript so schreiben, dass jeder Satz ein konkretes, zeigbares Detail hat (Telefon, Zettel an der Tür, Aufzuganzeige, Akte). Das Bild zeigt genau das, was gerade gesagt wird. Shots 2–7 s.
+- **Trichter-Hook**: groß → klein (Karte → Stadt → Gebäude → Fenster → Detail). Dafür der Earth Zoom.
+- **Ruhige Kamera, Bewegung im Bild**: lieber Licht flackert, Auto fährt vor, Figur geht – statt wilder Kamerafahrten. Harte Schnitte.
+- **Rhythmus**: Spannung → Atempause mit Akte/Dokument → Spannung. Vor jeder großen Enthüllung kurz Stille (beats).
+- **Staub im Gegenlicht** nur in Innenräumen/Archiv/Werkstatt mit Lichtstrahl (Fenster, Lampe) – nicht in hellen Außenszenen. Wenige, langsame Partikel.
+- **3D-Dosierung**: 1 Earth Zoom (Hook) + 2–4 Polaroid-Zooms an Wendepunkten ≈ 10–15 % der Laufzeit. Der Rest bleibt Ermittlungsakte.
+- **Sound in 3D-Szenen**: leiser Raumklang + höchstens 1–2 Objektgeräusche synchron zum Bild. Tastatursound bleibt unverändert (Laurin 16.11.: „mein Tastatursound bleibt ganz normal“).
 
 ## Effekt-Kandidaten (Showreel 15.11.2026, engine/effects_showreel.py)
 Parallax-3D, Dokument-Zoom + Textmarker, Schwärzung aufdecken, animiertes Diagramm, Landkarte mit Routen, Vorher/Nachher-Splitscreen, Übergänge (Film Burn, Glitch, Paper Wipe), Zeitungs-Wirbel. Status: von Laurin ALLE 8 freigegeben (15.11.2026) und in engine/effects.py eingebaut. Pro Video 4–7 dieser Vollbild-Effekte einsetzen, jeden Typ höchstens 2×, passend zum Inhalt (Kursverlust → chart, Enthüllung eines Namens → redact, internes Dokument/Zitat aus Akten → doc, Lieferkette/Orte → route, Wandel → split, Übernahme/Skandal → news, emotionale Schlüsselszene → parallax). Übergänge laufen automatisch an Schnitten.

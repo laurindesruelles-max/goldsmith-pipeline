@@ -24,7 +24,13 @@ for ci,ch in enumerate(chunks):
     inputs=[]; fc=[]
     for i,(t,nm,g) in enumerate(ch):
         if nm.startswith('key'): nm=f'key{(i*5)%8}'; g*=0.75
-        inputs+=['-i',f'sfx/{nm}.wav']; ms=int(t*1000)
+        ms=int(t*1000)
+        if nm.startswith('amb:'):   # Raumklang: "amb:<datei>:<dauer>" -> geloopt, ein-/ausgeblendet
+            _, an, ad = nm.split(':'); ad=float(ad); fo=min(0.8, ad/3)
+            inputs+=['-stream_loop','-1','-i',f'sfx/{an}.wav']
+            fc.append(f'[{i}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{ad:.3f},afade=t=in:d={fo:.2f},afade=t=out:st={ad-fo:.3f}:d={fo:.2f},volume={g},adelay={ms}|{ms},apad=whole_dur={total:.3f}[s{i}]')
+            continue
+        inputs+=['-i',f'sfx/{nm}.wav']
         fc.append(f'[{i}:a]aresample=48000,aformat=channel_layouts=stereo,volume={g},adelay={ms}|{ms},apad=whole_dur={total:.3f}[s{i}]')
     fc.append(''.join(f'[s{i}]' for i in range(len(ch)))+f'amix=inputs={len(ch)}:normalize=0:duration=longest,atrim=0:{total:.3f}[o]')
     o=f'build/fx{ci}.wav'; fx.append(o)
@@ -51,6 +57,11 @@ for d0,d1 in m2.get('dips',[]):
     a=int(d0*SR); b=int(d1*SR); r=int(0.25*SR)
     env[a:b]=0.12; env[max(0,a-r):a]=np.minimum(env[max(0,a-r):a],np.linspace(1,0.12,a-max(0,a-r)))
     env[b:b+r]=np.minimum(env[b:b+r],np.linspace(0.12,1,len(env[b:b+r])))
+for d0,d1 in m2.get('ducks',[]):   # 3D-Szenen: Musik auf ~60 %, weich
+    a=int(d0*SR); b=min(N,int(d1*SR)); r=int(0.6*SR)
+    env[a:b]=np.minimum(env[a:b],0.6)
+    env[max(0,a-r):a]=np.minimum(env[max(0,a-r):a],np.linspace(1,0.6,a-max(0,a-r)))
+    env[b:b+r]=np.minimum(env[b:b+r],np.linspace(0.6,1,len(env[b:b+r])))
 bed*=env[:,None]
 wf.write('build/music_bed.wav',SR,(np.clip(bed[:int(total*SR)],-1,1)*32767).astype(np.int16))
 inp=['-i','build/voice_full.wav','-i','build/music_bed.wav']
