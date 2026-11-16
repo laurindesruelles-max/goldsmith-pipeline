@@ -40,3 +40,9 @@ Vor jedem Video LESSONS.md lesen; nach jedem Video Video-Log ergänzen und Stati
 - Repo klonen ohne Login: `git clone --depth 1 https://github.com/laurindesruelles-max/goldsmith-pipeline` (öffentlich). Pushen geht nur in Sitzungen mit Repo-Zugriff; sonst geänderte Dateien (LESSONS.md, videos/NNN) am Ende per SendUserFile an Laurin schicken.
 - Musik: `assets/music/` (Bibliothek ausbauen: 4–5 Tracks via ElevenLabs über Higgsfield).
 - Der Cold Open von Video 001 ist handgebaut (`engine/case.py`); für neue Videos alle Szenen über die Spec-Engine (`part2.py`) laufen lassen und Szene 1–8 als stärkste Hook gestalten.
+
+## Endkontrolle vor jeder Freigabe (seit 16.11.2026)
+1. `python3 engine/qa.py <FINAL.mp4> videos/NNN-slug` → Technik (Länge, Lautheit, Spitzenpegel, Schwarz-/Standbilder, Auflösung) + `qa_frames.jpg` + `qa.md` (Prüfbericht). Exit 1 = nicht hochladen.
+2. Unabhängiger Faktencheck durch einen separaten Agenten (Skript + Quellen → Tabelle Aussage/Quelle/Stimmt?). Alles Unbelegte ändern oder streichen.
+3. Recht (Äußerungsrecht, Personen, Marken, Titel/Thumbnail), Lizenzen und YouTube-Punkte in `qa.md` abhaken.
+4. Laurin bekommt zur Freigabe: Video, Thumbnail, Titel + Kurzfassung des Prüfberichts (inkl. Hinweis, ob „veränderte/synthetische Inhalte“ gesetzt werden muss).
