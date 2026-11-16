@@ -327,15 +327,14 @@ def tree(loc, h=4.0, seed=0, color=None):
 def car(loc, rot=0.0, color=(0.15, 0.2, 0.32), lights=False, name="car", length=4.6):
     """Kleines Auto (Limousine 60er–90er). Gibt Wurzel-Empty zurück (animierbar)."""
     s = length/4.6; root = empty(loc, name); root.rotation_euler = (0, 0, rot)
-    paint = mat(color, 0.25, 0.3); glass = mat((0.04, 0.05, 0.06), 0.05); chrome = mat((0.8, 0.8, 0.82), 0.15, 1.0)
+    paint = mat(color, 0.25, 0.3); glass = mat((0.015, 0.018, 0.022), 0.18, 0.2); chrome = mat((0.8, 0.8, 0.82), 0.15, 1.0)
     tire = mat((0.02, 0.02, 0.02), 0.7)
     def cabin(x0, x1, xt0, xt1, y, z0, z1, m):
         v = [(x0, -y, z0), (x1, -y, z0), (x1, y, z0), (x0, y, z0), (xt0, -y*0.92, z1), (xt1, -y*0.92, z1), (xt1, y*0.92, z1), (xt0, y*0.92, z1)]
         f = [(0, 3, 2, 1), (4, 5, 6, 7), (0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7)]
         return mesh_obj("cabin", v, f, m)
     body = box((4.6*s, 1.8*s, 0.62*s), (0, 0, 0.58*s), paint, bevel=0.12*s)
-    hood = box((1.3*s, 1.78*s, 0.1*s), (1.6*s, 0, 0.92*s), paint, bevel=0.04*s)
-    parts = [body, hood,
+    parts = [body,
              cabin(-1.5*s, 0.85*s, -1.15*s, 0.25*s, 0.86*s, 0.88*s, 1.42*s, glass),
              box((1.42*s, 1.6*s, 0.07*s), (-0.45*s, 0, 1.45*s), paint, bevel=0.03*s),
              box((4.4*s, 1.84*s, 0.05*s), (0, 0, 0.78*s), chrome),

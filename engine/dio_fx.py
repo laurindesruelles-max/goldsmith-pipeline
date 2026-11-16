@@ -152,8 +152,10 @@ def earthzoom(t, T, p, ctx):
         ih, iw = MAP.shape[:2]; cw = iw/z; chh = cw*H/W
         ox = min(max(cx*iw-cw/2, 0), iw-cw); oy = min(max(cy*ih-chh/2, 0), ih-chh)
         pxs = (px*iw-ox)*W/cw; pys = (py*ih-oy)*W/cw
-        if t > 0.3:
-            d = ImageDraw.Draw(layer); pr = eout((t-0.3)/0.3); yo = -220*(1-pr); r = 22
+        pin_a = 1.0 - ease((t-1.5)/0.6)   # Pin verblasst, bevor wir in die Wolken tauchen
+        if t > 0.3 and pin_a > 0.01:
+            pl = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            d = ImageDraw.Draw(pl); pr = eout((t-0.3)/0.3); yo = -220*(1-pr); r = 22
             for k in range(2):
                 rr = t-0.6-k*0.4
                 if 0 < rr < 1.1:
@@ -162,6 +164,8 @@ def earthzoom(t, T, p, ctx):
             d.line([(pxs, pys+yo), (pxs+9, pys-44+yo)], fill=(180, 180, 185, 255), width=5)
             d.ellipse([pxs+13-r, pys-58+yo-r, pxs+13+r, pys-58+yo+r], fill=(210, 25, 35, 255), outline=(90, 0, 0, 255), width=3)
             d.ellipse([pxs+3, pys-72+yo, pxs+12, pys-63+yo], fill=(255, 140, 140, 255))
+            if pin_a < 1: pl.putalpha(pl.getchannel("A").point(lambda v: int(v*pin_a)))
+            layer.alpha_composite(pl)
         if 0.6 < t < A_DUR-0.5 and p.get("label"):
             al = 1.0 if t < A_DUR-0.8 else (A_DUR-0.5-t)/0.3
             lab = Image.new("RGBA", (W, H), (0, 0, 0, 0)); typed_label(lab, t-0.6, p["label"], (min(W-620, pxs+60), max(60, pys-40)))
