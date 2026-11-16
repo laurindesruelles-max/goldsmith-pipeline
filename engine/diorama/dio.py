@@ -250,8 +250,8 @@ def sound(name, f0, target, f1=None, gain=1.0, loop=False, ref=8.0, align="start
     """Geräusch an ein Objekt/eine Position hängen. name = Datei in assets/sfx (ohne .wav).
     f0/f1 = Start-/Endframe (f1 nur bei loop). target = Objekt (folgt ihm) oder (x,y,z).
     Lautstärke folgt automatisch der Entfernung zur Kamera (ref = Abstand mit voller Lautstärke),
-    Stereo-Position folgt der Bildposition."""
-    align: "start" (Geräusch beginnt bei f0), "end" (endet bei f0, z.B. Auto hält an), "center" (z.B. Vorbeifahrt).
+    Stereo-Position folgt der Bildposition.
+    align: "start" (Geräusch beginnt bei f0), "end" (endet bei f0, z.B. Auto hält an), "center" (z.B. Vorbeifahrt)."""
     CUES.append({"name": name, "f0": f0, "f1": f1 if f1 is not None else f0, "target": target, "gain": gain, "loop": loop, "ref": ref, "align": align})
 
 
