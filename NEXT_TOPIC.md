@@ -1,5 +1,7 @@
 # Themen-Warteschlange (von Laurin festgelegt, 15.11.2026)
 
+> **HINWEIS FÜR DEN LAUF AM 17.11.2026:** Das Video für den 19.11. (Thema 1, GTA 6) wurde bereits am 16.11. mit Laurin produziert. Der Lauf am 17.11. produziert NICHTS – nur Laurin per SendUserMessage kurz Bescheid geben („Lauf entfällt, Video für 19.11. ist schon fertig“) und diesen Hinweis-Block aus der Datei entfernen + pushen. Thema 1 wird nach Fertigstellung aus der Liste gelöscht.
+
 Jeder Lauf nimmt den OBERSTEN Eintrag, schickt Laurin KEINE Themenauswahl mehr (Thema steht fest), produziert direkt und entfernt danach nur diesen Eintrag. Ist die Liste leer, Datei löschen.
 
 GTA 6 erscheint am Donnerstag, 19.11.2026 (PS5, Xbox Series X|S). Goldsmith-Winkel = Business-Story, kein Spiele-Review. Alle Zahlen am Produktionstag frisch per WebSearch belegen, Quellen in die Beschreibung.
