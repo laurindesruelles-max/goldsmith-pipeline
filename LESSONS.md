@@ -83,3 +83,6 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Jede Einstellung eigenes Bild: N, N_b, N_c, N_d (shot_key in part2.py). gpt_image_2_6 kostet nur 0,25 Credits/Bild → ruhig viele Bilder.
 - Bereits bezahlte KI-Clips liegen in work/vid/<key>.mp4 und werden automatisch statt des Standbilds benutzt.
 - KI-Videoclips (Seedance 2.0 Mini 720p 5 s = 5 Credits) hat Laurin für ganze Videos abgelehnt (zu teuer).
+- Musik-Dramaturgie (Laurin 16.11.): nie 2–3 Min. derselbe Track. Jedes Kapitel eigener Track (spec "music" pro Kapitel,
+  bei langen Kapiteln Wechsel in der Mitte), vor jedem Wechsel ausblenden + 0,5 s Stille, neuer Track setzt mit der Kapitelkarte ein.
+  Bewusste Musikpausen an starken Aussagen: spec "music_rests": {"N": [start_offset, dauer]}. Kapitelkarte steht 4,4 s (CARD_T).

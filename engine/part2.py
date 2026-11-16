@@ -244,16 +244,17 @@ def overlays(n, t, T, layer, fr):
             pass
     return dim
 
+CARD_T = 4.4   # Laurin 16.11.: Kapitelkarte 2 s länger stehen lassen
 def chapter_card(n, t, layer):
-    if n not in CH or t > 2.4: return 0
-    a = ease(t/0.25)*(1 if t < 2.0 else max(0, (2.4-t)/0.4))
+    if n not in CH or t > CARD_T: return 0
+    a = ease(t/0.25)*(1 if t < CARD_T-0.4 else max(0, (CARD_T-t)/0.4))
     C.typed(layer, t, 0.15, [CH[n][0]], (W/2-150, 380), size=56, box=False, cursor=False) if a > 0.05 else None
     if t >= 0.6:
         s = 1+0.06*(1-eout((t-0.6)/0.8)); al = int(255*ease((t-0.6)/0.3)*min(1, a*1.2))
         C.shadow_text(layer, (W/2, 540), CH[n][1], font(F_SERIF, 120*s), GOLD, anchor="mm", alpha=al)
         d = ImageDraw.Draw(layer); w = 420*eout((t-0.6)/0.5)
         d.rectangle([W/2-w, 640, W/2+w, 646], fill=RED+(al,))
-    if t > 2.0:
+    if t > CARD_T-0.4:
         arr = np.asarray(layer).copy(); arr[..., 3] = (arr[..., 3]*a).astype(np.uint8); layer.paste(Image.fromarray(arr))
     return 0.82*a
 
@@ -306,7 +307,7 @@ def frame(n, t, T):
     tk = takeover(n, t)
     if tk is not None:
         fr, layer = tk
-        if n in CH and 2.4 <= t < 6.5: C.chapter(layer, t, 2.4, chapter_of(n))
+        if n in CH and CARD_T <= t < CARD_T+4.1: C.chapter(layer, t, CARD_T, chapter_of(n))
         return C.rgba_over(fr, layer), cuts
     i = max(k for k, c in enumerate(cuts) if t >= c); t0 = cuts[i]; t1 = cuts[i+1] if i+1 < len(cuts) else T
     pa, pb = PRESETS[(n*3+i) % len(PRESETS)] if (i > 0 or n % 2) and n != LAST else PRESETS[0]
@@ -350,7 +351,7 @@ def frame(n, t, T):
     else:
         fr = view(IMG[n], *c, dx, dy)
     dim = max(overlays(n, t, T, layer, fr), chapter_card(n, t, layer))
-    if n in CH and 2.4 <= t < 6.5: C.chapter(layer, t, 2.4, chapter_of(n))
+    if n in CH and CARD_T <= t < CARD_T+4.1: C.chapter(layer, t, CARD_T, chapter_of(n))
     if dim > 0: fr = (fr*(1-dim)).astype(np.uint8)
     return C.rgba_over(fr, layer), cuts
 
@@ -433,5 +434,5 @@ if __name__ == "__main__":
         init()
         for n in sys.argv[2:]: render_scene(int(n)); print("scene", n, flush=True)
     elif sys.argv[1] == "meta":
-        json.dump({"plan": PLAN2, "sfx": sfx_events(), "end": END, "dips": dips(), "ducks": ducks(), "music": music_cues(), "events": {k: [list(map(str, e)) for e in v] for k, v in EV.items()}}, open("build/meta2.json", "w"))
+        json.dump({"plan": PLAN2, "sfx": sfx_events(), "end": END, "dips": dips(), "ducks": ducks(), "music": music_cues(), "rests": [[S0[int(k)]+v[0], S0[int(k)]+v[0]+v[1]] for k, v in SPEC.get("music_rests", {}).items() if int(k) in S0], "events": {k: [list(map(str, e)) for e in v] for k, v in EV.items()}}, open("build/meta2.json", "w"))
         print(len(PLAN2), END)

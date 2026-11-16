@@ -36,8 +36,13 @@
  "music": {
   "1": "crime_archive",
   "9": "suspense_pulse",
+  "17": "crime_pulse",
+  "26": "crime_archive",
+  "31": "crime_trail",
   "38": "epic_empire",
-  "58": "emotional_piano"
+  "48": "night_intro",
+  "58": "emotional_piano",
+  "62": "crime_archive"
  },
  "beats": {
   "2": [
@@ -995,6 +1000,20 @@
   ],
   "24": [
    "fog"
+  ]
+ },
+ "music_rests": {
+  "22": [
+   0.3,
+   5.5
+  ],
+  "46": [
+   0.2,
+   6.0
+  ],
+  "53": [
+   0.0,
+   5.5
   ]
  }
 }

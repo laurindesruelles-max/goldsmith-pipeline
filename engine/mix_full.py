@@ -50,18 +50,26 @@ def load_track(name):
     return wf.read(p)[1].astype(np.float32)/32768
 SR=48000; N=int(total*SR)+SR; bed=np.zeros((N,2),np.float32)
 cues=[tuple(c) for c in m2.get('music',[[0,'crime_archive']])]; XF=int(2.5*SR)
+# Laurin 16.11.: vor jedem Musikwechsel (= Kapitel) Musik ausblenden, kurze Stille, neuer Track setzt mit der Kapitelkarte ein
+FO=int(2.2*SR); GAP=int(0.5*SR); FI=int(1.2*SR)
 for i,(t0,name) in enumerate(cues):
     t1 = cues[i+1][0] if i+1<len(cues) else total
-    a=int(t0*SR); b=min(N,int(t1*SR)+XF); tr=load_track(name)
+    a=int(t0*SR)+(int(0.55*SR) if i>0 else 0); b=min(N,int(t1*SR)-(GAP if i+1<len(cues) else 0)); tr=load_track(name)
+    if b<=a: continue
     seg=np.concatenate([tr]*(1+(b-a)//len(tr)))[:b-a].copy()
-    ramp=min(XF,len(seg)); seg[:ramp]*=np.linspace(0,1,ramp)[:,None]
-    if i+1<len(cues): seg[-XF:]*=np.linspace(1,0,XF)[:,None]
+    ramp=min(FI,len(seg)); seg[:ramp]*=np.linspace(0,1,ramp)[:,None]
+    if i+1<len(cues): k=min(FO,len(seg)); seg[-k:]*=np.linspace(1,0,k)[:,None]
     bed[a:a+len(seg)]+=seg
 env=np.ones(N,np.float32)
 for d0,d1 in m2.get('dips',[]):
     a=int(d0*SR); b=int(d1*SR); r=int(0.25*SR)
     env[a:b]=0.12; env[max(0,a-r):a]=np.minimum(env[max(0,a-r):a],np.linspace(1,0.12,a-max(0,a-r)))
     env[b:b+r]=np.minimum(env[b:b+r],np.linspace(0.12,1,len(env[b:b+r])))
+for d0,d1 in m2.get('rests',[]):   # bewusste Musikpausen (Spannung)
+    a=int(d0*SR); b=min(N,int(d1*SR)); r=int(0.8*SR)
+    env[a:b]=0.0
+    env[max(0,a-r):a]=np.minimum(env[max(0,a-r):a],np.linspace(1,0,a-max(0,a-r)))
+    env[b:b+r]=np.minimum(env[b:b+r],np.linspace(0,1,len(env[b:b+r])))
 for d0,d1 in m2.get('ducks',[]):   # 3D-Szenen: Musik auf ~60 %, weich
     a=int(d0*SR); b=min(N,int(d1*SR)); r=int(0.6*SR)
     env[a:b]=np.minimum(env[a:b],0.6)
