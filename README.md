@@ -28,6 +28,11 @@ Miniatur-Welten im Modelleisenbahn-Look (Tilt-Shift, Staub im Gegenlicht, Teal/O
 - **Sound**: Nur Geräusche, die man sieht: `D.sound()` hängt sie in Blender an Objekte (drive/walk automatisch), `engine/diorama/cues.py` mischt sie nach Entfernung (leiser, je weiter weg) und Bildposition (Stereo). Kein Wind/Rauschen. Musik in 3D-Szenen automatisch auf ~60 %. Bibliothek + Bezugsquellen: `assets/sfx/SOUNDS.md` (~55 CC0-Geräusche, 0 Credits).
 - **Kosten**: 0 Credits (Blender lokal). Nur Renderzeit: ca. 1–1,5 h pro Video für 1 Earth Zoom + 2–3 Polaroid-Szenen.
 
+## Echte Quellen (Fotos, Dokumente, Zitate) – nur rechtlich zulässiges Material (seit 16.11.2026)
+`engine/sources.py` (Regeln im Dateikopf): Fotos nur Wikimedia Commons (PD/CC0/CC BY/CC BY-SA – NC/ND werden abgelehnt), Library of Congress („No known restrictions“), NASA; Personen nur des öffentlichen Lebens im sachlichen Kontext, unverändert, nie Opfer/Kinder/Privatpersonen. Dokumente: US-Urteile (gemeinfrei, CourtListener), Behörden-Mitteilungen; Firmen-Unterlagen (SEC 10-K/20-F) nur kurze Zitate. Presse: nur kurzes Zitat (Überschrift) im eigenen Layout mit „SOURCE: Medium, Datum“, nie Logo/Screenshot. Jede Datei landet mit Lizenz in `img/credits.json` → `python3 engine/sources.py credits <img>` = Bildnachweise für die Beschreibung.
+spec-Kinds: `["photo", anchor, {"file": "real_….jpg", "caption": ["NAME", "JAHR"], "style": "print"}]` (Bildnachweis automatisch unten links); `doc`/`news`/`chart` mit `"source": "…"` → Quellenzeile.
+Domains (Claude-Einstellungen → Capabilities): commons.wikimedia.org, upload.wikimedia.org, www.loc.gov, tile.loc.gov, images-api.nasa.gov, images-assets.nasa.gov, www.sec.gov, efts.sec.gov, www.courtlistener.com
+
 ## Lernschleife
 Vor jedem Video LESSONS.md lesen; nach jedem Video Video-Log ergänzen und Statistiken älterer Videos auswerten.
 

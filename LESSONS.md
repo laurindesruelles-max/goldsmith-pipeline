@@ -12,6 +12,9 @@ Ziel: Jedes Video ist besser als das letzte – Schnitt, Spannung, Sound, Thumbn
 - Thumbnail: Hero-Stil, EIN großes Motiv, 2 Zeilen, Zahl oder Frage zum Geld des Zuschauers. Text auf Preisschild mittig (tag xy "auto").
 - Sound sparsam (15.11.): Kapitel bekommt genau EINEN Hit auf der Karte – kein Riser davor, kein Pausen-Hit in den 4 s davor. Kein Whoosh bei Text-Pops oder normalen Schnitten; Whoosh nur noch bei großen Vollbild-Effekten (leise). Text-Pops nur leiser Slap.
 
+## Echte Quellen (Laurin 16.11.2026: „echte Fakten, echte Artikel, echte Bilder – nur was erlaubt ist“)
+- Pro Video 6–12 echte Belege einbauen: Archivfotos (`photo`), echte Dokument-Auszüge (`doc` mit wörtlichem Zitat + `source`), echte Überschriften als kurzes Zitat (`news` + `source`), Diagramme aus echten Zahlen (`chart` + `source`). Regeln: engine/sources.py. Bildnachweise in die Beschreibung. Im Zweifel weglassen.
+
 ## Schnitt & Spannung nach VANTAGE-Vorbild (Laurin 16.11.2026, Referenz: VANTAGE „The FBI's Most Wanted Man Worked for the FBI“)
 - **Ein Satz = ein Bild**: Skript so schreiben, dass jeder Satz ein konkretes, zeigbares Detail hat (Telefon, Zettel an der Tür, Aufzuganzeige, Akte). Das Bild zeigt genau das, was gerade gesagt wird. Shots 2–7 s.
 - **Trichter-Hook**: groß → klein (Karte → Stadt → Gebäude → Fenster → Detail). Dafür der Earth Zoom.

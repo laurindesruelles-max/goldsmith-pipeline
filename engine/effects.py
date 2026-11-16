@@ -7,6 +7,10 @@ Kinds in spec.json (Anker = Startzeitpunkt, Dauer standardmäßig 4.5 s):
   ["split", anchor, {"left_img": 18, "right_img": 19, "left": "BEFORE", "right": "AFTER", "left_sub": "...", "right_sub": "..."}]
   ["news", anchor, {"date": "JUNE 2007", "h1": "EYEWEAR GIANT", "h2": "SWALLOWS RIVAL", "sub": "...", "stamp": "BREAKING"}]
   ["parallax", anchor, {}]   braucht img/N_fg.png (Higgsfield remove_background des Szenenbilds)
+  ["photo", anchor, {"file": "real_x_1.jpg", "caption": ["NAME", "JAHR"], "style": "print"|"full"}]   echtes Foto (engine/sources.py),
+      Bildnachweis automatisch aus img/credits.json unten links
+  doc/news/chart: optional "source": "SEC FORM 20-F, 2018" / "REUTERS, 12 JUL 2018" -> Quellenzeile unten links.
+      news = nur kurzes Zitat (Überschrift) im EIGENEN Layout, nie Logo/Screenshot des Mediums.
 Übergänge (Film Burn / Glitch / Paper Wipe) wechseln automatisch an Schnitten (transition()).
 Fakten in doc/news/chart müssen belegt sein (Quellen im Skript)!
 """
@@ -142,7 +146,8 @@ def news(t, T, p, ctx):
     key = ("news", id(p))
     if key not in _CACHE:
         w, h = 1100, 680; c = paper(w, h, 11); d = ImageDraw.Draw(c)
-        d.text((50, 35), f"THE FINANCIAL RECORD  ·  {p.get('date', '')}", font=f(INTER, 30), fill=(60, 50, 40)); d.line([(50, 85), (w-50, 85)], fill=INK, width=4)
+        mast = f"AS REPORTED BY {p['source'].split(',')[0]}" if p.get("source") else "THE FINANCIAL RECORD"   # echtes Zitat: kein erfundenes Blatt
+        d.text((50, 35), f"{mast}  ·  {p.get('date', '')}", font=f(INTER, 30), fill=(60, 50, 40)); d.line([(50, 85), (w-50, 85)], fill=INK, width=4)
         d.text((50, 110), p["h1"], font=f(SERIF, 100 if len(p["h1"]) < 16 else 80), fill=INK); d.text((50, 225), p.get("h2", ""), font=f(SERIF, 100 if len(p.get("h2", "")) < 16 else 80), fill=INK)
         d.text((50, 360), p.get("sub", ""), font=f(SERIF4, 42), fill=(55, 45, 38))
         for col in range(3):
@@ -186,7 +191,61 @@ def parallax(t, T, p, ctx):
     dd = cv2.GaussianBlur(dd, (0, 0), 2.5)[..., None]*0.45; out = out*(1-dd)+np.array([255, 215, 160], np.float32)*dd
     return np.clip(out, 0, 255).astype(np.uint8), empty()
 
-RENDER = {"doc": doc, "redact": redact, "chart": chart, "route": route, "split": split, "news": news, "parallax": parallax}
+# ---------- photo: echtes Archivfoto (engine/sources.py, nur zulässige Lizenzen) ----------
+def _credit_for(p, ctx):
+    if p.get("credit"): return p["credit"]
+    cp = f"{ctx['img']}/credits.json"
+    if os.path.exists(cp):
+        import json as _j
+        for c in _j.load(open(cp)):
+            if c["file"] == p["file"]: return c.get("credit") or f"{c['author']} / {c['license']}"
+    return ""
+
+def source_line(layer, text, a=1.0):
+    """Kleine Quellen-/Bildnachweis-Zeile unten links (Pflicht bei echten Fotos/Zitaten)."""
+    if not text: return
+    d = ImageDraw.Draw(layer); ft = f(TYPE, 26); tw = d.textlength(text, font=ft)
+    d.rectangle([34, H-74, 34+tw+28, H-30], fill=(10, 8, 6, int(150*a))); d.text((48, H-68), text, font=ft, fill=IVORY+(int(230*a),))
+
+def photo(t, T, p, ctx):
+    """Echtes Foto als Abzug auf dem Ermittlertisch (style "print", Standard) oder bildfüllend mit Kamerafahrt ("full").
+    Unverändert (nur Ausschnitt/Zoom), Bildnachweis unten links, optional getippte Bildunterschrift."""
+    key = ("photo", p["file"], p.get("style", "print"))
+    if key not in _CACHE:
+        im = Image.open(f"{ctx['img']}/{p['file']}").convert("RGB")
+        if p.get("style") == "full":
+            _CACHE[key] = np.asarray(im.resize((int(W*1.15), int(W*1.15*im.height/im.width)) if im.width/im.height > W/H else (int(H*1.15*im.width/im.height), int(H*1.15)), Image.LANCZOS))
+        else:
+            desk = Image.fromarray(load(ctx["a"]+"/desk.png", int(W*1.15), int(H*1.15))).convert("RGBA")
+            mw, mh = int(desk.width*0.62), int(desk.height*0.7); sc = min(mw/im.width, mh/im.height)
+            ph = im.resize((int(im.width*sc), int(im.height*sc)), Image.LANCZOS)
+            pr = Image.new("RGBA", (ph.width+40, ph.height+40), (236, 230, 214, 255)); pr.paste(ph, (20, 20)); pr = pr.rotate(-2.0, expand=True, resample=Image.BICUBIC)
+            x0, y0 = (desk.width-pr.width)//2, (desk.height-pr.height)//2
+            sh = Image.new("RGBA", desk.size, (0, 0, 0, 0)); ImageDraw.Draw(sh).rectangle([x0+25, y0+35, x0+pr.width+25, y0+pr.height+35], fill=(0, 0, 0, 170))
+            desk.alpha_composite(sh.filter(ImageFilter.GaussianBlur(22))); desk.alpha_composite(pr, (x0, y0)); _CACHE[key] = np.asarray(desk.convert("RGB"))
+    base = _CACHE[key]; e = ease(t/T)
+    fr = view(base, 0.5+0.03*e, 0.5-0.02*e, 1.0+0.12*e) if p.get("style") == "full" else view(base, 0.5, 0.5, 1.02+0.1*e, rot=-0.6*e)
+    layer = empty(); a = min(1, t/0.3)
+    if p.get("caption") and t > 0.6:
+        d = ImageDraw.Draw(layer); ft = f(TYPE, 48); y = 120; n = int((t-0.6)*16)
+        for ln in p["caption"]:
+            vis = ln[:max(0, n)]; n -= len(ln)
+            if vis:
+                tw = d.textlength(ln, font=ft); d.rectangle([110, y-12, 110+tw+36, y+62], fill=(240, 232, 210, 235)); d.text((128, y), vis, font=ft, fill=INK)
+            y += 84
+    source_line(layer, _credit_for(p, ctx), a)
+    return fr, layer
+
+def _with_source(fn):
+    def w(t, T, p, ctx):
+        r = fn(t, T, p, ctx)
+        if r is None or not p.get("source"): return r
+        fr, layer = r; source_line(layer, "SOURCE: " + p["source"]); return fr, layer
+    return w
+
+RENDER = {"doc": _with_source(doc), "redact": redact, "chart": _with_source(chart), "route": route, "split": split,
+          "news": _with_source(news), "parallax": parallax, "photo": photo}
+DUR["photo"] = 5.0
 
 # ---------- 3D-Diorama (engine/dio_fx.py): Earth Zoom + Polaroid-Zoom ----------
 try:
@@ -210,7 +269,8 @@ SOUNDS = {"doc": [(0.05, "paper", 0.5), (1.6, "highlighter", 0.9), (2.2, "highli
           "route": [(0.3, "pin", 0.8), (1.3, "pin", 0.8), (2.3, "pin", 0.8), (0.5, "zip", 0.4), (1.5, "zip", 0.4)],
           "split": [(0.2, "whoosh", 0.3), (0.5, "slap", 0.6), (1.1, "coins", 0.8)],
           "news": [(0.0, "whoosh", 0.35), (1.25, "flash", 0.9), (2.05, "stamp", 1.0)],
-          "parallax": [(0.1, "whoosh", 0.2)]}
+          "parallax": [(0.1, "whoosh", 0.2)],
+          "photo": [(0.0, "paper", 0.45)]}
 
 # ---------- Übergänge an Schnitten ----------
 TRANS = ["burn", "glitch", "wipe", None, None]   # nicht jeder Schnitt bekommt einen Effekt
