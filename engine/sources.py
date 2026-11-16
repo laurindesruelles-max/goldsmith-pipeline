@@ -27,18 +27,24 @@ usage (Kommandozeile):
   python3 engine/sources.py court "Oakley Luxottica" 3                 (Gerichtsentscheidungen)
   python3 engine/sources.py credits <img_dir>                          (Bildnachweise für die Beschreibung)
 """
-import os, re, sys, json, html, urllib.parse, urllib.request
+import os, re, sys, json, html, urllib.parse, urllib.request, urllib.error
 
-UA = "GoldsmithProductions-research/1.0 (YouTube documentary; contact via channel)"
+UA = "GoldsmithResearchBot/1.0 (https://github.com/laurindesruelles-max/goldsmith-pipeline; YouTube documentary research) python-urllib"
 OK_LIC = re.compile(r"^(pd|public domain|cc0|cc[- ]?zero|cc[- ]by(-sa)?[- ]?\d|cc[- ]by(-sa)?$|no restrictions)", re.I)
 BAD_LIC = re.compile(r"\b(nc|nd|non-?commercial|no ?deriv|fair use|all rights reserved|copyrighted|trademark)\b", re.I)
 
 
-def _get(url, binary=False, timeout=60):
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json, */*"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        data = r.read()
-    return data if binary else data.decode("utf-8", "replace")
+def _get(url, binary=False, timeout=60, tries=4):
+    import time
+    for k in range(tries):
+        req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json, */*"})
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                data = r.read()
+            return data if binary else data.decode("utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            if e.code in (429, 503) and k < tries-1: time.sleep(5*(k+1)); continue
+            raise
 
 
 def _clean(s):

@@ -87,7 +87,7 @@ def _fetch_gltf(slug, res):
 
 
 _LOADED = {}
-def model(slug, loc=(0, 0, 0), rot_z=0.0, scale=1.0, res="1k", rot=None):
+def model(slug, loc=(0, 0, 0), rot_z=0.0, scale=1.0, res="1k", rot=None, fit_height=None):
     """Poly-Haven-Modell einfügen (echte Maße in Metern). Gibt ein Wurzel-Empty zurück (animierbar).
     Mehrfach verwendet -> Meshes werden geteilt (schnell)."""
     import dio as D
@@ -109,6 +109,12 @@ def model(slug, loc=(0, 0, 0), rot_z=0.0, scale=1.0, res="1k", rot=None):
     for o, c in mp.items():
         c.parent = mp.get(o.parent, root) if o.parent in mp else root
         if o.parent not in mp: c.matrix_parent_inverse.identity()
+    if fit_height:   # auf Zielhöhe (m) skalieren, unabhängig von der Originalgröße
+        from mathutils import Vector
+        bpy.context.view_layer.update()
+        zs = [(c.matrix_world @ Vector(v)).z for c in mp.values() if c.type == "MESH" for v in c.bound_box]
+        hgt = (max(zs)-min(zs))/max(root.scale[2], 1e-6) if zs else 1
+        root.scale = (fit_height/max(hgt, 1e-6),)*3
     return root
 
 

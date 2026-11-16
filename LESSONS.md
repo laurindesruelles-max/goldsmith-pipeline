@@ -57,3 +57,12 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 |---|---|---|---|---|---|
 | 002 | Why Luxury Brands Burn Their Own Clothes | 17.11.2026 (S3GMEPAgqas) | Hero „THEY BURNED £28.6 MILLION“ | (noch offen) | Erstes Video mit allen Effekten, Kapitelmusik und Pausen. Länge ~8 Min (kürzer als 001). Thumbnail-Heroes mit Handtaschen ähneln echten Designermodellen (Birkin/Chanel) → solche Motive meiden. Neu hochgeladen mit ruhigerem Sound (1 Kapitel-Hit, kaum Whoosh). |
 | 001 | The Company That Secretly Owns Your Glasses | 15.11.2026 | Hero A „YOU PAY 20X MORE?“ | (noch offen) | Pilot. Musik war nur 1 Track in Schleife; keine Pausen. Ab 002: Kapitel-Musik + beats. |
+
+## Video 003 – GTA 6 (16.11.2026, Veröffentlichung 19.11.)
+- Faktencheck-Agent kam nicht zurück → nicht warten, riskante Szenen selbst gegen Primärquellen prüfen (Transkript, SEC, Gericht) bevor sie vertont werden.
+- Zitate nur nach wörtlicher Prüfung im Transkript; im Zweifel umschreiben statt zitieren.
+- Keine „Fantasie-Kurven“ für Einzelwerte (Anteil, Quartalsrückgang) → counter statt chart.
+- Master-Mix kann 0,0 dBFS Spitze haben → Upload-Kopie immer mit loudnorm I=-14:TP=-1.5.
+- Thumbnail: Thema („GTA 6“) muss im Bild stehen; nur als eigener Text, nie Logo. Laurin mag Miami-Neon-Look ohne Glow hinter der Schrift.
+- Warte-Schleifen nie mit `pgrep -f "<muster>"` in `sh -c` (findet sich selbst).
+- effects.py-Änderungen vor dem Lauf in v3 kopieren und importieren (endcard-Bug: SOUNDS vor Definition benutzt).

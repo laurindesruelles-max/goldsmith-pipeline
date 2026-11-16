@@ -247,6 +247,44 @@ RENDER = {"doc": _with_source(doc), "redact": redact, "chart": _with_source(char
           "news": _with_source(news), "parallax": parallax, "photo": photo}
 DUR["photo"] = 5.0
 
+# ---------- endcard: Pflicht-Ende (Kommentar-Feld, Subscribe-Button, wackelnde Glocke) ----------
+def endcard(t, T, p, ctx):
+    bg = ctx.get("bg")
+    fr = (view(bg, 0.5, 0.5, 1.05+0.04*ease(t/T))*0.35).astype(np.uint8) if bg is not None else np.full((H, W, 3), 14, np.uint8)
+    layer = empty(); d = ImageDraw.Draw(layer)
+    # Kommentar-Feld
+    a1 = eout((t-0.2)/0.4)
+    if a1 > 0:
+        x0, y0 = 360, int(230+40*(1-a1))
+        d.rounded_rectangle([x0, y0, W-360, y0+190], radius=22, fill=(245, 242, 235, int(240*a1)))
+        d.ellipse([x0+30, y0+45, x0+130, y0+145], fill=(60, 60, 64, int(255*a1)))
+        q = p.get("question", "TELL US IN THE COMMENTS")
+        n = int(max(0, t-0.6)*22); d.text((x0+170, y0+52), q[:n], font=f(TYPE, 44), fill=INK+(int(255*a1),))
+        if n < len(q) and int(t*2) % 2 == 0: pass
+        d.line([(x0+170, y0+130), (W-420, y0+130)], fill=(120, 120, 125, int(200*a1)), width=3)
+    # Subscribe-Button (generisch, kein Logo)
+    a2 = eout((t-1.4)/0.3)
+    if a2 > 0:
+        bx, by = W//2-330, 560; s2 = 1+0.15*(1-a2)
+        pressed = t > 2.6
+        col = (60, 60, 64) if pressed else (204, 24, 30)
+        bw, bh = int(460*s2), int(120*s2)
+        d.rounded_rectangle([bx+230-bw//2, by+60-bh//2, bx+230+bw//2, by+60+bh//2], radius=bh//2, fill=col+(int(255*a2),))
+        d.text((bx+230, by+60), "SUBSCRIBED" if pressed else "SUBSCRIBE", font=f(ANTON, int(64*s2)), fill=(255, 255, 255, int(255*a2)), anchor="mm")
+    # Glocke (gezeichnet), wackelt
+    a3 = eout((t-1.8)/0.3)
+    if a3 > 0:
+        gx, gy = W//2+260, 620; ang = math.radians(18*math.sin((t-2.9)*14)*math.exp(-max(0, t-2.9)*2.5)) if t > 2.9 else 0
+        bell = Image.new("RGBA", (220, 220), (0, 0, 0, 0)); bd = ImageDraw.Draw(bell); c = (255, 255, 255, int(255*a3))
+        bd.pieslice([45, 30, 175, 170], 180, 360, fill=c); bd.rectangle([45, 98, 175, 150], fill=c); bd.polygon([(30, 165), (190, 165), (175, 140), (45, 140)], fill=c)
+        bd.ellipse([95, 160, 125, 190], fill=c); bd.ellipse([100, 15, 120, 35], fill=c)
+        bell = bell.rotate(math.degrees(ang), center=(110, 30), resample=Image.BICUBIC)
+        layer.alpha_composite(bell, (gx-110, gy-110))
+        if t > 2.9 and int((t-2.9)*6) % 2 == 0 and t < 4.2:
+            for k2 in (-1, 1): d.arc([gx-150+k2*0, gy-120, gx+150, gy+120], 300 if k2 > 0 else 200, 340 if k2 > 0 else 240, fill=(222, 188, 104, 220), width=8)
+    return fr, layer
+RENDER["endcard"] = endcard; DUR["endcard"] = 6.0
+
 # ---------- 3D-Diorama (engine/dio_fx.py): Earth Zoom + Polaroid-Zoom ----------
 try:
     import dio_fx as DX
@@ -272,6 +310,7 @@ SOUNDS = {"doc": [(0.05, "paper", 0.5), (1.6, "highlighter", 0.9), (2.2, "highli
           "parallax": [(0.1, "whoosh", 0.2)],
           "photo": [(0.0, "paper", 0.45)]}
 
+SOUNDS["endcard"] = [(0.25, "paper", 0.4), (1.45, "slap", 0.5), (2.6, "shutter", 0.6), (2.95, "service_bell", 0.55)]
 # ---------- Übergänge an Schnitten ----------
 TRANS = ["burn", "glitch", "wipe", None, None]   # nicht jeder Schnitt bekommt einen Effekt
 TSOUND = {"burn": ("film_projector", 0.6), "glitch": ("glitch", 0.8), "wipe": ("paper_tear", 0.6)}

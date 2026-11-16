@@ -1,0 +1,781 @@
+{
+ "chapters": {
+  "6": [
+   "GOLDSMITH PRODUCTIONS",
+   "WHO GETS YOUR $80?"
+  ],
+  "9": [
+   "CHAPTER 1",
+   "THE PRICE TAG"
+  ],
+  "17": [
+   "CHAPTER 2",
+   "THE GATEKEEPERS"
+  ],
+  "31": [
+   "CHAPTER 3",
+   "THE BOX WITHOUT A DISC"
+  ],
+  "38": [
+   "CHAPTER 4",
+   "THE BET"
+  ],
+  "48": [
+   "CHAPTER 5",
+   "THE MONEY MACHINE"
+  ],
+  "58": [
+   "CHAPTER 6",
+   "THE CATCH"
+  ],
+  "62": [
+   "FINAL",
+   "THE VERDICT"
+  ]
+ },
+ "music": {
+  "1": "music_tension",
+  "9": "suspense_pulse",
+  "17": "music_tension",
+  "26": "suspense_pulse",
+  "38": "epic_empire",
+  "48": "epic_empire",
+  "58": "emotional_piano",
+  "62": "music_tension"
+ },
+ "beats": {
+  "2": [
+   [
+    "Just a code.",
+    1.1
+   ]
+  ],
+  "5": [
+   [
+    "It isn't that simple.",
+    1.0
+   ]
+  ],
+  "25": [
+   [
+    "For a game Sony didn't make.",
+    1.2
+   ]
+  ],
+  "43": [
+   [
+    "one point six billion dollars.",
+    0.9
+   ]
+  ],
+  "63": [
+   [
+    "A toll road.",
+    1.0
+   ]
+  ]
+ },
+ "scenes": {
+  "1": [
+   [
+    "typed",
+    "On November nineteenth",
+    [
+     "NOVEMBER 19, 2026",
+     "LAUNCH DAY"
+    ]
+   ],
+   [
+    "pop",
+    "up to a hundred dollars",
+    "UP TO $100."
+   ]
+  ],
+  "2": [
+   [
+    "pop",
+    "There is no disc",
+    "NO DISC."
+   ],
+   [
+    "pop",
+    "Just a code",
+    "JUST A CODE.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "3": [
+   [
+    "counter",
+    "an estimated",
+    [
+     "$",
+     942,
+     "M",
+     "EST. DIGITAL PRE-ORDERS (SENSOR TOWER)"
+    ]
+   ]
+  ],
+  "4": [
+   [
+    "pop",
+    "who actually gets it",
+    "WHO GETS YOUR $80?",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "5": [
+   [
+    "pop",
+    "It isn't that simple",
+    "IT ISN'T THAT SIMPLE."
+   ],
+   [
+    "pop",
+    "two companies",
+    "TWO COMPANIES. PAID FIRST.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "7": [
+   [
+    "earthzoom",
+    "The game is built",
+    {
+     "map": "worldmap.png",
+     "pin": [
+      0.725,
+      0.13
+     ],
+     "label": [
+      "EDINBURGH, SCOTLAND",
+      "ROCKSTAR NORTH"
+     ],
+     "aerial": "dio/aerial",
+     "room": "dio/studio",
+     "dur": "scene",
+     "post": {
+      "focus": 0.5,
+      "band": 0.15
+     }
+    }
+   ]
+  ],
+  "8": [
+   [
+    "typed",
+    "Its parent company",
+    [
+     "TAKE-TWO INTERACTIVE",
+     "NEW YORK · NASDAQ: TTWO"
+    ]
+   ]
+  ],
+  "9": [
+   [
+    "typed",
+    "In twenty thirteen",
+    [
+     "2013",
+     "GTA V: $59.99"
+    ]
+   ]
+  ],
+  "10": [
+   [
+    "pop",
+    "sixty-nine ninety-nine",
+    "$69.99"
+   ],
+   [
+    "pop",
+    "seventy-nine ninety-nine",
+    "$79.99.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "11": [
+   [
+    "counter",
+    "ninety-nine ninety-nine",
+    [
+     "$",
+     99.99,
+     "",
+     "ULTIMATE EDITION"
+    ]
+   ]
+  ],
+  "12": [
+   [
+    "counter",
+    "about eighty-nine percent",
+    [
+     "",
+     89,
+     "%",
+     "CHOSE THE $100 VERSION (EST.)"
+    ]
+   ]
+  ],
+  "13": [
+   [
+    "pop",
+    "nine out of ten",
+    "9 OUT OF 10 PAID MORE.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "14": [
+   [
+    "pop",
+    "recurrent consumer spending",
+    "\"RECURRENT CONSUMER SPENDING\""
+   ]
+  ],
+  "15": [
+   [
+    "pop",
+    "investors watch most closely",
+    "RECURRENT SPENDING.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "16": [
+   [
+    "quote",
+    "we tend to avoid",
+    [
+     "“We tend to avoid claiming",
+     "success before it occurs.”",
+     "STRAUSS ZELNICK, CEO, TAKE-TWO · EARNINGS CALL, NOV 2026"
+    ]
+   ]
+  ],
+  "18": [
+   [
+    "pop",
+    "only on two consoles",
+    "PS5 + XBOX SERIES X|S."
+   ],
+   [
+    "pop",
+    "No PC version",
+    "NO PC AT LAUNCH."
+   ]
+  ],
+  "19": [
+   [
+    "pop",
+    "exactly one place",
+    "ONE STORE. NO CHOICE.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "20": [
+   [
+    "counter",
+    "thirty percent",
+    [
+     "",
+     30,
+     "%",
+     "STANDARD DIGITAL STORE FEE"
+    ]
+   ]
+  ],
+  "21": [
+   [
+    "counter",
+    "twenty-four dollars",
+    [
+     "$",
+     24,
+     "",
+     "OF EVERY $80, BEFORE ANYONE ELSE"
+    ]
+   ]
+  ],
+  "22": [
+   [
+    "stamp",
+    "not public",
+    "NOT PUBLIC"
+   ]
+  ],
+  "23": [
+   [
+    "counter",
+    "three quarters",
+    [
+     "",
+     75,
+     "%",
+     "PS5 SHARE OF EST. DIGITAL PRE-ORDERS (SENSOR TOWER)"
+    ]
+   ]
+  ],
+  "25": [
+   [
+    "counter",
+    "roughly two hundred million",
+    [
+     "$",
+     200,
+     "M",
+     "FOR SONY — IF 30% APPLIES (OUR ESTIMATE)"
+    ]
+   ]
+  ],
+  "27": [
+   [
+    "typed",
+    "In London",
+    [
+     "LONDON",
+     "COMPETITION APPEAL TRIBUNAL"
+    ]
+   ],
+   [
+    "typed",
+    "around twelve million",
+    [
+     "CASE 1527/7/7/22",
+     "~12 MILLION UK USERS"
+    ]
+   ]
+  ],
+  "28": [
+   [
+    "redact",
+    "The claim alleges",
+    {
+     "top": "CLAIM AGAINST SONY — ALLEGATION, NOT A RULING",
+     "name": "£1.97 BILLION",
+     "bottom": "ALEX NEILL CLASS REPRESENTATIVE LTD v SONY"
+    }
+   ]
+  ],
+  "29": [
+   [
+    "pop",
+    "Sony rejects the claim",
+    "SONY REJECTS THE CLAIM."
+   ],
+   [
+    "stamp",
+    "not yet ruled",
+    "NO RULING YET"
+   ]
+  ],
+  "30": [
+   [
+    "pop",
+    "ruled against Apple",
+    "APPLE LOST. APPEALING."
+   ]
+  ],
+  "32": [
+   [
+    "dio",
+    "For decades",
+    {
+     "clip": "dio/store",
+     "caption": "LAUNCH NIGHT",
+     "stamp": "SOLD OUT?",
+     "dur": "scene",
+     "post": {
+      "focus": 0.52,
+      "band": 0.12,
+      "warm": 0.1
+     }
+    }
+   ]
+  ],
+  "33": [
+   [
+    "counter",
+    "around a fifth",
+    [
+     "~",
+     20,
+     "%",
+     "TRADITIONAL RETAIL SHARE (INDUSTRY ESTIMATE)"
+    ]
+   ]
+  ],
+  "34": [
+   [
+    "pop",
+    "download code instead of a disc",
+    "CODE IN A BOX."
+   ]
+  ],
+  "35": [
+   [
+    "news",
+    "In July, Sony announced",
+    {
+     "date": "JULY 2026",
+     "h1": "NO MORE DISCS",
+     "h2": "FOR NEW PS GAMES",
+     "sub": "Physical disc production for all new games to end from January 2028",
+     "stamp": "2028",
+     "source": "PLAYSTATION BLOG VIA FOX/KTVU, JUL 2 2026"
+    }
+   ]
+  ],
+  "36": [
+   [
+    "pop",
+    "one more sale",
+    "ONE MORE SALE THROUGH THEIR STORE.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "37": [
+   [
+    "counter",
+    "almost two million",
+    [
+     "",
+     1.98,
+     "M",
+     "NEW DIGITAL PRE-ORDERS IN ONE WEEK (EST.)"
+    ]
+   ]
+  ],
+  "39": [
+   [
+    "typed",
+    "originally planned",
+    [
+     "2025",
+     "ORIGINAL TARGET"
+    ]
+   ],
+   [
+    "typed",
+    "May twenty twenty-six",
+    [
+     "MAY 26, 2026",
+     "DELAYED"
+    ]
+   ],
+   [
+    "stamp",
+    "delayed again",
+    "DELAYED AGAIN"
+   ]
+  ],
+  "41": [
+   [
+    "counter",
+    "six point seven two",
+    [
+     "$",
+     6.72,
+     "B",
+     "NET BOOKINGS FY2026 (RECORD)"
+    ]
+   ]
+  ],
+  "42": [
+   [
+    "counter",
+    "eight to eight point two",
+    [
+     "$",
+     8.2,
+     "B",
+     "FY2027 GUIDANCE (UP TO)"
+    ]
+   ]
+  ],
+  "43": [
+   [
+    "counter",
+    "Net bookings fell",
+    [
+     "-",
+     18,
+     "%",
+     "TAKE-TWO NET BOOKINGS, Q2 FY27 VS. LAST YEAR"
+    ]
+   ]
+  ],
+  "44": [
+   [
+    "counter",
+    "three and a half billion",
+    [
+     "$",
+     3.5,
+     "B",
+     "Q3 NET BOOKINGS GUIDANCE (UP TO)"
+    ]
+   ]
+  ],
+  "45": [
+   [
+    "doc",
+    "official results statement",
+    {
+     "title": "TAKE-TWO INTERACTIVE — RESULTS RELEASE, NOV 9, 2026",
+     "lines": [
+      "CEO Comments",
+      "",
+      "Strauss Zelnick, Chairman and CEO of",
+      "Take-Two Interactive, stated: “The launch",
+      "of Grand Theft Auto VI is ten days away",
+      "and, with pre-orders continuing to reach",
+      "unprecedented levels, we expect to deliver",
+      "an historic year for our company.”"
+     ],
+     "hl": [
+      5,
+      6
+     ],
+     "source": "SEC.GOV · FORM 8-K, EXHIBIT 99.1"
+    }
+   ]
+  ],
+  "46": [
+   [
+    "pop",
+    "a billion dollars or more",
+    "$1 BILLION+? (REPORTS)"
+   ],
+   [
+    "stamp",
+    "never confirmed",
+    "UNCONFIRMED"
+   ]
+  ],
+  "47": [
+   [
+    "photo",
+    "Zelnick said",
+    {
+     "file": "real_strauss_zelnick_1.jpg",
+     "caption": [
+      "STRAUSS ZELNICK",
+      "CEO, TAKE-TWO (PHOTO: 2015)"
+     ],
+     "style": "print"
+    }
+   ]
+  ],
+  "49": [
+   [
+    "typed",
+    "launched in twenty thirteen",
+    [
+     "SEPTEMBER 2013",
+     "GTA V LAUNCH"
+    ]
+   ],
+   [
+    "counter",
+    "eight hundred million",
+    [
+     "$",
+     800,
+     "M+",
+     "IN THE FIRST 24 HOURS"
+    ]
+   ]
+  ],
+  "50": [
+   [
+    "counter",
+    "two hundred and thirty million",
+    [
+     "",
+     230,
+     "M+",
+     "GTA V UNITS SOLD-IN"
+    ]
+   ]
+  ],
+  "51": [
+   [
+    "counter",
+    "four hundred and seventy-five",
+    [
+     "~",
+     475,
+     "M",
+     "GTA SERIES UNITS SOLD-IN"
+    ]
+   ]
+  ],
+  "53": [
+   [
+    "pop",
+    "entry ticket",
+    "THE $80 IS THE ENTRY TICKET.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "54": [
+   [
+    "pop",
+    "Here's roughly",
+    "WHERE YOUR $80 GOES.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "56": [
+   [
+    "counter",
+    "twenty-four dollars",
+    [
+     "$",
+     24,
+     "",
+     "PLATFORM AT STANDARD 30% (EST.)"
+    ]
+   ]
+  ],
+  "57": [
+   [
+    "dio",
+    "About fifty-six",
+    {
+     "clip": "dio/studio",
+     "caption": "WHERE THE $56 GOES",
+     "stamp": "",
+     "dur": "scene",
+     "post": {
+      "focus": 0.5,
+      "band": 0.15
+     }
+    }
+   ]
+  ],
+  "59": [
+   [
+    "words",
+    "They build the consoles",
+    [
+     [
+      "CONSOLES.",
+      "They build the consoles"
+     ],
+     [
+      "NETWORKS.",
+      "run the networks"
+     ],
+     [
+      "PAYMENTS.",
+      "handle payments"
+     ]
+    ]
+   ]
+  ],
+  "60": [
+   [
+    "counter",
+    "fifty-four percent",
+    [
+     "+",
+     54,
+     "%",
+     "MORE PER DIGITAL COPY FOR PUBLISHERS (TOTO)"
+    ]
+   ]
+  ],
+  "61": [
+   [
+    "pop",
+    "can't be resold",
+    "NO RESALE.",
+    [
+     220,
+     40,
+     45
+    ]
+   ]
+  ],
+  "63": [
+   [
+    "pop",
+    "A toll road",
+    "A TOLL ROAD.",
+    [
+     222,
+     188,
+     104
+    ]
+   ]
+  ],
+  "64": [
+   [
+    "typed",
+    "Tell us in the comments",
+    [
+     "STANDARD OR ULTIMATE?",
+     "TELL US IN THE COMMENTS"
+    ]
+   ]
+  ],
+  "65": [
+   [
+    "endcard",
+    "And subscribe",
+    {
+     "question": "STANDARD OR ULTIMATE? TELL US BELOW",
+     "dur": "scene"
+    }
+   ]
+  ],
+  "55": [
+   [
+    "pop",
+    "sales tax",
+    "+ SALES TAX (US) · VAT INCLUDED (EU)"
+   ]
+  ]
+ }
+}

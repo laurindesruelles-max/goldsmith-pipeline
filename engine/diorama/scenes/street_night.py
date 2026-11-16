@@ -11,6 +11,8 @@ import assets as A   # Poly Haven (CC0): echte Texturen + Modelle
 OUT = sys.argv[1]; STILL = int(sys.argv[2]) if len(sys.argv) > 2 else None
 F1 = int(os.environ.get("F1", "168"))
 SIGN = os.environ.get("SIGN", "SUNGLASSES")
+QUEUE = int(os.environ.get("QUEUE", "0"))   # Anzahl wartender Figuren vor dem Laden (z.B. Launch-Nacht)
+BOXES = os.environ.get("BOXES", "0") == "1"   # Schaufenster mit Spieleboxen statt Brillen
 D.reset(samples=int(os.environ.get("SAMPLES", "10")), world=(0.02, 0.03, 0.06), world_strength=1.5)
 
 asphalt = A.texture("asphalt_02", 0.4, tint=(0.35, 0.35, 0.37), rough_mul=0.7)
@@ -43,7 +45,8 @@ D.point((-0.6, 5.2, 1.6), energy=180, color=(1, 0.85, 0.65), radius=1.5)   # Lic
 for r in range(3):
     D.box((5.4, 0.25, 0.04), (-0.6, 6.3, 0.75+r*0.7), D.mat((0.12, 0.1, 0.09), 0.5))
     for i in range(9):
-        D.glasses((-3.0+i*0.6, 6.25, 0.95+r*0.7), rot=0, size=6.0, color=(0.03, 0.03, 0.03)).rotation_euler = (math.pi/2, 0, 0)
+        if BOXES: D.box((0.32, 0.06, 0.42), (-3.0+i*0.6, 6.25, 1.0+r*0.7), D.mat([(0.08, 0.08, 0.1), (0.5, 0.12, 0.1), (0.1, 0.25, 0.45)][(i+r) % 3], 0.4))
+        else: D.glasses((-3.0+i*0.6, 6.25, 0.95+r*0.7), rot=0, size=6.0, color=(0.03, 0.03, 0.03)).rotation_euler = (math.pi/2, 0, 0)
 for i in range(2): D.box((0.5, 0.5, 1.1), (-2.3+i*3.4, 6.2, 0.55), D.mat((0.1, 0.08, 0.07), 0.6))
 # Straßenlaternen
 for x in (-10, 10):
@@ -73,6 +76,10 @@ D.walk(J2, 1, F1, (-7, 4.6, 0.18), (-2.5, 4.6, 0.18))
 D.beam([(-10.3, 2.8, 4.6), (-9.7, 2.8, 4.6), (-9.7, 3.2, 4.6), (-10.3, 3.2, 4.6)], (0, -0.15, -1), length=5.0, strength=0.25, color=(1, 0.7, 0.4))
 D.dust((-12, 1.5, 0.3), (-8.5, 4.2, 5.0), n=140, in_beam=0, drift=(0.002, 0, -0.003))
 
+for q in range(QUEUE):   # Warteschlange entlang der Fassade, leichtes Wippen
+    Jq = D.figure((-3.4+q*0.85, 4.1, 0.18), rot=math.pi/2+0.25*math.sin(q*1.7), shirt=D.CLOTH[q % len(D.CLOTH)], coat=(q % 3 == 0), hat=(q % 4 == 1), seed=60+q)
+    for f in range(1+q*7, F1, 48): D.pose(Jq, f, head=(0, 0, 12*math.sin(q+f)), arm_l=(0, 8, 0)); D.pose(Jq, f+24, head=(0, 5, -10*math.sin(q)), arm_l=(0, -4, 0))
+if QUEUE: D.sound("crowd_hushed", 1, (0.5, 4.1, 1.0), f1=F1, loop=True, gain=0.35, ref=10)
 D.camera(lens=40)
 D.camera_path([(1, (-11, -21, 12.5), (0.5, 4.0, 1.6)), (F1, (-5, -17.5, 9.5), (1.6, 4.5, 1.5))])
 D.render(OUT, 1, F1, still=STILL)
