@@ -19,7 +19,7 @@ Ziel: Jedes Video ist besser als das letzte – Schnitt, Spannung, Sound, Thumbn
 - **Rhythmus**: Spannung → Atempause mit Akte/Dokument → Spannung. Vor jeder großen Enthüllung kurz Stille (beats).
 - **Staub im Gegenlicht** nur in Innenräumen/Archiv/Werkstatt mit Lichtstrahl (Fenster, Lampe) – nicht in hellen Außenszenen. Wenige, langsame Partikel.
 - **3D-Dosierung**: 1 Earth Zoom (Hook) + 2–4 Polaroid-Zooms an Wendepunkten ≈ 10–15 % der Laufzeit. Der Rest bleibt Ermittlungsakte.
-- **Sound in 3D-Szenen**: leiser Raumklang + höchstens 1–2 Objektgeräusche synchron zum Bild. Tastatursound bleibt unverändert (Laurin 16.11.: „mein Tastatursound bleibt ganz normal“).
+- **Sound in 3D-Szenen**: KEIN Rausch-/Wind-Teppich (Laurin 16.11.: Rauschen gefiel nicht). Nur Geräusche zu dem, was man sieht (Auto fährt vor = Autogeräusch, eher leise), automatisch nach Entfernung/Stereo. Bibliothek: assets/sfx/SOUNDS.md. Tastatursound bleibt unverändert (Laurin 16.11.: „mein Tastatursound bleibt ganz normal“).
 
 ## Effekt-Kandidaten (Showreel 15.11.2026, engine/effects_showreel.py)
 Parallax-3D, Dokument-Zoom + Textmarker, Schwärzung aufdecken, animiertes Diagramm, Landkarte mit Routen, Vorher/Nachher-Splitscreen, Übergänge (Film Burn, Glitch, Paper Wipe), Zeitungs-Wirbel. Status: von Laurin ALLE 8 freigegeben (15.11.2026) und in engine/effects.py eingebaut. Pro Video 4–7 dieser Vollbild-Effekte einsetzen, jeden Typ höchstens 2×, passend zum Inhalt (Kursverlust → chart, Enthüllung eines Namens → redact, internes Dokument/Zitat aus Akten → doc, Lieferkette/Orte → route, Wandel → split, Übernahme/Skandal → news, emotionale Schlüsselszene → parallax). Übergänge laufen automatisch an Schnitten.

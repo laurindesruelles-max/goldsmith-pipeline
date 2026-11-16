@@ -24,7 +24,7 @@ Miniatur-Welten im Modelleisenbahn-Look (Tilt-Shift, Staub im Gegenlicht, Teal/O
 - **Nachbearbeitung** automatisch (`engine/diorama/post.py`): Hochskalieren auf 1080p, Tilt-Shift (`focus`, `band`, `blur`), Volumenlicht + Staub (`beam`, `dust`, 0 = aus), Grade (`warm`).
 - **Earth Zoom** (`["earthzoom", anchor, {"map": "map.png", "pin": [x, y], "label": ["ORT", "JAHR"], "aerial": "dio/aerial", "room": "dio/room", "dur": "scene"}]`): Karte auf dem Tisch → Pin + getippter Ort → Flug durch Wolken → Luftaufnahme sinkt bis vors Fenster → warmes Aufblenden → Innenraum. 1× pro Video, im Hook (Ort der Geschichte).
 - **Polaroid-Zoom** (`["dio", anchor, {"clip": "dio/street", "caption": "NEW YORK · 2001", "stamp": "WITNESSED", "amb": "amb_workshop", "dur": "scene"}]`): Pinnwand → Kamera fährt ins Polaroid → Foto wird lebendig → am Ende einfrieren, zurück zum Polaroid, Stempel. 2–4× pro Video an Wendepunkten.
-- **Sound**: Raumklang `amb_*` (assets/sfx) wird geloopt, ein-/ausgeblendet; Musik in 3D-Szenen automatisch auf ~60 % (meta „ducks“). Vorhanden: `amb_wind_descent`, `amb_village`, `amb_workshop`. Neue Atmo/Objektgeräusche bei Bedarf mit Higgsfield `mirelo_text_to_audio` (0,25 Credits/s) erzeugen und in assets/sfx ablegen (Name `amb_<ort>` für Atmo).
+- **Sound**: Nur Geräusche, die man sieht: `D.sound()` hängt sie in Blender an Objekte (drive/walk automatisch), `engine/diorama/cues.py` mischt sie nach Entfernung (leiser, je weiter weg) und Bildposition (Stereo). Kein Wind/Rauschen. Musik in 3D-Szenen automatisch auf ~60 %. Bibliothek + Bezugsquellen: `assets/sfx/SOUNDS.md` (~55 CC0-Geräusche, 0 Credits).
 - **Kosten**: 0 Credits (Blender lokal). Nur Renderzeit: ca. 1–1,5 h pro Video für 1 Earth Zoom + 2–3 Polaroid-Szenen.
 
 ## Lernschleife
