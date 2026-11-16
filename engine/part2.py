@@ -60,8 +60,8 @@ def dips():
             for b, gap in ins: out.append([S0[n]+b+sh, S0[n]+b+sh+gap]); sh += gap
     return out
 def music_cues():
-    """[(globale Startzeit, track)] aus spec.json "music": {"1": "music_tension", "7": "emotional_piano"}"""
-    m = SPEC.get("music") or {str(FIRST): "music_tension"}
+    """[(globale Startzeit, track)] aus spec.json "music": {"1": "crime_archive", "9": "suspense_pulse"}"""
+    m = SPEC.get("music") or {str(FIRST): "crime_archive"}
     return sorted((S0.get(int(k), START), v) for k, v in m.items() if int(k) in S0 or int(k) <= FIRST)
 
 def wt(n, anchor):

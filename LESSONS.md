@@ -76,3 +76,4 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
   Schnitte auch an Kommas bei langen Einstellungen, animierte Daten-Grafiken (engine/graphics.py: bars, breakdown, timeline, flow).
 - Bildwelt abwechseln: nicht alles „dunkler Schreibtisch mit Lampe“ – Straßen, Städte, Studios, Gericht, Börse, Neon.
 - Laurin will lieber kostenlose Lösungen statt KI-Videoclips (Kling ~7,5 Credits/Clip nur nach Rückfrage).
+- Musik (16.11.): Laurin will Krimi-Stil. Gut: crime_archive (True-Crime-Klavier, Cello, Tick-Puls), suspense_pulse, epic_empire, emotional_piano; ok: crime_pulse, night_intro. NICHT: music_tension (gelöscht), Film-Noir-Jazz, Military/Lobby-Synth. Neue Tracks per elevenlabs_music_v2_5 (~22 Credits/150 s), auf -15,7 LUFS normalisieren.

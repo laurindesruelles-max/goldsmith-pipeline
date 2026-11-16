@@ -49,7 +49,7 @@ def load_track(name):
         subprocess.run(['ffmpeg','-y','-loglevel','error','-i',src,'-ar','48000','-ac','2',p],check=True)
     return wf.read(p)[1].astype(np.float32)/32768
 SR=48000; N=int(total*SR)+SR; bed=np.zeros((N,2),np.float32)
-cues=[tuple(c) for c in m2.get('music',[[0,'music_tension']])]; XF=int(2.5*SR)
+cues=[tuple(c) for c in m2.get('music',[[0,'crime_archive']])]; XF=int(2.5*SR)
 for i,(t0,name) in enumerate(cues):
     t1 = cues[i+1][0] if i+1<len(cues) else total
     a=int(t0*SR); b=min(N,int(t1*SR)+XF); tr=load_track(name)
