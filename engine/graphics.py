@@ -77,7 +77,6 @@ def breakdown(t, T, p, ctx):
     return _fin(fr, layer, p, t)
 
 # ---------- timeline: Linie läuft, Termine werden durchgestrichen ----------
-TL_CPS = 28
 def timeline(t, T, p, ctx):
     fr = bg(ctx, t, T); layer = empty(); d = ImageDraw.Draw(layer); _title(d, p.get("title", ""), t)
     st = p["steps"]; n = len(st); xs = [300+i*(1320/(n-1)) for i in range(n)]; y = 560
@@ -87,17 +86,14 @@ def timeline(t, T, p, ctx):
         if t < t0: continue
         a = int(255*ease((t-t0)/0.3)); ok = kind == "ok"; col = GOLD if ok else IVORY
         r = 22+10*(1-eout((t-t0)/0.3)); d.ellipse([xs[i]-r, y-r, xs[i]+r, y+r], fill=col+(a,))
-        # Laurin 17.11.: Termin + Beschriftung tippen sich mit Tastatursound ein (TL_CPS Zeichen/s), kein Pin-Sound
-        nd = int((t-t0)*TL_CPS); nl = int((t-t0)*TL_CPS)-len(date)
-        d.text((xs[i], y-90), date[:max(0, nd)], font=f(ANTON, 76 if ok else 64), fill=col+(a,), anchor="mm")
-        if nl > 0: d.text((xs[i], y+80), lab[:nl], font=f(TYPE, 40), fill=IVORY+(a,), anchor="mm")
-        td = t0+(len(date)+len(lab))/TL_CPS
+        d.text((xs[i], y-90), date, font=f(ANTON, 76 if ok else 64), fill=col+(a,), anchor="mm")
+        d.text((xs[i], y+80), lab, font=f(TYPE, 40), fill=IVORY+(a,), anchor="mm")
         if not ok:
-            pr = eout((t-td-0.05)/0.3); w = f(ANTON, 64).getlength(date)/2+16
+            pr = eout((t-t0-0.45)/0.3); w = f(ANTON, 64).getlength(date)/2+16
             if pr > 0: d.line([(xs[i]-w, y-90), (xs[i]-w+2*w*pr, y-90)], fill=RED+(255,), width=10)
         else:
-            s = 1+0.25*(1-eout((t-td-0.1)/0.3))
-            if t > td+0.1: d.text((xs[i], y+160), p.get("final", "LAUNCH"), font=f(ANTON, int(64*s)), fill=RED+(255,), anchor="mm")
+            s = 1+0.25*(1-eout((t-t0-0.3)/0.3))
+            if t > t0+0.3: d.text((xs[i], y+160), p.get("final", "LAUNCH"), font=f(ANTON, int(64*s)), fill=RED+(255,), anchor="mm")
     return _fin(fr, layer, p, t)
 
 # ---------- flow: Geldfluss Käufer -> Store -> Plattform / Publisher, Münzen wandern ----------
@@ -245,13 +241,9 @@ def _calendar_snd(p, dur):
     n = len(p["pages"]); per = p.get("per", 0.9)
     return [(0.3+per*i+0.55*per, "page_turn", 0.65) for i in range(n-1)]
 SOUNDFN = {"calendar": _calendar_snd}
+# Laurin 17.11.: Zeitleiste = derselbe Klick wie bei Schlagwörtern (text_click) je Termin, kein Pin, keine Tastatur
 def _timeline_snd(p, dur):
-    ev = []
-    for i, (date, lab, kind) in enumerate(p["steps"]):
-        t0 = 0.4+0.9*i
-        for k, ch in enumerate(date+lab):
-            if ch != " ": ev.append((t0+k/TL_CPS, f"key{(i*3+k) % 8}", 0.45))
-    return ev
+    return [(0.4+0.9*i, "text_click", 0.42) for i in range(len(p["steps"]))]
 SOUNDFN["timeline"] = _timeline_snd
 SOUNDFN["bars"] = lambda p, dur: [(0.4+0.45*i, "diagram_whoosh", 0.55) for i in range(len(p["items"]))]
 DATA = ()   # Musik-Ducking bei Daten-Grafiken: vorerst aus (Laurin 17.11.)
