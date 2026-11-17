@@ -241,3 +241,93 @@ def _calendar_snd(p, dur):
     return [(0.3+per*i+0.55*per, "page_turn", 0.65) for i in range(n-1)]
 SOUNDFN = {"calendar": _calendar_snd}
 DATA = ()   # Musik-Ducking bei Daten-Grafiken: vorerst aus (Laurin 17.11.)
+
+# ---------- desktop: Ermittler-PC, Mauszeiger klickt eine Fallakte an, Fenster öffnet sich (Laurin 17.11.) ---------- [NEU, wartet auf Laurins Freigabe]
+#  ["desktop", anchor, {"files": ["Q3_EARNINGS.pdf", "CASE_0047", "LEAKS_2022"], "open": 1,
+#                       "title": "CASE_0047", "lines": ["SUBJECT: ROCKSTAR", "BUDGET: $2B+"], "stamp": "CONFIDENTIAL"}]
+#  Fensterinhalt = scharfes Szenenbild links + getippte Zeilen rechts. Sound: Mausklick beim Anklicken (mouse_click).
+DESK_T = {"sel": 1.35, "dbl": 1.75, "open": 1.95}
+def _folder(d, x, y, s, a, sel):
+    if sel: d.rounded_rectangle([x-18, y-14, x+s+18, y+s*0.82+70], 10, fill=(70, 120, 200, int(90*a/255)), outline=(120, 170, 240, int(200*a/255)), width=2)
+    d.polygon([(x, y+10), (x+s*0.38, y+10), (x+s*0.46, y+24), (x+s, y+24), (x+s, y+s*0.78), (x, y+s*0.78)], fill=(176, 138, 70, a))
+    d.rectangle([x, y+34, x+s, y+s*0.78], fill=(214, 172, 96, a))
+    d.line([(x, y+34), (x+s, y+34)], fill=(236, 200, 128, a), width=3)
+
+def _cursor(layer, x, y, press):
+    s = 1.0-0.12*press
+    pts = [(0, 0), (0, 40), (10, 31), (17, 47), (24, 44), (17, 29), (30, 29)]
+    pts = [(x+px*s*1.3, y+py*s*1.3) for px, py in pts]
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0)); ImageDraw.Draw(sh).polygon([(px+4, py+5) for px, py in pts], fill=(0, 0, 0, 150))
+    layer.alpha_composite(sh.filter(ImageFilter.GaussianBlur(3)))
+    ImageDraw.Draw(layer).polygon(pts, fill=(250, 250, 250, 255), outline=(10, 10, 10, 255))
+
+def desktop(t, T, p, ctx):
+    fr = (np.asarray(bg(ctx, t, T, 0.18), np.float32)*np.array([0.8, 0.9, 1.1])).clip(0, 255).astype(np.uint8)
+    layer = empty(); d = ImageDraw.Draw(layer)
+    files = p.get("files", ["CASE_FILE"]); k = min(p.get("open", 0), len(files)-1)
+    a0 = int(255*ease(t/0.35))
+    # Bildschirm: Monitor-Rahmen + Taskleiste
+    d.rounded_rectangle([60, 50, W-60, H-50], 26, outline=(40, 40, 46, a0), width=14)
+    d.rectangle([74, 64, W-74, 112], fill=(18, 20, 26, int(a0*0.95)))
+    d.text((104, 88), p.get("os", "EVIDENCE TERMINAL"), font=f(INTER, 26), fill=(170, 175, 185, a0), anchor="lm")
+    d.text((W-104, 88), p.get("clock", "02:14 AM"), font=f(INTER, 26), fill=(170, 175, 185, a0), anchor="rm")
+    # Ordner-Raster
+    s = 150; gap = 330; n = len(files); x0 = W/2-(n-1)*gap/2; y0 = 380
+    pos = []
+    for i, name in enumerate(files):
+        ai = int(a0*ease((t-0.15-0.12*i)/0.3)); x = x0+i*gap-s/2
+        sel = i == k and t >= DESK_T["sel"]
+        _folder(d, x, y0, s, ai, sel)
+        lbl = name if f(INTER, 26).getlength(name) < 280 else name[:16]+"…"
+        d.text((x+s/2, y0+s*0.78+30), lbl, font=f(INTER, 26), fill=(235, 235, 240, ai), anchor="mm")
+        pos.append((x+s/2, y0+s*0.45))
+    # Zeiger fährt zur Akte
+    tx, ty = pos[k]; sx, sy = W*0.82, H*0.86
+    m = ease((t-0.45)/0.85); cx = sx+(tx-sx)*m + 40*math.sin(m*math.pi)*(1-m); cy = sy+(ty-sy)*m
+    press = max(0, 1-abs(t-DESK_T["sel"])/0.06) + max(0, 1-abs(t-DESK_T["dbl"])/0.05) + max(0, 1-abs(t-DESK_T["dbl"]-0.12)/0.05)
+    # Fenster öffnet sich aus der Akte heraus
+    to = DESK_T["open"]
+    if t >= to:
+        e = eout((t-to)/0.35); ww, wh = 1500, 760; wx, wy = W/2, H/2+40
+        cw, ch = ww*(0.15+0.85*e), wh*(0.15+0.85*e); X0 = tx+(wx-tx)*e-cw/2; Y0 = ty+(wy-ty)*e-ch/2
+        win = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dw = ImageDraw.Draw(win)
+        dw.rectangle([X0+14, Y0+18, X0+cw+14, Y0+ch+18], fill=(0, 0, 0, 150))
+        win = win.filter(ImageFilter.GaussianBlur(14)); dw = ImageDraw.Draw(win)
+        dw.rectangle([X0, Y0, X0+cw, Y0+ch], fill=(232, 226, 212, 255))
+        dw.rectangle([X0, Y0, X0+cw, Y0+54*e+1], fill=(30, 33, 42, 255))
+        if e > 0.9:
+            dw.text((X0+28, Y0+27), p.get("title", files[k]), font=f(INTER, 26), fill=(220, 220, 228, 255), anchor="lm")
+            for j, c in enumerate([(205, 60, 60), (220, 170, 60), (80, 170, 90)]):
+                dw.ellipse([X0+cw-40-j*34-11, Y0+16, X0+cw-40-j*34+11, Y0+38], fill=c+(255,))
+            b = ctx.get("bg")
+            if b is not None:
+                ih = int(wh-124); iw = int(ih*b.shape[1]/b.shape[0]); im = Image.fromarray(b).resize((iw, ih))
+                im = im.crop(((iw-700)//2, 0, (iw-700)//2+700, ih))
+                win.alpha_composite(im.convert("RGBA"), (int(X0+40), int(Y0+84)))
+            tx0 = X0+(780 if b is not None else 60); yy = Y0+110; tt = t-to-0.45
+            chars = int(max(0, tt)*38)
+            for ln in p.get("lines", []):
+                shown = ln[:max(0, chars)]; chars -= len(ln)+4
+                dw.text((tx0, yy), shown, font=f(TYPE, 40), fill=(28, 22, 18, 255)); yy += 70
+            if p.get("stamp") and t > to+1.6:
+                q = eout((t-to-1.6)/0.18); sz = int(64*(1.6-0.6*q))
+                st = Image.new("RGBA", (900, 200), (0, 0, 0, 0)); ds = ImageDraw.Draw(st)
+                ds.rectangle([10, 10, 890, 190], outline=RED+(int(230*q),), width=8)
+                ds.text((450, 100), p["stamp"], font=f(ANTON, sz), fill=RED+(int(230*q),), anchor="mm")
+                st = st.rotate(-8, expand=True, resample=Image.BICUBIC)
+                win.alpha_composite(st, (int(X0+cw-st.width-30), int(Y0+ch-st.height-20)))
+        layer.alpha_composite(win)
+    if t < to+0.5: _cursor(layer, cx, cy, min(1, press))
+    return fr, layer
+
+def _desktop_snd(p, dur):
+    ev = [(DESK_T["sel"], "mouse_click", 0.7), (DESK_T["dbl"], "mouse_click", 0.6), (DESK_T["dbl"]+0.12, "mouse_click", 0.65)]
+    if p.get("stamp"): ev.append((DESK_T["open"]+1.6, "slap", 0.5))
+    import random; random.seed(7); t0 = DESK_T["open"]+0.45; k = 0   # Tastatur wie beim Schreibmaschinentext (38 Zeichen/s)
+    for ln in p.get("lines", []):
+        for ch in ln:
+            if ch != " " and k % 2 == 0: ev.append((t0+k/38, f"key{random.randint(0,3)}", 0.75*0.6))
+            k += 1
+        k += 4
+    return ev
+RENDER["desktop"] = desktop; DUR["desktop"] = 5.5; SOUNDFN["desktop"] = _desktop_snd
