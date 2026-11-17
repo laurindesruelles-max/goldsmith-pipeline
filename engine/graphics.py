@@ -242,7 +242,7 @@ def _calendar_snd(p, dur):
 SOUNDFN = {"calendar": _calendar_snd}
 DATA = ()   # Musik-Ducking bei Daten-Grafiken: vorerst aus (Laurin 17.11.)
 
-# ---------- desktop: Ermittler-PC, Mauszeiger klickt eine Fallakte an, Fenster öffnet sich (Laurin 17.11.) ---------- [NEU, wartet auf Laurins Freigabe]
+# ---------- desktop: Ermittler-PC, Mauszeiger klickt eine Fallakte an, Fenster öffnet sich (Laurin 17.11.) ---------- [von Laurin freigegeben 17.11.]
 #  ["desktop", anchor, {"files": ["Q3_EARNINGS.pdf", "CASE_0047", "LEAKS_2022"], "open": 1,
 #                       "title": "CASE_0047", "lines": ["SUBJECT: ROCKSTAR", "BUDGET: $2B+"], "stamp": "CONFIDENTIAL"}]
 #  Fensterinhalt = scharfes Szenenbild links + getippte Zeilen rechts. Sound: Mausklick beim Anklicken (mouse_click).
