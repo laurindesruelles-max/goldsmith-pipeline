@@ -52,16 +52,21 @@ SR=48000; N=int(total*SR)+SR; bed=np.zeros((N,2),np.float32)
 cues=[tuple(c) for c in m2.get('music',[[0,'crime_archive']])]; XF=int(2.5*SR)
 # Laurin 16.11.: vor jedem Musikwechsel (= Kapitel) Musik ausblenden, kurze Stille, neuer Track setzt mit der Kapitelkarte ein
 FO=int(2.2*SR); GAP=int(0.5*SR); FI=int(1.2*SR)
-# Laurin 17.11.: an Kapitelkarten Musik vorher leiser werden lassen, Karte ~2 s ohne Musik (nur Kapitel-Hit), dann neuer Track
-CARD_GAP=2.0
+# Laurin 17.11.: an Kapitelkarten läuft die alte Musik über die Karte weiter und blendet dort aus,
+# der neue Track setzt erst ~2,5 s nach Kapitelbeginn ein. Wechsel mitten im Kapitel wie bisher (Ausblenden, 0,5 s Stille).
+CARD_IN=2.5; CARD_OUT=2.0; CARD_FO=int(1.6*SR)
 for i,c in enumerate(cues):
     t0,name=c[0],c[1]; at_card = c[2] if len(c)>2 else True
+    nxt_card = (cues[i+1][2] if len(cues[i+1])>2 else True) if i+1<len(cues) else False
     t1 = cues[i+1][0] if i+1<len(cues) else total
-    a=int(t0*SR)+(int((CARD_GAP if at_card else 0.55)*SR) if i>0 else 0); b=min(N,int(t1*SR)-(GAP if i+1<len(cues) else 0)); tr=load_track(name)
+    a=int(t0*SR)+(int((CARD_IN if at_card else 0.55)*SR) if i>0 else 0)
+    if i+1<len(cues): b=min(N,int((t1+CARD_OUT)*SR) if nxt_card else int(t1*SR)-GAP)
+    else: b=N
+    tr=load_track(name)
     if b<=a: continue
     seg=np.concatenate([tr]*(1+(b-a)//len(tr)))[:b-a].copy()
     ramp=min(FI,len(seg)); seg[:ramp]*=np.linspace(0,1,ramp)[:,None]
-    if i+1<len(cues): k=min(FO,len(seg)); seg[-k:]*=np.linspace(1,0,k)[:,None]
+    if i+1<len(cues): k=min(CARD_FO if nxt_card else FO,len(seg)); seg[-k:]*=np.linspace(1,0,k)[:,None]
     bed[a:a+len(seg)]+=seg
 env=np.ones(N,np.float32)
 for d0,d1 in m2.get('dips',[]):

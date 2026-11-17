@@ -106,7 +106,8 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Handy-Nachricht (phone) = phone_notify (Laurins eigener Notification-Sound, 17.11.). Schlagwörter = text_click (Laurins Klick). Laurin hat ein Paket mit ~1000 Effekten und schickt gezielt Sounds.
 - Zeitung (news) = news_spin (Laurins Sound) statt whoosh; Blitz + Stempel bleiben (17.11.).
 - Endkarte: Frage tippt sich mit Tastatursound ein (SOUNDFN endcard), restliche Endkarten-Sounds bleiben (17.11.).
-- Musik an Kapitelkarten (Laurin 17.11.): alter Track blendet vor der Karte aus, Karte läuft ~2 s nur mit Kapitel-Hit, DANN setzt der neue Track ein (mix_full.py CARD_GAP=2.0; Musikwechsel mitten im Kapitel weiter nach 0,55 s).
+- Musik an Kapitelkarten (Laurin 17.11., zweite Fassung): alte Musik läuft ÜBER die Kapitelkarte weiter und blendet dort aus (bis Kartenstart + 2,0 s), neuer Track setzt erst 2,5 s nach Kapitelbeginn ein (mix_full.py CARD_IN/CARD_OUT). Musikwechsel mitten im Kapitel weiter wie bisher.
+- Earth-Zoom (Laurin 17.11.): Kartenphase A_DUR 5,1 s statt 2,6 s, Zoom gleichmäßig langsamer über die ganze Länge des neuen Risers zoom_riser (Höhepunkt beim Durchstoßen, dann zoom_deep_impact). Szenen mit earthzoom brauchen ~2,5 s mehr Platz.
 - Schwärzung (redact): Sound gefällt Laurin nicht -> neuen suchen (offen).
 - Textmarker in der Akte (doc) = marker_stroke / marker_stroke2 (Laurins eigene Aufnahme, 17.11.) statt highlighter.
 - Kurs-Grafik (chart) = data_loading (Laurins Data-Loading-Sound) während die Linie läuft + sub_drop bei der Zahl; Herzschlag und Ticks entfernt (17.11.).

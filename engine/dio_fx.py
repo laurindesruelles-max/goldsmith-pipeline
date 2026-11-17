@@ -131,7 +131,7 @@ def warm_flash(fr, k):
 
 
 # ======================================================================== Earth Zoom
-A_DUR = 2.6     # Kartenphase
+A_DUR = 5.1     # Kartenphase (Laurin 17.11.: Zoom langsamer, so lang wie der Riser zoom_riser; vorher 2.6)
 
 
 def earthzoom(t, T, p, ctx):
@@ -147,13 +147,13 @@ def earthzoom(t, T, p, ctx):
     post_r = dict({"focus": 0.45, "band": 0.14}, **p.get("post", {}))
     if t < A_DUR:
         # 1) Karte: kurzer Halt, Pin fällt, Ort wird getippt, dann exponentieller Zoom in den Pin
-        z = 1.0 if t < 1.1 else 1.0*math.exp(ein((t-1.1)/(A_DUR-1.1))*3.0)
+        z = 1.0 if t < 1.1 else 1.0*math.exp(min(1.0, max(0.0, (t-1.1)/(A_DUR-1.1)))**2.2*3.0)   # gleichmäßiger Sog über die ganze Riser-Länge
         cx = 0.5+(px-0.5)*ease((t-0.2)/1.4); cy = 0.5+(py-0.5)*ease((t-0.2)/1.4)
         fr = view(MAP, cx, cy, z)
         ih, iw = MAP.shape[:2]; cw = iw/z; chh = cw*H/W
         ox = min(max(cx*iw-cw/2, 0), iw-cw); oy = min(max(cy*ih-chh/2, 0), ih-chh)
         pxs = (px*iw-ox)*W/cw; pys = (py*ih-oy)*W/cw
-        pin_a = 1.0 - ease((t-1.5)/0.6)   # Pin verblasst, bevor wir in die Wolken tauchen
+        pin_a = 1.0 - ease((t-(A_DUR-1.4))/0.6)   # Pin verblasst, bevor wir in die Wolken tauchen
         if t > 0.3 and pin_a > 0.01:
             pl = Image.new("RGBA", (W, H), (0, 0, 0, 0))
             d = ImageDraw.Draw(pl); pr = eout((t-0.3)/0.3); yo = -220*(1-pr); r = 22
@@ -172,7 +172,7 @@ def earthzoom(t, T, p, ctx):
             lab = Image.new("RGBA", (W, H), (0, 0, 0, 0)); typed_label(lab, t-0.6, p["label"], (min(W-620, pxs+60), max(60, pys-40)))
             if al < 1: lab.putalpha(lab.getchannel("A").point(lambda v: int(v*max(0, al))))
             layer.alpha_composite(lab)
-        k = ease((t-1.6)/(A_DUR-1.6))
+        k = ease((t-(A_DUR-1.0))/1.0)   # Wolken erst in der letzten Sekunde
         fr = cloud_pass(fr, k*0.6, k*0.9)
         if t > A_DUR-0.35:   # Übergang in die Luftaufnahme
             f2 = clip_frame(aerial, 0, ta, post_a); m = ease((t-(A_DUR-0.35))/0.35)
@@ -211,7 +211,8 @@ def earthzoom_sounds(p, dur):
     Kein Wind/Rauschen (Laurin 16.11.2026)."""
     ta = clip_dur(p["aerial"]); ev = [(0.3, "pin", 0.8)]
     # Reinzoomen hörbar machen (Laurin 17.11.): Riser beim Abtauchen, Whoosh beim Durchstoßen, zweiter Whoosh in den Raum
-    ev += [(0.9, "riser", 0.4), (A_DUR-0.39, "zoom_deep_impact", 0.9)]   # Laurin 17.11.: Mixkit „Cinematic whoosh deep impact“, Treffer genau beim Durchstoßen
+    # Laurin 17.11.: eigener Riser (zoom_riser, 4,75 s) läuft über die ganze Kartenphase, Höhepunkt beim Durchstoßen
+    ev += [(max(0.0, A_DUR-0.35-4.75), "zoom_riser", 0.8), (A_DUR-0.39, "zoom_deep_impact", 0.9)]   # Laurin 17.11.: Mixkit „Cinematic whoosh deep impact“, Treffer genau beim Durchstoßen
     if p.get("room"): ev += [(A_DUR+ta-0.35, "whoosh", 0.55)]
     ev += cue_event(A_DUR, p["aerial"], ta)
     if p.get("amb_aerial"): ev += [(A_DUR+0.2, f"amb:{p['amb_aerial']}:{max(0.5, ta-0.2):.2f}", 0.25)]
