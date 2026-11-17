@@ -302,7 +302,7 @@ def dur_of(kind, params, t0, scene_T):
     if d: return float(d)
     return DUR[kind]
 SOUNDS = {"doc": [(0.05, "paper", 0.5), (1.6, "marker_stroke", 0.8), (2.2, "marker_stroke2", 0.8)],   # Laurins eigener Marker-Sound (17.11.)
-          "redact": [(0.8, "zip", 0.5), (1.4, "paper_tear", 0.9), (1.42, "sub_drop", 0.8), (2.2, "zip", 0.5)],
+          "redact": [(0.78, "paper_slide", 0.55), (1.38, "paper_slide", 0.65), (1.42, "sub_drop", 0.8), (2.18, "paper_slide", 0.55)],   # Laurin 17.11.: Paper-Slide je Balken
           "chart": [(0.15, "data_loading", 0.6), (2.7, "sub_drop", 1.0)],   # Laurin 17.11.: Data-Loading-Sound statt Herzschlag + Ticks
           "route": [(0.3, "pin", 0.8), (1.3, "pin", 0.8), (2.3, "pin", 0.8), (0.5, "zip", 0.4), (1.5, "zip", 0.4)],
           "split": [(0.2, "whoosh", 0.3), (0.5, "slap", 0.6), (1.1, "coins", 0.8)],
