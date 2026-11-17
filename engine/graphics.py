@@ -132,7 +132,7 @@ SOUNDS = {"bars": [(0.5, "zip", 0.35), (0.95, "zip", 0.3), (1.4, "zip", 0.3)],
 
 # =====================================================================================
 # Neue Effekte (Laurin 17.11.2026: mehr Effekte). Alle kostenlos, prozedural.
-# FREIGEGEBEN (Laurin 17.11.): phone, calendar. NICHT freigegeben (nur auf Wunsch): kinetic, ticker.
+# FREIGEGEBEN (Laurin 17.11.): phone, calendar, desktop. NICHT freigegeben (nur auf Wunsch): kinetic, ticker.
 # ["kinetic", anchor, {"text": "THEY TAKE 30% OF EVERY SALE", "hl": ["30%"]}]          Wort für Wort, Schlüsselwort gold
 # ["phone", anchor, {"app": "MARKETS", "title": "Take-Two shares fall 8%", "body": "...", "time": "NOV 9"}]  Push-Nachricht auf Handy
 # ["calendar", anchor, {"pages": ["2025", "MAY 26, 2026", "NOV 19, 2026"], "last": "LAUNCH"}]   Abreißkalender blättert
