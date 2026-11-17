@@ -37,6 +37,7 @@ Neue Geräusche: Hugging-Face-Sample (frei, unbegrenzt) → sonst SFXMint-API mi
 | service_bell | service-bell-01 | A soft service bell, for calm UI. |
 | phone_ring | office-ringtone-01 | A phone ringtone sound for incoming calls and phone scenes in apps, videos and games. |
 | elevator_ding | office-elevator-08 | An elevator ding sound for elevators and arrival cues in videos, games and apps. |
+| data_loading | von Laurin geschickt (17.11.2026): „Loading Animation Sound Effect (Free Download, No Copyright)“, Vorbild youtube.com/shorts/yFD-XAaKf54; gekürzt auf 1,68 s, Spitze -1 dB | Kurs-Grafik (chart): Linie zeichnet sich |
 | phone_notify | von Laurin geschickt (17.11.2026, aus seinem Effekt-Paket; Notification.wav, auf 1,06 s gekürzt, Spitze -1 dB) | Handy-Push-Nachricht (Effekt phone) |
 | text_click | von Laurin geschickt (17.11.2026, aus seinem Paket mit ~1000 Effekten; Datei 7dd9c3b3-06.wav, Anfangsstille entfernt, Spitze auf -0,9 dB) – ersetzt den Meisterwerk-Klick | Klick bei Schlagwörtern und Text-Einblendungen (Laurin: „sogar besser“) |
 | camera_click | office-camera-08 | A bright camera shutter sound for taking photos and screenshots in apps and videos. |

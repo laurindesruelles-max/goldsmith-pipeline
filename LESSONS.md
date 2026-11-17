@@ -104,4 +104,5 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Weitere Wahl 17.11.: Geld = money_clink (Mixkit „Clinking coins“, ersetzt coins), Kalenderblatt = page_turn (Mixkit „Page turn single“).
   Abgelehnt: alle 3 Varianten für Diagramm, Textwort, Handy-Nachricht -> dort vorerst alte Sounds, neue Varianten suchen.
 - Handy-Nachricht (phone) = phone_notify (Laurins eigener Notification-Sound, 17.11.). Schlagwörter = text_click (Laurins Klick). Laurin hat ein Paket mit ~1000 Effekten und schickt gezielt Sounds.
+- Kurs-Grafik (chart) = data_loading (Laurins Data-Loading-Sound) während die Linie läuft + sub_drop bei der Zahl; Herzschlag und Ticks entfernt (17.11.).
 - phone-Effekt: Benachrichtigungs-Box wächst jetzt mit dem Text (vorher lief der Text unten raus).
