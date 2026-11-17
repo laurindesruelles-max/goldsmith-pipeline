@@ -1,29 +1,40 @@
-# QA – 003 Who Really Makes Money From GTA 6? (16.11.2026)
+# Prüfbericht – 003-gta6-money (2026-11-17)
 
-## Technik (engine/qa.py auf UPLOAD.mp4)
-- Länge 11:09, 1920x1080, Ton vorhanden
-- Lautheit -14,1 LUFS, Spitze -1,0 dBFS (Master hatte 0,0 dBFS → in Upload-Kopie per loudnorm TP -1,5 korrigiert)
-- Keine Schwarzbilder, keine Standbilder ≥4 s, 278 MB
+## 1. Technik (automatisch, engine/qa.py)
+- [x] OK: Länge 11:09 (Minimum 8:00)
+- [x] OK: Bild 1920x1080
+- [x] OK: Tonspur vorhanden
+- [x] OK: Lautheit -14.2 LUFS (Ziel -14 ±2,5)
+- [x] OK: Spitzenpegel -1.0 dBFS (max. −0,5)
+- [x] OK: Schwarzbilder mitten im Video: keine
+- [x] OK: Standbild-Stellen (≥4 s ohne Bewegung): 0 
+- [x] OK: Dateigröße 277 MB (Info – Upload-Kopie muss < 299 MB sein)
+- [ ] Kontaktbogen `qa_frames.jpg` angesehen: Tippfehler in Einblendungen, abgeschnittener Text, Bildfehler, Ton synchron (Stichproben)
 
-## Fakten (eigener Faktencheck, Agent-Bericht kam nicht zurück)
-- Zelnick-Budget-Zitat war falsch wiedergegeben → als Umschreibung (Szene 47), Transkript geprüft
-- „Ultimate = RCS“ stammt von CFO Goldstein → als „the company said“ formuliert
-- Sony-Marketingrechte ohne Quelle → gestrichen (Szene 24)
-- CAT Neill v Sony: kein Urteil gefunden → „at the time of recording, not yet ruled“
-- Sensor Tower „all of them digital“ → „digital pre-orders“ (Szene 37)
-- $24 als Standardsatz gekennzeichnet (Szene 56), Plattform-Konditionen „not public“ (Szene 22)
-- Disc-Stopp 2028: Sony-Wortlaut „all new games releasing on PlayStation consoles“ bestätigt
-- Erfundene Kurvendiagramme (Szenen 23, 43) durch Zahlen-Counter ersetzt
+## 2. Fakten (unabhängiger Faktencheck durch separaten Agenten)
+Tabelle: Aussage im Skript | Quelle (Link) | Stimmt? (ja / teilweise / nein / unbelegt) | Korrektur
+- [ ] Jede Zahl, jedes Datum, jeder Name, jedes Zitat geprüft; alles mit „nein“/„unbelegt“ wurde geändert oder gestrichen
 
-## Recht
-- Echtes Foto: Strauss Zelnick, Christopher Michel, CC BY 2.0, Credit im Bild + Beschreibung
-- Zitat aus SEC 8-K wörtlich, Quelle eingeblendet
-- Keine GTA-Logos, Spielszenen oder Cover-Art; „GTA 6“ nur als Text (beschreibende Nennung)
-- Klage als Vorwurf formuliert, Sonys Position genannt
-- Disclaimer: keine Verbindung zu Rockstar/Take-Two/Sony/Microsoft; Markenhinweis; keine Finanzberatung
+## 3. Recht (keine Rechtsberatung – Sorgfaltsprüfung)
+- [ ] Äußerungsrecht: Tatsachen nur mit Beleg; Vorwürfe/laufende Verfahren als „Vorwurf“/„laut …“; Urteile korrekt (Gericht, Jahr); Meinung als Meinung erkennbar; keine Beleidigung, keine Spekulation über Privates
+- [ ] Personen: keine echten Fotos, keine realistischen KI-Gesichter realer Personen, keine Privatpersonen identifizierbar
+- [ ] Marken: keine Logos/Markenzeichen im Bild oder Thumbnail; Markennamen nur beschreibend; Hinweis „not affiliated/endorsed“ in der Beschreibung
+- [ ] Titel und Thumbnail versprechen nichts, was das Video nicht belegt (kein irreführender Vorwurf)
 
-## YouTube „Altered or synthetic content“
-- Nicht nötig: KI-Bilder sind erkennbar illustrativ, keine realistische Darstellung echter Personen/Ereignisse; Stimme ist Sprecher-Preset, gibt sich nicht als echte Person aus.
+## 4. Lizenzen (Protokoll)
+| Material | Quelle | Lizenz |
+|---|---|---|
+| Sprecherstimme | Higgsfield (Preset-Stimme) | Higgsfield-Abo (kommerzielle Nutzung laut Plan) |
+| KI-Bilder / Thumbnail | Higgsfield gpt_image | Higgsfield-Abo |
+| Musik | assets/music (ElevenLabs über Higgsfield) | Higgsfield-Abo |
+| Geräusche | assets/sfx (SOUNDS.md) – SFXMint | CC0 |
+| 3D-Texturen/Modelle | Poly Haven | CC0 |
+| Schriften | Anton, Special Elite, Playfair Display, Inter | SIL OFL / Apache |
+- [ ] Kein fremdes Material (Filmausschnitte, Fotos, Musik) außer den oben gelisteten Quellen
 
-## Thumbnail
-- thumb_b5.jpg (Miami-Neon, „GTA 6“ eigene Schrift, kein Logo) – von Laurin gewählt
+## 5. YouTube
+- [ ] Realistisch wirkende KI-Bilder echter Orte/Ereignisse → beim Upload „Veränderte oder synthetische Inhalte: Ja“ setzen (Laurin im Studio, falls die API es nicht kann)
+- [ ] Beschreibung: Quellenliste, Kapitel, Marken-Hinweis; keine < oder > Zeichen
+- [ ] Werbefreundlich: keine Gewaltbilder, keine Schimpfwörter, keine reißerischen Schock-Thumbnails mit Verletzungen
+
+## Ergebnis: TECHNIK OK · Fakten/Recht/Lizenzen: oben abhaken, erst dann Laurin zur Freigabe schicken

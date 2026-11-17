@@ -646,9 +646,28 @@ def _export_meta(out, f0, f1):
     json.dump(meta, open(f"{out}/meta.json", "w"))
 
 
+def fast_mode():
+    """FAST=1: Cycles mit wenig Samples/kleiner Auflösung (≈3–4x schneller). FAST=wb: Workbench (≈10x, flacher Look)."""
+    f = os.environ.get("FAST")
+    if not f: return
+    if f == "wb":
+        SC.render.engine = "BLENDER_WORKBENCH"; sh = SC.display.shading
+        sh.light = "STUDIO"; sh.color_type = "TEXTURE"; sh.show_shadows = True; sh.show_cavity = True
+        sh.cavity_type = "BOTH"; SC.display.shading.shadow_intensity = 0.6
+        for m in bpy.data.materials:
+            try:
+                b = m.node_tree.nodes.get("Principled BSDF")
+                if b: m.diffuse_color = tuple(b.inputs["Base Color"].default_value)
+            except Exception: pass
+    else:
+        SC.cycles.samples = int(os.environ.get("SAMPLES", "4")); SC.cycles.use_denoising = True
+        SC.cycles.max_bounces = 2; SC.cycles.diffuse_bounces = 1; SC.cycles.glossy_bounces = 1
+        SC.render.resolution_percentage = int(os.environ.get("RES_PCT", "67"))
+
 def render(out, f0=1, f1=240, still=None):
     """Rendert PNG-Frames nach out/f_####.png und schreibt out/meta.json (Staub/Lichtstrahl)."""
     os.makedirs(out, exist_ok=True)
+    fast_mode()
     SC.frame_start, SC.frame_end = f0, f1
     if os.environ.get("META_ONLY"):   # nur meta.json (Staub, Lichtstrahl, Geräusche) neu schreiben
         _export_meta(out, f0, f1); return
