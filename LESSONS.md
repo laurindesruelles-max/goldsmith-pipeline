@@ -96,7 +96,7 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Musik (Laurin 17.11.): KEINE neuen Tracks pro Video erzeugen – nur die feste Bibliothek in assets/music nutzen. Neue Tracks nur, wenn Laurin es ausdrücklich verlangt (kostet Credits).
 - Echtes Videomaterial: Pixabay statt Pexels (Pexels vergibt derzeit keine API-Schlüssel). engine/stock.py, Schlüssel nur zur Laufzeit (PIXABAY_KEY), bei Laurin erfragen.
 - Sound-Test 17.11. (UI-Blips, Whooshes, Zähl-Sound aus SFXMint) hat Laurin ALLE abgelehnt („sehr schlecht“) -> verworfen, alte Sounds bleiben.
-  Auch der alte Diagramm-Sound (zip) gefällt ihm nicht -> bessere Quelle nötig, nicht wieder die SFXMint-UI-Sounds nehmen.
+  Diagramm-Sound zip: am 17.11. nach Hörprobe doch von Laurin bestätigt („das passt“) -> bleibt, nicht mehr ersetzen.
 - Effekte freigegeben: phone (Push-Nachricht auf Handy), calendar (Abreißkalender). NICHT freigegeben: kinetic, ticker, spot, Lichtleck (nur auf Wunsch).
 - engine/demo_mix.py: schneller Probe-Mix einzelner Szenen (Stimme + Sounds + Musik) ohne Gesamt-Mix.
 - Sound-Auswahl Mixkit (17.11.): Kartenpunkt-Variante 3 „Cinematic whoosh deep impact“ = zoom_deep_impact für den Zoom von der Karte in die 3D-Animation. Zahl zählt hoch: bisherigen Sound (tick) BEHALTEN. Weitere Wahl folgt.

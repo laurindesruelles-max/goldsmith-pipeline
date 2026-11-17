@@ -128,7 +128,7 @@ SOUNDS = {"bars": [(0.5, "zip", 0.35), (0.95, "zip", 0.3), (1.4, "zip", 0.3)],
           "timeline": [(0.4, "pin", 0.5), (1.3, "pin", 0.5), (2.2, "pin", 0.5)],
           "flow": [(0.9, "zip", 0.4), (2.0, "money_clink", 0.5), (2.6, "zip", 0.35)],
           "phone": [(0.9, "phone_notify", 0.55)]}  # Laurins Notification-Sound (17.11.)
-# Laurin 17.11.: die neuen UI-Sounds (ui_blip, whoosh_soft …) klangen schlecht -> verworfen. Bessere Sounds noch offen.
+# Laurin 17.11.: die neuen UI-Sounds (ui_blip, whoosh_soft …) klangen schlecht -> verworfen. zip bei Diagrammen von Laurin bestätigt (bleibt).
 
 # =====================================================================================
 # Neue Effekte (Laurin 17.11.2026: mehr Effekte). Alle kostenlos, prozedural.
