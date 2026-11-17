@@ -109,6 +109,7 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Musik an Kapitelkarten (Laurin 17.11., ENDGÜLTIG 3. Fassung): alte Musik bricht genau beim Bass-Hit der Kapitelkarte ab (Karte +0,6 s, 40 ms Blende), Karte steht ohne Musik, neuer Track beginnt 4 s nach Kapitelbeginn leise (25 %) und wird über 2,5 s normal laut (mix_full.py CARD_CUT/CARD_IN/CARD_FI). Wechsel mitten im Kapitel wie bisher.
 - Earth-Zoom (Laurin 17.11.): Kartenphase A_DUR 5,1 s statt 2,6 s, Zoom gleichmäßig langsamer über die ganze Länge des neuen Risers zoom_riser (Höhepunkt beim Durchstoßen, dann zoom_deep_impact). Szenen mit earthzoom brauchen ~2,5 s mehr Platz.
 - Landkarte (route) + Earth-Zoom: Pins mit pin_pop (Laurins Pop-Sound, 17.11.), Ortsnamen tippen sich mit Tastatursound ein (SOUNDFN route); zip für die Linie bleibt.
+- GEMEINSAME SOUND-BIBLIOTHEK (Laurin 17.11.): Laurins Sounds liegen in sound-library/ (für alle Kanäle, Einbinden: sound-library/README.md). Neue Sounds von Laurin IMMER dorthin + Zeile in sound-library/README.md, nicht nach assets/sfx.
 - Sound-Durchgang 17.11. abgeschlossen: Laurin hat alle Effekte angehört. Unverändert bestätigt: Kapitelkarte (braam+boom), Stempel, Vorher/Nachher, Abreißkalender, Übergänge, Polaroid-Zoom, Desktop-Grafik, Zahl zählt hoch (tick).
 - Zeitleiste (timeline): je Termin text_click (derselbe Klick wie bei Schlagwörtern, Laurin 17.11.); Pin-Sound und Tastatur abgelehnt.
 - Schwärzung (redact): je Balken paper_slide (Laurin 17.11.), sub_drop beim Namen bleibt.

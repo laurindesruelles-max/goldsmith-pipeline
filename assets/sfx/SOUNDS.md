@@ -1,5 +1,8 @@
 # Geräusch-Bibliothek (assets/sfx)
 
+
+> **Laurins eigene Sounds (17.11.2026) liegen in der gemeinsamen Bibliothek `sound-library/` (für alle Kanäle), nicht hier.** Herkunft und Einsatz: sound-library/README.md.
+
 Alle neuen Geräusche: CC0 (frei, auch kommerziell, keine Quellenangabe nötig) von SFXMint (sfxmint.com), geladen über Hugging Face (flreey/sfxmint-cc0-sound-effects, Ordner sample) bzw. die SFXMint-API. Jedes Geräusch wurde auf Rauschen geprüft, gesäubert (Hochpass, Stille abgeschnitten) und lautheitsnormalisiert (Effekte −20 LUFS, Atmo −28 LUFS).
 
 **Regel (Laurin 16.11.2026): Kein Rauschen/Wind als Teppich. Nur Geräusche, die man im Bild sieht** – in Blender per `D.sound(name, frame, objekt, ...)` an Objekte hängen (drive/walk machen das automatisch). Atmo (`amb_*`) nur sehr leise und nur, wenn sie zur Szene passt.
@@ -37,15 +40,6 @@ Neue Geräusche: Hugging-Face-Sample (frei, unbegrenzt) → sonst SFXMint-API mi
 | service_bell | service-bell-01 | A soft service bell, for calm UI. |
 | phone_ring | office-ringtone-01 | A phone ringtone sound for incoming calls and phone scenes in apps, videos and games. |
 | elevator_ding | office-elevator-08 | An elevator ding sound for elevators and arrival cues in videos, games and apps. |
-| pin_pop | von Laurin geschickt (17.11.2026): „Pop Sound Effect“, Quelle youtube.com/shorts/dFGHrYjRd7U, der 2. Pop der Datei (bei 5,1 s), 0,27 s, Spitze -3 dB | Pins auf der Landkarte (route, Earth-Zoom) |
-| diagram_whoosh | von Laurin geschickt (17.11.2026): „6 - whoosh swoosh - short“, 0,75 s, Spitze -3 dB | Diagramme: Balken wächst, Geldfluss, Aufteilung |
-| paper_slide | von Laurin geschickt (17.11.2026): „Paper Slide – Sound Effect“, Schiebe-Geräusch 0,56 s herausgeschnitten, Spitze -3 dB | Endkarte: Kommentarfeld schiebt sich rein; Schwärzung: jeder schwarze Balken gleitet weg |
-| zoom_riser | von Laurin geschickt (17.11.2026): „Riser Sound Effect – No Copyright, Free To Use“, Vorbild youtube.com/shorts/EJ7IDvA3VnI; erste 0,7 s (fast still) entfernt, 4,76 s, Spitze -2 dB | Earth-Zoom: Karte -> 3D, läuft über die ganze Kartenphase |
-| news_spin | von Laurin geschickt (17.11.2026, Datei 08.wav aus seinem Effekt-Paket), auf 1,75 s gekürzt, Spitze -3 dB | Zeitung wirbelt rein (news) |
-| marker_stroke, marker_stroke2 | von Laurin selbst aufgenommen (17.11.2026, „asmr marker sounds“), zwei 0,55-s-Striche aus der Aufnahme, gleich laut (-19 dB) | Textmarker-Strich in der Akte (doc) |
-| data_loading | von Laurin geschickt (17.11.2026): „Loading Animation Sound Effect (Free Download, No Copyright)“, Vorbild youtube.com/shorts/yFD-XAaKf54; gekürzt auf 1,68 s, Spitze -1 dB | Kurs-Grafik (chart): Linie zeichnet sich |
-| phone_notify | von Laurin geschickt (17.11.2026, aus seinem Effekt-Paket; Notification.wav, auf 1,06 s gekürzt, Spitze -1 dB) | Handy-Push-Nachricht (Effekt phone) |
-| text_click | von Laurin geschickt (17.11.2026, aus seinem Paket mit ~1000 Effekten (Laurin: alle nicht anders genannten Sounds stammen aus dieser Sammlung); Datei 7dd9c3b3-06.wav, Anfangsstille entfernt, Spitze auf -0,9 dB) – ersetzt den Meisterwerk-Klick | Klick bei Schlagwörtern und Text-Einblendungen (Laurin: „sogar besser“) |
 | camera_click | office-camera-08 | A bright camera shutter sound for taking photos and screenshots in apps and videos. |
 | amb_factory | factory-machinery-ambience-01 | A factory machinery ambience sound for industrial levels and workshop scenes in games and videos. |
 | amb_night | night-ambience-01 | A night ambience sound for night scenes and sleep apps in videos, games and apps. |
