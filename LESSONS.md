@@ -108,7 +108,7 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Endkarte: Kommentarfeld schiebt sich mit paper_slide rein (Laurins Sound); Frage tippt sich mit Tastatursound ein (SOUNDFN endcard), restliche Endkarten-Sounds bleiben (17.11.).
 - Musik an Kapitelkarten (Laurin 17.11., ENDGÜLTIG 3. Fassung): alte Musik bricht genau beim Bass-Hit der Kapitelkarte ab (Karte +0,6 s, 40 ms Blende), Karte steht ohne Musik, neuer Track beginnt 4 s nach Kapitelbeginn leise (25 %) und wird über 2,5 s normal laut (mix_full.py CARD_CUT/CARD_IN/CARD_FI). Wechsel mitten im Kapitel wie bisher.
 - Earth-Zoom (Laurin 17.11.): Kartenphase A_DUR 5,1 s statt 2,6 s, Zoom gleichmäßig langsamer über die ganze Länge des neuen Risers zoom_riser (Höhepunkt beim Durchstoßen, dann zoom_deep_impact). Szenen mit earthzoom brauchen ~2,5 s mehr Platz.
-- Landkarte (route): Ortsnamen tippen sich mit Tastatursound ein (SOUNDFN route, Laurin 17.11.); pin + zip bleiben.
+- Landkarte (route) + Earth-Zoom: Pins mit pin_pop (Laurins Pop-Sound, 17.11.), Ortsnamen tippen sich mit Tastatursound ein (SOUNDFN route); zip für die Linie bleibt.
 - Schwärzung (redact): je Balken paper_slide (Laurin 17.11.), sub_drop beim Namen bleibt.
 - Textmarker in der Akte (doc) = marker_stroke / marker_stroke2 (Laurins eigene Aufnahme, 17.11.) statt highlighter.
 - Kurs-Grafik (chart) = data_loading (Laurins Data-Loading-Sound) während die Linie läuft + sub_drop bei der Zahl; Herzschlag und Ticks entfernt (17.11.).

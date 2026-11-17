@@ -209,7 +209,7 @@ def cue_event(t, clip, need, gain=1.0):
 def earthzoom_sounds(p, dur):
     """Pin + leiser Hit, dann nur Geräusche, die man sieht (Auto, Schritte …), Raumklang sehr leise.
     Kein Wind/Rauschen (Laurin 16.11.2026)."""
-    ta = clip_dur(p["aerial"]); ev = [(0.3, "pin", 0.8)]
+    ta = clip_dur(p["aerial"]); ev = [(0.3, "pin_pop", 0.7)]   # Laurin 17.11.: Pop-Sound für Kartenpins
     # Reinzoomen hörbar machen (Laurin 17.11.): Riser beim Abtauchen, Whoosh beim Durchstoßen, zweiter Whoosh in den Raum
     # Laurin 17.11.: eigener Riser (zoom_riser, 4,75 s) läuft über die ganze Kartenphase, Höhepunkt beim Durchstoßen
     ev += [(max(0.0, A_DUR-0.35-4.75), "zoom_riser", 0.8), (A_DUR-0.39, "zoom_deep_impact", 0.9)]   # Laurin 17.11.: Mixkit „Cinematic whoosh deep impact“, Treffer genau beim Durchstoßen
