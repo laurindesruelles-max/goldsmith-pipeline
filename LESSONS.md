@@ -94,3 +94,5 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
   Auch der alte Diagramm-Sound (zip) gefällt ihm nicht -> bessere Quelle nötig, nicht wieder die SFXMint-UI-Sounds nehmen.
 - Effekte freigegeben: phone (Push-Nachricht auf Handy), calendar (Abreißkalender). NICHT freigegeben: kinetic, ticker, spot, Lichtleck (nur auf Wunsch).
 - engine/demo_mix.py: schneller Probe-Mix einzelner Szenen (Stimme + Sounds + Musik) ohne Gesamt-Mix.
+- Sound-Auswahl Mixkit (17.11.): Kartenpunkt-Variante 3 „Cinematic whoosh deep impact“ = zoom_deep_impact für den Zoom von der Karte in die 3D-Animation. Zahl zählt hoch: bisherigen Sound (tick) BEHALTEN. Weitere Wahl folgt.
+  Neue Sound-Quelle: Mixkit (mixkit.co/free-sound-effects/<kategorie>/, Vorschau-MP3 unter assets.mixkit.co; Lizenz: kommerziell + YouTube ok, keine Namensnennung). Laurin wählt immer selbst aus Hörproben (3 Varianten je Situation).

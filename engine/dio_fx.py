@@ -211,7 +211,7 @@ def earthzoom_sounds(p, dur):
     Kein Wind/Rauschen (Laurin 16.11.2026)."""
     ta = clip_dur(p["aerial"]); ev = [(0.3, "pin", 0.8)]
     # Reinzoomen hörbar machen (Laurin 17.11.): Riser beim Abtauchen, Whoosh beim Durchstoßen, zweiter Whoosh in den Raum
-    ev += [(0.9, "riser", 0.4), (A_DUR-0.45, "whoosh", 0.85)]
+    ev += [(0.9, "riser", 0.4), (A_DUR-0.39, "zoom_deep_impact", 0.9)]   # Laurin 17.11.: Mixkit „Cinematic whoosh deep impact“, Treffer genau beim Durchstoßen
     if p.get("room"): ev += [(A_DUR+ta-0.35, "whoosh", 0.55)]
     ev += cue_event(A_DUR, p["aerial"], ta)
     if p.get("amb_aerial"): ev += [(A_DUR+0.2, f"amb:{p['amb_aerial']}:{max(0.5, ta-0.2):.2f}", 0.25)]
