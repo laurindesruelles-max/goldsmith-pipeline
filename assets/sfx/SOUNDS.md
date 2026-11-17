@@ -10,6 +10,7 @@ Neue Geräusche: Hugging-Face-Sample (frei, unbegrenzt) → sonst SFXMint-API mi
 
 | Name | Quelle (SFXMint-ID) | Inhalt |
 |---|---|---|
+| mouse_click | YouTube-Short „Mouse click-sound effect \| free to use“ von FUNNY SOUND FX, youtube.com/shorts/zV2tqvlKOVs – Nachweis in _herkunft/mouse_click.md | Mausklick (von Laurin gewählt, Einsatz noch offen) |
 | shutter | YouTube „5 Camera Shutter Sound Effects (No Copyright)“ von Sound Effects Treasure, youtu.be/R24UqkKj90w, Klick 4 von 5 – Nachweis in _herkunft/shutter.md | mechanischer Kamera-Auslöser – Beweisfoto, Polaroid, Endcard (von Laurin gewählt) |
 | money_clink | Mixkit „Clinking coins“ (Mixkit-Lizenz) | Münzen klimpern – Geld (von Laurin gewählt) |
 | page_turn | Mixkit „Page turn single“ (Mixkit-Lizenz) | Seite umblättern – Kalenderblatt (von Laurin gewählt) |
