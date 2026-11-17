@@ -276,7 +276,8 @@ def ducks():
     out = []
     for n, T in PLAN2:
         for e in EV.get(n, []):
-            if e[0] in E.DUCK: out.append([S0[n]+e[1], S0[n]+e[1]+E.dur_of(e[0], e[2], e[1], T)])
+            if e[0] in E.DUCK: out.append([S0[n]+e[1], S0[n]+e[1]+E.dur_of(e[0], e[2], e[1], T), 0.6])
+            if e[0] in getattr(E, "DATA", ()): out.append([S0[n]+e[1], S0[n]+e[1]+E.dur_of(e[0], e[2], e[1], T), 0.28])
     return out
 
 # 2.5D-Parallaxe statt flachem Zoom (Laurin 16.11.: mehr Bewegung). DEPTH=0 schaltet ab.
@@ -369,7 +370,22 @@ def post(fr, n, t, cuts):
             if kind: out = E.transition(out, SNAP.get((n, i)), kind, t-c0, seed=n*10+i)
         if c0 <= t < c0+0.2:
             out = view(out, 0.5, 0.5, 1+0.06*(1-(t-c0)/0.2)); break
+    # Lichtleck (warmes Filmlicht) an jedem ~3. Schnitt, 0,9 s (Laurin 17.11.: mehr Effekte)
+    for i, c0 in enumerate(cuts):
+        if i > 0 and (n*5+i*3) % 3 == 0 and c0 <= t < c0+0.9:
+            u = (t-c0)/0.9; out = light_leak(out, u, seed=n*10+i); break
     return out
+
+_LL = {}
+def light_leak(fr, u, seed=0):
+    if seed not in _LL:
+        r = random.Random(seed); g = np.zeros((H//4, W//4), np.float32)
+        for _ in range(3): cv2.circle(g, (r.randint(0, W//4), r.randint(0, H//4)), r.randint(60, 140), 1.0, -1)
+        _LL[seed] = (cv2.GaussianBlur(g, (0, 0), 40), r.choice([(255, 140, 60), (255, 90, 50), (255, 190, 110)]), r.choice([-1, 1]))
+    g, col, sgn = _LL[seed]
+    a = math.sin(u*math.pi)*0.55
+    sh = int(sgn*u*W*0.15); m = cv2.resize(np.roll(g, sh//4, axis=1), (W, H))[..., None]*a
+    return np.clip(fr.astype(np.float32) + m*np.array(col, np.float32), 0, 255).astype(np.uint8)
 SNAP = {}
 
 def render_scene(n):
@@ -405,10 +421,10 @@ def sfx_events():
         for e in EV.get(n, []):
             k, t0 = e[0], s+e[1]
             if k == "typed": C.typed_sfx(ev, t0, e[2], gain=0.5)
-            elif k == "pop": ev += [(t0+0.02, "slap", 0.22)]
+            elif k == "pop": ev += [(t0, "whoosh_soft", 0.32)]
             elif k == "stamp": ev += [(t0+0.1, "stamp", 0.9)]
             elif k == "counter":
-                ev += [(t0+i*0.09, "tick", 0.35) for i in range(10)]
+                ev += [(t0-0.02, "count_up", 0.4), (t0+0.95, "impact_soft", 0.45)]
                 C.typed_sfx(ev, t0+0.5, [e[2][3]], cps=20, gain=0.4)
             elif k == "quote": C.typed_sfx(ev, t0+1.0, [e[2][2]], gain=0.4)
             elif k == "chain":
@@ -417,7 +433,7 @@ def sfx_events():
                 for nm in e[2]: ev += [(s+wt(n, nm), "slap", 0.55)]
             elif k == "words":
                 for w, a in e[2]: ev += [(s+wt(n, a), "slap", 0.8)]
-            elif k == "map": ev += [(t0+0.6, "pin", 0.9)]
+            elif k == "map": ev += [(t0+0.6, "pin", 0.9), (t0+0.62, "impact_soft", 0.35)]
     chs = [S0[n] for n in CH if n in S0]
     for a, b in dips():
         # Pause direkt vor einem Kapitel: kein eigener Hit, sonst doppelt mit der Kapitelkarte

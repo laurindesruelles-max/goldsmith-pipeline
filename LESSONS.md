@@ -90,3 +90,9 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Reinzoomen braucht Sound (Laurin 17.11.): Earth-Zoom = riser + whoosh beim Durchstoßen + whoosh in den Raum; Polaroid-Zoom = shutter + whoosh.
 - Musik (Laurin 17.11.): KEINE neuen Tracks pro Video erzeugen – nur die feste Bibliothek in assets/music nutzen. Neue Tracks nur, wenn Laurin es ausdrücklich verlangt (kostet Credits).
 - Echtes Videomaterial: Pixabay statt Pexels (Pexels vergibt derzeit keine API-Schlüssel). engine/stock.py, Schlüssel nur zur Laufzeit (PIXABAY_KEY), bei Laurin erfragen.
+- Sounddesign nach Referenzen (MagnatesMedia, VANTAGE; vidIQ-Analyse 17.11.): Daten-Grafiken = kurze, saubere UI-Blips pro Wert, Musik während Daten fast weg (Ducking 28 %),
+  Zahlen = Zähl-Sound + weicher Impact, Text-Pops = leiser Air-Whoosh (statt „slap“), Karten-Pins = Pin + weicher Sub-Hit, Geld = Münze/Kasse, Kalender = Blatt-Flip.
+  Neue CC0-Sounds (SFXMint/HF): ui_blip, ui_toast, ui_send, ui_drag, data_process, count_up, whoosh_soft, impact_soft, reveal_hit, riser_short, scan, logo_reveal, news_sting, bills_count, coin_drop, card_flip, chime, camera_snap.
+- Neue Effekte: kinetic (Wort für Wort, Schlüsselwort gold + rote Linie), phone (Push-Nachricht), calendar (Abreißkalender), ticker (Laufband + Schlagzeile),
+  fx "spot" (Spotlicht), Lichtleck an jedem ~3. Schnitt. Ticker nie mit erfundenen Kursen – nur belegte Werte.
+- engine/demo_mix.py: schneller Probe-Mix einzelner Szenen (Stimme + Sounds + Musik) ohne Gesamt-Mix.

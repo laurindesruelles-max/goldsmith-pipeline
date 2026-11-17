@@ -136,6 +136,12 @@ def screen(fr, key, t, tags=(), seed=1):
             fr = fr + band[None, :, None]*np.array([255, 225, 180], np.float32)*0.22
             yy = int(H*0.62); s = np.zeros((H, W), np.float32); cv2.line(s, (int(xc-W*0.3), yy), (int(xc+W*0.3), yy), 1.0, 3)
             fr = fr + cv2.GaussianBlur(s, (0, 0), 3)[..., None]*np.array([255, 210, 170], np.float32)*0.5*math.sin(v*math.pi)
+    if "spot" in tags:   # Spotlicht: Rand dunkler, Lichtkreis wandert langsam
+        if ("s", W, H) not in _P:
+            yy, xx = np.mgrid[0:H, 0:W].astype(np.float32); _P[("s", W, H)] = (xx, yy)
+        xx, yy = _P[("s", W, H)]; cx = W*(0.5+0.08*math.sin(t*0.4)); cy = H*0.48
+        m = np.exp(-(((xx-cx)/(W*0.32))**2 + ((yy-cy)/(H*0.42))**2))
+        fr = fr*(0.35+0.65*m[..., None]) + m[..., None]*np.array([255, 220, 170], np.float32)*0.06
     if "screens" in tags:
         r = np.random.default_rng(int(t*12)+seed)
         fr = fr*(1+0.015*(r.random()-0.5))

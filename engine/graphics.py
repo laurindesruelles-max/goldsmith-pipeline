@@ -123,7 +123,131 @@ def flow(t, T, p, ctx):
 
 RENDER = {"bars": bars, "breakdown": breakdown, "timeline": timeline, "flow": flow}
 DUR = {"bars": 5.5, "breakdown": 5.5, "timeline": 5.0, "flow": 5.5}
-SOUNDS = {"bars": [(0.5, "zip", 0.35), (0.95, "zip", 0.3), (1.4, "zip", 0.3)],
-          "breakdown": [(0.3, "zip", 0.4), (1.3, "slap", 0.5)],
-          "timeline": [(0.4, "pin", 0.5), (1.3, "pin", 0.5), (2.2, "pin", 0.5)],
-          "flow": [(0.9, "zip", 0.4), (2.0, "coins", 0.4), (2.6, "zip", 0.35)]}
+SOUNDS = {"bars": [(0.25, "whoosh_soft", 0.45), (0.5, "ui_blip", 0.5), (0.95, "ui_blip", 0.5), (1.4, "ui_blip", 0.5), (0.6, "data_process", 0.22)],
+          "breakdown": [(0.25, "whoosh_soft", 0.5), (1.25, "data_process", 0.3), (1.6, "ui_blip", 0.5), (1.9, "ui_blip", 0.5), (2.25, "coin_drop", 0.55)],
+          "flow": [(0.15, "whoosh_soft", 0.4), (0.9, "ui_send", 0.45), (2.0, "ui_send", 0.45), (2.6, "ui_send", 0.45), (2.4, "coin_drop", 0.5)],
+          "phone": [(0.0, "whoosh_soft", 0.5), (0.9, "ui_toast", 0.6)],
+          "ticker": [(0.05, "news_sting", 0.35), (0.4, "impact_soft", 0.4)]}
+
+# =====================================================================================
+# Neue Effekte (Laurin 17.11.2026: mehr Effekte). Alle kostenlos, prozedural.
+# ["kinetic", anchor, {"text": "THEY TAKE 30% OF EVERY SALE", "hl": ["30%"]}]          Wort für Wort, Schlüsselwort gold
+# ["phone", anchor, {"app": "MARKETS", "title": "Take-Two shares fall 8%", "body": "...", "time": "NOV 9"}]  Push-Nachricht auf Handy
+# ["calendar", anchor, {"pages": ["2025", "MAY 26, 2026", "NOV 19, 2026"], "last": "LAUNCH"}]   Abreißkalender blättert
+# ["ticker", anchor, {"items": [["TTWO", "-18%"], ["SONY", "+2%"]], "headline": "NET BOOKINGS FELL 18%"}]  Börsen-Laufband
+# =====================================================================================
+def kinetic(t, T, p, ctx):
+    fr = bg(ctx, t, T, 0.22); layer = empty(); d = ImageDraw.Draw(layer)
+    words = p["text"].split(); hl = set(w.upper() for w in p.get("hl", []))
+    size = 170 if len(words) <= 4 else (140 if len(words) <= 8 else 112); ft = f(ANTON, size)
+    # Zeilen umbrechen
+    lines, cur = [], []
+    for w in words:
+        if cur and ft.getlength(" ".join(cur+[w])) > 1650: lines.append(cur); cur = []
+        cur.append(w)
+    lines.append(cur)
+    y0 = H/2 - len(lines)*size*0.62; k = 0
+    for li, ln in enumerate(lines):
+        x = W/2 - ft.getlength(" ".join(ln))/2; y = y0 + li*size*1.18
+        for w in ln:
+            t0 = 0.15 + k*p.get("speed", 0.17); k += 1
+            if t >= t0:
+                e = eout((t-t0)/0.22); a = int(255*e); key = w.upper().strip(".,!?") in hl or w.upper() in hl
+                col = GOLD if key else IVORY; dy = 30*(1-e)
+                sz = int(size*(1.0+0.25*(1-e))) if key else size
+                d.text((x, y+dy), w, font=f(ANTON, sz), fill=col+(a,), stroke_width=4, stroke_fill=(0, 0, 0, a))
+                if key and t > t0+0.25:
+                    wl = ft.getlength(w); pr = eout((t-t0-0.25)/0.35)
+                    d.rectangle([x, y+size*1.08, x+wl*pr, y+size*1.08+8], fill=RED+(255,))
+            x += ft.getlength(w+" ")
+    return fr, layer
+
+def phone(t, T, p, ctx):
+    fr = bg(ctx, t, T, 0.3); layer = empty(); d = ImageDraw.Draw(layer)
+    pw, ph = 520, 1000; up = eout(t/0.6); x0 = W/2-pw/2; y0 = 60 + (1-up)*700
+    d.rounded_rectangle([x0, y0, x0+pw, y0+ph], 70, fill=(14, 14, 18, 255), outline=(70, 70, 78, 255), width=10)
+    d.rounded_rectangle([x0+22, y0+22, x0+pw-22, y0+ph-22], 52, fill=(26, 30, 44, 255))
+    d.rounded_rectangle([W/2-70, y0+40, W/2+70, y0+80], 20, fill=(8, 8, 10, 255))
+    d.text((W/2, y0+190), p.get("clock", "9:41"), font=f(INTER, 120), fill=IVORY+(230,), anchor="mm")
+    d.text((W/2, y0+280), p.get("time", ""), font=f(INTER, 34), fill=(190, 190, 200, 220), anchor="mm")
+    t1 = 0.9
+    if t > t1:
+        e = eout((t-t1)/0.35); cy = y0+380 - 60*(1-e); a = int(245*e)
+        d.rounded_rectangle([x0+40, cy, x0+pw-40, cy+230], 34, fill=(236, 236, 240, a))
+        d.rounded_rectangle([x0+66, cy+26, x0+116, cy+76], 12, fill=RED+(a,))
+        d.text((x0+132, cy+36), p.get("app", "NEWS"), font=f(INTER, 28), fill=(90, 90, 96, a))
+        d.text((x0+pw-66, cy+36), "now", font=f(INTER, 26), fill=(120, 120, 126, a), anchor="ra")
+        title = p.get("title", ""); body = p.get("body", "")
+        def wrap(txt, ft, wmax):
+            out, cur = [], ""
+            for w in txt.split():
+                if ft.getlength((cur+" "+w).strip()) > wmax: out.append(cur); cur = w
+                else: cur = (cur+" "+w).strip()
+            return out+[cur] if cur else out
+        yy = cy+92
+        for ln in wrap(title, f(INTER, 34), pw-130)[:3]: d.text((x0+66, yy), ln, font=f(INTER, 34), fill=(20, 20, 24, a)); yy += 42
+        for ln in wrap(body, f(INTER, 28), pw-130)[:2]: d.text((x0+66, yy), ln, font=f(INTER, 28), fill=(70, 70, 76, a)); yy += 36
+    return fr, layer
+
+def calendar(t, T, p, ctx):
+    fr = bg(ctx, t, T, 0.25); layer = empty(); d = ImageDraw.Draw(layer)
+    pages = p["pages"]; per = p.get("per", 0.9); cw, chh = 760, 560; x0, y0 = W/2-cw/2, H/2-chh/2+20
+    i = min(len(pages)-1, int(max(0, t-0.3)/per)); u = (max(0, t-0.3) % per)/per if i < len(pages)-1 else 0
+    def page(txt, sub, a=255, lift=0.0, rot=0):
+        pg = Image.new("RGBA", (cw, chh), (0, 0, 0, 0)); g = ImageDraw.Draw(pg)
+        g.rounded_rectangle([0, 0, cw, chh], 22, fill=(242, 236, 222, a))
+        g.rectangle([0, 0, cw, 120], fill=RED+(a,))
+        g.text((cw/2, 60), sub, font=f(ANTON, 60), fill=IVORY+(a,), anchor="mm")
+        sz = 150 if len(txt) <= 6 else (110 if len(txt) <= 10 else 90)
+        g.text((cw/2, 330), txt, font=f(ANTON, sz), fill=(30, 26, 22, a), anchor="mm")
+        for k in range(6): g.ellipse([90+k*110, 14, 110+k*110, 34], fill=(60, 50, 40, a))
+        if rot: pg = pg.rotate(rot, expand=True, resample=Image.BICUBIC)
+        layer.alpha_composite(pg, (int(W/2-pg.width/2), int(y0+chh/2-pg.height/2-lift)))
+    last = i == len(pages)-1
+    sub = p.get("last", "") if last else p.get("sub", "")
+    if not last and i+1 < len(pages): page(pages[i+1], p.get("last", "") if i+1 == len(pages)-1 else p.get("sub", ""))
+    if not last and u > 0.55:
+        v = (u-0.55)/0.45; page(pages[i], p.get("sub", ""), int(255*(1-v)), lift=500*v*v, rot=-25*v)
+    else: page(pages[i], sub)
+    if last and p.get("stamp") and t > 0.3+per*(len(pages)-1)+0.3:
+        d.text((W/2+260, y0+chh-40), p["stamp"], font=f(ANTON, 90), fill=RED+(255,), anchor="mm", stroke_width=3, stroke_fill=(0, 0, 0, 255))
+    return fr, layer
+
+def ticker(t, T, p, ctx):
+    b = ctx.get("bg"); fr = (view(b, 0.5, 0.5, 1.08+0.04*t/max(T, 1))*0.55).astype(np.uint8) if b is not None else np.full((H, W, 3), 14, np.uint8)
+    layer = empty(); d = ImageDraw.Draw(layer)
+    d.rectangle([0, H-150, W, H-70], fill=(10, 12, 16, 235)); d.rectangle([0, H-150, 260, H-70], fill=RED+(255,))
+    d.text((130, H-110), p.get("label", "MARKETS"), font=f(ANTON, 44), fill=IVORY+(255,), anchor="mm")
+    items = p["items"]; seg = []
+    for sym, val in items: seg += [(sym+"  ", IVORY), (val, (220, 60, 60) if val.startswith("-") else (70, 200, 110)), ("   •   ", (120, 120, 120))]
+    ft = f(ANTON, 44); total = sum(ft.getlength(s) for s, _ in seg); x = 280 - (t*220) % total
+    while x < W:
+        for s, c in seg:
+            if x > 260: d.text((x, H-110), s, font=ft, fill=c+(255,), anchor="lm")
+            x += ft.getlength(s)
+    if p.get("headline") and t > 0.4:
+        e = eout((t-0.4)/0.4); a = int(255*e)
+        hl = p["headline"]; sz = 110 if len(hl) < 20 else 84
+        d.text((W/2, H/2-40+30*(1-e)), hl, font=f(ANTON, sz), fill=IVORY+(a,), anchor="mm", stroke_width=5, stroke_fill=(0, 0, 0, a))
+    return fr, layer
+
+RENDER.update({"kinetic": kinetic, "phone": phone, "calendar": calendar, "ticker": ticker})
+DUR.update({"kinetic": 4.5, "phone": 5.0, "calendar": 5.0, "ticker": 5.0})
+
+def _timeline_snd(p, dur):
+    ev = []
+    for i, (_, _, kind) in enumerate(p["steps"]):
+        ev.append((0.4+0.9*i, "ui_blip", 0.5))
+        ev.append((0.4+0.9*i+0.45, "marker_write", 0.35) if kind != "ok" else (0.4+0.9*i+0.3, "reveal_hit", 0.5))
+    return ev
+def _kinetic_snd(p, dur):
+    hl = set(w.upper() for w in p.get("hl", [])); ev = []
+    for k, w in enumerate(p["text"].split()):
+        t0 = 0.15 + k*p.get("speed", 0.17)
+        ev.append((t0, "impact_soft", 0.5) if w.upper().strip(".,!?") in hl else (t0, "ui_drag", 0.22))
+    return ev
+def _calendar_snd(p, dur):
+    n = len(p["pages"]); per = p.get("per", 0.9)
+    return [(0.3+per*i+0.55*per, "card_flip", 0.7) for i in range(n-1)] + [(0.3+per*(n-1)+0.05, "reveal_hit", 0.45)]
+SOUNDFN = {"timeline": _timeline_snd, "kinetic": _kinetic_snd, "calendar": _calendar_snd}
+DATA = ("bars", "breakdown", "flow", "timeline", "ticker", "kinetic")   # Musik während Daten-Grafiken fast weg (Referenz VANTAGE)

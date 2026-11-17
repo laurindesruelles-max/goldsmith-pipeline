@@ -332,4 +332,4 @@ def transition(fr, prev, kind, lt, seed=0):
 
 # ---------- animierte Daten-Grafiken (engine/graphics.py) ----------
 import graphics as _G
-RENDER.update(_G.RENDER); DUR.update(_G.DUR); SOUNDS.update(_G.SOUNDS)
+RENDER.update(_G.RENDER); DUR.update(_G.DUR); SOUNDS.update(_G.SOUNDS); SOUNDFN.update(_G.SOUNDFN); DATA = _G.DATA

@@ -70,11 +70,12 @@ for d0,d1 in m2.get('rests',[]):   # bewusste Musikpausen (Spannung)
     env[a:b]=0.0
     env[max(0,a-r):a]=np.minimum(env[max(0,a-r):a],np.linspace(1,0,a-max(0,a-r)))
     env[b:b+r]=np.minimum(env[b:b+r],np.linspace(0,1,len(env[b:b+r])))
-for d0,d1 in m2.get('ducks',[]):   # 3D-Szenen: Musik auf ~60 %, weich
+for dk in m2.get('ducks',[]):   # 3D-Szenen ~60 %, Daten-Grafiken ~28 % (Musik fast weg, Daten-Sounds stehen frei)
+    d0,d1=dk[0],dk[1]; lv=dk[2] if len(dk)>2 else 0.6
     a=int(d0*SR); b=min(N,int(d1*SR)); r=int(0.6*SR)
-    env[a:b]=np.minimum(env[a:b],0.6)
-    env[max(0,a-r):a]=np.minimum(env[max(0,a-r):a],np.linspace(1,0.6,a-max(0,a-r)))
-    env[b:b+r]=np.minimum(env[b:b+r],np.linspace(0.6,1,len(env[b:b+r])))
+    env[a:b]=np.minimum(env[a:b],lv)
+    env[max(0,a-r):a]=np.minimum(env[max(0,a-r):a],np.linspace(1,lv,a-max(0,a-r)))
+    env[b:b+r]=np.minimum(env[b:b+r],np.linspace(lv,1,len(env[b:b+r])))
 bed*=env[:,None]
 wf.write('build/music_bed.wav',SR,(np.clip(bed[:int(total*SR)],-1,1)*32767).astype(np.int16))
 inp=['-i','build/voice_full.wav','-i','build/music_bed.wav']
