@@ -372,7 +372,7 @@ def post(fr, n, t, cuts):
             out = view(out, 0.5, 0.5, 1+0.06*(1-(t-c0)/0.2)); break
     # Lichtleck (warmes Filmlicht) an jedem ~3. Schnitt, 0,9 s (Laurin 17.11.: mehr Effekte)
     for i, c0 in enumerate(cuts):
-        if i > 0 and (n*5+i*3) % 3 == 0 and c0 <= t < c0+0.9:
+        if SPEC.get("lightleak") and i > 0 and (n*5+i*3) % 3 == 0 and c0 <= t < c0+0.9:   # nicht freigegeben -> nur mit spec "lightleak": true
             u = (t-c0)/0.9; out = light_leak(out, u, seed=n*10+i); break
     return out
 
@@ -421,10 +421,10 @@ def sfx_events():
         for e in EV.get(n, []):
             k, t0 = e[0], s+e[1]
             if k == "typed": C.typed_sfx(ev, t0, e[2], gain=0.5)
-            elif k == "pop": ev += [(t0, "whoosh_soft", 0.32)]
+            elif k == "pop": ev += [(t0+0.02, "slap", 0.22)]
             elif k == "stamp": ev += [(t0+0.1, "stamp", 0.9)]
             elif k == "counter":
-                ev += [(t0-0.02, "count_up", 0.4), (t0+0.95, "impact_soft", 0.45)]
+                ev += [(t0+i*0.09, "tick", 0.35) for i in range(10)]
                 C.typed_sfx(ev, t0+0.5, [e[2][3]], cps=20, gain=0.4)
             elif k == "quote": C.typed_sfx(ev, t0+1.0, [e[2][2]], gain=0.4)
             elif k == "chain":
@@ -433,7 +433,7 @@ def sfx_events():
                 for nm in e[2]: ev += [(s+wt(n, nm), "slap", 0.55)]
             elif k == "words":
                 for w, a in e[2]: ev += [(s+wt(n, a), "slap", 0.8)]
-            elif k == "map": ev += [(t0+0.6, "pin", 0.9), (t0+0.62, "impact_soft", 0.35)]
+            elif k == "map": ev += [(t0+0.6, "pin", 0.9)]
     chs = [S0[n] for n in CH if n in S0]
     for a, b in dips():
         # Pause direkt vor einem Kapitel: kein eigener Hit, sonst doppelt mit der Kapitelkarte

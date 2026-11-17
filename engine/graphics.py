@@ -123,14 +123,16 @@ def flow(t, T, p, ctx):
 
 RENDER = {"bars": bars, "breakdown": breakdown, "timeline": timeline, "flow": flow}
 DUR = {"bars": 5.5, "breakdown": 5.5, "timeline": 5.0, "flow": 5.5}
-SOUNDS = {"bars": [(0.25, "whoosh_soft", 0.45), (0.5, "ui_blip", 0.5), (0.95, "ui_blip", 0.5), (1.4, "ui_blip", 0.5), (0.6, "data_process", 0.22)],
-          "breakdown": [(0.25, "whoosh_soft", 0.5), (1.25, "data_process", 0.3), (1.6, "ui_blip", 0.5), (1.9, "ui_blip", 0.5), (2.25, "coin_drop", 0.55)],
-          "flow": [(0.15, "whoosh_soft", 0.4), (0.9, "ui_send", 0.45), (2.0, "ui_send", 0.45), (2.6, "ui_send", 0.45), (2.4, "coin_drop", 0.5)],
-          "phone": [(0.0, "whoosh_soft", 0.5), (0.9, "ui_toast", 0.6)],
-          "ticker": [(0.05, "news_sting", 0.35), (0.4, "impact_soft", 0.4)]}
+SOUNDS = {"bars": [(0.5, "zip", 0.35), (0.95, "zip", 0.3), (1.4, "zip", 0.3)],
+          "breakdown": [(0.3, "zip", 0.4), (1.3, "slap", 0.5)],
+          "timeline": [(0.4, "pin", 0.5), (1.3, "pin", 0.5), (2.2, "pin", 0.5)],
+          "flow": [(0.9, "zip", 0.4), (2.0, "coins", 0.4), (2.6, "zip", 0.35)],
+          "phone": [(0.9, "camera_click", 0.4)]}
+# Laurin 17.11.: die neuen UI-Sounds (ui_blip, whoosh_soft …) klangen schlecht -> verworfen. Bessere Sounds noch offen.
 
 # =====================================================================================
 # Neue Effekte (Laurin 17.11.2026: mehr Effekte). Alle kostenlos, prozedural.
+# FREIGEGEBEN (Laurin 17.11.): phone, calendar. NICHT freigegeben (nur auf Wunsch): kinetic, ticker.
 # ["kinetic", anchor, {"text": "THEY TAKE 30% OF EVERY SALE", "hl": ["30%"]}]          Wort für Wort, Schlüsselwort gold
 # ["phone", anchor, {"app": "MARKETS", "title": "Take-Two shares fall 8%", "body": "...", "time": "NOV 9"}]  Push-Nachricht auf Handy
 # ["calendar", anchor, {"pages": ["2025", "MAY 26, 2026", "NOV 19, 2026"], "last": "LAUNCH"}]   Abreißkalender blättert
@@ -234,20 +236,8 @@ def ticker(t, T, p, ctx):
 RENDER.update({"kinetic": kinetic, "phone": phone, "calendar": calendar, "ticker": ticker})
 DUR.update({"kinetic": 4.5, "phone": 5.0, "calendar": 5.0, "ticker": 5.0})
 
-def _timeline_snd(p, dur):
-    ev = []
-    for i, (_, _, kind) in enumerate(p["steps"]):
-        ev.append((0.4+0.9*i, "ui_blip", 0.5))
-        ev.append((0.4+0.9*i+0.45, "marker_write", 0.35) if kind != "ok" else (0.4+0.9*i+0.3, "reveal_hit", 0.5))
-    return ev
-def _kinetic_snd(p, dur):
-    hl = set(w.upper() for w in p.get("hl", [])); ev = []
-    for k, w in enumerate(p["text"].split()):
-        t0 = 0.15 + k*p.get("speed", 0.17)
-        ev.append((t0, "impact_soft", 0.5) if w.upper().strip(".,!?") in hl else (t0, "ui_drag", 0.22))
-    return ev
 def _calendar_snd(p, dur):
     n = len(p["pages"]); per = p.get("per", 0.9)
-    return [(0.3+per*i+0.55*per, "card_flip", 0.7) for i in range(n-1)] + [(0.3+per*(n-1)+0.05, "reveal_hit", 0.45)]
-SOUNDFN = {"timeline": _timeline_snd, "kinetic": _kinetic_snd, "calendar": _calendar_snd}
-DATA = ("bars", "breakdown", "flow", "timeline", "ticker", "kinetic")   # Musik während Daten-Grafiken fast weg (Referenz VANTAGE)
+    return [(0.3+per*i+0.55*per, "paper_flip", 0.6) for i in range(n-1)]
+SOUNDFN = {"calendar": _calendar_snd}
+DATA = ()   # Musik-Ducking bei Daten-Grafiken: vorerst aus (Laurin 17.11.)
