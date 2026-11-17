@@ -10,6 +10,9 @@ Lizenz-Zeile in qa.md: "Pixabay-Video <id> – Pixabay Content License".
 """
 import os, sys, json, subprocess, urllib.request, urllib.parse
 
+UA = {"User-Agent": "GoldsmithProductions/1.0 (stock footage tool)"}
+def _open(u): return urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=60)
+
 def _key():
     k = os.environ.get("PIXABAY_KEY")
     if not k: sys.exit("PIXABAY_KEY fehlt – Laurin nach dem Schlüssel fragen")
@@ -17,14 +20,14 @@ def _key():
 
 def search(q, n=10):
     u = "https://pixabay.com/api/videos/?" + urllib.parse.urlencode({"key": _key(), "q": q, "per_page": max(3, n), "safesearch": "true"})
-    d = json.load(urllib.request.urlopen(u, timeout=30))
+    d = json.load(_open(u))
     return [(h["id"], h["duration"], h["tags"], h["videos"]["large"]["width"] or h["videos"]["medium"]["width"]) for h in d["hits"][:n]]
 
 def get(vid, out):
     u = "https://pixabay.com/api/videos/?" + urllib.parse.urlencode({"key": _key(), "id": vid})
-    h = json.load(urllib.request.urlopen(u, timeout=30))["hits"][0]["videos"]
+    h = json.load(_open(u))["hits"][0]["videos"]
     src = (h["large"]["url"] or h["medium"]["url"])
-    tmp = out + ".dl.mp4"; urllib.request.urlretrieve(src, tmp)
+    tmp = out + ".dl.mp4"; open(tmp, "wb").write(_open(src).read())
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp, "-an", "-vf", "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps=24",
                     "-c:v", "libx264", "-crf", "18", "-preset", "veryfast", out], check=True)
     os.remove(tmp)
