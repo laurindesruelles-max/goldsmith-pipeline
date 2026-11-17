@@ -7,7 +7,7 @@ Ziel: Jedes Video ist besser als das letzte – Schnitt, Spannung, Sound, Thumbn
 - **Pflicht-Ende**: Kommentar-Frage + „Subscribe and hit the bell“ (Kommentar-Feld, Subscribe-Button, Glocke im Bild).
 - Keine rot/blauen 3D-Figuren oder Mannequins, keine reine Diashow. Viele Bewegungsgrafiken, Effekte auf jedem Element. AUSNAHME (Laurin 16.11.2026): Miniaturfiguren in den 3D-Dioramen (Modelleisenbahn-Look, gedeckte echte Farben, klein im Bild) sind ausdrücklich gewünscht.
 - Daten und Orte immer als Schreibmaschinentext mit mechanischem Tastatursound (assets/sfx/key0-7, Lautstärke Faktor 0.75 – vorher zu leise/zu laut).
-- Schlagwörter und andere Text-Einblendungen (pop, words, brands, chain-Labels) bekommen den Kamera-Klick aus dem Meisterwerk-Video (Sound "text_click", Gain 0.42) statt slap (Laurin 17.11.2026). Einzelner Tastenanschlag wurde getestet und abgelehnt („hört sich nicht gut an“). Stempel, Polaroids und Zettel behalten ihre eigenen Sounds.
+- Schlagwörter und andere Text-Einblendungen (pop, words, brands, chain-Labels) bekommen den Klick "text_click" (Gain 0.42; seit 17.11. Laurins eigener Sound aus seinem Effekt-Paket, vorher Meisterwerk-Klick) statt slap (Laurin 17.11.2026). Einzelner Tastenanschlag wurde getestet und abgelehnt („hört sich nicht gut an“). Stempel, Polaroids und Zettel behalten ihre eigenen Sounds.
 - Musik muss spannend sein (ElevenLabs-Tracks, nie selbst synthetisiert). Pro Kapitel passender Track (spec "music").
 - Spannung braucht Pausen: nach jeder großen Enthüllung 0,8–1,5 s Stille (spec "beats"), Musik taucht ab, dann Hit.
 - Thumbnail: Hero-Stil, EIN großes Motiv, 2 Zeilen, Zahl oder Frage zum Geld des Zuschauers. Text auf Preisschild mittig (tag xy "auto").

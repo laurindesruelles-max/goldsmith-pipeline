@@ -37,7 +37,7 @@ Neue Geräusche: Hugging-Face-Sample (frei, unbegrenzt) → sonst SFXMint-API mi
 | service_bell | service-bell-01 | A soft service bell, for calm UI. |
 | phone_ring | office-ringtone-01 | A phone ringtone sound for incoming calls and phone scenes in apps, videos and games. |
 | elevator_ding | office-elevator-08 | An elevator ding sound for elevators and arrival cues in videos, games and apps. |
-| text_click | aus Laurins Meisterwerk-Repo (assets/sfx/shutter.wav, dort bei allen Text-Einblendungen) | kurzer Kamera-Klick – Schlagwörter und Text-Einblendungen (Laurin 17.11.2026) |
+| text_click | von Laurin geschickt (17.11.2026, aus seinem Paket mit ~1000 Effekten; Datei 7dd9c3b3-06.wav, Anfangsstille entfernt, Spitze auf -0,9 dB) – ersetzt den Meisterwerk-Klick | Klick bei Schlagwörtern und Text-Einblendungen (Laurin: „sogar besser“) |
 | camera_click | office-camera-08 | A bright camera shutter sound for taking photos and screenshots in apps and videos. |
 | amb_factory | factory-machinery-ambience-01 | A factory machinery ambience sound for industrial levels and workshop scenes in games and videos. |
 | amb_night | night-ambience-01 | A night ambience sound for night scenes and sleep apps in videos, games and apps. |
