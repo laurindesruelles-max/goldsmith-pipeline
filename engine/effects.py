@@ -310,7 +310,7 @@ SOUNDS = {"doc": [(0.05, "paper", 0.5), (1.6, "marker_stroke", 0.8), (2.2, "mark
           "parallax": [(0.1, "whoosh", 0.2)],
           "photo": [(0.0, "paper", 0.45)]}
 
-SOUNDS["endcard"] = [(0.25, "paper", 0.4), (1.45, "slap", 0.5), (2.6, "shutter", 0.6), (2.95, "service_bell", 0.55)]
+SOUNDS["endcard"] = [(0.2, "paper_slide", 0.6), (1.45, "slap", 0.5), (2.6, "shutter", 0.6), (2.95, "service_bell", 0.55)]
 # ---------- Übergänge an Schnitten ----------
 TRANS = ["burn", None, "glitch", None, None, None]   # Laurin 16.11.: kein weißer Wipe-Balken mehr, Übergänge selten   # nicht jeder Schnitt bekommt einen Effekt
 TSOUND = {"burn": ("film_projector", 0.6), "glitch": ("glitch", 0.8), "wipe": ("paper_tear", 0.6)}

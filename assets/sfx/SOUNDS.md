@@ -37,6 +37,7 @@ Neue Geräusche: Hugging-Face-Sample (frei, unbegrenzt) → sonst SFXMint-API mi
 | service_bell | service-bell-01 | A soft service bell, for calm UI. |
 | phone_ring | office-ringtone-01 | A phone ringtone sound for incoming calls and phone scenes in apps, videos and games. |
 | elevator_ding | office-elevator-08 | An elevator ding sound for elevators and arrival cues in videos, games and apps. |
+| paper_slide | von Laurin geschickt (17.11.2026): „Paper Slide – Sound Effect“, Schiebe-Geräusch 0,56 s herausgeschnitten, Spitze -3 dB | Endkarte: Kommentarfeld schiebt sich rein |
 | zoom_riser | von Laurin geschickt (17.11.2026): „Riser Sound Effect – No Copyright, Free To Use“, Vorbild youtube.com/shorts/EJ7IDvA3VnI; erste 0,7 s (fast still) entfernt, 4,76 s, Spitze -2 dB | Earth-Zoom: Karte -> 3D, läuft über die ganze Kartenphase |
 | news_spin | von Laurin geschickt (17.11.2026, Datei 08.wav aus seinem Effekt-Paket), auf 1,75 s gekürzt, Spitze -3 dB | Zeitung wirbelt rein (news) |
 | marker_stroke, marker_stroke2 | von Laurin selbst aufgenommen (17.11.2026, „asmr marker sounds“), zwei 0,55-s-Striche aus der Aufnahme, gleich laut (-19 dB) | Textmarker-Strich in der Akte (doc) |
