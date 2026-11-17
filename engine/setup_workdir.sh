@@ -8,7 +8,7 @@ REPO=$(cd "$(dirname "$0")/.." && pwd); VID="$REPO/$1"; WORK="$2"
 mkdir -p "$WORK/audio" "$WORK/img" "$WORK/v3/a" "$WORK/v3/build" ~/.fonts
 cp "$REPO"/assets/fonts/* ~/.fonts/
 cp "$REPO"/engine/*.py "$WORK/v3/"; cp -r "$REPO/assets/sfx" "$WORK/v3/sfx"
-cp "$REPO"/sound-library/*.wav "$WORK/v3/sfx/"   # gemeinsame Sound-Bibliothek (Laurins Sounds, alle Kanäle)
+cp "$REPO"/sound-library/*.wav "$WORK/v3/sfx/"   # Goldsmith-Sound-Bibliothek (Laurins Goldsmith-Sounds)
 mkdir -p "$WORK/v3/diorama" "$WORK/v3/dio"; cp -r "$REPO"/engine/diorama/* "$WORK/v3/diorama/"
 python3 -c "import bpy" 2>/dev/null || pip install bpy --break-system-packages -q   # Blender für 3D-Dioramen
 # Tastatursounds liegen NICHT im (öffentlichen) Repo, sondern in Laurins Higgsfield-Speicher:

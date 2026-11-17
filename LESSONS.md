@@ -110,7 +110,7 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Earth-Zoom (Laurin 17.11.): Kartenphase A_DUR 5,1 s statt 2,6 s, Zoom gleichmäßig langsamer über die ganze Länge des neuen Risers zoom_riser (Höhepunkt beim Durchstoßen, dann zoom_deep_impact). Szenen mit earthzoom brauchen ~2,5 s mehr Platz.
 - Landkarte (route) + Earth-Zoom: Pins mit pin_pop (Laurins Pop-Sound, 17.11.), Ortsnamen tippen sich mit Tastatursound ein (SOUNDFN route); zip für die Linie bleibt.
 - Musik ist kanal-eigen (Laurin 17.11.): die Krimi-Bibliothek assets/music gehört nur Goldsmith, nie an andere Kanäle geben; sound-library = nur Geräusche.
-- GEMEINSAME SOUND-BIBLIOTHEK (Laurin 17.11.): Laurins Sounds liegen in sound-library/ (für alle Kanäle, Einbinden: sound-library/README.md). Neue Sounds von Laurin IMMER dorthin + Zeile in sound-library/README.md, nicht nach assets/sfx.
+- EFFEKTE PRO KANAL (Laurin 17.11., ersetzt die frühere gemeinsame Bibliothek): sound-library/ ist nur noch Goldsmiths Bibliothek. Neue Goldsmith-Sounds von Laurin dorthin + Zeile in sound-library/README.md. Andere Kanäle (Meisterwerk, Unterbau, Denkmuster …) haben eigene Effekte in ihrem Repo und binden sound-library nicht ein.
 - Sound-Durchgang 17.11. abgeschlossen: Laurin hat alle Effekte angehört. Unverändert bestätigt: Kapitelkarte (braam+boom), Stempel, Vorher/Nachher, Abreißkalender, Übergänge, Polaroid-Zoom, Desktop-Grafik, Zahl zählt hoch (tick).
 - Zeitleiste (timeline): je Termin text_click (derselbe Klick wie bei Schlagwörtern, Laurin 17.11.); Pin-Sound und Tastatur abgelehnt.
 - Schwärzung (redact): je Balken paper_slide (Laurin 17.11.), sub_drop beim Namen bleibt.

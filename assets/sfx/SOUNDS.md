@@ -1,7 +1,7 @@
 # Geräusch-Bibliothek (assets/sfx)
 
 
-> **Laurins eigene Sounds (17.11.2026) liegen in der gemeinsamen Bibliothek `sound-library/` (für alle Kanäle), nicht hier.** Herkunft und Einsatz: sound-library/README.md.
+> **Laurins eigene Goldsmith-Sounds (17.11.2026) liegen in `sound-library/` (nur Goldsmith), nicht hier.** Herkunft und Einsatz: sound-library/README.md. Jeder Kanal hat seine eigenen Effekte.
 
 Alle neuen Geräusche: CC0 (frei, auch kommerziell, keine Quellenangabe nötig) von SFXMint (sfxmint.com), geladen über Hugging Face (flreey/sfxmint-cc0-sound-effects, Ordner sample) bzw. die SFXMint-API. Jedes Geräusch wurde auf Rauschen geprüft, gesäubert (Hochpass, Stille abgeschnitten) und lautheitsnormalisiert (Effekte −20 LUFS, Atmo −28 LUFS).
 

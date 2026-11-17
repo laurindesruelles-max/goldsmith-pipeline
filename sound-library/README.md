@@ -1,19 +1,14 @@
-# Gemeinsame Sound-Bibliothek (alle Kanäle)
+# Goldsmith-Sound-Bibliothek (nur Goldsmith Productions)
 
-Laurins ausgewählte Sounds für **alle** YouTube-Kanäle (Goldsmith Productions, Meisterwerk, Unterbau …).
-Eine Stelle für alle: Neue Sounds von Laurin kommen IMMER hierher (nicht in das sfx-Verzeichnis eines einzelnen Kanals),
-mit Zeile in dieser Tabelle.
+Laurins ausgewählte Effekt-Sounds für **Goldsmith Productions**.
+**Regel (Laurin 17.11.2026): Jeder Kanal hat seine eigenen Effekte.** Diese Sounds passen zu Goldsmith, aber nicht automatisch
+zu anderen Kanälen – Meisterwerk, Unterbau, Denkmuster usw. binden diese Bibliothek NICHT mehr ein, sondern haben ein eigenes Set
+in ihrem Repo (assets/sfx). Neue Sounds von Laurin für Goldsmith kommen hierher, mit Zeile in dieser Tabelle; Sounds für einen
+anderen Kanal kommen in dessen Repo.
 **Nur Geräusche, keine Musik:** Musik hat jeder Kanal selbst (Goldsmiths Krimi-Musik passt nur zu Goldsmith, Laurin 17.11.2026). Alle Dateien: WAV, 48 kHz, Stereo, Anfangsstille entfernt, Spitze normalisiert.
 
-## Einbinden in ein Kanal-Projekt
-Das Repo ist öffentlich, kein Login nötig. In der setup.sh des Kanals (nach dem Kopieren der eigenen Sounds):
-
-```sh
-curl -sSfL https://raw.githubusercontent.com/laurindesruelles-max/goldsmith-pipeline/main/sound-library/get.sh | sh -s -- "$WORK/sfx"
-```
-
-`get.sh` lädt alle Sounds dieser Bibliothek in den angegebenen Ordner (überschreibt gleichnamige Dateien).
-Goldsmith nutzt sie direkt aus dem Repo (engine/setup_workdir.sh).
+## Einbinden
+Goldsmith kopiert die Bibliothek über engine/setup_workdir.sh automatisch nach v3/sfx. `get.sh` bleibt nur als Goldsmith-internes Hilfsskript; andere Kanäle rufen es nicht mehr auf (seit 17.11.2026).
 
 ## Herkunft (Lizenz-Nachweis)
 Laurin (17.11.2026): Alle Sounds stammen aus seiner Sammlung mit ~1000 Effekten, außer wo unten eine andere Quelle steht

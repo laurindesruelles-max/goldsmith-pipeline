@@ -51,4 +51,4 @@ Vor jedem Video LESSONS.md lesen; nach jedem Video Video-Log ergänzen und Stati
 2. Unabhängiger Faktencheck durch einen separaten Agenten (Skript + Quellen → Tabelle Aussage/Quelle/Stimmt?). Alles Unbelegte ändern oder streichen.
 3. Recht (Äußerungsrecht, Personen, Marken, Titel/Thumbnail), Lizenzen und YouTube-Punkte in `qa.md` abhaken.
 4. Laurin bekommt zur Freigabe: Video, Thumbnail, Titel + Kurzfassung des Prüfberichts (inkl. Hinweis, ob „veränderte/synthetische Inhalte“ gesetzt werden muss).
-- **Gemeinsame Sound-Bibliothek** `sound-library/`: Laurins ausgewählte Sounds für alle Kanäle (README dort). setup_workdir.sh kopiert sie automatisch nach v3/sfx; andere Kanäle laden sie mit `sound-library/get.sh`.
+- **Goldsmith-Sound-Bibliothek** `sound-library/`: Laurins ausgewählte Effekt-Sounds für Goldsmith (README dort). setup_workdir.sh kopiert sie automatisch nach v3/sfx. Andere Kanäle haben eigene Effekte (Laurin 17.11.2026) und binden sie nicht ein.
