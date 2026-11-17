@@ -9,13 +9,10 @@ Alle neuen Geräusche: CC0 (frei, auch kommerziell, keine Quellenangabe nötig) 
 
 Neue Geräusche: Hugging-Face-Sample (frei, unbegrenzt) → sonst SFXMint-API mit Laurins Schlüssel (5/Tag, Umgebungsvariable `SFXMINT_KEY`, NIE ins Repo schreiben) → Laurin lädt im Browser herunter. Higgsfield (mirelo) nur als letzte Wahl.
 
-**Regel (Laurin 17.11.2026): Bei jedem Sound, der nicht CC0 ist, die Herkunft sichern** – Link, Kanal/Seite, Lizenzangabe des Uploaders, Datum und Originaldatei in `_herkunft/<name>.md` + Originaldatei ablegen.
+**Regel (Laurin 17.11.2026): Bei jedem Sound, der nicht CC0 ist, die Herkunft sichern** – Link, Kanal/Seite, Lizenzangabe des Uploaders, Datum und Originaldatei in `sound-library/_herkunft/<name>.md` + Originaldatei ablegen (Laurins Sounds liegen in sound-library/).
 
 | Name | Quelle (SFXMint-ID) | Inhalt |
 |---|---|---|
-| price_tag | = slap (eigener Bestand, wie im Luxottica-Video bei den Preisschildern $39/$189/$420) | Preisschild/Preisangabe ploppt auf – Lautstärke 0.55 (von Laurin gewählt) |
-| mouse_click | YouTube-Short „Mouse click-sound effect \| free to use“ von FUNNY SOUND FX, youtube.com/shorts/zV2tqvlKOVs – Nachweis in _herkunft/mouse_click.md | Mausklick – Effekt „desktop“ (Fallakte am PC anklicken), von Laurin gewählt |
-| shutter | YouTube „5 Camera Shutter Sound Effects (No Copyright)“ von Sound Effects Treasure, youtu.be/R24UqkKj90w, Klick 4 von 5 – Nachweis in _herkunft/shutter.md | mechanischer Kamera-Auslöser – Beweisfoto, Polaroid, Endcard (von Laurin gewählt) |
 | money_clink | Mixkit „Clinking coins“ (Mixkit-Lizenz) | Münzen klimpern – Geld (von Laurin gewählt) |
 | page_turn | Mixkit „Page turn single“ (Mixkit-Lizenz) | Seite umblättern – Kalenderblatt (von Laurin gewählt) |
 | zoom_deep_impact | Mixkit „Cinematic whoosh deep impact“ (Mixkit Sound Effects Free License: kommerziell, keine Namensnennung) | tiefer Whoosh mit Treffer – Earth Zoom: Karte → 3D (von Laurin gewählt) |

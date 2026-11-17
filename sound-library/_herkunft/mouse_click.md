@@ -7,4 +7,4 @@
 - Angabe des Uploaders: „free to use“ (im Titel)
 - Heruntergeladen von Laurin, übernommen am 17.11.2026
 - Verwendet: der einzelne Klick, Ausschnitt 1,54–1,80 s, Fade + Lautheit angepasst
-- Originaldatei: mouse_click_original_zV2tqvlKOVs.mp3 (sha256 beginnt mit b73ef1b4f804106a)
+- Originaldatei (im selben Ordner): mouse_click_original_zV2tqvlKOVs.mp3 (sha256 beginnt mit b73ef1b4f804106a)
