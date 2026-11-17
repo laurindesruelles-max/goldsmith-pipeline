@@ -123,12 +123,12 @@ def flow(t, T, p, ctx):
 
 RENDER = {"bars": bars, "breakdown": breakdown, "timeline": timeline, "flow": flow}
 DUR = {"bars": 5.5, "breakdown": 5.5, "timeline": 5.0, "flow": 5.5}
-SOUNDS = {"bars": [(0.5, "zip", 0.35), (0.95, "zip", 0.3), (1.4, "zip", 0.3)],
-          "breakdown": [(0.3, "zip", 0.4), (1.3, "money_clink", 0.55)],
+# Laurin 17.11.: Diagramme mit paper_slide (Laurins Paper-Slide-Sound) statt zip; bars: ein Slide je Balken (SOUNDFN unten)
+SOUNDS = {"breakdown": [(0.3, "paper_slide", 0.5), (1.3, "money_clink", 0.55)],
           "timeline": [(0.4, "pin", 0.5), (1.3, "pin", 0.5), (2.2, "pin", 0.5)],
-          "flow": [(0.9, "zip", 0.4), (2.0, "money_clink", 0.5), (2.6, "zip", 0.35)],
+          "flow": [(0.9, "paper_slide", 0.5), (2.0, "money_clink", 0.5), (2.6, "paper_slide", 0.45)],
           "phone": [(0.9, "phone_notify", 0.55)]}  # Laurins Notification-Sound (17.11.)
-# Laurin 17.11.: die neuen UI-Sounds (ui_blip, whoosh_soft …) klangen schlecht -> verworfen. zip bei Diagrammen von Laurin bestätigt (bleibt).
+# Laurin 17.11.: die neuen UI-Sounds (ui_blip, whoosh_soft …) klangen schlecht -> verworfen. Diagramme seit 17.11. nachmittags mit paper_slide (Laurin).
 
 # =====================================================================================
 # Neue Effekte (Laurin 17.11.2026: mehr Effekte). Alle kostenlos, prozedural.
@@ -242,6 +242,7 @@ def _calendar_snd(p, dur):
     n = len(p["pages"]); per = p.get("per", 0.9)
     return [(0.3+per*i+0.55*per, "page_turn", 0.65) for i in range(n-1)]
 SOUNDFN = {"calendar": _calendar_snd}
+SOUNDFN["bars"] = lambda p, dur: [(0.5+0.45*i, "paper_slide", 0.5) for i in range(len(p["items"]))]
 DATA = ()   # Musik-Ducking bei Daten-Grafiken: vorerst aus (Laurin 17.11.)
 
 # ---------- desktop: Ermittler-PC, Mauszeiger klickt eine Fallakte an, Fenster öffnet sich (Laurin 17.11.) ---------- [von Laurin freigegeben 17.11.]

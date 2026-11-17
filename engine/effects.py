@@ -342,3 +342,13 @@ def _endcard_keys(p, dur):
         k += 1
     return ev
 SOUNDFN["endcard"] = _endcard_keys
+
+# Landkarte: Ortsnamen tippen sich mit Tastatursound ein (Laurin 17.11.), Schrift 18 Zeichen/s ab Pin + 0,3 s
+def _route_keys(p, dur):
+    ev = []
+    for i, (lab, x, y) in enumerate(p["points"][:5]):
+        t0 = 0.3+i*1.0+0.3
+        for k, ch in enumerate(lab):
+            if ch != " ": ev.append((t0+k/18, f"key{(i*3+k) % 8}", 0.45))
+    return ev
+SOUNDFN["route"] = _route_keys

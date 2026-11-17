@@ -96,7 +96,7 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Musik (Laurin 17.11.): KEINE neuen Tracks pro Video erzeugen – nur die feste Bibliothek in assets/music nutzen. Neue Tracks nur, wenn Laurin es ausdrücklich verlangt (kostet Credits).
 - Echtes Videomaterial: Pixabay statt Pexels (Pexels vergibt derzeit keine API-Schlüssel). engine/stock.py, Schlüssel nur zur Laufzeit (PIXABAY_KEY), bei Laurin erfragen.
 - Sound-Test 17.11. (UI-Blips, Whooshes, Zähl-Sound aus SFXMint) hat Laurin ALLE abgelehnt („sehr schlecht“) -> verworfen, alte Sounds bleiben.
-  Diagramm-Sound zip: am 17.11. nach Hörprobe doch von Laurin bestätigt („das passt“) -> bleibt, nicht mehr ersetzen.
+  Diagramm-Sound: 17.11. zuerst zip bestätigt, später am selben Tag auf paper_slide umgestellt (Laurin) -> bars/breakdown/flow = paper_slide.
 - Effekte freigegeben: phone (Push-Nachricht auf Handy), calendar (Abreißkalender). NICHT freigegeben: kinetic, ticker, spot, Lichtleck (nur auf Wunsch).
 - engine/demo_mix.py: schneller Probe-Mix einzelner Szenen (Stimme + Sounds + Musik) ohne Gesamt-Mix.
 - Sound-Auswahl Mixkit (17.11.): Kartenpunkt-Variante 3 „Cinematic whoosh deep impact“ = zoom_deep_impact für den Zoom von der Karte in die 3D-Animation. Zahl zählt hoch: bisherigen Sound (tick) BEHALTEN. Weitere Wahl folgt.
@@ -108,6 +108,7 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Endkarte: Kommentarfeld schiebt sich mit paper_slide rein (Laurins Sound); Frage tippt sich mit Tastatursound ein (SOUNDFN endcard), restliche Endkarten-Sounds bleiben (17.11.).
 - Musik an Kapitelkarten (Laurin 17.11., ENDGÜLTIG 3. Fassung): alte Musik bricht genau beim Bass-Hit der Kapitelkarte ab (Karte +0,6 s, 40 ms Blende), Karte steht ohne Musik, neuer Track beginnt 4 s nach Kapitelbeginn leise (25 %) und wird über 2,5 s normal laut (mix_full.py CARD_CUT/CARD_IN/CARD_FI). Wechsel mitten im Kapitel wie bisher.
 - Earth-Zoom (Laurin 17.11.): Kartenphase A_DUR 5,1 s statt 2,6 s, Zoom gleichmäßig langsamer über die ganze Länge des neuen Risers zoom_riser (Höhepunkt beim Durchstoßen, dann zoom_deep_impact). Szenen mit earthzoom brauchen ~2,5 s mehr Platz.
+- Landkarte (route): Ortsnamen tippen sich mit Tastatursound ein (SOUNDFN route, Laurin 17.11.); pin + zip bleiben.
 - Schwärzung (redact): je Balken paper_slide (Laurin 17.11.), sub_drop beim Namen bleibt.
 - Textmarker in der Akte (doc) = marker_stroke / marker_stroke2 (Laurins eigene Aufnahme, 17.11.) statt highlighter.
 - Kurs-Grafik (chart) = data_loading (Laurins Data-Loading-Sound) während die Linie läuft + sub_drop bei der Zahl; Herzschlag und Ticks entfernt (17.11.).
