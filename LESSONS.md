@@ -96,3 +96,5 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - engine/demo_mix.py: schneller Probe-Mix einzelner Szenen (Stimme + Sounds + Musik) ohne Gesamt-Mix.
 - Sound-Auswahl Mixkit (17.11.): Kartenpunkt-Variante 3 „Cinematic whoosh deep impact“ = zoom_deep_impact für den Zoom von der Karte in die 3D-Animation. Zahl zählt hoch: bisherigen Sound (tick) BEHALTEN. Weitere Wahl folgt.
   Neue Sound-Quelle: Mixkit (mixkit.co/free-sound-effects/<kategorie>/, Vorschau-MP3 unter assets.mixkit.co; Lizenz: kommerziell + YouTube ok, keine Namensnennung). Laurin wählt immer selbst aus Hörproben (3 Varianten je Situation).
+- Weitere Wahl 17.11.: Geld = money_clink (Mixkit „Clinking coins“, ersetzt coins), Kalenderblatt = page_turn (Mixkit „Page turn single“).
+  Abgelehnt: alle 3 Varianten für Diagramm, Textwort, Handy-Nachricht -> dort vorerst alte Sounds, neue Varianten suchen.

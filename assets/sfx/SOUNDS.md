@@ -8,6 +8,8 @@ Neue Geräusche: Hugging-Face-Sample (frei, unbegrenzt) → sonst SFXMint-API mi
 
 | Name | Quelle (SFXMint-ID) | Inhalt |
 |---|---|---|
+| money_clink | Mixkit „Clinking coins“ (Mixkit-Lizenz) | Münzen klimpern – Geld (von Laurin gewählt) |
+| page_turn | Mixkit „Page turn single“ (Mixkit-Lizenz) | Seite umblättern – Kalenderblatt (von Laurin gewählt) |
 | zoom_deep_impact | Mixkit „Cinematic whoosh deep impact“ (Mixkit Sound Effects Free License: kommerziell, keine Namensnennung) | tiefer Whoosh mit Treffer – Earth Zoom: Karte → 3D (von Laurin gewählt) |
 | car_pass | car-pass-by-01 | Auto fährt vorbei |
 | car_pass_2 | car-pass-by-05 | Auto fährt vorbei (Variante) |
