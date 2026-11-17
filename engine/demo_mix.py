@@ -15,6 +15,7 @@ for n in scenes:
     a = load(v)[:int(T*SR)]; i = int(pos*SR); voice[i:i+len(a)] += a
     for t, name, g in m["sfx"]:
         if S0[n] <= t < S0[n]+T and not str(name).startswith(("amb:", "clip:")):
+            if name == "key": name = f"key{int(t*100) % 8}"   # einzelner Tastenanschlag (wie mix_full.py)
             p = f"sfx/{name}.wav"
             if not os.path.exists(p): continue
             if name not in cache: cache[name] = load(p)

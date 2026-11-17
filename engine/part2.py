@@ -421,18 +421,19 @@ def sfx_events():
         for e in EV.get(n, []):
             k, t0 = e[0], s+e[1]
             if k == "typed": C.typed_sfx(ev, t0, e[2], gain=0.5)
-            elif k == "pop": ev += [(t0+0.02, "slap", 0.22)]
+            # Schlagwörter/Text-Einblendungen: EIN einzelner Tastenanschlag statt slap (Laurin 17.11.)
+            elif k == "pop": ev += [(t0+0.02, "key", 0.6)]
             elif k == "stamp": ev += [(t0+0.1, "stamp", 0.9)]
             elif k == "counter":
                 ev += [(t0+i*0.09, "tick", 0.35) for i in range(10)]
                 C.typed_sfx(ev, t0+0.5, [e[2][3]], cps=20, gain=0.4)
             elif k == "quote": C.typed_sfx(ev, t0+1.0, [e[2][2]], gain=0.4)
             elif k == "chain":
-                for lab, a in e[2]: ev += [(s+wt(n, a), "slap", 0.7), (s+wt(n, a), "zip", 0.35)]
+                for lab, a in e[2]: ev += [(s+wt(n, a), "key", 0.6), (s+wt(n, a), "zip", 0.35)]
             elif k == "brands":
-                for nm in e[2]: ev += [(s+wt(n, nm), "slap", 0.55)]
+                for nm in e[2]: ev += [(s+wt(n, nm), "key", 0.6)]
             elif k == "words":
-                for w, a in e[2]: ev += [(s+wt(n, a), "slap", 0.8)]
+                for w, a in e[2]: ev += [(s+wt(n, a), "key", 0.6)]
             elif k == "map": ev += [(t0+0.6, "pin", 0.9)]
     chs = [S0[n] for n in CH if n in S0]
     for a, b in dips():
