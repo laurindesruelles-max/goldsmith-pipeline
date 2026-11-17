@@ -306,7 +306,7 @@ SOUNDS = {"doc": [(0.05, "paper", 0.5), (1.6, "marker_stroke", 0.8), (2.2, "mark
           "chart": [(0.15, "data_loading", 0.6), (2.7, "sub_drop", 1.0)],   # Laurin 17.11.: Data-Loading-Sound statt Herzschlag + Ticks
           "route": [(0.3, "pin", 0.8), (1.3, "pin", 0.8), (2.3, "pin", 0.8), (0.5, "zip", 0.4), (1.5, "zip", 0.4)],
           "split": [(0.2, "whoosh", 0.3), (0.5, "slap", 0.6), (1.1, "coins", 0.8)],
-          "news": [(0.0, "whoosh", 0.35), (1.25, "flash", 0.9), (2.05, "stamp", 1.0)],
+          "news": [(0.0, "news_spin", 0.7), (1.25, "flash", 0.9), (2.05, "stamp", 1.0)],   # Laurins Zeitungs-Sound (17.11.)
           "parallax": [(0.1, "whoosh", 0.2)],
           "photo": [(0.0, "paper", 0.45)]}
 
@@ -333,3 +333,12 @@ def transition(fr, prev, kind, lt, seed=0):
 # ---------- animierte Daten-Grafiken (engine/graphics.py) ----------
 import graphics as _G
 RENDER.update(_G.RENDER); DUR.update(_G.DUR); SOUNDS.update(_G.SOUNDS); SOUNDFN.update(_G.SOUNDFN); DATA = _G.DATA
+
+# Endkarte: Frage tippt sich mit Tastatursound ein (Laurin 17.11.), dazu die festen Sounds aus SOUNDS["endcard"]
+def _endcard_keys(p, dur):
+    q = p.get("question", "TELL US IN THE COMMENTS"); ev = []; k = 0
+    for ch in q:
+        if ch != " " and k % 2 == 0: ev.append((0.6+k/22, f"key{k % 8}", 0.45))
+        k += 1
+    return ev
+SOUNDFN["endcard"] = _endcard_keys

@@ -62,7 +62,8 @@ def dips():
 def music_cues():
     """[(globale Startzeit, track)] aus spec.json "music": {"1": "crime_archive", "9": "suspense_pulse"}"""
     m = SPEC.get("music") or {str(FIRST): "crime_archive"}
-    return sorted((S0.get(int(k), START), v) for k, v in m.items() if int(k) in S0 or int(k) <= FIRST)
+    # 3. Feld: True = Wechsel an einer Kapitelkarte (neuer Track erst 2 s nach Kartenstart, Laurin 17.11.)
+    return sorted((S0.get(int(k), START), v, int(k) in CH) for k, v in m.items() if int(k) in S0 or int(k) <= FIRST)
 
 def wt(n, anchor):
     """estimated start time of anchor phrase inside scene n (proportional over speech)."""

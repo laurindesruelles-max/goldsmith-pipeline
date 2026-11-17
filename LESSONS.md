@@ -104,6 +104,10 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Weitere Wahl 17.11.: Geld = money_clink (Mixkit „Clinking coins“, ersetzt coins), Kalenderblatt = page_turn (Mixkit „Page turn single“).
   Abgelehnt: alle 3 Mixkit-Varianten für Diagramm, Textwort, Handy-Nachricht. ERLEDIGT 17.11.: Diagramm = zip (bestätigt), Textwort = text_click, Handy = phone_notify, Kurs-Grafik = data_loading (alle von Laurin).
 - Handy-Nachricht (phone) = phone_notify (Laurins eigener Notification-Sound, 17.11.). Schlagwörter = text_click (Laurins Klick). Laurin hat ein Paket mit ~1000 Effekten und schickt gezielt Sounds.
+- Zeitung (news) = news_spin (Laurins Sound) statt whoosh; Blitz + Stempel bleiben (17.11.).
+- Endkarte: Frage tippt sich mit Tastatursound ein (SOUNDFN endcard), restliche Endkarten-Sounds bleiben (17.11.).
+- Musik an Kapitelkarten (Laurin 17.11.): alter Track blendet vor der Karte aus, Karte läuft ~2 s nur mit Kapitel-Hit, DANN setzt der neue Track ein (mix_full.py CARD_GAP=2.0; Musikwechsel mitten im Kapitel weiter nach 0,55 s).
+- Schwärzung (redact): Sound gefällt Laurin nicht -> neuen suchen (offen).
 - Textmarker in der Akte (doc) = marker_stroke / marker_stroke2 (Laurins eigene Aufnahme, 17.11.) statt highlighter.
 - Kurs-Grafik (chart) = data_loading (Laurins Data-Loading-Sound) während die Linie läuft + sub_drop bei der Zahl; Herzschlag und Ticks entfernt (17.11.).
 - phone-Effekt: Benachrichtigungs-Box wächst jetzt mit dem Text (vorher lief der Text unten raus).
