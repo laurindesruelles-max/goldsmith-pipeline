@@ -2,7 +2,8 @@
 
 Laurins ausgewählte Sounds für **alle** YouTube-Kanäle (Goldsmith Productions, Meisterwerk, Unterbau …).
 Eine Stelle für alle: Neue Sounds von Laurin kommen IMMER hierher (nicht in das sfx-Verzeichnis eines einzelnen Kanals),
-mit Zeile in dieser Tabelle. Alle Dateien: WAV, 48 kHz, Stereo, Anfangsstille entfernt, Spitze normalisiert.
+mit Zeile in dieser Tabelle.
+**Nur Geräusche, keine Musik:** Musik hat jeder Kanal selbst (Goldsmiths Krimi-Musik passt nur zu Goldsmith, Laurin 17.11.2026). Alle Dateien: WAV, 48 kHz, Stereo, Anfangsstille entfernt, Spitze normalisiert.
 
 ## Einbinden in ein Kanal-Projekt
 Das Repo ist öffentlich, kein Login nötig. In der setup.sh des Kanals (nach dem Kopieren der eigenen Sounds):
