@@ -127,7 +127,7 @@ SOUNDS = {"bars": [(0.5, "zip", 0.35), (0.95, "zip", 0.3), (1.4, "zip", 0.3)],
           "breakdown": [(0.3, "zip", 0.4), (1.3, "money_clink", 0.55)],
           "timeline": [(0.4, "pin", 0.5), (1.3, "pin", 0.5), (2.2, "pin", 0.5)],
           "flow": [(0.9, "zip", 0.4), (2.0, "money_clink", 0.5), (2.6, "zip", 0.35)],
-          "phone": [(0.9, "camera_click", 0.4)]}
+          "phone": [(0.9, "phone_notify", 0.55)]}  # Laurins Notification-Sound (17.11.)
 # Laurin 17.11.: die neuen UI-Sounds (ui_blip, whoosh_soft …) klangen schlecht -> verworfen. Bessere Sounds noch offen.
 
 # =====================================================================================
@@ -175,10 +175,6 @@ def phone(t, T, p, ctx):
     t1 = 0.9
     if t > t1:
         e = eout((t-t1)/0.35); cy = y0+380 - 60*(1-e); a = int(245*e)
-        d.rounded_rectangle([x0+40, cy, x0+pw-40, cy+230], 34, fill=(236, 236, 240, a))
-        d.rounded_rectangle([x0+66, cy+26, x0+116, cy+76], 12, fill=RED+(a,))
-        d.text((x0+132, cy+36), p.get("app", "NEWS"), font=f(INTER, 28), fill=(90, 90, 96, a))
-        d.text((x0+pw-66, cy+36), "now", font=f(INTER, 26), fill=(120, 120, 126, a), anchor="ra")
         title = p.get("title", ""); body = p.get("body", "")
         def wrap(txt, ft, wmax):
             out, cur = [], ""
@@ -186,9 +182,15 @@ def phone(t, T, p, ctx):
                 if ft.getlength((cur+" "+w).strip()) > wmax: out.append(cur); cur = w
                 else: cur = (cur+" "+w).strip()
             return out+[cur] if cur else out
+        tl = wrap(title, f(INTER, 34), pw-130)[:3]; bl = wrap(body, f(INTER, 28), pw-130)[:2]
+        bh = max(230, 92+42*len(tl)+36*len(bl)+26)   # Box wächst mit dem Text (17.11.: Text lief unten raus)
+        d.rounded_rectangle([x0+40, cy, x0+pw-40, cy+bh], 34, fill=(236, 236, 240, a))
+        d.rounded_rectangle([x0+66, cy+26, x0+116, cy+76], 12, fill=RED+(a,))
+        d.text((x0+132, cy+36), p.get("app", "NEWS"), font=f(INTER, 28), fill=(90, 90, 96, a))
+        d.text((x0+pw-66, cy+36), "now", font=f(INTER, 26), fill=(120, 120, 126, a), anchor="ra")
         yy = cy+92
-        for ln in wrap(title, f(INTER, 34), pw-130)[:3]: d.text((x0+66, yy), ln, font=f(INTER, 34), fill=(20, 20, 24, a)); yy += 42
-        for ln in wrap(body, f(INTER, 28), pw-130)[:2]: d.text((x0+66, yy), ln, font=f(INTER, 28), fill=(70, 70, 76, a)); yy += 36
+        for ln in tl: d.text((x0+66, yy), ln, font=f(INTER, 34), fill=(20, 20, 24, a)); yy += 42
+        for ln in bl: d.text((x0+66, yy), ln, font=f(INTER, 28), fill=(70, 70, 76, a)); yy += 36
     return fr, layer
 
 def calendar(t, T, p, ctx):

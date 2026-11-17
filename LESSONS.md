@@ -103,3 +103,5 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
   Neue Sound-Quelle: Mixkit (mixkit.co/free-sound-effects/<kategorie>/, Vorschau-MP3 unter assets.mixkit.co; Lizenz: kommerziell + YouTube ok, keine Namensnennung). Laurin wählt immer selbst aus Hörproben (3 Varianten je Situation).
 - Weitere Wahl 17.11.: Geld = money_clink (Mixkit „Clinking coins“, ersetzt coins), Kalenderblatt = page_turn (Mixkit „Page turn single“).
   Abgelehnt: alle 3 Varianten für Diagramm, Textwort, Handy-Nachricht -> dort vorerst alte Sounds, neue Varianten suchen.
+- Handy-Nachricht (phone) = phone_notify (Laurins eigener Notification-Sound, 17.11.). Schlagwörter = text_click (Laurins Klick). Laurin hat ein Paket mit ~1000 Effekten und schickt gezielt Sounds.
+- phone-Effekt: Benachrichtigungs-Box wächst jetzt mit dem Text (vorher lief der Text unten raus).
