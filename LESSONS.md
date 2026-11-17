@@ -102,7 +102,7 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Sound-Auswahl Mixkit (17.11.): Kartenpunkt-Variante 3 „Cinematic whoosh deep impact“ = zoom_deep_impact für den Zoom von der Karte in die 3D-Animation. Zahl zählt hoch: bisherigen Sound (tick) BEHALTEN. Weitere Wahl folgt.
   Neue Sound-Quelle: Mixkit (mixkit.co/free-sound-effects/<kategorie>/, Vorschau-MP3 unter assets.mixkit.co; Lizenz: kommerziell + YouTube ok, keine Namensnennung). Laurin wählt immer selbst aus Hörproben (3 Varianten je Situation).
 - Weitere Wahl 17.11.: Geld = money_clink (Mixkit „Clinking coins“, ersetzt coins), Kalenderblatt = page_turn (Mixkit „Page turn single“).
-  Abgelehnt: alle 3 Varianten für Diagramm, Textwort, Handy-Nachricht -> dort vorerst alte Sounds, neue Varianten suchen.
+  Abgelehnt: alle 3 Mixkit-Varianten für Diagramm, Textwort, Handy-Nachricht. ERLEDIGT 17.11.: Diagramm = zip (bestätigt), Textwort = text_click, Handy = phone_notify, Kurs-Grafik = data_loading (alle von Laurin).
 - Handy-Nachricht (phone) = phone_notify (Laurins eigener Notification-Sound, 17.11.). Schlagwörter = text_click (Laurins Klick). Laurin hat ein Paket mit ~1000 Effekten und schickt gezielt Sounds.
 - Kurs-Grafik (chart) = data_loading (Laurins Data-Loading-Sound) während die Linie läuft + sub_drop bei der Zahl; Herzschlag und Ticks entfernt (17.11.).
 - phone-Effekt: Benachrichtigungs-Box wächst jetzt mit dem Text (vorher lief der Text unten raus).
