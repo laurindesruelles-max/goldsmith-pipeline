@@ -88,3 +88,4 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
   Bewusste Musikpausen an starken Aussagen: spec "music_rests": {"N": [start_offset, dauer]}. Kapitelkarte steht 4,4 s (CARD_T).
 - Vollbild-Effekte, deren Anker < 1 s nach Szenenstart liegt, starten bei 0 (kein Aufblitzen des Grundbilds, Laurin 17.11.).
 - Reinzoomen braucht Sound (Laurin 17.11.): Earth-Zoom = riser + whoosh beim Durchstoßen + whoosh in den Raum; Polaroid-Zoom = shutter + whoosh.
+- Musik (Laurin 17.11.): KEINE neuen Tracks pro Video erzeugen – nur die feste Bibliothek in assets/music nutzen. Neue Tracks nur, wenn Laurin es ausdrücklich verlangt (kostet Credits).
