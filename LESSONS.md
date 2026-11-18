@@ -117,3 +117,9 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Textmarker in der Akte (doc) = marker_stroke / marker_stroke2 (Laurins eigene Aufnahme, 17.11.) statt highlighter.
 - Kurs-Grafik (chart) = data_loading (Laurins Data-Loading-Sound) während die Linie läuft + sub_drop bei der Zahl; Herzschlag und Ticks entfernt (17.11.).
 - phone-Effekt: Benachrichtigungs-Box wächst jetzt mit dem Text (vorher lief der Text unten raus).
+
+## Musik-Feinschliff mit audiokit (Laurin 18.11.2026)
+vidIQ-Auswertung 18.11.: auch bei Goldsmith läuft die Musik pro Kapitel lange gleich und bleibt vor Enthüllungen auf einem Plateau. Deshalb in engine/mix_full.py (Sounds bleiben UNVERÄNDERT – Laurins Goldsmith-Sounds sind die Qualitäts-Referenz):
+- Kapitel-Tracks > 75 s springen alle ~65 s auf eine andere, spannendere Stelle desselben Tracks (Charakter bleibt).
+- Vor jeder bewussten Musikpause (spec "music_rests") 3 s Crescendo (+3,5 dB) in die Stille. Mehr music_rests an echten Enthüllungen setzen.
+- Endkontrolle (Lautheit, Abstand Musik/Stimme) → build/ton_bericht.txt. Abschalten: GOLDSMITH_AK=0.

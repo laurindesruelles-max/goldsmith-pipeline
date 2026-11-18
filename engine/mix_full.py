@@ -49,6 +49,21 @@ def load_track(name):
         subprocess.run(['ffmpeg','-y','-loglevel','error','-i',src,'-ar','48000','-ac','2',p],check=True)
     return wf.read(p)[1].astype(np.float32)/32768
 SR=48000; N=int(total*SR)+SR; bed=np.zeros((N,2),np.float32)
+# audiokit (18.11.2026): Musik lebt mehr – lange Kapitel springen alle ~65 s auf eine andere (spannendere) Stelle desselben Tracks
+# (Charakter bleibt gleich), und vor jeder bewussten Musikpause schwillt die Musik 3 s an (Crescendo in die Stille).
+# Sounds bleiben unangetastet (Laurins Goldsmith-Sounds). Ausschalten: GOLDSMITH_AK=0
+AK_ON = os.environ.get("GOLDSMITH_AK", "1") != "0"
+def vary(tr, L, part=65.0, xf=2.0):
+    w = SR; n = len(tr) // w; e = np.sqrt((tr[:n*w].reshape(n, w, 2)**2).mean(axis=(1, 2))); P = int(part); X = int(xf*SR)
+    win = np.convolve(e, np.ones(P)/P, 'valid') if n > P else np.array([e.mean()])
+    order = list(np.argsort(win)[::-1]); out = np.zeros((0, 2), np.float32); used = [0]; k = 0
+    while len(out) < L:
+        off = 0 if k == 0 else next((o for o in order if all(abs(o-u) > P*0.5 for u in used)), order[k % len(order)])
+        used.append(off); piece = np.concatenate([tr[int(off)*w:]] + [tr]*2)[:int(part*SR)+X].copy()
+        if len(out): r = min(X, len(out)); piece[:r] *= np.linspace(0, 1, r)[:, None]; out[-r:] *= np.linspace(1, 0, r)[:, None]; out = np.concatenate([out[:-r], out[-r:] + piece[:r], piece[r:]])
+        else: out = piece
+        k += 1
+    return out[:L]
 cues=[tuple(c) for c in m2.get('music',[[0,'crime_archive']])]; XF=int(2.5*SR)
 # Laurin 16.11.: vor jedem Musikwechsel (= Kapitel) Musik ausblenden, kurze Stille, neuer Track setzt mit der Kapitelkarte ein
 FO=int(2.2*SR); GAP=int(0.5*SR); FI=int(1.2*SR)
@@ -66,6 +81,7 @@ for i,c in enumerate(cues):
     tr=load_track(name)
     if b<=a: continue
     seg=np.concatenate([tr]*(1+(b-a)//len(tr)))[:b-a].copy()
+    if AK_ON and len(seg) > 75*SR: seg = vary(tr, len(seg))   # audiokit: kein Track > ~65 s am Stück gleich
     if i>0 and at_card: ramp=min(CARD_FI,len(seg)); seg[:ramp]*=np.linspace(0.25,1,ramp)[:,None]; seg[:int(0.15*SR)]*=np.linspace(0,1,min(len(seg),int(0.15*SR)))[:,None]
     else: ramp=min(FI,len(seg)); seg[:ramp]*=np.linspace(0,1,ramp)[:,None]
     if i+1<len(cues): k=min(CUT_FO if nxt_card else FO,len(seg)); seg[-k:]*=np.linspace(1,0,k)[:,None]
@@ -77,6 +93,8 @@ for d0,d1 in m2.get('dips',[]):
     env[b:b+r]=np.minimum(env[b:b+r],np.linspace(0.12,1,len(env[b:b+r])))
 for d0,d1 in m2.get('rests',[]):   # bewusste Musikpausen (Spannung)
     a=int(d0*SR); b=min(N,int(d1*SR)); r=int(0.8*SR)
+    if AK_ON:   # Crescendo in die Stille: 3 s vor der Pause bis +3,5 dB
+        s0=max(0,a-r-int(3*SR)); env[s0:a-r]*=10**(3.5*np.linspace(0,1,a-r-s0)**1.5/20)
     env[a:b]=0.0
     env[max(0,a-r):a]=np.minimum(env[max(0,a-r):a],np.linspace(1,0,a-max(0,a-r)))
     env[b:b+r]=np.minimum(env[b:b+r],np.linspace(0,1,len(env[b:b+r])))
@@ -99,4 +117,8 @@ fc=[''.join(f'[{i+2}:a]' for i in range(k))+f'amix=inputs={k}:normalize=0,volume
 subprocess.run(['ffmpeg','-y','-loglevel','error',*inp,'-filter_complex',';'.join(fc),'-map','[out]','-c:a','aac','-b:a','192k','build/mix_full.m4a'],check=True)
 subprocess.run(['ffmpeg','-y','-loglevel','error','-i','build/video_full.mp4','-i','build/mix_full.m4a','-map','0:v','-map','1:a','-c:v','libx264','-preset','veryfast','-crf','22','-maxrate','14M','-bufsize','28M','-pix_fmt','yuv420p','-c:a','copy','-shortest','-movflags','+faststart','build/full.tmp.mp4'],check=True)
 import os; os.replace('build/full.tmp.mp4',os.environ.get('OUT','../FINAL.mp4'))
+_ak = os.environ.get("AUDIOKIT", "/home/claude/audiokit")
+if os.path.exists(f"{_ak}/adapter.py"):   # Endkontrolle (nur Bericht, ändert nichts)
+    import sys; sys.path.insert(0, _ak); import adapter as AK
+    AK.final_check(os.environ.get('OUT','../FINAL.mp4'), 'build/voice_full.wav', 'build/music_bed.wav'); AK.write_report('build/ton_bericht.txt')
 print(len(ev),'sfx',total)

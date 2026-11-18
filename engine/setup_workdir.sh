@@ -19,4 +19,10 @@ cp "$REPO"/assets/img/*.png "$WORK/v3/a/"; cp "$REPO/assets/music/music_tension.
 cp "$VID/scenes.json" "$WORK/"
 [ -f "$VID/spec.json" ] && cp "$VID/spec.json" "$WORK/v3/"
 [ -f "$VID/timing.json" ] && cp "$VID/timing.json" "$WORK/v3/"
+# Ton-Werkzeug audiokit (18.11.2026): Sounds aufräumen, Musik nach Spannungskurve, Endkontrolle.
+# Gemeinsam sind nur die Regeln – Sounds und Musik bleiben kanal-eigen. Repo: laurindesruelles-max/sound-mediathek
+AK="${AUDIOKIT:-/home/claude/audiokit}"
+if [ ! -f "$AK/adapter.py" ] || [ -n "$AK_UPDATE" ]; then
+  AKT=$(mktemp -d); git clone -q --depth 1 https://github.com/laurindesruelles-max/sound-mediathek "$AKT/r" && mkdir -p "$AK" && cp "$AKT"/r/audiokit/*.py "$AKT"/r/audiokit/*.json "$AK"/ && echo "audiokit bereit: $AK"; rm -rf "$AKT"
+fi
 echo "Workdir bereit: $WORK  (Audio nach audio/, Bilder nach img/, dann in v3/: FIRST_SCENE=1 python3 part2.py meta)"
