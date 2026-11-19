@@ -111,6 +111,7 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 - Landkarte (route) + Earth-Zoom: Pins mit pin_pop (Laurins Pop-Sound, 17.11.), Ortsnamen tippen sich mit Tastatursound ein (SOUNDFN route); zip für die Linie bleibt.
 - Musik ist kanal-eigen (Laurin 17.11.): die Krimi-Bibliothek assets/music gehört nur Goldsmith, nie an andere Kanäle geben; sound-library = nur Geräusche.
 - EFFEKTE PRO KANAL (Laurin 17.11., ersetzt die frühere gemeinsame Bibliothek): sound-library/ ist nur noch Goldsmiths Bibliothek. Neue Goldsmith-Sounds von Laurin dorthin + Zeile in sound-library/README.md. Andere Kanäle (Meisterwerk, Unterbau, Denkmuster …) haben eigene Effekte in ihrem Repo und binden sound-library nicht ein.
+- **Update (Laurin 19.11.2026): Gemeinsame Sound-Bibliothek für alle Kanäle** – zusätzlich zu diesem Ordner dürfen alle Effekte aus `laurindesruelles-max/sound-bibliothek` genutzt werden, gefiltert nach dem Stilprofil des Kanals (README dort, `sk.py find … --channel <kanal>`). Musik bleibt kanal-eigen. Die Regel vom 17.11. („nur eigene Effekte“) gilt damit nicht mehr.
 - Sound-Durchgang 17.11. abgeschlossen: Laurin hat alle Effekte angehört. Unverändert bestätigt: Kapitelkarte (braam+boom), Stempel, Vorher/Nachher, Abreißkalender, Übergänge, Polaroid-Zoom, Desktop-Grafik, Zahl zählt hoch (tick).
 - Zeitleiste (timeline): je Termin text_click (derselbe Klick wie bei Schlagwörtern, Laurin 17.11.); Pin-Sound und Tastatur abgelehnt.
 - Schwärzung (redact): je Balken paper_slide (Laurin 17.11.), sub_drop beim Namen bleibt.

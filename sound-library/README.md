@@ -1,7 +1,9 @@
 # Goldsmith-Sound-Bibliothek (nur Goldsmith Productions)
 
 Laurins ausgewählte Effekt-Sounds für **Goldsmith Productions**.
-**Regel (Laurin 17.11.2026): Jeder Kanal hat seine eigenen Effekte.** Diese Sounds passen zu Goldsmith, aber nicht automatisch
+**Update (Laurin 19.11.2026): Gemeinsame Sound-Bibliothek für alle Kanäle** – zusätzlich zu diesem Ordner dürfen alle Effekte aus `laurindesruelles-max/sound-bibliothek` genutzt werden, gefiltert nach dem Stilprofil des Kanals (README dort, `sk.py find … --channel <kanal>`). Musik bleibt kanal-eigen. Die Regel vom 17.11. („nur eigene Effekte“) gilt damit nicht mehr.
+
+~~**Regel (Laurin 17.11.2026): Jeder Kanal hat seine eigenen Effekte.**~~ Diese Sounds passen zu Goldsmith, aber nicht automatisch
 zu anderen Kanälen – Meisterwerk, Unterbau, Denkmuster usw. binden diese Bibliothek NICHT mehr ein, sondern haben ein eigenes Set
 in ihrem Repo (assets/sfx). Neue Sounds von Laurin für Goldsmith kommen hierher, mit Zeile in dieser Tabelle; Sounds für einen
 anderen Kanal kommen in dessen Repo.
