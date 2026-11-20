@@ -1,5 +1,8 @@
 # Goldsmith – Lernbuch (wird bei JEDEM Video gelesen und ergänzt)
 
+> **Seit 20.11.2026 zuerst lesen:** `HANDWERK.md` (Regeln für alle Kanäle) und `EFFEKTE.md` (Handschrift und erlaubte Effekte dieses Kanals, von Laurin abgenommen). Bei Widerspruch gelten diese beiden Dateien.
+
+
 Ziel: Jedes Video ist besser als das letzte – Schnitt, Spannung, Sound, Thumbnail.
 
 ## Feste Regeln aus Laurins Feedback
