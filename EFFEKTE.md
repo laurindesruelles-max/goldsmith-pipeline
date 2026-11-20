@@ -39,3 +39,18 @@ Gemeinsame Regeln: `HANDWERK.md`. Hier steht nur, was Goldsmith von den anderen 
 **Raus:** Zeitungs-Wirbel (`news`), denn Zeitung gehört Nachtausgabe. Artikel stattdessen als Ausschnitt anpinnen. Raus ist auch der weiße Balken-Übergang.
 
 Stilprobe: `stilprobe_goldsmith.mp4` (20.11.2026, an Laurin geschickt). Sounds folgen nach dem Casting (`doku-ohren`).
+
+## Sound je Effekt (Stand 20.11.2026, Demo geschickt (20.11.2026), nur Laurins abgenommene Goldsmith-Sounds)
+Geplant nach dem Grundsatz aus `HANDWERK.md`: erst festlegen, wo überhaupt ein Sound hingehört, dann je Stelle genau einen. Skripte: `engine/stilproben/ton_*.py`.
+
+| Effekt | Sound |
+| --- | --- |
+| Akte wird zugeschoben | paper_slide + leiser whoosh + paper |
+| Ort und Datum tippen | key0–6 |
+| Polaroid anpinnen | shutter + slap + pin |
+| Roter Faden | zip |
+| Stempel | Musik setzt aus, stamp + braam + boom |
+| Wand wächst/Rückzoom | whoosh |
+| Lampe schwenkt | lever leise, am Ende sub_drop leise |
+| Spannung | tick einmal pro Sekunde, sehr leise |
+| Musik | crime_pulse, kein Musikstart in den ersten Sekunden |
