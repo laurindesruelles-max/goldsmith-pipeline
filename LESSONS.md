@@ -63,6 +63,7 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 ## Video-Log
 | # | Video | Datum | Thumbnail | Ergebnis | Erkenntnis |
 |---|---|---|---|---|---|
+| 004 | How GTA 5 Became a 13-Year Money Machine | Entwurf 22.11.2026, geplant 23.11. 17:00 | Hero „GTA 5 / 13 YEARS. / STILL PRINTING.“ (Druckerpresse mit Spielhülle), Variante B „STILL PAYING?“ | (noch offen) | Erstes Video mit ElevenLabs v4 (Alistair) statt seed_audio. 72 Szenen, 10:44. 3 neue 3D-Szenen (Edinburgh 2013, Kartentisch-Studio, Programmierer-Zimmer), Polaroids ohne Tilt-Shift. earshot launch-grade 0 major. |
 | 002 | Why Luxury Brands Burn Their Own Clothes | 17.11.2026 (S3GMEPAgqas) | Hero „THEY BURNED £28.6 MILLION“ | (noch offen) | Erstes Video mit allen Effekten, Kapitelmusik und Pausen. Länge ~8 Min (kürzer als 001). Thumbnail-Heroes mit Handtaschen ähneln echten Designermodellen (Birkin/Chanel) → solche Motive meiden. Neu hochgeladen mit ruhigerem Sound (1 Kapitel-Hit, kaum Whoosh). |
 | 001 | The Company That Secretly Owns Your Glasses | 15.11.2026 | Hero A „YOU PAY 20X MORE?“ | (noch offen) | Pilot. Musik war nur 1 Track in Schleife; keine Pausen. Ab 002: Kapitel-Musik + beats. |
 
@@ -140,3 +141,14 @@ Grundlage: Auswertung erfolgreicher Ausreißer-Videos in allen 5 Nischen (vidIQ)
 **Prüfung vor dem Rendern** (in qa.md eintragen): Sekunde, ab der das Thema klar ist (≤ 5), Sekunde der offenen Frage (≤ 15), Versprechen ja/nein, Hook-Länge (Wörter ÷ 2,4 = Sekunden).
 **Nach 48 h:** Retention bei 30 s per vidIQ (audience_retention) ins Video-Log. Ziel ≥ 70 %. Unter 50 % → beim nächsten Video den Alternativ-Typ unten nehmen.
 **Goldsmith-Hook:** **Provokante Behauptung mit „you“ + Frage** („Think politicians run America? Think again.“) → Wendung („It isn't.“) → konkretes Versprechen (Countdown oder „By the end, you'll know who …“). Firma/Thema aus dem Titel und das Thumbnail-Motiv in den ersten 5 s – der Earth Zoom darf erst danach kommen. **Länge ≤ 40 s.** (Luxottica: nur noch ~33 % nach 30 s – Thema kam zu spät.)
+
+## Video 004 – GTA 5 (21./22.11.2026)
+- Auswertung (vidIQ 21.11.): Luxottica 35 Aufrufe (6 Tage), Luxury Bonfire 3, GTA 6 4 Aufrufe nach 2 Tagen → der Kanal bekommt noch kaum Impressionen. Konsequenz: Suchbegriff im Titel nach vorn („GTA 5“), Thema als erste Zeile im Thumbnail; Retention-Daten erst bei mehr Aufrufen aussagekräftig.
+- Stimme: `elevenlabs_v4` mit `dialogue=[{text, voice_type: preset, voice_id: Alistair}]` funktioniert (HANDWERK: nur ElevenLabs). Higgsfield erlaubt max. 8 gleichzeitige Jobs; einzelne Jobs bleiben manchmal ewig „queued“ → nach ~3 Min. neu einreichen.
+- Faktencheck VOR dem Einsprechen hat 1 echten Fehler (Sensor-Tower-Zahl ≠ „Tag 1“) und 8 Ungenauigkeiten gefunden – nie überspringen.
+- KI-Bilder bei Aussagen über echte Personen (Interview, Podcast) dürfen KEINE realistischen Gesichter zeigen, sonst wirken sie wie die genannte Person → Prompts „no people, no faces“.
+- Rechenzeit: 2 Kerne. Blender (FAST=1, ~470 Frames) parallel zu part2 kostet ~30 Min. extra; Szenen rendern ~1 h. Bei Bedarf 3D zuerst rendern.
+- YouTube-Beschreibung max. 5.000 Bytes (nicht Zeichen) – Quellenliste kürzen. Nach draft_update mit neuer media wird publishAt zurückgesetzt → danach publishAt erneut setzen und prüfen.
+- earshot: `HF_HUB_DISABLE_XET=1` nötig, sonst scheitert der Modell-Download. Ende-Stille: Bild auf Tonlänge kürzen. „Lautestes 3-s-Fenster“ zu flach → Titelkarten-Treffer anheben.
+- Engine: `part2.fmt` zeigt jetzt so viele Nachkommastellen wie der Zielwert (6.66 statt 6.7); `breakdown` hat `pre`/`suf` (Prozent-Anteile statt $); setup_workdir.sh kopiert kein music_tension.mp3 mehr (gelöscht).
+- Noch nicht in der Engine: die neuen Effekte aus EFFEKTE.md (Akte wird zugeschoben, Wand wächst, Lampe schwenkt) – nur Stilprobe vorhanden. Nächster Schritt: in part2/effects einbauen.

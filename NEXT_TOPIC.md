@@ -1,8 +1,0 @@
-# Themen-Warteschlange (von Laurin festgelegt, 15.11.2026)
-
-Jeder Lauf nimmt den OBERSTEN Eintrag, schickt Laurin KEINE Themenauswahl mehr (Thema steht fest), produziert direkt und entfernt danach nur diesen Eintrag. Ist die Liste leer, Datei löschen.
-
-GTA 6 erscheint am Donnerstag, 19.11.2026 (PS5, Xbox Series X|S). Goldsmith-Winkel = Business-Story, kein Spiele-Review. Alle Zahlen am Produktionstag frisch per WebSearch belegen, Quellen in die Beschreibung.
-
-## 2. How GTA 5 became a money machine for 13 years (Lauf 19.11. → Veröffentlichung 21.11. 17:00)
-GTA 5 (Sept. 2013) → GTA Online, Shark Cards, Re-Releases über drei Konsolengenerationen; warum Take-Two deshalb über ein Jahrzehnt auf GTA 6 warten konnte. Hook: „One game. 13 years. Still printing money.“

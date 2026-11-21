@@ -182,7 +182,8 @@ def card_text(text, w=300, h=110):
     return CARD[k]
 
 def fmt(v, val):
-    if isinstance(val, float): return f"{v:.1f}"
+    if isinstance(val, float):   # so viele Nachkommastellen wie der Zielwert (6.66 -> "6.66", nicht "6.7")
+        nd = max(1, len(repr(val).split(".")[1])); return f"{v:.{nd}f}"
     v = int(round(v)); return f"{v:,}" if val >= 1000 else str(v)
 
 def overlays(n, t, T, layer, fr):

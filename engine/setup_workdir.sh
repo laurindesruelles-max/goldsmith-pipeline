@@ -15,7 +15,7 @@ python3 -c "import bpy" 2>/dev/null || pip install bpy --break-system-packages -
 if [ ! -f "$WORK/v3/sfx/key0.wav" ]; then
   curl -sSfL -o /tmp/goldsmith_keys.zip "https://d2ol7oe51mr4n9.cloudfront.net/user_3LhrXzDQGZeDXCNfJbMSIhJMEcn/a97d9544-3788-456e-802a-03b6847d4f8c.zip" && (cd "$WORK/v3/sfx" && unzip -oq /tmp/goldsmith_keys.zip) || echo "WARNUNG: Tastatursounds nicht ladbar (Domain d2ol7oe51mr4n9.cloudfront.net freigeben)"
 fi
-cp "$REPO"/assets/img/*.png "$WORK/v3/a/"; cp "$REPO/assets/music/music_tension.mp3" "$WORK/v3/music_tension.mp3"; mkdir -p "$WORK/v3/music"; cp "$REPO"/assets/music/*.mp3 "$WORK/v3/music/"
+cp "$REPO"/assets/img/*.png "$WORK/v3/a/"; mkdir -p "$WORK/v3/music"; cp "$REPO"/assets/music/*.mp3 "$WORK/v3/music/"
 cp "$VID/scenes.json" "$WORK/"
 [ -f "$VID/spec.json" ] && cp "$VID/spec.json" "$WORK/v3/"
 [ -f "$VID/timing.json" ] && cp "$VID/timing.json" "$WORK/v3/"

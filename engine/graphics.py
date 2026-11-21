@@ -56,7 +56,8 @@ def bars(t, T, p, ctx):
 def breakdown(t, T, p, ctx):
     fr = bg(ctx, t, T); layer = empty(); d = ImageDraw.Draw(layer)
     tot = p.get("total", 80); parts = p["parts"]; x0, x1, y0, y1 = 260, 1660, 430, 610
-    d.text((W/2, 250), f"${tot}", font=f(ANTON, 170), fill=IVORY+(int(255*ease(t/0.4)),), anchor="mm")
+    pre, suf = p.get("pre", "$"), p.get("suf", "")   # z. B. Prozentanteile: "pre": "", "suf": "%"
+    d.text((W/2, 250), f"{pre}{tot}{suf}", font=f(ANTON, 170), fill=IVORY+(int(255*ease(t/0.4)),), anchor="mm")
     grow = eout((t-0.3)/0.8); d.rectangle([x0, y0, x0+(x1-x0)*grow, y1], fill=(60, 56, 50, 255))
     sp = eout((t-1.3)/0.7); cols = [TEAL, GOLD, GREEN, RED]; x = x0; gapw = 24*sp
     for i, (lab, v, pct) in enumerate(parts):
@@ -68,7 +69,7 @@ def breakdown(t, T, p, ctx):
             d.rectangle([x, y0+lift, x+w*grow, y1+lift], fill=col+(int(255*sp),))
             a = int(255*ease((t-1.6-0.3*i)/0.4))
             if a > 0:
-                d.text((x+w/2, y0+lift+(y1-y0)/2), f"${v}", font=f(ANTON, 96), fill=(20, 18, 16, a), anchor="mm")
+                d.text((x+w/2, y0+lift+(y1-y0)/2), f"{pre}{v}{suf}", font=f(ANTON, 96), fill=(20, 18, 16, a), anchor="mm")
                 d.text((x+w/2, y1+70), lab, font=f(ANTON, 58), fill=(col if not dim else (120, 115, 105))+(a,), anchor="mm")
                 d.text((x+w/2, y1+130), pct, font=f(TYPE, 40), fill=IVORY+(int(a*(0.5 if dim else 1)),), anchor="mm")
         x += w+gapw
