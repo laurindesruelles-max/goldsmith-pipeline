@@ -1,6 +1,6 @@
 """Kostenloses echtes Videomaterial von Pixabay (Pixabay Content License: kommerziell ok, keine Namensnennung nötig;
 NICHT erlaubt: Clips mit erkennbaren Marken/Logos für Waren/Dienstleistungen, unbearbeitet weiterverkaufen).
-Schlüssel NUR zur Laufzeit: export PIXABAY_KEY=... (bei Laurin erfragen, nie ins Repo/Skill/Memory schreiben).
+Schlüssel NUR zur Laufzeit: export PIXABAY_KEY=... (steht im Video-Skill und im geplanten Lauf; nie ins Repo schreiben – Repo ist öffentlich).
 
 python3 engine/stock.py search "city traffic night" [n]      -> Liste: id | Dauer | Tags | Größe
 python3 engine/stock.py get <id> <ziel.mp4>                     -> lädt 'large' (1080p+) bzw. 'medium', ohne Ton, 24 fps
