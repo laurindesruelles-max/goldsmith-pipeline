@@ -1,13 +1,11 @@
-# Goldsmith-Sound-Bibliothek (nur Goldsmith Productions)
+# Goldsmith-Sound-Bibliothek (Laurins abgesegnete Sounds – seit 22.11.2026 für alle Kanäle, außer dem Kapitel-Sound braam + boom)
+
+> **Regel (Laurin 22.11.2026):** Sounds zuerst bei **Freesound** suchen (`sk.py find … --channel <kanal>` macht das automatisch, wenn `FREESOUND_KEY` gesetzt ist), danach Bestand. **Laurins abgesegnete Goldsmith-Sounds dürfen alle Kanäle nutzen.** Nur der **Kapitel-Sound ist je Kanal exklusiv**: Goldsmith braam + boom · Meisterwerk industrial_electromagnetic_launcher_01 · Unterbau ub_hit · Denkmuster klang · Nachtausgabe cinematic_boom_01. Jeder neue Sound vorher durch earshot + Gemini-Casting (Skill doku-ohren); Piep-/Daten-Töne sind erlaubt, wenn sie gut klingen.
 
 Laurins ausgewählte Effekt-Sounds für **Goldsmith Productions**.
 **Update (Laurin 19.11.2026): Gemeinsame Sound-Bibliothek für alle Kanäle** – zusätzlich zu diesem Ordner dürfen alle Effekte aus `laurindesruelles-max/sound-bibliothek` genutzt werden, gefiltert nach dem Stilprofil des Kanals (README dort, `sk.py find … --channel <kanal>`). Musik bleibt kanal-eigen. Die Regel vom 17.11. („nur eigene Effekte“) gilt damit nicht mehr.
 
-~~**Regel (Laurin 17.11.2026): Jeder Kanal hat seine eigenen Effekte.**~~ Diese Sounds passen zu Goldsmith, aber nicht automatisch
-zu anderen Kanälen – Meisterwerk, Unterbau, Denkmuster usw. binden diese Bibliothek NICHT mehr ein, sondern haben ein eigenes Set
-in ihrem Repo (assets/sfx). Neue Sounds von Laurin für Goldsmith kommen hierher, mit Zeile in dieser Tabelle; Sounds für einen
-anderen Kanal kommen in dessen Repo.
-**Nur Geräusche, keine Musik:** Musik hat jeder Kanal selbst (Goldsmiths Krimi-Musik passt nur zu Goldsmith, Laurin 17.11.2026). Alle Dateien: WAV, 48 kHz, Stereo, Anfangsstille entfernt, Spitze normalisiert.
+~~**Regel (Laurin 17.11.2026): Jeder Kanal hat seine eigenen Effekte.**~~ Überholt (22.11.2026): Alle Kanäle dürfen diese Sounds über die gemeinsame `sound-bibliothek` nutzen (dort `frei_aus: ["goldsmith"]`); exklusiv für Goldsmith bleibt nur der Kapitel-Sound (braam + boom). Neue Sounds von Laurin für Goldsmith kommen weiter hierher, mit Zeile in dieser Tabelle.
 
 ## Einbinden
 Goldsmith kopiert die Bibliothek über engine/setup_workdir.sh automatisch nach v3/sfx. `get.sh` bleibt nur als Goldsmith-internes Hilfsskript; andere Kanäle rufen es nicht mehr auf (seit 17.11.2026).
