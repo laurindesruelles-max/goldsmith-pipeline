@@ -152,3 +152,15 @@ Grundlage: Auswertung erfolgreicher Ausreißer-Videos in allen 5 Nischen (vidIQ)
 - earshot: `HF_HUB_DISABLE_XET=1` nötig, sonst scheitert der Modell-Download. Ende-Stille: Bild auf Tonlänge kürzen. „Lautestes 3-s-Fenster“ zu flach → Titelkarten-Treffer anheben.
 - Engine: `part2.fmt` zeigt jetzt so viele Nachkommastellen wie der Zielwert (6.66 statt 6.7); `breakdown` hat `pre`/`suf` (Prozent-Anteile statt $); setup_workdir.sh kopiert kein music_tension.mp3 mehr (gelöscht).
 - Noch nicht in der Engine: die neuen Effekte aus EFFEKTE.md (Akte wird zugeschoben, Wand wächst, Lampe schwenkt) – nur Stilprobe vorhanden. Nächster Schritt: in part2/effects einbauen.
+
+## Erzähl-Bausteine nach Wissenswert-Vorbild (Laurin 22.11.2026, gilt ab dem nächsten Video)
+Referenz: Wissenswert „Wie eine Spionin den größten CEO der Welt ruinierte“ (372 Tsd. Aufrufe in 2 Tagen, ~2× Kanalschnitt). Laurin: „hat richtig Spaß gemacht, viele echte Clips“.
+- **Kaltstart als Szene mit Datum + Ort:** „Es ist der 6. Juni 2024. Taipeh, eine Bar …“ – Datum und Ort eingetippt (Tastatur-Sound), ein konkretes Foto/Moment als Anker. Keine Erklärung vor der Szene.
+- **Eskalationstreppe im Hook:** 3–4 Stufen, jede größer als die vorige (Affäre → Spionage → Präsident informiert → Weltwirtschaft). Danach ein Versprechen in 3 Teilen („wie …, wie …, warum …“).
+- **Anker-Foto als Rahmen:** Das Foto vom Anfang hängt als Polaroid an der Pinnwand und kommt am Ende verändert zurück („Dieses Foto zeigte nicht nur … es zeigte den Anfang …“).
+- **Hauptfigur kurz menschlich machen:** nach dem Hook 60–90 s Herkunft/Aufstieg der Hauptperson, dann zurück zum Fall.
+- **Fun-Facts als Würze:** alle 2–3 Min. ein überraschendes, belegtes Detail (z. B. Lederjacke für 900.000 $ versteigert, Firmenname aus dem Lateinischen). Nie unbelegt.
+- **Zeitleiste mit echten Daten:** jede Wendung bekommt ein Datum im Bild (Bild-Drehbuch: exakt).
+- **Schluss mit 3 Szenarien** (pessimistisch / optimistisch / dazwischen) als Akten-Abschluss, dann Kommentar-Frage („Welches Szenario glaubt ihr?“) + Glocke.
+- **Echte Clips: mindestens 1 pro Minute**, immer in der Akten-Welt (Polaroid wird lebendig, alter Röhrenfernseher/Monitor auf dem Schreibtisch, Filmstreifen an der Wand). Quellen nur: Pixabay (`engine/stock.py`), Wikimedia Commons-Videos mit PD/CC0/CC BY/CC BY-SA, gemeinfreies US-Regierungsmaterial (`engine/sources.py`). **Nie** Nachrichtensender-Ausschnitte, Keynote-Mitschnitte oder YouTube-Videos anderer (Strike-/Monetarisierungsrisiko). Jede Clip-Lizenz in `qa.md` + Beschreibung.
+- Bei Nachrichten-Themen, die große Kanäle schon gemacht haben: eigener Blickwinkel statt Nacherzählung.
