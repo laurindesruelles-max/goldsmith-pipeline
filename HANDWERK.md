@@ -66,3 +66,10 @@ Nach der Veröffentlichung: Fällt die Retention-Kurve an einer Stelle ab, im Bi
 - **Nach 48 h** die Retention-Kurve über vidIQ prüfen: Wo fallen Zuschauer ab, und warum? Das Ergebnis kommt in die `LESSONS.md`.
 - **Veröffentlicht wird nur nach Laurins „ja“.**
 - **Kosten:** 35–45 Credits je Video, nie mehr als 45. Rhythmus: alle 4 Tage ein Video je Kanal.
+
+
+## 3D + 2D im Wechsel (Laurin 23.11.2026, gilt für alle Kanäle)
+Laurin hat die Stilprobe „Operation ANOM“ abgenommen: „Genau so sollte ein Video aussehen.“ Ab jetzt für jeden Kanal – in dessen eigener Handschrift:
+- Wenige echte 3D-Szenen (Blender, 3–4 pro Video) als Bühnen, dazwischen schnelle 2D-Motion-Graphics (Remotion), Karten und Zähler; Bildwechsel alle 2–4 s.
+- Zahlen zählen hoch, Abläufe mit Fortschrittsbalken, Neugier-Pause vor jeder Enthüllung, Schluss mit offener Frage und Treffer.
+- Details, Code und Messwerte: `engine/stilproben/anom_2d3d/README.md`.
