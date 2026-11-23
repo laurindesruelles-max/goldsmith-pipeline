@@ -70,7 +70,7 @@ export const MapC: React.FC<MapProps> = ({label, title, view = "world", pins = [
           })}
         </svg>
         {pins.map((p, i) => p.label && f >= s(MAP_T.pin(i) + 0.15) ? (
-          <div key={i} style={{position: "absolute", left: pts[i][0] + 22, top: pts[i][1] - 58, background: IVORY, padding: "4px 14px", transform: "rotate(-1.5deg)", boxShadow: "0 6px 16px rgba(0,0,0,0.6)"}}>
+          <div key={i} style={{position: "absolute", left: pts[i][0] + 22, top: pts[i][1] + (i % 2 ? 18 : -58), background: IVORY, padding: "4px 14px", transform: "rotate(-1.5deg)", boxShadow: "0 6px 16px rgba(0,0,0,0.6)"}}>
             <Typed text={p.label} at={MAP_T.pin(i) + 0.15} style={{fontSize: 30, color: INK}} />
           </div>) : null)}
       </AbsoluteFill>
