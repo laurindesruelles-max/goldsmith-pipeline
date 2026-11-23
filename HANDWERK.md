@@ -68,8 +68,11 @@ Nach der Veröffentlichung: Fällt die Retention-Kurve an einer Stelle ab, im Bi
 - **Kosten:** 35–45 Credits je Video, nie mehr als 45. Rhythmus: alle 4 Tage ein Video je Kanal.
 
 
-## 3D + 2D im Wechsel (Laurin 23.11.2026, gilt für alle Kanäle)
-Laurin hat die Stilprobe „Operation ANOM“ abgenommen: „Genau so sollte ein Video aussehen.“ Ab jetzt für jeden Kanal – in dessen eigener Handschrift:
-- Wenige echte 3D-Szenen (Blender, 3–4 pro Video) als Bühnen, dazwischen schnelle 2D-Motion-Graphics (Remotion), Karten und Zähler; Bildwechsel alle 2–4 s.
-- Zahlen zählen hoch, Abläufe mit Fortschrittsbalken, Neugier-Pause vor jeder Enthüllung, Schluss mit offener Frage und Treffer.
+## Wissen: 3D + 2D im Wechsel (Laurin 23.11.2026, Erweiterung für alle Kanäle)
+Laurin hat die Stilprobe „Operation ANOM“ abgenommen: „Genau so sollte ein Video aussehen“ – vor allem die vielen 2D-Animationen.
+**Das ist zusätzliches Wissen, keine neue Vorlage:** Es ersetzt und überschreibt nichts, was die Kanäle bisher gesammelt haben (Stil, Effekt-Kataloge, Hook-Regeln, LESSONS.md, echte Fakten/Quellen z. B. Wikipedia, echte Clips, Sounds, Musik, Stimmen). Jeder Kanal greift daraus nur auf, was zu seiner Nische und Handschrift passt.
+Werkzeugkasten zum Erweitern:
+- Mehr 2D-Motion-Graphics (Remotion): Zähler, Karten mit Linien/Pins, Ablauf-Diagramme mit Fortschrittsbalken, UI-/Handy-Oberflächen, Karten-Flip-Enthüllungen.
+- Wenige echte 3D-Szenen (Blender) als Bühne, 2D-Zahlen darüber.
+- Tempo: Bildwechsel alle 2–4 s, Neugier-Pause vor Enthüllungen, Schluss mit offener Frage und Treffer.
 - Details, Code und Messwerte: `engine/stilproben/anom_2d3d/README.md`.

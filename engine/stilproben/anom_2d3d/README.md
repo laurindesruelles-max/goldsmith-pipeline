@@ -1,7 +1,7 @@
 # Stilprobe „Operation ANOM“ – 3D + 2D im Wechsel (22./23.11.2026)
 
 Laurin (23.11.2026): „Der Look ist mal richtig krass! … Genau so sollte ein Video aussehen.“
-Entscheidung: Das **Handwerk** dieser Probe gilt für **alle Kanäle**; jeder Kanal behält eigene Farben, Schrift, Musik und Erkennungssounds.
+Entscheidung: Diese Probe ist **zusätzliches Wissen für alle Kanäle** – sie erweitert, überschreibt aber nichts. Bisheriges bleibt (Stil, Effekte, Hook-Regeln, LESSONS.md, echte Fakten/Quellen wie Wikipedia, echte Clips, Sounds, Musik, Stimmen). Besonders gefallen haben die vielen 2D-Animationen.
 Vorbild war „Die Jagd auf die Nutzer von illegalem IPTV“ (Wirklich Passiert, vidIQ-Analyse: ca. 70 % 2D / 30 % 3D, Bildwechsel alle 2–4 s).
 
 ## Aufbau (62 s, 1080p30)
