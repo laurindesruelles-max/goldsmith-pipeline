@@ -25,4 +25,6 @@ AK="${AUDIOKIT:-/home/claude/audiokit}"
 if [ ! -f "$AK/adapter.py" ] || [ -n "$AK_UPDATE" ]; then
   AKT=$(mktemp -d); git clone -q --depth 1 --filter=blob:none --sparse https://github.com/laurindesruelles-max/sound-mediathek "$AKT/r" && git -C "$AKT/r" sparse-checkout set audiokit && mkdir -p "$AK" && cp "$AKT"/r/audiokit/*.py "$AKT"/r/audiokit/*.json "$AK"/ && echo "audiokit bereit: $AK"; rm -rf "$AKT"
 fi
+# 2D-Motion-Graphics (Remotion, engine/motion): einmal Node-Pakete installieren
+MO="$(dirname "$0")/motion"; [ -d "$MO/node_modules" ] || (cd "$MO" && npm install --silent >/dev/null 2>&1 && echo "motion bereit")
 echo "Workdir bereit: $WORK  (Audio nach audio/, Bilder nach img/, dann in v3/: FIRST_SCENE=1 python3 part2.py meta)"

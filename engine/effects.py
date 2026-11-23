@@ -352,3 +352,10 @@ def _route_keys(p, dur):
             if ch != " ": ev.append((t0+k/18, f"key{(i*3+k) % 8}", 0.45))
     return ev
 SOUNDFN["route"] = _route_keys
+
+# ---------- 2D-Motion-Graphics (engine/motion_fx.py, Remotion) – Erweiterung aus der ANOM-Stilprobe (23.11.2026) ----------
+try:
+    import motion_fx as MX
+    RENDER["motion"] = MX.motion; DUR["motion"] = 5.0; SOUNDFN["motion"] = MX.motion_sounds
+except Exception as _e:
+    print("motion_fx nicht geladen:", _e)

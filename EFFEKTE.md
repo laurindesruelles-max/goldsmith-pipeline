@@ -37,6 +37,17 @@ Weitere freigegebene Animationsarten für die Nische und die Bild-Drehbuch-Regel
 | Vorher/Nachher | Zwei Fotos, eine Linie teilt sie | Vergleich | steht (`split`) |
 | Lampe schwenkt | Licht wandert über die Wand, die Ränder werden dunkel | Spannung vor einer Wendung | neu, Stilprobe 20.11. |
 
+| Karte mit Fäden (`motion` map) | Stecknadeln landen, rote Fäden spannen sich, Orte tippen sich, optional Punkte-Schwarm / rote Länder / Zähler | Schauplätze, Lieferketten, Ausbreitung | neu, ANOM-Wissen 23.11. |
+| Ablauf mit Fortschrittsbalken (`motion` flow) | Geld/Akte wandert von Station zu Station, Abzweig nach unten mit Treffer | Wie ein Trick/Geldfluss funktioniert | neu, ANOM-Wissen 23.11. |
+| Akte dreht sich um (`motion` flip) | Neugier-Pause, Glitch, die Akte dreht sich → Enthüllung in Rot | Die eine große Enthüllung | neu, ANOM-Wissen 23.11. |
+| Große Zahl (`motion` counter) | Zahl zählt hoch, dahinter fliegen Geldscheine/Akten | Umsatz, Schaden, Strafe | neu, ANOM-Wissen 23.11. |
+| Raster (`motion` grid) | Viele Kärtchen legen sich, einzelne rot, Zahl daneben | Menge (Filialen, Opfer, Firmen) | neu, ANOM-Wissen 23.11. |
+| Handy-Chat (`motion` phone) | Nachrichten poppen auf, Zitat tippt sich | Belegte Chats/Mails; sonst als RECONSTRUCTION kennzeichnen | neu, ANOM-Wissen 23.11. |
+| Verschlüsselung (`motion` cipher) | Text zerfällt in Zeichen | Geheimhaltung, Codes | neu, ANOM-Wissen 23.11. |
+| Aktenstapel (`motion` stack) | Verfahren stapeln sich, Stempel-Symbol knallt drauf, Frage tippt | Prozesse, offene Fragen am Schluss | neu, ANOM-Wissen 23.11. |
+
+**Erweiterung 23.11.2026 (ANOM-Stilprobe):** Die `motion`-Bausteine kommen **zusätzlich** zu allen bisherigen Effekten (nichts wird ersetzt). Ziel: deutlich mehr 2D-Animation, etwa alle 2–4 s ein neues Bild, 6–12 motion-Clips pro Video. Doku: `engine/motion_fx.py`. Demo: `Goldsmith_Motion_Bausteine.mp4` (23.11.2026 an Laurin).
+
 **Raus:** Zeitungs-Wirbel (`news`), denn Zeitung gehört Nachtausgabe. Artikel stattdessen als Ausschnitt anpinnen. Raus ist auch der weiße Balken-Übergang.
 
 Stilprobe: `stilprobe_goldsmith.mp4` (20.11.2026, an Laurin geschickt). Sounds folgen nach dem Casting (`doku-ohren`).
