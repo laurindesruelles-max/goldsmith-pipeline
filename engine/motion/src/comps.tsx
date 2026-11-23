@@ -84,6 +84,14 @@ export const MapC: React.FC<MapProps> = ({label, title, view = "world", pins = [
   );
 };
 
+/** Polaroid mit Stecknadel (Goldsmith-Station) */
+const Polaroid: React.FC<{rot?: number; hot?: boolean; children: React.ReactNode}> = ({rot = 0, hot, children}) => (
+  <div style={{width: 190, margin: "0 auto", background: "#f4efe4", padding: "12px 12px 40px", transform: `rotate(${rot}deg)`, boxShadow: hot ? `0 0 40px ${RED}88, 0 14px 30px rgba(0,0,0,0.7)` : "0 14px 30px rgba(0,0,0,0.7)", position: "relative"}}>
+    <div style={{height: 150, background: hot ? "#2a0e0e" : "linear-gradient(160deg,#3a2f25,#14100c)", display: "flex", alignItems: "center", justifyContent: "center"}}>{children}</div>
+    <svg width={30} height={30} style={{position: "absolute", left: 80, top: -12}}><circle cx={15} cy={15} r={10} fill={RED} /><circle cx={12} cy={11} r={3.5} fill="rgba(255,255,255,0.55)" /></svg>
+  </div>
+);
+
 /* ======================= FLOW: Ablauf mit Fortschrittsbalken, Paket wandert, optionaler Abzweig ======================= */
 export type FlowProps = {label?: string; steps?: string[]; nodes: {label: string; icon: string}[]; packet?: "envelope" | "money" | "doc";
   branch?: {after: number; label: string; icon: string; text: string}};
@@ -121,13 +129,11 @@ export const FlowC: React.FC<FlowProps & {len: number}> = ({label, steps, nodes,
       </svg>
       {nodes.map((nd, i) => (
         <div key={i} style={{position: "absolute", left: xs[i] - 120, top: y - 110, width: 240, textAlign: "center"}}>
-          <Pop at={FLOW_T.node(i)}><div style={{width: 170, height: 170, margin: "0 auto", borderRadius: 18, background: "#1f1914", border: `3px solid ${GOLD}`,
-            display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 18px 40px rgba(0,0,0,0.6)"}}><Icon name={nd.icon} size={100} /></div>
+          <Pop at={FLOW_T.node(i)}><Polaroid rot={(i % 2 ? 3 : -3)}><Icon name={nd.icon} size={100} /></Polaroid>
             <div style={{fontFamily: TYPE, fontSize: 30, color: IVORY, marginTop: 16}}>{nd.label}</div></Pop>
         </div>))}
       {branch && <div style={{position: "absolute", left: bx - 120, top: by - 110, width: 240, textAlign: "center"}}>
-        <Pop at={bt + 0.5}><div style={{width: 170, height: 170, margin: "0 auto", borderRadius: 18, background: "#2a1212", border: `3px solid ${RED}`,
-          display: "flex", alignItems: "center", justifyContent: "center", boxShadow: `0 0 50px ${RED}66`}}><Icon name={branch.icon} size={100} /></div>
+        <Pop at={bt + 0.5}><Polaroid rot={-4} hot><Icon name={branch.icon} size={100} color={RED} /></Polaroid>
           <div style={{fontFamily: TYPE, fontSize: 30, color: IVORY, marginTop: 16}}>{branch.label}</div></Pop></div>}
       {branch && <div style={{position: "absolute", left: bx + 140, top: by - 60}}><Big at={bt + 0.7} text={branch.text} color={RED} size={70} /></div>}
     </Desk>
@@ -205,9 +211,11 @@ export const GridC: React.FC<GridProps> = ({label, n = 60, icon = "person", valu
           {Array.from({length: n}).map((_, i) => {
             const at = s(GRID_T.fill[0] + random(`o${i}`) * (GRID_T.fill[1] - GRID_T.fill[0]));
             const p = interpolate(f, [at, at + 7], [0, 1], {...clamp, easing: ease}); const h = hot > 0 && i % hot === 3;
-            return <div key={i} style={{width: 66, height: 66, background: h ? "#3a1212" : IVORY, transform: `scale(${p}) rotate(${(random(`q${i}`) - 0.5) * 6}deg)`, opacity: p,
-              display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 10px rgba(0,0,0,0.5)", border: h ? `3px solid ${RED}` : "none"}}>
-              <Icon name={icon} size={50} color={h ? RED : INK} /></div>;
+            return <div key={i} style={{width: 66, height: 66, transform: `scale(${p}) rotate(${(random(`q${i}`) - 0.5) * 6}deg)`, opacity: p, position: "relative"}}>
+              <svg width={66} height={66} viewBox="0 0 66 66" style={{position: "absolute", filter: "drop-shadow(0 4px 5px rgba(0,0,0,0.6))"}}>
+                <path d="M2 14 H24 L29 8 H64 V62 H2 Z" fill={h ? "#c9a36a" : "#d9b77c"} stroke="#8a6a3a" strokeWidth={1.5} /></svg>
+              <div style={{position: "absolute", left: 10, top: 18}}><Icon name={icon} size={44} color={h ? RED : INK} /></div>
+              {h && <div style={{position: "absolute", left: 2, top: 28, transform: "rotate(-18deg)", fontFamily: ANTON, fontSize: 13, color: RED, border: `2px solid ${RED}`, padding: "0 3px", letterSpacing: 1}}>CLOSED</div>}</div>;
           })}
         </div>
         <div>

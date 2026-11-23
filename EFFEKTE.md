@@ -46,7 +46,7 @@ Weitere freigegebene Animationsarten für die Nische und die Bild-Drehbuch-Regel
 | Verschlüsselung (`motion` cipher) | Text zerfällt in Zeichen | Geheimhaltung, Codes | neu, ANOM-Wissen 23.11. |
 | Aktenstapel (`motion` stack) | Verfahren stapeln sich, Stempel-Symbol knallt drauf, Frage tippt | Prozesse, offene Fragen am Schluss | neu, ANOM-Wissen 23.11. |
 
-**Erweiterung 23.11.2026 (ANOM-Stilprobe):** Die `motion`-Bausteine kommen **zusätzlich** zu allen bisherigen Effekten (nichts wird ersetzt). Ziel: deutlich mehr 2D-Animation, etwa alle 2–4 s ein neues Bild, 6–12 motion-Clips pro Video. Doku: `engine/motion_fx.py`. Demo: `Goldsmith_Motion_Bausteine.mp4` (23.11.2026 an Laurin).
+**Erweiterung 23.11.2026 (ANOM-Stilprobe):** Die `motion`-Bausteine kommen **zusätzlich** zu allen bisherigen Effekten (nichts wird ersetzt). Eigene Formen statt nur Farben (Laurin 23.11.): Stationen als angepinnte Polaroids, Raster aus Aktenmappen (betroffene mit CLOSED-Stempel), Stecknadeln + rote Fäden, Schreibmaschine. Ziel: deutlich mehr 2D-Animation, etwa alle 2–4 s ein neues Bild, 6–12 motion-Clips pro Video. Doku: `engine/motion_fx.py`. Demo: `Goldsmith_Motion_Bausteine.mp4` (23.11.2026 an Laurin).
 
 **Raus:** Zeitungs-Wirbel (`news`), denn Zeitung gehört Nachtausgabe. Artikel stattdessen als Ausschnitt anpinnen. Raus ist auch der weiße Balken-Übergang.
 

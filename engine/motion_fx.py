@@ -89,7 +89,7 @@ def motion(t, T, p, ctx):
 CPS = 18
 def _keys(t0, text, g=0.4):
     return [(t0+k/CPS, f"key{k % 8}", g) for k, ch in enumerate(text) if ch != " " and k % 2 == 0]
-def _ticks(t0, dur, n=10, g=0.3):
+def _ticks(t0, dur, n=8, g=0.15):
     return [(t0+dur*(1-(1-i/(n-1))**2.2), "tick", g*(1-0.6*i/(n-1))) for i in range(n)]
 
 
@@ -127,7 +127,7 @@ def motion_sounds(p, dur):
         for i in range(len(q.get("messages", []))): ev += [(0.15+i*0.4, "phone_notify" if i == 0 else "pin_pop", 0.4)]
         if q.get("quote"): ev += _keys(0.15+len(q["messages"])*0.4, q["quote"], 0.35)
     elif c == "cipher":
-        ev += [(0.3, "glitch", 0.4), (0.35, "data_loading", 0.4), (0.9, "text_click", 0.5)]
+        ev += [(0.3, "glitch", 0.22), (0.35, "data_loading", 0.3), (0.9, "text_click", 0.5)]
     elif c == "stack":
         ev += [(0.1+i*0.16, "paper_slide", 0.35) for i in range(len(q.get("cards", [])))]
         ev += [(1.5, "stamp", 0.8), (1.52, "sub_drop", 0.5)]
