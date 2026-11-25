@@ -1,0 +1,90 @@
+"""Video 005 (Megaspeed): Taipeh, Juni 2024 – Bar-Eingang bei Nacht, Rekonstruktion. Neon in Rot/Türkis, Motorroller
+parken am Rand, eine Limousine fährt vor, ein Mann in dunkler Lederjacke (von hinten, ohne Gesicht) geht zur Bartür.
+usage: python3 street_night.py <outdir> [still_frame]
+Anpassen pro Video: Schildtext, Schaufenster, Autos/Figuren, Kamerafahrt, Länge.
+"""
+import sys, os, math
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+import dio as D
+import assets as A   # Poly Haven (CC0): echte Texturen + Modelle
+
+OUT = sys.argv[1]; STILL = int(sys.argv[2]) if len(sys.argv) > 2 else None
+F1 = int(os.environ.get("F1", "168"))
+SIGN = os.environ.get("SIGN", "BAR")
+QUEUE = int(os.environ.get("QUEUE", "0"))   # Anzahl wartender Figuren vor dem Laden (z.B. Launch-Nacht)
+BOXES = os.environ.get("BOXES", "0") == "1"   # Schaufenster mit Spieleboxen statt Brillen
+D.reset(samples=int(os.environ.get("SAMPLES", "10")), world=(0.03, 0.02, 0.06), world_strength=1.5)
+
+asphalt = A.texture("asphalt_02", 0.4, tint=(0.35, 0.35, 0.37), rough_mul=0.7)
+walk_m = A.texture("brushed_concrete", 0.5, tint=(0.6, 0.58, 0.55))
+D.box((60, 14, 0.1), (0, -4, -0.05), asphalt)                    # Straße
+D.box((60, 4, 0.18), (0, 4.5, 0.09), walk_m)                      # Gehweg
+D.box((60, 0.2, 0.2), (0, 2.5, 0.1), D.mat((0.4, 0.39, 0.37), 0.7))   # Bordstein
+for x in range(-28, 30, 6): D.box((2.5, 0.15, 0.01), (x, -4, 0.01), D.mat((0.75, 0.72, 0.6), 0.6))   # Mittellinie
+# Häuserzeile
+facade = [(0.42, 0.3, 0.24), (0.3, 0.28, 0.27), (0.5, 0.42, 0.33), (0.35, 0.3, 0.26)]
+for i, x in enumerate([-16, -8, 8, 16]):
+    h = 9 + (i % 2)*3
+    D.box((7.8, 6, h), (x, 9.5, h/2), A.texture("brick_wall_02", 0.45, tint=tuple(c*1.6 for c in facade[i])))
+    for fl in range(1, int(h/3)):
+        for c in range(3):
+            lit = (i*7+fl*3+c) % 4 == 0
+            D.box((1.1, 0.1, 1.4), (x-2.4+c*2.4, 6.45, fl*3+1.2), D.mat((1, 0.66, 0.35), 0.4, emit=3.5) if lit else D.mat((0.04, 0.045, 0.06), 0.2, 0.3))
+# Laden in der Mitte
+D.box((8, 6, 8), (0, 9.5, 4), A.texture("chipped_concrete", 0.4, tint=(0.4, 0.38, 0.37)))
+glow = D.mat((1.0, 0.82, 0.6), 0.3, emit=2.2)
+D.box((5.6, 0.1, 2.6), (-0.6, 6.46, 1.6), glow)                   # Schaufenster leuchtet
+D.box((1.3, 0.12, 2.4), (3.2, 6.45, 1.4), D.mat((0.08, 0.06, 0.05), 0.4))   # Tür
+D.box((0.1, 0.14, 0.1), (2.8, 6.38, 1.3), D.mat((0.8, 0.7, 0.4), 0.2, 1.0))
+# Leuchtschild (generisch, kein Markenlogo)
+lbl = D.label_texture([SIGN], size=(1024, 200), bg=(10, 8, 10), fg=(255, 70, 90), fontsize=130)
+D.textured_plane(lbl, 6.4, 1.25, (0, 6.42, 3.9), (0, 0, 0), emit=4.5)
+D.box((0.35, 0.3, 4.5), (-4.2, 6.2, 4.5), D.mat((0.1, 0.9, 0.85), 0.3, emit=6))
+D.box((0.35, 0.3, 3.5), (12.5, 6.2, 5.5), D.mat((1.0, 0.35, 0.6), 0.3, emit=6))
+for sx in (-7.5, -6.6, -5.7, 6.0, 6.9):
+    D.car((sx, 2.9, 0.18), rot=math.pi/2, color=D.CLOTH[int(abs(sx*3)) % len(D.CLOTH)], length=1.8)
+sl = D.point((0, 5.0, 3.6), energy=60, color=(1, 0.8, 0.5), radius=0.6); D.flicker(sl, 1, F1, 60, 0.4, seed=4)
+D.point((-0.6, 5.2, 1.6), energy=180, color=(1, 0.85, 0.65), radius=1.5)   # Licht aus dem Schaufenster
+# Schaufenster-Inhalt: Regale mit Brillen (Silhouetten vor dem Licht)
+for r in range(3):
+    D.box((5.4, 0.25, 0.04), (-0.6, 6.3, 0.75+r*0.7), D.mat((0.12, 0.1, 0.09), 0.5))
+    for i in range(9):
+        if BOXES: D.box((0.32, 0.06, 0.42), (-3.0+i*0.6, 6.25, 1.0+r*0.7), D.mat([(0.08, 0.08, 0.1), (0.5, 0.12, 0.1), (0.1, 0.25, 0.45)][(i+r) % 3], 0.4))
+        else: D.cyl(0.07, 0.3, (-3.0+i*0.6, 6.25, 0.95+r*0.7), D.mat([(0.5, 0.25, 0.08), (0.15, 0.35, 0.2), (0.6, 0.6, 0.62)][(i+r) % 3], 0.2, 0.2), seg=10)
+for i in range(2): D.box((0.5, 0.5, 1.1), (-2.3+i*3.4, 6.2, 0.55), D.mat((0.1, 0.08, 0.07), 0.6))
+# Straßenlaternen
+for x in (-10, 10):
+    A.model("street_lamp_01", (x, 3.0, 0.18), rot_z=90, scale=1.3)
+    D.sphere(0.12, (x, 3.0, 4.75), D.mat((1, 0.75, 0.4), 0.3, emit=25), seg=10, ring=6)
+    D.spot((x, 3.0, 4.6), (x, 2.2, 0), energy=1100, color=(1, 0.68, 0.35), size=95, blend=0.8, radius=0.2)
+# Hydrant, Mülltonne, Bäume
+A.model("utility_box_01", (-5, 5.8, 0.18), rot_z=0)
+D.cyl(0.35, 1.0, (6.5, 3.4, 0.68), D.mat((0.15, 0.2, 0.15), 0.5, 0.4), seg=14)
+for x in (-13, 13): D.tree((x, 3.4, 0.18), 5.5, seed=x+50)
+for x in (-3.8, 4.4): A.model("potted_plant_01", (x, 6.0, 0.18), scale=1.3)
+# geparktes Auto + Auto, das vorfährt und hält
+D.car((-9, 1.6, 0.0), rot=0, color=(0.1, 0.12, 0.16))
+D.sound("amb_market", 1, (0, 6.4, 1.5), f1=F1, loop=True, gain=0.2, ref=10)
+c = D.car((-30, -1.6, 0.0), rot=0, color=(0.05, 0.05, 0.06), lights=True)
+D.drive(c, 1, 96, (-30, -1.6, 0.0), (1.8, 0.9, 0.0))
+# Figur steigt aus und geht zur Ladentür
+J = D.figure((2.6, 2.0, 0.18), rot=math.radians(80), shirt=(0.04, 0.04, 0.045), pants=(0.06, 0.06, 0.07), coat=True, hat=False, seed=8)
+D.key(J["root"], 1, scale=(0.001, 0.001, 0.001)); D.key(J["root"], 104, scale=(0.001, 0.001, 0.001)); D.key(J["root"], 106, scale=(1, 1, 1))
+D.sound("car_door", 100, (2.2, 1.6, 0.6), gain=0.8, ref=10)
+D.walk(J, 106, F1, (2.4, 2.0, 0.18), (3.1, 5.6, 0.18))
+D.sound("neon_buzz", 1, (0, 6.4, 3.9), f1=F1, loop=True, gain=0.25, ref=8)
+# Passant links
+J2 = D.figure((-6, 4.8, 0.18), rot=0, shirt=(0.35, 0.3, 0.25), seed=12)
+D.walk(J2, 1, F1, (-7, 4.6, 0.18), (-2.5, 4.6, 0.18))
+
+# leichter Dunst im Laternenlicht
+D.beam([(-10.3, 2.8, 4.6), (-9.7, 2.8, 4.6), (-9.7, 3.2, 4.6), (-10.3, 3.2, 4.6)], (0, -0.15, -1), length=5.0, strength=0.25, color=(1, 0.7, 0.4))
+D.dust((-12, 1.5, 0.3), (-8.5, 4.2, 5.0), n=140, in_beam=0, drift=(0.002, 0, -0.003))
+
+for q in range(QUEUE):   # Warteschlange entlang der Fassade, leichtes Wippen
+    Jq = D.figure((-3.4+q*0.85, 4.1, 0.18), rot=math.pi/2+0.25*math.sin(q*1.7), shirt=D.CLOTH[q % len(D.CLOTH)], coat=(q % 3 == 0), hat=(q % 4 == 1), seed=60+q)
+    for f in range(1+q*7, F1, 48): D.pose(Jq, f, head=(0, 0, 12*math.sin(q+f)), arm_l=(0, 8, 0)); D.pose(Jq, f+24, head=(0, 5, -10*math.sin(q)), arm_l=(0, -4, 0))
+if QUEUE: D.sound("crowd_hushed", 1, (0.5, 4.1, 1.0), f1=F1, loop=True, gain=0.35, ref=10)
+D.camera(lens=40)
+D.camera_path([(1, (-11, -21, 12.5), (0.5, 4.0, 1.6)), (F1, (-5, -17.5, 9.5), (1.6, 4.5, 1.5))])
+D.render(OUT, 1, F1, still=STILL)

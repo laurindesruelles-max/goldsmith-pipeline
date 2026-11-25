@@ -106,6 +106,9 @@ for dk in m2.get('ducks',[]):   # 3D-Szenen ~60 %, Daten-Grafiken ~28 % (Musik f
     env[b:b+r]=np.minimum(env[b:b+r],np.linspace(lv,1,len(env[b:b+r])))
 bed*=env[:,None]
 wf.write('build/music_bed.wav',SR,(np.clip(bed[:int(total*SR)],-1,1)*32767).astype(np.int16))
+# Titelkarten-Treffer hervorheben (earshot 'loudest 3 s above integrated' >= 3 LU, Video 005): erste Kapitelkarte +4,5 dB fuer 3,2 s
+_tc=[e[0] for e in ev if e[1]=='braam']
+BOOST=f",volume=enable='between(t,{_tc[0]-0.05:.2f},{_tc[0]+3.2:.2f})':volume=1.7" if _tc and os.environ.get('TITLE_BOOST','1')=='1' else ''
 inp=['-i','build/voice_full.wav','-i','build/music_bed.wav']
 for o in fx: inp+=['-i',o]
 k=len(fx)
@@ -113,7 +116,7 @@ fc=[''.join(f'[{i+2}:a]' for i in range(k))+f'amix=inputs={k}:normalize=0,volume
     f'[0:a]apad=pad_dur=3,loudnorm=I=-16:TP=-1.5,atrim=0:{total:.3f},asplit=2[v][sc]',
     f'[1:a]atrim=0:{total:.3f},volume=0.42,afade=t=out:st={total-3:.2f}:d=3[m]',
     '[m][sc]sidechaincompress=threshold=0.04:ratio=3.5:attack=30:release=500[md]',
-    f'[v][md][fx]amix=inputs=3:duration=first:normalize=0,alimiter=limit=0.95,atrim=0:{total:.3f}[out]']
+    f'[v][md][fx]amix=inputs=3:duration=first:normalize=0{BOOST},alimiter=limit=0.95,atrim=0:{total:.3f}[out]']
 subprocess.run(['ffmpeg','-y','-loglevel','error',*inp,'-filter_complex',';'.join(fc),'-map','[out]','-c:a','aac','-b:a','192k','build/mix_full.m4a'],check=True)
 subprocess.run(['ffmpeg','-y','-loglevel','error','-i','build/video_full.mp4','-i','build/mix_full.m4a','-map','0:v','-map','1:a','-c:v','libx264','-preset','veryfast','-crf','22','-maxrate','14M','-bufsize','28M','-pix_fmt','yuv420p','-c:a','copy','-shortest','-movflags','+faststart','build/full.tmp.mp4'],check=True)
 import os; os.replace('build/full.tmp.mp4',os.environ.get('OUT','../FINAL.mp4'))

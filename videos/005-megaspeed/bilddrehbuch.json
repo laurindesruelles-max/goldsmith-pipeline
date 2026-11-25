@@ -1,0 +1,2658 @@
+[
+ {
+  "satz": "According to The Information,",
+  "zeigt": "2,5D-Bild mit Tiefe: a sealed cardboard box of AI graphics processors on a dark evidence table",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "frage:who",
+  "kapitel": 0,
+  "szene": 1
+ },
+ {
+  "satz": "at least 7.5 billion dollars' worth of Nvidia",
+  "zeigt": "Im Bild erscheint Große Zahl (`motion` counter) mit Inhalt {\"comp\": \"counter\", \"props\": {\"label\": \"NVIDIA CHIPS · AS REPORTED\", \"value\": 7.5, \"dec\": 1, \"prefix\": \"$\", \"suffix\": \" ",
+  "animation": "Große Zahl (`motion` counter)",
+  "inhalt": [
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 1
+ },
+ {
+  "satz": "chips moved through a Singapore company almost nobody had heard of,",
+  "zeigt": "2,5D-Bild mit Tiefe: Singapore business district skyline at night seen from the water",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 1
+ },
+ {
+  "satz": "and its Malaysian subsidiary.",
+  "zeigt": "2,5D-Bild mit Tiefe: Singapore business district skyline at night seen from the water",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 1
+ },
+ {
+  "satz": "The company's name is Megaspeed.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"MEGASPEED.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 1
+ },
+ {
+  "satz": "September 2024.",
+  "zeigt": "Im Bild erscheint Earth Zoom mit Inhalt {\"map\": \"asiamap.png\", \"pin\": [0.497, 0.615], \"label\": [\"JOHOR, MALAYSIA\", \"SEPTEMBER 2024\"], \"aerial\": \"dio/aerial\", \"r",
+  "animation": "Earth Zoom",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 2
+ },
+ {
+  "satz": "A data center in Johor, Malaysia.",
+  "zeigt": "2,5D-Bild mit Tiefe: close up of stacked unopened shipping boxes with generic barcode labels inside a server hall",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 2
+ },
+ {
+  "satz": "An official from the U.S.",
+  "zeigt": "2,5D-Bild mit Tiefe: close up of stacked unopened shipping boxes with generic barcode labels inside a server hall",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 2
+ },
+ {
+  "satz": "Commerce Department walks the floor and, according to The New York Times,",
+  "zeigt": "2,5D-Bild mit Tiefe: close up of stacked unopened shipping boxes with generic barcode labels inside a server hall",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 2
+ },
+ {
+  "satz": "finds American A.I.",
+  "zeigt": "2,5D-Bild mit Tiefe: close up of stacked unopened shipping boxes with generic barcode labels inside a server hall",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 2
+ },
+ {
+  "satz": "chips still sitting in their boxes.",
+  "zeigt": "2,5D-Bild mit Tiefe: close up of stacked unopened shipping boxes with generic barcode labels inside a server hall",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 2
+ },
+ {
+  "satz": "A year later, the company is under investigation in two countries.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"OCTOBER 2025\", \"PROBES: U.S. + SINGAPORE\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 3
+ },
+ {
+  "satz": "This year, a secret U.S.",
+  "zeigt": "Im Bild erscheint Schwärzung mit Inhalt {\"top\": \"SECRET U.S. MEMO  ·  AS REPORTED BY THE NYT\", \"name\": \"SUSPECTED ASSET\", \"bottom\": \"ALLEGATION  ·  CHINA REJECT",
+  "animation": "Schwärzung",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "frage:spy",
+  "kapitel": 0,
+  "szene": 4
+ },
+ {
+  "satz": "memo reportedly named a former Megaspeed executive as a suspected Chinese intelligence asset.",
+  "zeigt": "2,5D-Bild mit Tiefe: a woman's silhouette behind frosted glass in a dim corridor",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 4
+ },
+ {
+  "satz": "China rejects that.",
+  "zeigt": "2,5D-Bild mit Tiefe: a woman's silhouette behind frosted glass in a dim corridor",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 4
+ },
+ {
+  "satz": "And within a week of that story going global,",
+  "zeigt": "2,5D-Bild mit Tiefe: a wall of trading screens showing a steeply falling red line chart in a dark trading room",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "frage:ceo",
+  "kapitel": 0,
+  "szene": 5
+ },
+ {
+  "satz": "the world's most valuable chipmaker lost nearly 900 billion dollars",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"-$900 BILLION.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 5
+ },
+ {
+  "satz": "in market value at its low,",
+  "zeigt": "2,5D-Bild mit Tiefe: an empty executive leather chair in a dark glass office at night",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 5
+ },
+ {
+  "satz": "and then, for 11 days, its C.E.O.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"11 DAYS WITHOUT ITS CEO.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 5
+ },
+ {
+  "satz": "Most people told this as a story about an affair.",
+  "zeigt": "2,5D-Bild mit Tiefe: a single AI chip on black velvet under a hard spotlight on an interrogation table",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "frage:pipeline",
+  "kapitel": 0,
+  "szene": 6
+ },
+ {
+  "satz": "It isn't.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"IT ISN'T.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 6
+ },
+ {
+  "satz": "It's a story about chips.",
+  "zeigt": "2,5D-Bild mit Tiefe: a cork board with three blank index cards connected by red string",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 6
+ },
+ {
+  "satz": "Where they went, who rented them, and who knew.",
+  "zeigt": "Im Bild erscheint Roter Faden mit Inhalt [[\"WHERE?\", \"Where they went\"], [\"WHO RENTED?\", \"who rented\"], [\"WHO KNEW?\", \"who knew\"]]",
+  "animation": "Roter Faden",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 6
+ },
+ {
+  "satz": "By the end of this file,",
+  "zeigt": "2,5D-Bild mit Tiefe: a manila case file being opened on a desk",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 7
+ },
+ {
+  "satz": "you'll know how the pipeline allegedly worked, what investigators found,",
+  "zeigt": "Im Bild erscheint Roter Faden mit Inhalt [[\"THE PIPELINE.\", \"how the pipeline\"], [\"THE EVIDENCE.\", \"what investigators\"], [\"THE FALLOUT.\", \"what it means\"]]",
+  "animation": "Roter Faden",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 7
+ },
+ {
+  "satz": "and what it means for the company that builds the world's A.I.",
+  "zeigt": "2,5D-Bild mit Tiefe: a long glowing fiber optic cable running across a dark floor into a server room",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 0,
+  "szene": 7
+ },
+ {
+  "satz": "",
+  "sek": 4.4,
+  "zeigt": "Akte rutscht über den Tisch, Deckblatt zeigt THE MEGASPEED FILE",
+  "animation": "Akte wird zugeschoben",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 1
+ },
+ {
+  "satz": "This is the file on Megaspeed.",
+  "zeigt": "2,5D-Bild mit Tiefe: a dark investigative desk at night",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 8
+ },
+ {
+  "satz": "To follow the chips, we start with the company.",
+  "zeigt": "Echter Clip im Polaroid an der Pinnwand: Pixabay-Clip: nächtliches Büro mit leeren Schreibtischen, im Polaroid an der Pinnwand",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 9
+ },
+ {
+  "satz": "On paper, Megaspeed began life as Seven Road International,",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"7ROAD INTERNATIONAL\", \"THE COMPANY'S OLD NAME\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 9
+ },
+ {
+  "satz": "a name tied to a Chinese video game maker.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"A GAME COMPANY?\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 9
+ },
+ {
+  "satz": "In March 2023, it took a new name, Megaspeed,",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"MARCH 2023\", \"NEW NAME: MEGASPEED\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 10
+ },
+ {
+  "satz": "and a new business: renting out computing power for artificial intelligence.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"RENTING OUT A.I. POWER.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 10
+ },
+ {
+  "satz": "That same year, a woman named Alice Huang joined as managing director.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"2023\", \"ALICE HUANG · MANAGING DIRECTOR\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 11
+ },
+ {
+  "satz": "She would later describe herself as C.E.O.",
+  "zeigt": "Im Bild erscheint Schattenriss mit Inhalt \"“CEO”\"",
+  "animation": "Schattenriss",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 11
+ },
+ {
+  "satz": "She is not related to Nvidia's Jensen Huang.",
+  "zeigt": "Im Bild erscheint Verdeckte Karte mit Inhalt \"NOT RELATED.\"",
+  "animation": "Verdeckte Karte",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 12
+ },
+ {
+  "satz": "They only share a surname.",
+  "zeigt": "2,5D-Bild mit Tiefe: two blank name cards on a table side by side with the same blank surname line",
+  "animation": "Verdeckte Karte",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 12
+ },
+ {
+  "satz": "In November 2023, another Singapore firm, Swiftdata, bought Megaspeed.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"NOVEMBER 2023\", \"SWIFTDATA BUYS MEGASPEED\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 13
+ },
+ {
+  "satz": "Its owner, a businessman named Tan Yong Pong, became sole director.",
+  "zeigt": "Im Bild erscheint Roter Faden mit Inhalt [[\"SWIFTDATA\", \"Its owner\"], [\"TAN YONG PONG\", \"Tan Yong Pong\"], [\"SOLE DIRECTOR\", \"sole director\"]]",
+  "animation": "Roter Faden",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "antwort:who",
+  "kapitel": 1,
+  "szene": 13
+ },
+ {
+  "satz": "Here is the strange part.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"THE STRANGE PART.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 14
+ },
+ {
+  "satz": "According to company filings reported by Reuters,",
+  "zeigt": "2,5D-Bild mit Tiefe: a tiny seedling next to a towering stack of gold coins on a dark table",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 14
+ },
+ {
+  "satz": "Megaspeed's assets grew from about 33 million dollars to roughly three",
+  "zeigt": "Im Bild erscheint Diagramm baut sich auf mit Inhalt {\"title\": \"MEGASPEED  —  TOTAL ASSETS\", \"items\": [[\"2023\", 0.033, \"$33M\"], [\"2024\", 3.0, \"~$3B\"]], \"hl\": 1, \"source\": \"C",
+  "animation": "Diagramm baut sich auf",
+  "inhalt": [
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 14
+ },
+ {
+  "satz": "billion in a single year.",
+  "zeigt": "2,5D-Bild mit Tiefe: a tiny seedling next to a towering stack of gold coins on a dark table",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 14
+ },
+ {
+  "satz": "And when New York Times reporters visited its Singapore office on a weekday,",
+  "zeigt": "Im Bild erscheint Raster (`motion` grid) mit Inhalt {\"comp\": \"grid\", \"props\": {\"label\": \"SINGAPORE OFFICE  ·  A WEEKDAY\", \"icon\": \"person\", \"value\": 2, \"suffix\": \"\", \"capti",
+  "animation": "Raster (`motion` grid)",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 15
+ },
+ {
+  "satz": "they reportedly found only 2 employees.",
+  "zeigt": "2,5D-Bild mit Tiefe: an office reception desk with a single ringing desk phone and no one there",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 15
+ },
+ {
+  "satz": "So how does a company with a quiet office end up",
+  "zeigt": "2,5D-Bild mit Tiefe: a red string leading from a polaroid of an office tower off the edge of a cork board into darkness",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "frage:office",
+  "kapitel": 1,
+  "szene": 16
+ },
+ {
+  "satz": "linked to billions in hardware?",
+  "zeigt": "2,5D-Bild mit Tiefe: a red string leading from a polaroid of an office tower off the edge of a cork board into darkness",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 16
+ },
+ {
+  "satz": "To answer that, we follow the chips.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"FOLLOW THE CHIPS.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 1,
+  "szene": 16
+ },
+ {
+  "satz": "",
+  "sek": 4.4,
+  "zeigt": "Akte rutscht über den Tisch, Deckblatt zeigt THE PIPELINE",
+  "animation": "Akte wird zugeschoben",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2
+ },
+ {
+  "satz": "The chips at the center of this story are Nvidia's most advanced A.I.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"TOP-END A.I. CHIPS.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 17
+ },
+ {
+  "satz": "processors.",
+  "zeigt": "2,5D-Bild mit Tiefe: a customs export control document with an official stamp and a red 'restricted' style mark",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 17
+ },
+ {
+  "satz": "Washington restricts the export of its top-end chips to China.",
+  "zeigt": "Im Bild erscheint Stempel mit Inhalt \"EXPORT RESTRICTED\"",
+  "animation": "Stempel",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 17
+ },
+ {
+  "satz": "But there is a gap in the rules.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"A GAP IN THE RULES.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 18
+ },
+ {
+  "satz": "Renting out chips that sit in data centers in Singapore or Malaysia was,",
+  "zeigt": "2,5D-Bild mit Tiefe: a server rack with an open door and network cables leading out of frame",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 18
+ },
+ {
+  "satz": "until this month, legal under U.S.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"LEGAL. UNTIL THIS MONTH.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 18
+ },
+ {
+  "satz": "rules.",
+  "zeigt": "2,5D-Bild mit Tiefe: a server rack with an open door and network cables leading out of frame",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 18
+ },
+ {
+  "satz": "In principle, a company in China doesn't need the chip inside its building.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"THE CHIP STAYS IN MALAYSIA.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 19
+ },
+ {
+  "satz": "It only needs a login.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"IT ONLY NEEDS A LOGIN.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 19
+ },
+ {
+  "satz": "Megaspeed's Malaysian unit, Speedmatrix, was set up in 2024.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"SPEEDMATRIX  ·  2024\", \"JOHOR, MALAYSIA\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 20
+ },
+ {
+  "satz": "It ran data center operations in Johor, just across the border from Singapore.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"ACROSS THE BORDER.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 20
+ },
+ {
+  "satz": "According to The New York Times,",
+  "zeigt": "Im Bild erscheint Rekonstruktion im Polaroid mit Inhalt {\"clip\": \"dio/cargo\", \"caption\": \"JUNE 2024 – JUNE 2025  ·  RECONSTRUCTION\", \"stamp\": \"200+ SHIPMENTS\", \"dur\": \"scene\", ",
+  "animation": "Rekonstruktion im Polaroid",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 21
+ },
+ {
+  "satz": "Speedmatrix received more than 200 shipments of restricted Nvidia technology",
+  "zeigt": "2,5D-Bild mit Tiefe: a shipping manifest clipboard with many lines ticked off in red pen",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 21
+ },
+ {
+  "satz": "between June 2024 and June 2025.",
+  "zeigt": "2,5D-Bild mit Tiefe: a shipping manifest clipboard with many lines ticked off in red pen",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 21
+ },
+ {
+  "satz": "Reports citing trade records put the unit's purchases of A.I.",
+  "zeigt": "2,5D-Bild mit Tiefe: a thick stack of customs trade records bound with a rubber band on a desk",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 22
+ },
+ {
+  "satz": "equipment containing Nvidia technology at 4.8 billion dollars or more,",
+  "zeigt": "Im Bild erscheint Zahl auf Papier mit Inhalt [\"$\", 4.8, \"B+\", \"A.I. EQUIPMENT, JUN 2024 – FEB 2026 (TRADE RECORDS)\"]",
+  "animation": "Zahl auf Papier",
+  "inhalt": [
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 22
+ },
+ {
+  "satz": "between June 2024 and February 2026.",
+  "zeigt": "2,5D-Bild mit Tiefe: a thick stack of customs trade records bound with a rubber band on a desk",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 22
+ },
+ {
+  "satz": "Most of the advanced chips reportedly came through Aivres, a U.S.",
+  "zeigt": "Im Bild erscheint Ablauf mit Fortschrittsbalken (`motion` flow) mit Inhalt {\"comp\": \"flow\", \"props\": {\"label\": \"WHERE THE SERVERS CAME FROM (REPORTED)\", \"steps\": [\"Nvidia chips\", \"Built into serv",
+  "animation": "Ablauf mit Fortschrittsbalken (`motion` flow)",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 23
+ },
+ {
+  "satz": "affiliate of Inspur, a Chinese server giant that Washington had already blacklisted.",
+  "zeigt": "2,5D-Bild mit Tiefe: a black file folder with a red string tied around it",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 23
+ },
+ {
+  "satz": "Fortune describes two routes to restricted chips.",
+  "zeigt": "Im Bild erscheint Vorher/Nachher mit Inhalt {\"left_img\": \"24\", \"right_img\": \"24_b\", \"left\": \"ROUTE 1\", \"right\": \"ROUTE 2\", \"left_sub\": \"RENT IT OUT: LEGAL\", \"right_",
+  "animation": "Vorher/Nachher",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 24
+ },
+ {
+  "satz": "Route one: rent them out from data centers in Southeast Asia.",
+  "zeigt": "2,5D-Bild mit Tiefe: a dark warehouse loading dock with an unmarked truck backing in",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 24
+ },
+ {
+  "satz": "Legal.",
+  "zeigt": "2,5D-Bild mit Tiefe: a dark warehouse loading dock with an unmarked truck backing in",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 24
+ },
+ {
+  "satz": "Route two: buy them through front companies and ship them into China,",
+  "zeigt": "2,5D-Bild mit Tiefe: a dark warehouse loading dock with an unmarked truck backing in",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 24
+ },
+ {
+  "satz": "which may violate U.S.",
+  "zeigt": "2,5D-Bild mit Tiefe: a dark warehouse loading dock with an unmarked truck backing in",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 24
+ },
+ {
+  "satz": "export controls.",
+  "zeigt": "2,5D-Bild mit Tiefe: a dark warehouse loading dock with an unmarked truck backing in",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "antwort:office",
+  "kapitel": 2,
+  "szene": 24
+ },
+ {
+  "satz": "Megaspeed, Fortune reported, allegedly did both.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"ALLEGEDLY: BOTH.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 25
+ },
+ {
+  "satz": "Megaspeed denies it.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"MEGASPEED DENIES IT.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 25
+ },
+ {
+  "satz": "According to The Information,",
+  "zeigt": "2,5D-Bild mit Tiefe: Shanghai skyline at night across the river",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 26
+ },
+ {
+  "satz": "some of the chips ended up powering data centers of a",
+  "zeigt": "Im Bild erscheint Karte mit Fäden (`motion` map) mit Inhalt {\"comp\": \"map\", \"props\": {\"label\": \"THE TRAIL (AS REPORTED)\", \"title\": \"JOHOR → CHINA\", \"view\": [110, 15, 700], \"pins\": ",
+  "animation": "Karte mit Fäden (`motion` map)",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 26
+ },
+ {
+  "satz": "Chinese company called Shanghai Century Litong,",
+  "zeigt": "2,5D-Bild mit Tiefe: a vast dim data center hall in China with endless rows of server racks",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 26
+ },
+ {
+  "satz": "which serves tech giants including Alibaba and Tencent.",
+  "zeigt": "2,5D-Bild mit Tiefe: a vast dim data center hall in China with endless rows of server racks",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "antwort:pipeline",
+  "kapitel": 2,
+  "szene": 26
+ },
+ {
+  "satz": "And a founding shareholder of Shanghai Century Litong?",
+  "zeigt": "Im Bild erscheint Akte dreht sich um (`motion` flip) mit Inhalt {\"comp\": \"flip\", \"props\": {\"teaser\": \"A founding shareholder ...\", \"front\": {\"title\": \"SHANGHAI CENTURY LITONG\", \"icon\":",
+  "animation": "Akte dreht sich um (`motion` flip)",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 27
+ },
+ {
+  "satz": "According to the same report: Alice Huang's younger sister.",
+  "zeigt": "2,5D-Bild mit Tiefe: an index card flipped over on a cork board revealing a blank silhouette portrait",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 27
+ },
+ {
+  "satz": "There is no public evidence that Alice Huang directed those purchases.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"NO PUBLIC EVIDENCE SHE DIRECTED IT.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 27
+ },
+ {
+  "satz": "Megaspeed denies any wrongdoing.",
+  "zeigt": "2,5D-Bild mit Tiefe: a formal company statement letter on a desk next to a pen",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 28
+ },
+ {
+  "satz": "It says it conducts legitimate and lawful business.",
+  "zeigt": "Im Bild erscheint Beweis-Ausdruck mit Inhalt [\"“...legitimate and\", \"lawful business.”\", \"MEGASPEED STATEMENT, NOV 2026\"]",
+  "animation": "Beweis-Ausdruck",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 28
+ },
+ {
+  "satz": "On paper, the pipeline looked legal.",
+  "zeigt": "2,5D-Bild mit Tiefe: the United States Capitol dome at night with dark clouds",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "frage:alarms",
+  "kapitel": 2,
+  "szene": 29
+ },
+ {
+  "satz": "So why did it set off alarms in Washington?",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"SO WHY THE ALARMS?\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 2,
+  "szene": 29
+ },
+ {
+  "satz": "",
+  "sek": 4.4,
+  "zeigt": "Akte rutscht über den Tisch, Deckblatt zeigt THE CONNECTION",
+  "animation": "Akte wird zugeschoben",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3
+ },
+ {
+  "satz": "June 2024.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"JUNE 2024\", \"TAIPEI, TAIWAN\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 30
+ },
+ {
+  "satz": "A bar in Taipei.",
+  "zeigt": "2,5D-Bild mit Tiefe: a crowded upscale cocktail bar in Taipei at night",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 30
+ },
+ {
+  "satz": "According to a witness quoted by The New York Times,",
+  "zeigt": "Im Bild erscheint Rekonstruktion im Polaroid mit Inhalt {\"clip\": \"dio/bar\", \"caption\": \"TAIPEI · JUNE 2024 · RECONSTRUCTION\", \"stamp\": \"HE SHOWED UP\", \"dur\": \"scene\", \"post\": {",
+  "animation": "Rekonstruktion im Polaroid",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 31
+ },
+ {
+  "satz": "Alice Huang said she could bring Jensen Huang there.",
+  "zeigt": "2,5D-Bild mit Tiefe: two cocktail glasses on a bar counter",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 31
+ },
+ {
+  "satz": "And he showed up.",
+  "zeigt": "2,5D-Bild mit Tiefe: two cocktail glasses on a bar counter",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 31
+ },
+ {
+  "satz": "Jensen Huang was born in Taiwan in 1963.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"1963\", \"JENSEN HUANG · BORN IN TAIWAN\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 32
+ },
+ {
+  "satz": "In 1993, he co-founded Nvidia.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"1993\", \"NVIDIA CO-FOUNDED\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 32
+ },
+ {
+  "satz": "The founders first sketched out the company in a Denny's diner in San Jose.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"IT STARTED IN A DINER.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 32
+ },
+ {
+  "satz": "Three decades later, Nvidia chips power much of the world's artificial intelligence.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"THE ENGINE OF A.I.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 33
+ },
+ {
+  "satz": "That is exactly why everyone wants them.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"EVERYONE WANTS THEM.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 33
+ },
+ {
+  "satz": "In October 2025, Nvidia said its staff had visited Megaspeed's sites,",
+  "zeigt": "Im Bild erscheint Textmarker mit Inhalt {\"title\": \"NVIDIA, AS QUOTED BY THE NYT  —  OCT 2025\", \"lines\": [\"Nvidia staff visited\", \"Megaspeed's sites.\", \"They fou",
+  "animation": "Textmarker",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 34
+ },
+ {
+  "satz": "found no evidence of diversion, and that the company was running, quote,",
+  "zeigt": "2,5D-Bild mit Tiefe: a printed corporate statement pinned to a cork board with a yellow highlight over one line",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 34
+ },
+ {
+  "satz": "a small commercial cloud.",
+  "zeigt": "2,5D-Bild mit Tiefe: a printed corporate statement pinned to a cork board with a yellow highlight over one line",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 34
+ },
+ {
+  "satz": "But the U.S.",
+  "zeigt": "2,5D-Bild mit Tiefe: a government building corridor at night",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 35
+ },
+ {
+  "satz": "government had been watching since 2024.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"2024\", \"COMMERCE DEPT. OPENS A PROBE\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 35
+ },
+ {
+  "satz": "That year, the Commerce Department opened an investigation.",
+  "zeigt": "2,5D-Bild mit Tiefe: a government building corridor at night",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 35
+ },
+ {
+  "satz": "In May 2025, it requested Nvidia's sales records.",
+  "zeigt": "Im Bild erscheint Zeitstrahl am Faden mit Inhalt {\"title\": \"THE U.S. INVESTIGATION\", \"steps\": [[\"2024\", \"PROBE OPENED\", \"ok\"], [\"MAY 2025\", \"SALES RECORDS\", \"ok\"], [\"JUN",
+  "animation": "Zeitstrahl am Faden",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 36
+ },
+ {
+  "satz": "In June, Nvidia put Megaspeed on a no sell list.",
+  "zeigt": "2,5D-Bild mit Tiefe: a printed list on a desk with one line struck through in thick red marker",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "antwort:alarms",
+  "kapitel": 3,
+  "szene": 36
+ },
+ {
+  "satz": "That same month, U.S.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"JUNE 2025\", \"ON-SITE CHECK · INTERVIEW\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 37
+ },
+ {
+  "satz": "and Singaporean officers carried out an on-site check, and interviewed Alice Huang.",
+  "zeigt": "2,5D-Bild mit Tiefe: an interview room with a table",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 37
+ },
+ {
+  "satz": "Singapore police held her passport.",
+  "zeigt": "Im Bild erscheint Stempel mit Inhalt \"PASSPORT HELD\"",
+  "animation": "Stempel",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 38
+ },
+ {
+  "satz": "In August 2025, according to Megaspeed, she left the company.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"AUGUST 2025\", \"LEAVES MEGASPEED (PER COMPANY)\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "frage:closed",
+  "kapitel": 3,
+  "szene": 39
+ },
+ {
+  "satz": "Case closed?",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"CASE CLOSED?\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 39
+ },
+ {
+  "satz": "Not even close.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"NOT EVEN CLOSE.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 3,
+  "szene": 39
+ },
+ {
+  "satz": "",
+  "sek": 4.4,
+  "zeigt": "Akte rutscht über den Tisch, Deckblatt zeigt THE MEMO",
+  "animation": "Akte wird zugeschoben",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4
+ },
+ {
+  "satz": "October 2025.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"OCTOBER 9, 2025\", \"THE NEW YORK TIMES\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 40
+ },
+ {
+  "satz": "The New York Times publishes the story of a mystery C.E.O.",
+  "zeigt": "Im Bild erscheint Beweis-Ausdruck mit Inhalt [\"“A Mystery C.E.O. and\", \"Billions in Sales”\", \"THE NEW YORK TIMES, OCT 9, 2025\"]",
+  "animation": "Beweis-Ausdruck",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 40
+ },
+ {
+  "satz": "and billions in sales.",
+  "zeigt": "2,5D-Bild mit Tiefe: a printing press running at night",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 40
+ },
+ {
+  "satz": "Officials confirm Megaspeed is under investigation in the U.S.",
+  "zeigt": "2,5D-Bild mit Tiefe: a printing press running at night",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 40
+ },
+ {
+  "satz": "and in Singapore.",
+  "zeigt": "2,5D-Bild mit Tiefe: a printing press running at night",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 40
+ },
+ {
+  "satz": "February 2026.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"FEBRUARY 2026\", \"SINGAPORE: NOT ENOUGH EVIDENCE\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 41
+ },
+ {
+  "satz": "Singapore concludes there is not enough evidence that she committed declaration offences.",
+  "zeigt": "2,5D-Bild mit Tiefe: a passport sliding across a counter through a glass window in a government office",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 41
+ },
+ {
+  "satz": "She gets a stern warning, and her passport back.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"A STERN WARNING.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 41
+ },
+ {
+  "satz": "But according to Singapore's Home Affairs Ministry,",
+  "zeigt": "2,5D-Bild mit Tiefe: a passport sliding across a counter through a glass window in a government office",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 41
+ },
+ {
+  "satz": "she is also barred from re-entering the country,",
+  "zeigt": "Im Bild erscheint Stempel mit Inhalt \"RE-ENTRY BARRED\"",
+  "animation": "Stempel",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 41
+ },
+ {
+  "satz": "for giving police information she knew to be inaccurate.",
+  "zeigt": "2,5D-Bild mit Tiefe: a passport sliding across a counter through a glass window in a government office",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 41
+ },
+ {
+  "satz": "Singapore also says she was never investigated for espionage.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"NOT INVESTIGATED FOR ESPIONAGE.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 42
+ },
+ {
+  "satz": "Then, according to The New York Times, U.S.",
+  "zeigt": "2,5D-Bild mit Tiefe: a document in a red 'secret' style folder passed between two hands under a table",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 43
+ },
+ {
+  "satz": "officials circulate a secret memo.",
+  "zeigt": "Im Bild erscheint Verschlüsselung (`motion` cipher) mit Inhalt {\"comp\": \"cipher\", \"props\": {\"label\": \"SECRET MEMO  ·  AS REPORTED\", \"text\": \"SUSPECTED MSS ASSET\", \"caption\": \"AN ALLEG",
+  "animation": "Verschlüsselung (`motion` cipher)",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 43
+ },
+ {
+  "satz": "It warns that Alice Huang is suspected of working for China's",
+  "zeigt": "2,5D-Bild mit Tiefe: a lone silhouette in a long coat at a rainy night crossing",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 43
+ },
+ {
+  "satz": "Ministry of State Security.",
+  "zeigt": "2,5D-Bild mit Tiefe: a lone silhouette in a long coat at a rainy night crossing",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "antwort:closed",
+  "kapitel": 4,
+  "szene": 43
+ },
+ {
+  "satz": "China rejects the allegation.",
+  "zeigt": "Im Bild erscheint Aktenstapel (`motion` stack) mit Inhalt {\"comp\": \"stack\", \"props\": {\"label\": \"WHERE IT STANDS\", \"cards\": [[\"CHINA\", \"Rejects the allegation\"], [\"U.S. INTELLIGEN",
+  "animation": "Aktenstapel (`motion` stack)",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 44
+ },
+ {
+  "satz": "According to CNN, U.S.",
+  "zeigt": "2,5D-Bild mit Tiefe: the scales of justice on a dark wooden desk with a case file",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 44
+ },
+ {
+  "satz": "intelligence agencies are divided.",
+  "zeigt": "2,5D-Bild mit Tiefe: the scales of justice on a dark wooden desk with a case file",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 44
+ },
+ {
+  "satz": "Attorney General Todd Blanche has said the Justice Department has not",
+  "zeigt": "2,5D-Bild mit Tiefe: the scales of justice on a dark wooden desk with a case file",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 44
+ },
+ {
+  "satz": "concluded whether she is a spy.",
+  "zeigt": "2,5D-Bild mit Tiefe: the scales of justice on a dark wooden desk with a case file",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 44
+ },
+ {
+  "satz": "She has not been charged with any crime.",
+  "zeigt": "2,5D-Bild mit Tiefe: the scales of justice on a dark wooden desk with a case file",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "antwort:spy",
+  "kapitel": 4,
+  "szene": 44
+ },
+ {
+  "satz": "October twenty-ninth, 2026.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"OCTOBER 29, 2026\", \"NYT: A CLOSE RELATIONSHIP\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "zeit",
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 45
+ },
+ {
+  "satz": "The Times reports a close relationship between her and Jensen Huang.",
+  "zeigt": "2,5D-Bild mit Tiefe: a polaroid of two silhouettes at a glamorous event pinned to a cork board",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 45
+ },
+ {
+  "satz": "November eighth.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"NOVEMBER 8, 2026\", \"A PUBLIC LETTER\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 46
+ },
+ {
+  "satz": "Jensen Huang publishes a letter.",
+  "zeigt": "2,5D-Bild mit Tiefe: a dark boardroom with a long table and empty chairs at night",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 46
+ },
+ {
+  "satz": "He admits he was unfaithful to his wife.",
+  "zeigt": "2,5D-Bild mit Tiefe: a dark boardroom with a long table and empty chairs at night",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 46
+ },
+ {
+  "satz": "Nvidia's board opens an independent investigation.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"BOARD INVESTIGATION.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 46
+ },
+ {
+  "satz": "The board says it has no reason to believe that national",
+  "zeigt": "Im Bild erscheint Beweis-Ausdruck mit Inhalt [\"“...either national security or\", \"NVIDIA secrets were compromised.”\", \"NVIDIA BOARD: NO REASON TO BELIEVE, NOV 8\"]",
+  "animation": "Beweis-Ausdruck",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 47
+ },
+ {
+  "satz": "security or Nvidia secrets were compromised.",
+  "zeigt": "2,5D-Bild mit Tiefe: a trading floor at night with screens flashing red",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 47
+ },
+ {
+  "satz": "And then the market did the math.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"THEN THE MARKET DID THE MATH.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 4,
+  "szene": 47
+ },
+ {
+  "satz": "",
+  "sek": 4.4,
+  "zeigt": "Akte rutscht über den Tisch, Deckblatt zeigt THE FALLOUT",
+  "animation": "Akte wird zugeschoben",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5
+ },
+ {
+  "satz": "By the following Thursday, at the low,",
+  "zeigt": "2,5D-Bild mit Tiefe: a cascade of falling torn banknotes in a dark room",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 48
+ },
+ {
+  "satz": "nearly 900 billion dollars of Nvidia's market value had been wiped out.",
+  "zeigt": "Im Bild erscheint Große Zahl (`motion` counter) mit Inhalt {\"comp\": \"counter\", \"props\": {\"label\": \"NVIDIA MARKET VALUE WIPED OUT\", \"value\": 900, \"prefix\": \"-$\", \"suffix\": \" BN\", \"",
+  "animation": "Große Zahl (`motion` counter)",
+  "inhalt": [
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 48
+ },
+ {
+  "satz": "November twelfth.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"NOVEMBER 12, 2026\", \"THE CEO RESIGNS\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 49
+ },
+ {
+  "satz": "Jensen Huang resigns as C.E.O.",
+  "zeigt": "2,5D-Bild mit Tiefe: a corporate headquarters glass building at dawn",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 49
+ },
+ {
+  "satz": "Finance chief Colette Kress becomes interim chief executive.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"INTERIM CEO: COLETTE KRESS.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 49
+ },
+ {
+  "satz": "4 days later,",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"NOVEMBER 16, 2026\", \"COMMERCE + DOJ STATEMENT\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "frage:charges",
+  "kapitel": 5,
+  "szene": 50
+ },
+ {
+  "satz": "Commerce and the Justice Department lay out the timeline of their probe,",
+  "zeigt": "2,5D-Bild mit Tiefe: a printed joint statement on a desk with one sentence highlighted in yellow",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 50
+ },
+ {
+  "satz": "and vow to bring the full extent of the law against",
+  "zeigt": "Im Bild erscheint Beweis-Ausdruck mit Inhalt [\"“...the full extent\", \"of the law”\", \"COMMERCE & JUSTICE DEPT., NOV 16, 2026\"]",
+  "animation": "Beweis-Ausdruck",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 50
+ },
+ {
+  "satz": "Megaspeed for any criminal conduct that may have occurred.",
+  "zeigt": "2,5D-Bild mit Tiefe: a printed joint statement on a desk with one sentence highlighted in yellow",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 50
+ },
+ {
+  "satz": "That same day, Commerce also closed part of the gap.",
+  "zeigt": "Im Bild erscheint Stempel mit Inhalt \"LICENSE REQUIRED\"",
+  "animation": "Stempel",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 51
+ },
+ {
+  "satz": "Under a new rule,",
+  "zeigt": "2,5D-Bild mit Tiefe: a new official rule document with a fresh ink stamp on a desk",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 51
+ },
+ {
+  "satz": "data centers abroad now need a license to give large-scale remote",
+  "zeigt": "2,5D-Bild mit Tiefe: a new official rule document with a fresh ink stamp on a desk",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 51
+ },
+ {
+  "satz": "access to companies headquartered in China.",
+  "zeigt": "2,5D-Bild mit Tiefe: a new official rule document with a fresh ink stamp on a desk",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 51
+ },
+ {
+  "satz": "The next day,",
+  "zeigt": "2,5D-Bild mit Tiefe: an earnings report on a desk with a large figure circled in red marker",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 52
+ },
+ {
+  "satz": "Nvidia reports quarterly revenue of 115.8 billion dollars.",
+  "zeigt": "Im Bild erscheint Zahl auf Papier mit Inhalt [\"$\", 115.8, \"B\", \"QUARTERLY REVENUE (NVIDIA, NOV 17)\"]",
+  "animation": "Zahl auf Papier",
+  "inhalt": [
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 52
+ },
+ {
+  "satz": "Business, it seems, is fine.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"BUSINESS IS FINE.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 52
+ },
+ {
+  "satz": "November twenty-third.",
+  "zeigt": "Im Bild erscheint Abreißkalender mit Inhalt {\"pages\": [\"NOV 12\", \"NOV 14\", \"NOV 16\", \"NOV 18\", \"NOV 20\", \"NOV 22\", \"NOV 23\"], \"stamp\": \"BACK\", \"sub\": \"11 DAYS LATER",
+  "animation": "Abreißkalender",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 53
+ },
+ {
+  "satz": "Nvidia's board brings Huang back.",
+  "zeigt": "2,5D-Bild mit Tiefe: a trading screen wall glowing green with a sharp rising line",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 53
+ },
+ {
+  "satz": "Eleven days after he left.",
+  "zeigt": "2,5D-Bild mit Tiefe: a trading screen wall glowing green with a sharp rising line",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 53
+ },
+ {
+  "satz": "The stock jumps more than 30 percent.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"STOCK: +30%.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "zahl"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "antwort:ceo",
+  "kapitel": 5,
+  "szene": 53
+ },
+ {
+  "satz": "On the same day,",
+  "zeigt": "2,5D-Bild mit Tiefe: an official federal register document with a long list of company names",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 54
+ },
+ {
+  "satz": "the Commerce Department adds Megaspeed and six affiliates in Singapore,",
+  "zeigt": "Im Bild erscheint Karte mit Fäden (`motion` map) mit Inhalt {\"comp\": \"map\", \"props\": {\"label\": \"U.S. ENTITY LIST  ·  NOV 23, 2026\", \"title\": \"7 FIRMS, 3 COUNTRIES\", \"view\": [106, 8",
+  "animation": "Karte mit Fäden (`motion` map)",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 54
+ },
+ {
+  "satz": "Malaysia and Thailand to its trade blacklist, the Entity List,",
+  "zeigt": "2,5D-Bild mit Tiefe: a map of Southeast Asia pinned to a cork board with three red pins and red string",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 54
+ },
+ {
+  "satz": "citing a significant risk of diversion.",
+  "zeigt": "2,5D-Bild mit Tiefe: a map of Southeast Asia pinned to a cork board with three red pins and red string",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 54
+ },
+ {
+  "satz": "It does not say any chips were diverted.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"NO FINDING OF DIVERSION.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 54
+ },
+ {
+  "satz": "Among them: Speedmatrix, Swiftdata, and Apex, a Singapore subsidiary of Alibaba.",
+  "zeigt": "Im Bild erscheint Raster (`motion` grid) mit Inhalt {\"comp\": \"grid\", \"props\": {\"label\": \"ADDED TO THE ENTITY LIST\", \"icon\": \"doc\", \"value\": 7, \"suffix\": \"\", \"caption\": \"MEG",
+  "animation": "Raster (`motion` grid)",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 55
+ },
+ {
+  "satz": "Alibaba calls that listing erroneous.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"ALIBABA: “ERRONEOUS.”\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 55
+ },
+ {
+  "satz": "But critics spotted a gap.",
+  "zeigt": "Im Bild erscheint Schwärzung mit Inhalt {\"top\": \"ENTITY LIST ENTRY  ·  MEGASPEED\", \"name\": \"FDP RULE: MISSING\", \"bottom\": \"CRITICS: CHIPS MADE ABROAD COULD STIL",
+  "animation": "Schwärzung",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "frage:fdpr",
+  "kapitel": 5,
+  "szene": 56
+ },
+ {
+  "satz": "The listing does not include the foreign direct product rule,",
+  "zeigt": "2,5D-Bild mit Tiefe: a contract document with a missing paragraph cut out as a rectangular hole",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 56
+ },
+ {
+  "satz": "a clause that can cover chips made abroad with U.S.",
+  "zeigt": "2,5D-Bild mit Tiefe: a contract document with a missing paragraph cut out as a rectangular hole",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 56
+ },
+ {
+  "satz": "technology.",
+  "zeigt": "2,5D-Bild mit Tiefe: a contract document with a missing paragraph cut out as a rectangular hole",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 56
+ },
+ {
+  "satz": "Commerce disagrees.",
+  "zeigt": "2,5D-Bild mit Tiefe: a heavy padlock on a server cage door in a data center",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 57
+ },
+ {
+  "satz": "It says it is now unlawful to export advanced chips to Megaspeed,",
+  "zeigt": "Im Bild erscheint Beweis-Ausdruck mit Inhalt [\"“It is now unlawful to export any\", \"advanced SI chips to Megaspeed ...”\", \"BIS SPOKESPERSON VIA BLOOMBERG\"]",
+  "animation": "Beweis-Ausdruck",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 57
+ },
+ {
+  "satz": "even if they are produced outside the United States.",
+  "zeigt": "2,5D-Bild mit Tiefe: a heavy padlock on a server cage door in a data center",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "antwort:fdpr",
+  "kapitel": 5,
+  "szene": 57
+ },
+ {
+  "satz": "Earlier,",
+  "zeigt": "2,5D-Bild mit Tiefe: a fountain pen lying on an unsigned government document on a polished desk",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 58
+ },
+ {
+  "satz": "Treasury Secretary Scott Bessent said four agencies had wanted Megaspeed blacklisted for months.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"4 AGENCIES WANTED IT.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 58
+ },
+ {
+  "satz": "Commerce, he said, has the pen.",
+  "zeigt": "Im Bild erscheint Beweis-Ausdruck mit Inhalt [\"“Commerce\", \"has the pen.”\", \"SCOTT BESSENT, CNBC, NOV 13, 2026\"]",
+  "animation": "Beweis-Ausdruck",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 58
+ },
+ {
+  "satz": "Meanwhile in Singapore,",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"SINGAPORE\", \"FRAUD CHARGES · NO CONVICTION\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 59
+ },
+ {
+  "satz": "The Wall Street Journal reported that a Chinese national charged with",
+  "zeigt": "2,5D-Bild mit Tiefe: a case folder with a blank silhouette card clipped to it on a dark desk",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 59
+ },
+ {
+  "satz": "fraud over server purchases,",
+  "zeigt": "2,5D-Bild mit Tiefe: a case folder with a blank silhouette card clipped to it on a dark desk",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 59
+ },
+ {
+  "satz": "who has not been convicted, was deeply involved in Megaspeed's activities.",
+  "zeigt": "2,5D-Bild mit Tiefe: a case folder with a blank silhouette card clipped to it on a dark desk",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 59
+ },
+ {
+  "satz": "Megaspeed is not named in those charges.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"MEGASPEED NOT NAMED IN CHARGES.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 59
+ },
+ {
+  "satz": "Megaspeed says it has hired outside lawyers for an internal investigation,",
+  "zeigt": "2,5D-Bild mit Tiefe: a law firm conference room at night with stacks of binders on the table",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 60
+ },
+ {
+  "satz": "and that the claims are not supported by verifiable evidence.",
+  "zeigt": "Im Bild erscheint Beweis-Ausdruck mit Inhalt [\"“...not supported by\", \"verifiable evidence.”\", \"MEGASPEED, NOV 2026\"]",
+  "animation": "Beweis-Ausdruck",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 5,
+  "szene": 60
+ },
+ {
+  "satz": "",
+  "sek": 4.4,
+  "zeigt": "Akte rutscht über den Tisch, Deckblatt zeigt THE CATCH",
+  "animation": "Akte wird zugeschoben",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 6
+ },
+ {
+  "satz": "Now, to be fair.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"TO BE FAIR ...\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "frage:rules",
+  "kapitel": 6,
+  "szene": 61
+ },
+ {
+  "satz": "Renting out chips from Malaysia was legal under the rules at the time.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"LEGAL AT THE TIME.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 6,
+  "szene": 61
+ },
+ {
+  "satz": "A new Commerce rule requiring licenses for that kind of remote",
+  "zeigt": "2,5D-Bild mit Tiefe: a balanced brass scale on a desk with a chip on one side and a legal document on the other",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 6,
+  "szene": 61
+ },
+ {
+  "satz": "access only arrived this month.",
+  "zeigt": "2,5D-Bild mit Tiefe: a balanced brass scale on a desk with a chip on one side and a legal document on the other",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 6,
+  "szene": 61
+ },
+ {
+  "satz": "Megaspeed has not been charged with any crime.",
+  "zeigt": "Im Bild erscheint Aktenstapel (`motion` stack) mit Inhalt {\"comp\": \"stack\", \"props\": {\"label\": \"STATUS  ·  NOV 25, 2026\", \"cards\": [[\"MEGASPEED\", \"Not charged\"], [\"ALICE HUANG\", ",
+  "animation": "Aktenstapel (`motion` stack)",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 6,
+  "szene": 62
+ },
+ {
+  "satz": "Neither has Alice Huang.",
+  "zeigt": "2,5D-Bild mit Tiefe: three case files on a desk",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 6,
+  "szene": 62
+ },
+ {
+  "satz": "Nvidia says it found no evidence of diversion.",
+  "zeigt": "2,5D-Bild mit Tiefe: three case files on a desk",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "antwort:charges",
+  "kapitel": 6,
+  "szene": 62
+ },
+ {
+  "satz": "Singapore found insufficient evidence against Alice Huang on the declaration offences it examined.",
+  "zeigt": "2,5D-Bild mit Tiefe: a closed folder tied with string on a shelf in a dim government archive",
+  "animation": "Lupe",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 6,
+  "szene": 63
+ },
+ {
+  "satz": "But its investigation into Megaspeed is still ongoing.",
+  "zeigt": "Im Bild erscheint Lupe mit Inhalt \"SINGAPORE: STILL INVESTIGATING.\"",
+  "animation": "Lupe",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 6,
+  "szene": 63
+ },
+ {
+  "satz": "In our view, the real question isn't only what Megaspeed did.",
+  "zeigt": "2,5D-Bild mit Tiefe: a rule book open on a desk with a gaping blank page in the middle",
+  "animation": "Lupe",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 6,
+  "szene": 64
+ },
+ {
+  "satz": "It's what the rules allowed.",
+  "zeigt": "Im Bild erscheint Lupe mit Inhalt \"WHAT DID THE RULES ALLOW?\"",
+  "animation": "Lupe",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 6,
+  "szene": 64
+ },
+ {
+  "satz": "In January,",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"JANUARY 2026\", \"REMOTE ACCESS SECURITY ACT\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 6,
+  "szene": 65
+ },
+ {
+  "satz": "the House passed a bill to close the remote access gap,",
+  "zeigt": "2,5D-Bild mit Tiefe: the interior of a legislative chamber with empty seats",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 6,
+  "szene": 65
+ },
+ {
+  "satz": "the Remote Access Security Act.",
+  "zeigt": "2,5D-Bild mit Tiefe: the interior of a legislative chamber with empty seats",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 6,
+  "szene": 65
+ },
+ {
+  "satz": "It is now before the Senate.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"NEXT: THE SENATE.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 6,
+  "szene": 65
+ },
+ {
+  "satz": "",
+  "sek": 4.4,
+  "zeigt": "Akte rutscht über den Tisch, Deckblatt zeigt THE VERDICT",
+  "animation": "Akte wird zugeschoben",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 7
+ },
+ {
+  "satz": "December first.",
+  "zeigt": "Im Bild erscheint Ort und Datum tippen mit Inhalt [\"DECEMBER 1, 2026\", \"CLOSED-DOOR TESTIMONY\"]",
+  "animation": "Ort und Datum tippen",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "frage:testify",
+  "kapitel": 7,
+  "szene": 66
+ },
+ {
+  "satz": "Jensen Huang is scheduled to answer questions behind closed doors from three House committees.",
+  "zeigt": "2,5D-Bild mit Tiefe: a microphone on an empty witness table in a hearing room",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 7,
+  "szene": 66
+ },
+ {
+  "satz": "The Senate Banking Committee wants to hear from him too.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"SENATE BANKING: NEXT.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 7,
+  "szene": 66
+ },
+ {
+  "satz": "Those boxes in Johor raised a question that investigators are still trying to answer.",
+  "zeigt": "Im Bild erscheint Wand wächst mit Inhalt \"STILL UNANSWERED.\"",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "frage:end",
+  "kapitel": 7,
+  "szene": 67
+ },
+ {
+  "satz": "So how does this end?",
+  "zeigt": "Im Bild erscheint Wand wächst mit Inhalt \"HOW DOES THIS END?\"",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 7,
+  "szene": 67
+ },
+ {
+  "satz": "Scenario one: investigators prove chips reached China.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"SCENARIO 1: CHARGES.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 7,
+  "szene": 68
+ },
+ {
+  "satz": "Charges follow, and Nvidia faces tighter rules wherever it sells.",
+  "zeigt": "2,5D-Bild mit Tiefe: a judge's gavel striking on a wooden block in a dark courtroom",
+  "animation": "Lampe schwenkt",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 7,
+  "szene": 68
+ },
+ {
+  "satz": "Scenario two: the probes find a rental business in a legal gray zone.",
+  "zeigt": "Im Bild erscheint Foto erwacht mit Inhalt \"SCENARIO 2: IT FADES.\"",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 7,
+  "szene": 69
+ },
+ {
+  "satz": "The gap closes, and the story fades.",
+  "zeigt": "2,5D-Bild mit Tiefe: a data center at dawn",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 7,
+  "szene": 69
+ },
+ {
+  "satz": "Scenario three: no smoking gun, but Washington tightens every route.",
+  "zeigt": "Im Bild erscheint Polaroid anpinnen mit Inhalt \"SCENARIO 3: THE MICROSCOPE.\"",
+  "animation": "Polaroid anpinnen",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 7,
+  "szene": 70
+ },
+ {
+  "satz": "Nvidia keeps selling, under a microscope.",
+  "zeigt": "Im Bild erscheint Stempel mit Inhalt \"CASE OPEN\"",
+  "animation": "Stempel",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "antwort:end",
+  "kapitel": 7,
+  "szene": 70
+ },
+ {
+  "satz": "Which scenario do you believe?",
+  "zeigt": "Im Bild erscheint Aktenstapel (`motion` stack) mit Inhalt {\"question\": \"Which scenario do you believe?\", \"dur\": \"scene\"}",
+  "animation": "Aktenstapel (`motion` stack)",
+  "inhalt": [
+   "geschehen"
+  ],
+  "genauigkeit": "exakt",
+  "neugier": "",
+  "kapitel": 7,
+  "szene": 71
+ },
+ {
+  "satz": "Tell us in the comments.",
+  "zeigt": "2,5D-Bild mit Tiefe: a dark investigative desk with a closed case file and a lamp",
+  "animation": "Foto erwacht",
+  "inhalt": [
+   "erklaerung"
+  ],
+  "genauigkeit": "schema",
+  "neugier": "",
+  "kapitel": 7,
+  "szene": 71
+ },
+ {
+  "satz": "Subscribe and hit the bell so you don't miss the next investigation.",
+  "zeigt": "2,5D-Bild mit Tiefe: a dark investigative desk with a closed case file and a lamp",
+  "animation": "Wand wächst",
+  "inhalt": [
+   "gefuehl"
+  ],
+  "genauigkeit": "stimmung",
+  "neugier": "",
+  "kapitel": 7,
+  "szene": 71
+ }
+]

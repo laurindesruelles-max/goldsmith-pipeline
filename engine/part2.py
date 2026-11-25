@@ -197,7 +197,10 @@ def overlays(n, t, T, layer, fr):
         elif kind == "pop":
             nxt = [x[1] for x in pops if x[1] > t0]; t1 = min(nxt + [t0+2.6])
             if n in (56,) and e[3:] and t0 == max(x[1] for x in pops): t1 = T
-            C.pop_word(layer, t, t0, e[2], color=(e[3] if len(e) > 3 else (255,255,255)), size=128 if len(e[2]) < 22 else 100, t1=t1)
+            # Laurin-Regel (005): Schlagwort nie über der Schreibmaschinen-Box – ist eine typed-Box sichtbar, wandert das Wort nach oben
+            ty = [x[1] for x in ev if x[0] == "typed" and x[1] <= t0]
+            py = 560 if ty else 900
+            C.pop_word(layer, t, t0, e[2], color=(e[3] if len(e) > 3 else (255,255,255)), size=128 if len(e[2]) < 22 else 100, t1=t1, y=py)
         elif kind == "words":
             for i, (w, a) in enumerate(e[2]):
                 ta = wt(n, a); tb = wt(n, e[2][i+1][1]) if i+1 < len(e[2]) else ta+0.8

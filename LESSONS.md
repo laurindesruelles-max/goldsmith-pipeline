@@ -63,6 +63,7 @@ Bei jedem Lauf: Statistiken der letzten 1–2 veröffentlichten Videos holen (vi
 ## Video-Log
 | # | Video | Datum | Thumbnail | Ergebnis | Erkenntnis |
 |---|---|---|---|---|---|
+| 005 | Megaspeed: The Company Behind Nvidia's Spy Scandal | Entwurf 25.11.2026, geplant 27.11. 17:00 | Hero „NVIDIA CHIPS / WHERE DID THEY GO?“ (Karton voller Chips, Etikett „$7.5B TO ???“), Variante B „MEGASPEED / THE CHIP PIPELINE“ | (noch offen) | Erstes News-als-Doku-Video mit Wissenswert-Bausteinen (Kaltstart Datum+Ort, Eskalationstreppe, 3 Szenarien). 71 Szenen, 12:30. 14 Pixabay-Clips im Polaroid (engine/clip_polaroid.py), 4 neue 3D-Szenen (Johor-Campus, Rechenzentrum, Fracht-Rampe, Taipeh-Bar), 11 motion-Clips. |
 | 004 | How GTA 5 Became a 13-Year Money Machine | Entwurf 22.11.2026, geplant 23.11. 17:00 | Hero „GTA 5 / 13 YEARS. / STILL PRINTING.“ (Druckerpresse mit Spielhülle), Variante B „STILL PAYING?“ | (noch offen) | Erstes Video mit ElevenLabs v4 (Alistair) statt seed_audio. 72 Szenen, 10:44. 3 neue 3D-Szenen (Edinburgh 2013, Kartentisch-Studio, Programmierer-Zimmer), Polaroids ohne Tilt-Shift. earshot launch-grade 0 major. |
 | 002 | Why Luxury Brands Burn Their Own Clothes | 17.11.2026 (S3GMEPAgqas) | Hero „THEY BURNED £28.6 MILLION“ | (noch offen) | Erstes Video mit allen Effekten, Kapitelmusik und Pausen. Länge ~8 Min (kürzer als 001). Thumbnail-Heroes mit Handtaschen ähneln echten Designermodellen (Birkin/Chanel) → solche Motive meiden. Neu hochgeladen mit ruhigerem Sound (1 Kapitel-Hit, kaum Whoosh). |
 | 001 | The Company That Secretly Owns Your Glasses | 15.11.2026 | Hero A „YOU PAY 20X MORE?“ | (noch offen) | Pilot. Musik war nur 1 Track in Schleife; keine Pausen. Ab 002: Kapitel-Musik + beats. |
@@ -166,3 +167,14 @@ Referenz: Wissenswert „Wie eine Spionin den größten CEO der Welt ruinierte�
 - Bei Nachrichten-Themen, die große Kanäle schon gemacht haben: eigener Blickwinkel statt Nacherzählung.
 
 - **2D-Motion-Graphics (23.11.2026):** Laurin fand die ANOM-Stilprobe (viel 2D-Animation, wenige 3D-Szenen, Bildwechsel alle 2–4 s) „richtig krass … genau so sollte ein Video aussehen“. Als **Erweiterung** (nichts überschreiben, echte Fakten/Quellen/Clips bleiben) gibt es jetzt das spec-Kind `motion` (engine/motion_fx.py). Gemini-Casting 23.11.: Pop-Sounds im Raster klangen billig → Papier-Slides; Zähler-Ticks leiser; Enthüllung (flip) und Verschlüsselung PREMIUM.
+
+## Video 005 – Megaspeed (25.11.2026)
+- Auswertung (vidIQ 25.11.): GTA 5 nach 2 Tagen 12 Aufrufe, GTA 6 4, Luxottica 35 → Impressionen weiter minimal. Konsequenz: großes News-Thema mit hoher Suchnachfrage (Nvidia) und Suchbegriff im Titel vorn.
+- Faktencheck VOR dem Einsprechen fand 4 echte Fehler, darunter eine **brandneue Regeländerung** (BIS-Regel 16.11.2026 zu Remote-Zugriff) → bei News-Themen immer nach Änderungen der letzten 10 Tage fragen lassen.
+- Zwei Kapitelkarten direkt hintereinander (Titel + Kapitel 1) = doppelter braam in 3 s → Titelkarte und Kapitel 1 nie in benachbarten Szenen.
+- earshot „loudest 3 s above integrated“ war 1,9 LU (major) → mix_full.py hebt jetzt die erste Kapitelkarte 3,2 s um +4,5 dB an (TITLE_BOOST=0 schaltet ab).
+- Upload-Kopie: bei > 12 Min reicht 3150k nicht (313 MB) → 2850k. Lautheit per Gain (+1,6 dB) + alimiter 0.84 statt loudnorm: −14,0 LUFS, −1,0 dBTP.
+- Speicher: 2 part2-Prozesse + Blender/Remotion → OOM-Kills (Exit 137). Renderer in Schleife mit Neustart laufen lassen (/tmp-Runner prüft fehlende build/sN.mp4).
+- Echte Clips: engine/clip_polaroid.py setzt jeden Pixabay-Clip als angepinntes Polaroid auf die Pinnwand (Laurin-Regel „immer in der Akten-Welt“).
+- Freesound-Suche nach Server-Brummen lieferte nur Rausch-Teppiche → abgenommene Sounds behalten.
+- Gemini-Casting: text_click in schneller Folge (Szene 7, words) und Stempel „RE-ENTRY BARRED“ wurden als etwas laut/stock empfunden → Laurin fragen, ob die Lautstärke angepasst werden soll (abgenommene Sounds nicht eigenmächtig geändert).
