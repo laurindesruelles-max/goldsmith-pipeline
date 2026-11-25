@@ -65,7 +65,7 @@ Nach der Veröffentlichung: Fällt die Retention-Kurve an einer Stelle ab, im Bi
 ## Lernschleife und Freigabe
 - **Nach 48 h** die Retention-Kurve über vidIQ prüfen: Wo fallen Zuschauer ab, und warum? Das Ergebnis kommt in die `LESSONS.md`.
 - **Veröffentlicht wird nur nach Laurins „ja“.**
-- **Kosten:** 35–45 Credits je Video, nie mehr als 45. Rhythmus: alle 4 Tage ein Video je Kanal.
+- **Kosten:** 35–45 Credits je Video, nie mehr als 45. Rhythmus (Laurin 25.11.2026): 2 Videos pro Woche je Kanal an festen Tagen – Goldsmith Di + Fr 17:00, Meisterwerk Mo + Do 18:00, Unterbau Mi + Sa 19:00, Denkmuster Mi + So 17:00, Nachtausgabe Do + So 20:00 (Laurin lädt selbst hoch); produziert wird jeweils 2 Tage vorher, das Video wird für den festen Termin eingeplant.
 
 
 ## Wissen: 3D + 2D im Wechsel (Laurin 23.11.2026, Erweiterung für alle Kanäle)
